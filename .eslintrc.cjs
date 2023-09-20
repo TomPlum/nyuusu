@@ -16,6 +16,11 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'semi': ['error', 'never'],
+    "react/react-in-jsx-scope": "off",
+    "object-curly-spacing": ['error', 'always'],
+    "quote-props": ['error', 'as-needed'],
+    "no-unused-vars": ['warn', { vars: 'all' }]
   },
   parserOptions: {
     ecmaVersion: 'latest',
