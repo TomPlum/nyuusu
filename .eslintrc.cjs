@@ -6,7 +6,9 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:react-hooks/recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    /*"plugin:import/errors",
+    "plugin:import/warnings"*/
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -28,4 +30,11 @@ module.exports = {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
+/*  settings: {
+    "import/resolver": {
+      node: {
+        moduleDirectory: ["node_modules", "src/"]
+      }
+    }
+  }*/
 }

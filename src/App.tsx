@@ -1,13 +1,17 @@
 import styles from './App.module.scss'
-import useGetHeadline from "./api/hooks/useGetHeadline"
+import useGetHeadline from "api/hooks/useGetHeadline"
+import Article from "components/Article"
 
 const App = () => {
-
-    const { data: headline } = useGetHeadline()
+    const { data } = useGetHeadline()
 
     return (
         <div className={styles.wrapper}>
-            {headline?.articles[0].title}
+            {data?.articles.map(article => {
+                return (
+                    <Article details={article} key={article.title} />
+                )
+            })}
         </div>
     )
 }

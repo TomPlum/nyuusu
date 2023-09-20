@@ -1,6 +1,7 @@
-import useClient from "../useClient"
+import useClient from "api/clients/useClient"
+import { AxiosInstance } from "axios"
 
-const useNewsApi = () => {
+const useNewsApi = (): AxiosInstance => {
     return useClient({
         host: 'https://newsapi.org',
         contextRoot: '/v2'

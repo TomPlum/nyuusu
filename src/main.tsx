@@ -4,7 +4,8 @@ import App from './App.tsx'
 import './index.css'
 import { worker } from "./mocks/browser.ts"
 import { QueryClientProvider } from "@tanstack/react-query"
-import { queryClient } from "./api/queryClient.ts"
+import { queryClient } from "api/queryClient.ts"
+import './i18n.ts'
 
 if (process.env.NODE_ENV === 'development') {
     worker.start().then(() => {

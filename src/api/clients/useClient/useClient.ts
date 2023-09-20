@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios"
 import { ClientProps } from "./types.ts"
 import { useState } from "react"
 
-const useClient = ({ host, contextRoot }: ClientProps) => {
+const useClient = ({ host, contextRoot }: ClientProps): AxiosInstance => {
     const [client] = useState<AxiosInstance>(createInstance)
 
     function createInstance(): AxiosInstance {
