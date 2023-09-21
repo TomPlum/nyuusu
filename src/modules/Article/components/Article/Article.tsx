@@ -38,7 +38,7 @@ const Article = ({ details, loading, className }: ArticleProps) => {
                         </p>
 
                         <p className={styles.headline}>
-                            {details.title}
+                            {details.title.trim()}
                         </p>
                     </div>
 

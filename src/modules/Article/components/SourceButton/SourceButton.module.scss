@@ -16,10 +16,14 @@
 }
 
 .default {
-  border: 2px solid #1d8ce8;
+  border: 2px solid #646cff;
 }
 
 .youtube {
   border: 2px solid #FF0000;
-  color: #FF0000;
+  color: #ea1111;
+
+  &:hover {
+    color: rgba(#ea1111, 0.8);
+  }
 }

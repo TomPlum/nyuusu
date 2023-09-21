@@ -1,5 +1,5 @@
 .article {
-  background-color: #121212;
+  background-color: #222425 !important;
   border: 1px solid #a3a3a3;
   border-radius: 5px;
   max-width: 400px;
@@ -24,15 +24,17 @@
 }
 
 .date {
-  border: 1px solid #449ae6;
-  border-radius: 25px;
+/*  border: 2px solid #449ae6;
+  border-radius: 25px;*/
   padding: 5px 10px;
-  font-size: 0.8em;
+  font-size: 1em;
+  color: #cacaca;
 }
 
 .author {
   margin-left: -2px;
-  font-size: 3rem;
+  font-size: 2.3rem !important;
+  color: white;
 }
 
 .header {
