@@ -12,47 +12,47 @@ import ArticleHeader from "modules/Article/components/ArticleHeader"
 import TranslateButton from "modules/Article/components/TranslateButton"
 
 const Article = React.forwardRef(({ details, loading, className, onClick, ...rest }: ArticleProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'article' })
-    const { kanji } = useLanguageStats({ input: details.title })
+  const { t } = useTranslation('translation', { keyPrefix: 'article' })
+  const { kanji } = useLanguageStats({ input: details.title })
 
-    const handleClick = useCallback(() => {
-        onClick(details)
-    }, [details, onClick])
+  const handleClick = useCallback(() => {
+    onClick(details)
+  }, [details, onClick])
 
-    return (
-        <Card className={classNames(styles.article, className)} onClick={handleClick} title={t('title')} ref={ref} {...rest}>
-            {loading && (
-                <Skeleton variant='rectangular' />
-            )}
+  return (
+    <Card className={classNames(styles.article, className)} onClick={handleClick} title={t('title')} ref={ref} {...rest}>
+      {loading && (
+        <Skeleton variant='rectangular' />
+      )}
 
-            {!loading && (
-                <div className={styles.content}>
-                    <ArticleHeader
-                        author={details.author}
-                        publishDate={details.publishedAt}
-                    />
+      {!loading && (
+        <div className={styles.content}>
+          <ArticleHeader
+            author={details.author}
+            publishDate={details.publishedAt}
+          />
 
-                    <div className={styles.body}>
-                        <p className={styles.label}>
-                            {t('headline')}
-                        </p>
+          <div className={styles.body}>
+            <p className={styles.label}>
+              {t('headline')}
+            </p>
 
-                        <p className={styles.headline}>
-                            {details.title.trim()}
-                        </p>
-                    </div>
+            <p className={styles.headline}>
+              {details.title.trim()}
+            </p>
+          </div>
 
-                    <div className={styles.footer}>
-                        <SourceButton url={details.url} source={details.source} />
-                        <div className={styles.right}>
-                            <TranslateButton text={details.title} />
-                            <RatingBadge rating={kanji.rating} />
-                        </div>
-                    </div>
-                </div>
-            )}
-        </Card>
-    )
+          <div className={styles.footer}>
+            <SourceButton url={details.url} source={details.source} />
+            <div className={styles.right}>
+              <TranslateButton text={details.title} />
+              <RatingBadge rating={kanji.rating} />
+            </div>
+          </div>
+        </div>
+      )}
+    </Card>
+  )
 })
 
 Article.displayName = 'Article'

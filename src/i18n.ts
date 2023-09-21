@@ -4,21 +4,21 @@ import english from 'locales/en/translation.json'
 import japanese from 'locales/jp/translation.json'
 
 i18n.use(initReactI18next).init({
-    resources: {
-        en: {
-            translation: english
-        },
-        jp: {
-            translation: japanese
-        }
+  resources: {
+    en: {
+      translation: english
     },
-    lng: "jp",
-    fallbackLng: "en",
-    interpolation: {
-        escapeValue: false
+    jp: {
+      translation: japanese
     }
+  },
+  lng: "jp",
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false
+  }
 }).then(() => {
-    console.debug('React i18n has been initialised.')
+  console.debug('React i18n has been initialised.')
 }).catch(e => {
-    console.error('Failed to initialise React i18n.', e)
+  console.error('Failed to initialise React i18n.', e)
 })

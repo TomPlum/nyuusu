@@ -8,38 +8,38 @@ import { NewsArticle } from "api/hooks/useGetHeadline/types.ts"
 import { Grow } from "@mui/material"
 
 const CardsHeadlineView = () => {
-    const { data, isLoading } = useGetHeadline()
+  const { data, isLoading } = useGetHeadline()
 
-    const [selectedArticle, setSelectedArticle] = useState<NewsArticle>()
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle>()
 
-    const handleSelectArticle = useCallback((article: NewsArticle) => {
-        setSelectedArticle(article)
-    }, [])
+  const handleSelectArticle = useCallback((article: NewsArticle) => {
+    setSelectedArticle(article)
+  }, [])
 
-    return (
-        <div className={styles.cardsView}>
-            <NewsGrid className={styles.grid}>
-                {data?.articles.map((article, i) => (
-                    <Grow in timeout={i * 200} key={i}>
-                        <Article
-                            details={article}
-                            loading={isLoading}
-                            key={article.title}
-                            className={styles.article}
-                            onClick={handleSelectArticle}
-                        />
-                    </Grow>
-                ))}
-            </NewsGrid>
+  return (
+    <div className={styles.cardsView}>
+      <NewsGrid className={styles.grid}>
+        {data?.articles.map((article, i) => (
+          <Grow in timeout={i * 200} key={i}>
+            <Article
+              details={article}
+              loading={isLoading}
+              key={article.title}
+              className={styles.article}
+              onClick={handleSelectArticle}
+            />
+          </Grow>
+        ))}
+      </NewsGrid>
 
-            {selectedArticle && (
-                <SelectedArticle
-                    article={selectedArticle}
-                    onClose={() => setSelectedArticle(undefined)}
-                />
-            )}
-        </div>
-    )
+      {selectedArticle && (
+        <SelectedArticle
+          article={selectedArticle}
+          onClose={() => setSelectedArticle(undefined)}
+        />
+      )}
+    </div>
+  )
 }
 
 export default CardsHeadlineView

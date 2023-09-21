@@ -3,10 +3,10 @@ export interface ApiHosts {
 }
 
 export const hosts: Record<string, ApiHosts> = {
-    development: {
-        newsApi: 'https://local-news-api'
-    },
-    production: {
-        newsApi: 'https://newsapi.org'
-    }
+  development: {
+    newsApi: 'https://local-news-api'
+  },
+  production: {
+    newsApi: 'https://newsapi.org'
+  }
 }

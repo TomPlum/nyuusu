@@ -8,32 +8,32 @@ import { View } from "modules/Header/components/ViewControls/types.ts"
 import CardsHeadlineView from "views/CardsHeadlineView"
 
 const NyuusuApplication = () => {
-    const { view } = useNewsContext()
+  const { view } = useNewsContext()
 
-    const SelectedView = useCallback(() => {
-        switch (view) {
-            case View.SINGLE: {
-                return <SingleHeadlineView />
-            }
-            case View.CARDS: {
-                return <CardsHeadlineView />
-            }
-        }
-    }, [view])
+  const SelectedView = useCallback(() => {
+    switch (view) {
+    case View.SINGLE: {
+      return <SingleHeadlineView />
+    }
+    case View.CARDS: {
+      return <CardsHeadlineView />
+    }
+    }
+  }, [view])
 
-    return (
-        <div className={styles.wrapper}>
-            <Header
-                loading={false}
-                articles={10} // TODO: Un-hardcode these
-            />
+  return (
+    <div className={styles.wrapper}>
+      <Header
+        loading={false}
+        articles={10} // TODO: Un-hardcode these
+      />
 
-            <div className={styles.content}>
-                <SelectedView />
-                <Footer />
-            </div>
-        </div>
-    )
+      <div className={styles.content}>
+        <SelectedView />
+        <Footer />
+      </div>
+    </div>
+  )
 }
 
 export default NyuusuApplication

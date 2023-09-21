@@ -6,31 +6,31 @@ import classNames from "classnames"
 import useLocale from "hooks/useLocale"
 
 const CurrentDateTime = ({ className }: CurrentDateTimeProps) => {
-    const locale = useLocale()
-    const [date, setDate] = useState(new Date())
+  const locale = useLocale()
+  const [date, setDate] = useState(new Date())
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setDate(new Date())
-        }, 1000)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date())
+    }, 1000)
 
-        return () => {
-            clearInterval(timer)
-        }
-    }, [])
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
 
 
-    return (
-        <div className={classNames(styles.clock, className)}>
-            <div className={styles.time}>
-                {format(date, 'HH:mm:ss')}
-            </div>
+  return (
+    <div className={classNames(styles.clock, className)}>
+      <div className={styles.time}>
+        {format(date, 'HH:mm:ss')}
+      </div>
 
-            <div className={styles.date}>
-                {format(date, 'do MMM yyyy', { locale })}
-            </div>
-        </div>
-    )
+      <div className={styles.date}>
+        {format(date, 'do MMM yyyy', { locale })}
+      </div>
+    </div>
+  )
 }
 
 export default CurrentDateTime

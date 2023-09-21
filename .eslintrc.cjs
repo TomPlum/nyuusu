@@ -22,7 +22,8 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "object-curly-spacing": ['error', 'always'],
     "quote-props": ['error', 'as-needed'],
-    "no-unused-vars": ['warn', { vars: 'all' }]
+    "no-unused-vars": ['warn', { vars: 'all' }],
+    "indent": ['warn', 2]
   },
   parserOptions: {
     ecmaVersion: 'latest',
