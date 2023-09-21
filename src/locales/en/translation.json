@@ -5,6 +5,10 @@
     "view-controls": {
       "single": "Single Article",
       "cards": "Multiple Articles"
+    },
+    "language-controls": {
+      "en": "English",
+      "jp": "Japanese"
     }
   },
   "footer": {

@@ -1,10 +1,14 @@
 import styles from './CurrentDateTime.module.scss'
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { format } from "date-fns"
 import { CurrentDateTimeProps } from "components/CurrentDateTime/types.ts"
 import classNames from "classnames"
+import useNewsContext from "context"
+import jpLocale from 'date-fns/locale/ja'
+import enLocale from 'date-fns/locale/en-GB'
 
 const CurrentDateTime = ({ className }: CurrentDateTimeProps) => {
+    const { language } = useNewsContext()
     const [date, setDate] = useState(new Date())
 
     useEffect(() => {
@@ -17,6 +21,13 @@ const CurrentDateTime = ({ className }: CurrentDateTimeProps) => {
         }
     }, [])
 
+    const locale = useMemo(() => {
+        switch (language) {
+            case "en": return enLocale
+            case "jp": return jpLocale
+        }
+    }, [language])
+
     return (
         <div className={classNames(styles.clock, className)}>
             <div className={styles.time}>
@@ -24,7 +35,7 @@ const CurrentDateTime = ({ className }: CurrentDateTimeProps) => {
             </div>
 
             <div className={styles.date}>
-                {format(date, 'do MMM yyyy')}
+                {format(date, 'do MMM yyyy', { locale })}
             </div>
         </div>
     )

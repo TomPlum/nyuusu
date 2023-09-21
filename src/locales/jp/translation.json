@@ -5,6 +5,10 @@
     "view-controls": {
       "single": "単一の見出し",
       "cards": "複数の見出し"
+    },
+    "language-controls": {
+      "en": "英語",
+      "jp": "日本語"
     }
   },
   "footer": {

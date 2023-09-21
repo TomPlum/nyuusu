@@ -5,6 +5,10 @@ import { View } from "components/ViewControls/types.ts"
 export const NewsContext = createContext<NewsContextBag>({
     view: View.CARDS,
     setView: () => {
-        console.debug('News')
+        console.debug('NewsContext not initialized. Tried to invoke setView().')
+    },
+    language: 'jp',
+    setLanguage: () => {
+        console.debug('NewsContext not initialized. Tried to invoke setLanguage().')
     }
 })
