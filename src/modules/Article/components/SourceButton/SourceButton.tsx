@@ -15,8 +15,8 @@ const Button = ({ url, source, icon, className }: InnerSourceButtonProps) => {
             href={url}
             target="_blank"
             rel="noreferrer"
-            className={classNames(styles.source, className)}
             title={source.name}
+            className={classNames(styles.source, className)}
         >
             <Icon/>
             <span>{t('label')}</span>

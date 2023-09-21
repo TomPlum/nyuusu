@@ -8,7 +8,6 @@ import Header from "components/Header"
 
 const App = () => {
     const { data, isLoading } = useGetHeadline()
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>

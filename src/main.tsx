@@ -9,6 +9,7 @@ import './i18n.ts'
 
 if (process.env.NODE_ENV === 'development') {
     worker.start().then(() => {
+        worker.printHandlers()
         console.debug('Mock service worked started...')
     }).catch((e) => {
         console.error('Mock service worker failed to start.', e)

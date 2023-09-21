@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
 import { useCallback } from "react"
-import useNewsApi from "../../clients/useNewsApi"
-import useApiKey from "../../config/useApiKey"
-import { queryKeys } from "../../queryKeys.ts"
+import useNewsApi from "api/clients/useNewsApi"
+import useApiKey from "api/config/useApiKey"
+import { queryKeys } from "api/queryKeys.ts"
 import { NewsHeadlineResponse } from "./types.ts"
 
 export const useGetHeadlineQueryKey = () => {

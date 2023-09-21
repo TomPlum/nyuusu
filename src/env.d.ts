@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
     readonly VITE_NEWS_API_KEY: string
+    readonly MODE: string
     // more env variables...
 }
 
