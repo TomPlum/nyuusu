@@ -9,44 +9,44 @@ import RatingBadge from "modules/Article/components/RatingBadge"
 import useLanguageStats from "modules/Article/hooks/useLanguageStats"
 
 const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
+  props: TransitionProps & {
         children: React.ReactElement;
     },
-    ref: React.Ref<unknown>,
+  ref: React.Ref<unknown>,
 ) {
-    return <Slide direction="up" ref={ref} {...props} />
+  return <Slide direction="up" ref={ref} {...props} />
 })
 
 const SelectedArticle = ({ article, onClose }: SelectedArticleProps) => {
-    const { kanji } = useLanguageStats({ input: article.title })
+  const { kanji } = useLanguageStats({ input: article.title })
     
-    return (
-        <Dialog
-            open={true}
-            onClose={onClose}
-            TransitionComponent={Transition}
-            aria-labelledby="selected-article-title"
-            aria-describedby="selected-article-description"
-        >
-            <DialogContent className={styles.wrapper}>
-                <ArticleHeader
-                    author={article.author}
-                    publishDate={article.publishedAt}
-                />
+  return (
+    <Dialog
+      open={true}
+      onClose={onClose}
+      TransitionComponent={Transition}
+      aria-labelledby="selected-article-title"
+      aria-describedby="selected-article-description"
+    >
+      <DialogContent className={styles.wrapper}>
+        <ArticleHeader
+          author={article.author}
+          publishDate={article.publishedAt}
+        />
 
-                <p className={styles.headline}>
-                    {article.title.trim()}
-                </p>
+        <p className={styles.headline}>
+          {article.title.trim()}
+        </p>
 
-                <div className={styles.footer}>
-                    <SourceButton url={article.url} source={article.source} />
-                    <RatingBadge rating={kanji.rating} />
-                </div>
+        <div className={styles.footer}>
+          <SourceButton url={article.url} source={article.source} />
+          <RatingBadge rating={kanji.rating} />
+        </div>
 
-                {/*<ArticleSourcePage link={article.url} />*/}
-            </DialogContent>
-        </Dialog>
-    )
+        {/*<ArticleSourcePage link={article.url} />*/}
+      </DialogContent>
+    </Dialog>
+  )
 }
 
 export default SelectedArticle

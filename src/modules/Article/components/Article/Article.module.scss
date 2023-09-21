@@ -1,13 +1,12 @@
 .article {
-  background-color: #222425 !important;
-  border: 1px solid #a3a3a3;
+  background-color: #2b303d !important;
   border-radius: 5px;
   max-width: 400px;
   padding: 25px 35px;
 
   &:hover {
     cursor: pointer;
-    background-color: #313437 !important;
+    background-color: #363b4a !important;
     transition: background-color ease-in-out 0.1s;
   }
 }

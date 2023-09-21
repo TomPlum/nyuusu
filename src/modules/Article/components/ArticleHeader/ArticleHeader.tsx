@@ -6,29 +6,29 @@ import { useMemo } from "react"
 import useLocale from "hooks/useLocale"
 
 const ArticleHeader = ({ author, publishDate }: ArticleHeaderProps) => {
-    const locale = useLocale()
+  const locale = useLocale()
     
-    const distanceFromNow = useMemo(() => {
-        return formatDistanceToNow(parseISO(publishDate), { locale })
-    }, [locale, publishDate])
+  const distanceFromNow = useMemo(() => {
+    return formatDistanceToNow(parseISO(publishDate), { locale })
+  }, [locale, publishDate])
     
-    return (
-        <div className={styles.header}>
-            <div title={author ?? 'Unknown'}>
-                <AccountCircle className={styles.author} />
-            </div>
+  return (
+    <div className={styles.header}>
+      <div title={author ?? 'Unknown'}>
+        <AccountCircle className={styles.author} />
+      </div>
 
-            <div className={styles.info}>
-                <p className={styles.date} title='Published'>
-                    {format(parseISO(publishDate), 'dd/MM/yy HH:mm')}
-                </p>
+      <div className={styles.info}>
+        <p className={styles.date} title='Published'>
+          {format(parseISO(publishDate), 'dd/MM/yy HH:mm')}
+        </p>
 
-                <p className={styles.distance}>
-                    {distanceFromNow}
-                </p>
-            </div>
-        </div>
-    )
+        <p className={styles.distance}>
+          {distanceFromNow}
+        </p>
+      </div>
+    </div>
+  )
 }
 
 export default ArticleHeader

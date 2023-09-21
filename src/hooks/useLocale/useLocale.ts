@@ -4,14 +4,14 @@ import jpLocale from "date-fns/locale/ja"
 import useNewsContext from "context"
 
 const useLocale = () => {
-    const { language } = useNewsContext()
+  const { language } = useNewsContext()
     
-    return useMemo(() => {
-        switch (language) {
-            case "en": return enLocale
-            case "jp": return jpLocale
-        }
-    }, [language])
+  return useMemo(() => {
+    switch (language) {
+      case "en": return enLocale
+      case "jp": return jpLocale
+    }
+  }, [language])
 }
 
 export default useLocale

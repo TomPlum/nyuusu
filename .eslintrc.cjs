@@ -22,7 +22,9 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "object-curly-spacing": ['error', 'always'],
     "quote-props": ['error', 'as-needed'],
-    "no-unused-vars": ['warn', { vars: 'all' }]
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "indent": ['warn', 2, { "SwitchCase": 1 }],
   },
   parserOptions: {
     ecmaVersion: 'latest',
