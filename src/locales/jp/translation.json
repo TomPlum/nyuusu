@@ -1,6 +1,8 @@
 {
-  "title": "ニュース",
-  "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。",
+  "header": {
+    "title": "ニュース",
+    "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。"
+  },
   "footer": {
     "api-citation": {
       "prefix": "記事データは「News API」で提供",
