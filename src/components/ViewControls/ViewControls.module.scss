@@ -1,0 +1,19 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 55px;
+}
+
+.icon {
+  color: #c0c0c0;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    transition: color ease-in-out 0.1s;
+  }
+}
+
+.active {
+  color: white;
+}
