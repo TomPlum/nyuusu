@@ -9,6 +9,7 @@ import RatingBadge from "modules/Article/components/RatingBadge"
 import classNames from "classnames"
 import { useCallback } from "react"
 import ArticleHeader from "modules/Article/components/ArticleHeader"
+import TranslateButton from "modules/Article/components/TranslateButton"
 
 const Article = ({ details, loading, className, onClick }: ArticleProps) => {
     const { t } = useTranslation('translation', { keyPrefix: 'article' })
@@ -43,7 +44,10 @@ const Article = ({ details, loading, className, onClick }: ArticleProps) => {
 
                     <div className={styles.footer}>
                         <SourceButton url={details.url} source={details.source} />
-                        <RatingBadge rating={kanji.rating} />
+                        <div className={styles.right}>
+                            <TranslateButton text={details.title} />
+                            <RatingBadge rating={kanji.rating} />
+                        </div>
                     </div>
                 </div>
             )}
