@@ -1,7 +1,11 @@
 {
   "header": {
     "title": "News",
-    "subtitle": "There are {{ articles }} breaking-news headlines today."
+    "subtitle": "There are {{ articles }} breaking-news headlines today.",
+    "view-controls": {
+      "single": "Single Article",
+      "cards": "Multiple Articles"
+    }
   },
   "footer": {
     "api-citation": {

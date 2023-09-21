@@ -1,11 +1,18 @@
 .controls {
   display: flex;
   justify-content: space-between;
-  width: 55px;
+  align-items: center;
+  width: 70px;
+
+  >div {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .icon {
   color: #c0c0c0;
+  font-size: 2em !important;
 
   &:hover {
     cursor: pointer;

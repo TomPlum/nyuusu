@@ -9,7 +9,7 @@ const Header = ({ loading, articles }: HeaderProps) => {
 
     return (
         <div className={styles.header}>
-            <div>
+            <div className={styles.left}>
                 <h2 className={styles.title}>
                     {t('title')}
                 </h2>
@@ -21,9 +21,11 @@ const Header = ({ loading, articles }: HeaderProps) => {
                 )}
             </div>
 
-            <ViewControls />
+           <div className={styles.right}>
+               <ViewControls />
 
-            <CurrentDateTime className={styles.clock} />
+               <CurrentDateTime className={styles.clock} />
+           </div>
         </div>
     )
 }

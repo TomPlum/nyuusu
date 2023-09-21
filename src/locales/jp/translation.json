@@ -1,7 +1,11 @@
 {
   "header": {
     "title": "ニュース",
-    "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。"
+    "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。",
+    "view-controls": {
+      "single": "単一の見出し",
+      "cards": "複数の見出し"
+    }
   },
   "footer": {
     "api-citation": {
