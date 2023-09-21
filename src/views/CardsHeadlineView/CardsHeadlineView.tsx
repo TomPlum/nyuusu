@@ -5,6 +5,7 @@ import useGetHeadline from "api/hooks/useGetHeadline"
 import SelectedArticle from "modules/Article/components/SelectedArticle"
 import { useCallback, useState } from "react"
 import { NewsArticle } from "api/hooks/useGetHeadline/types.ts"
+import { Grow } from "@mui/material"
 
 const CardsHeadlineView = () => {
     const { data, isLoading } = useGetHeadline()
@@ -18,14 +19,16 @@ const CardsHeadlineView = () => {
     return (
         <div className={styles.cardsView}>
             <NewsGrid className={styles.grid}>
-                {data?.articles.map(article => (
-                    <Article
-                        details={article}
-                        loading={isLoading}
-                        key={article.title}
-                        className={styles.article}
-                        onClick={handleSelectArticle}
-                    />
+                {data?.articles.map((article, i) => (
+                    <Grow in timeout={i * 200} key={i}>
+                        <Article
+                            details={article}
+                            loading={isLoading}
+                            key={article.title}
+                            className={styles.article}
+                            onClick={handleSelectArticle}
+                        />
+                    </Grow>
                 ))}
             </NewsGrid>
 
