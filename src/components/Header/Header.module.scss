@@ -1,5 +1,7 @@
 .header {
   margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
@@ -9,3 +11,4 @@
 .subtitle {
   margin-top: 0;
 }
+

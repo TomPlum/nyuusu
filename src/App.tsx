@@ -11,29 +11,31 @@ const App = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Header
-                loading={isLoading}
-                articles={data?.articles.length ?? 0}
-            />
-
             <div className={styles.content}>
-                {isLoading && (
-                    <CircularProgress  color='error' />
-                )}
+                <Header
+                    loading={isLoading}
+                    articles={data?.articles.length ?? 0}
+                />
 
-                <NewsGrid className={styles.grid}>
-                    {data?.articles.map(article => (
-                        <Article
-                            details={article}
-                            loading={isLoading}
-                            key={article.title}
-                            className={styles.article}
-                        />
-                    ))}
-                </NewsGrid>
+                <div className={styles.body}>
+                    {isLoading && (
+                        <CircularProgress  color='error' />
+                    )}
+
+                    <NewsGrid className={styles.grid}>
+                        {data?.articles.map(article => (
+                            <Article
+                                details={article}
+                                loading={isLoading}
+                                key={article.title}
+                                className={styles.article}
+                            />
+                        ))}
+                    </NewsGrid>
+                </div>
+
+                <Footer />
             </div>
-
-            <Footer />
         </div>
     )
 }

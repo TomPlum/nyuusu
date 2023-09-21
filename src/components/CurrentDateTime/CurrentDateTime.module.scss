@@ -1,0 +1,17 @@
+.clock {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 1.5em;
+  margin: 0;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+.date {
+  margin: 0;
+  font-size: 0.9em;
+}
