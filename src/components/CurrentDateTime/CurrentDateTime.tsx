@@ -20,11 +20,11 @@ const CurrentDateTime = ({ className }: CurrentDateTimeProps) => {
     return (
         <div className={classNames(styles.clock, className)}>
             <div className={styles.time}>
-                {format(date, 'hh:MM:ss')}
+                {format(date, 'HH:MM:ss')}
             </div>
 
             <div className={styles.date}>
-                {format(date, 'do MMM yy')}
+                {format(date, 'do MMM yyyy')}
             </div>
         </div>
     )
