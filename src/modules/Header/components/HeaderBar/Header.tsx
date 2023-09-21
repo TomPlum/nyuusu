@@ -1,9 +1,9 @@
 import styles from './Header.module.scss'
 import { useTranslation } from "react-i18next"
-import { HeaderProps } from "components/Header/types.ts"
-import CurrentDateTime from "components/CurrentDateTime"
-import ViewControls from "components/ViewControls"
-import LanguageControls from "components/LanguageControls"
+import { HeaderProps } from "modules/Header/components/HeaderBar/types.ts"
+import CurrentDateTime from "modules/Header/components/CurrentDateTime"
+import ViewControls from "modules/Header/components/ViewControls"
+import LanguageControls from "modules/Header/components/LanguageControls"
 
 const Header = ({ loading, articles }: HeaderProps) => {
     const { t } = useTranslation('translation', { keyPrefix: 'header' })
@@ -25,7 +25,7 @@ const Header = ({ loading, articles }: HeaderProps) => {
 
            <div className={styles.right}>
                <ViewControls />
-                <LanguageControls />
+               <LanguageControls />
                <CurrentDateTime className={styles.clock} />
            </div>
         </div>

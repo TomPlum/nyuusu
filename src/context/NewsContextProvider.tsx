@@ -1,8 +1,8 @@
 import { NewsContext } from "context/NewsContext.ts"
 import { PropsWithChildren, useMemo, useState } from "react"
 import { NewsContextBag } from "context/types.ts"
-import { View } from "components/ViewControls/types.ts"
-import { Language } from "components/LanguageControls/types.ts"
+import { View } from "modules/Header/components/ViewControls/types.ts"
+import { Language } from "modules/Header/components/LanguageControls/types.ts"
 
 const NewsContextProvider = ({ children }: PropsWithChildren) => {
     const [view, setView] = useState(View.SINGLE)

@@ -1,4 +1,4 @@
-import { View } from "components/ViewControls/types.ts"
+import { View } from "modules/Header/components/ViewControls/types.ts"
 import { GridView, Newspaper } from "@mui/icons-material"
 import useNewsContext from "context"
 import styles from './ViewControls.module.scss'

@@ -1,10 +1,10 @@
 import styles from './NyuusuApplication.module.scss'
 import Footer from "components/Footer"
-import Header from "components/Header"
+import Header from "modules/Header/components/HeaderBar"
 import { useCallback } from "react"
 import useNewsContext from "context"
 import SingleHeadlineView from "views/SingleHeadlineView"
-import { View } from "components/ViewControls/types.ts"
+import { View } from "modules/Header/components/ViewControls/types.ts"
 import CardsHeadlineView from "views/CardsHeadlineView"
 
 const NyuusuApplication = () => {

@@ -1,6 +1,6 @@
 import { createContext } from "react"
 import { NewsContextBag } from "context/types.ts"
-import { View } from "components/ViewControls/types.ts"
+import { View } from "modules/Header/components/ViewControls/types.ts"
 
 export const NewsContext = createContext<NewsContextBag>({
     view: View.CARDS,
