@@ -4,6 +4,7 @@ import Article from "modules/Article/components/Article"
 import NewsGrid from "components/NewsGrid"
 import { useTranslation } from "react-i18next"
 import { CircularProgress } from "@mui/material"
+import Footer from "components/Footer"
 
 const App = () => {
     const { t } = useTranslation()
@@ -11,9 +12,14 @@ const App = () => {
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.content}>
+            <div className={styles.header}>
                 <h2>{t('title')}</h2>
+                {!isLoading && data && (
+                    <p>{t('subtitle', { articles: data.articles.length })}</p>
+                )}
+            </div>
 
+            <div className={styles.content}>
                 {isLoading && (
                     <CircularProgress  color='error' />
                 )}
@@ -30,6 +36,8 @@ const App = () => {
                     })}
                 </NewsGrid>
             </div>
+
+            <Footer />
         </div>
     )
 }

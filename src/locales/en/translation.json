@@ -1,5 +1,12 @@
 {
   "title": "News",
+  "subtitle": "There are {{ articles }} breaking-news headlines today.",
+  "footer": {
+    "api-citation": {
+      "prefix": "Article data provided by",
+      "name": "News API"
+    }
+  },
   "article": {
     "headline": "Headline",
     "source": {
