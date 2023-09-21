@@ -25,15 +25,14 @@ const App = () => {
                 )}
 
                 <NewsGrid className={styles.grid}>
-                    {data?.articles.map(article => {
-                        return (
-                            <Article
-                                details={article}
-                                loading={isLoading}
-                                key={article.title}
-                            />
-                        )
-                    })}
+                    {data?.articles.map(article => (
+                        <Article
+                            details={article}
+                            loading={isLoading}
+                            key={article.title}
+                            className={styles.article}
+                        />
+                    ))}
                 </NewsGrid>
             </div>
 

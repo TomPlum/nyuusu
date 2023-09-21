@@ -3,11 +3,15 @@
   border: 1px solid #a3a3a3;
   border-radius: 5px;
   max-width: 400px;
-  padding: 5px
+  padding: 25px 35px;
 }
 
 .content {
-  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .footer {
@@ -16,7 +20,7 @@
 }
 
 .body {
-  margin: 15px 0;
+  margin: 20px 0 40px 0;
 }
 
 .date {
