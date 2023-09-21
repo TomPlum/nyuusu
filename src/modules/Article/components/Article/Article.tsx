@@ -4,33 +4,32 @@ import { useTranslation } from "react-i18next"
 import styles from './Article.module.scss'
 import { Card, Skeleton } from "@mui/material"
 import useLanguageStats from "modules/Article/hooks/useLanguageStats"
-import { format, parseISO } from "date-fns"
-import { AccountCircle } from "@mui/icons-material"
 import SourceButton from "modules/Article/components/SourceButton"
 import RatingBadge from "modules/Article/components/RatingBadge"
 import classNames from "classnames"
+import { useCallback } from "react"
+import ArticleHeader from "modules/Article/components/ArticleHeader"
 
-const Article = ({ details, loading, className }: ArticleProps) => {
+const Article = ({ details, loading, className, onClick }: ArticleProps) => {
     const { t } = useTranslation('translation', { keyPrefix: 'article' })
     const { kanji } = useLanguageStats({ input: details.title })
 
+    const handleClick = useCallback(() => {
+        onClick(details)
+    }, [details, onClick])
+
     return (
-        <Card className={classNames(styles.article, className)}>
+        <Card className={classNames(styles.article, className)} onClick={handleClick} title={t('title')}>
             {loading && (
                 <Skeleton variant='rectangular' />
             )}
 
             {!loading && (
                 <div className={styles.content}>
-                    <div className={styles.header}>
-                        <div title={details.author ?? 'Unknown'}>
-                            <AccountCircle className={styles.author} />
-                        </div>
-
-                        <p className={styles.date} title='Published'>
-                            {format(parseISO(details.publishedAt), 'dd/MM/yy HH:mm')}
-                        </p>
-                    </div>
+                    <ArticleHeader
+                        author={details.author}
+                        publishDate={details.publishedAt}
+                    />
 
                     <div className={styles.body}>
                         <p className={styles.label}>

@@ -4,4 +4,5 @@ export interface ArticleProps {
     loading: boolean
     className?: string
     details: NewsArticle
+    onClick: (article: NewsArticle) => void
 }

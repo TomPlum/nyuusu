@@ -11,6 +11,7 @@
   },
   "article": {
     "headline": "Headline",
+    "title": "Click to see more",
     "source": {
       "label": "Source"
     }

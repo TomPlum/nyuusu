@@ -1,0 +1,19 @@
+.date {
+  /*  border: 2px solid #449ae6;
+    border-radius: 25px;*/
+  padding: 5px 10px;
+  font-size: 1em;
+  color: #cacaca;
+}
+
+.author {
+  margin-left: -2px;
+  font-size: 2.3rem !important;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
