@@ -10,6 +10,15 @@
   padding: 0;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body {
+  margin: 15px 0;
+}
+
 .date {
   border: 1px solid #449ae6;
   border-radius: 25px;

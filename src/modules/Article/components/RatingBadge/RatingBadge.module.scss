@@ -1,0 +1,24 @@
+.badge {
+  border: 2px solid;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.beginner {
+  color: #1eb51e;
+  border-color: #2ce12c;
+}
+
+.intermediate {
+  color: orange;
+  border-color: #ed6e1f;
+}
+
+.expert {
+  color: red;
+  border-color: #e12020;
+}

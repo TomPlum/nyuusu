@@ -1,4 +1,4 @@
-import { LanguageStats, LanguageStatsProps } from "./types.ts"
+import { DifficultyRating, LanguageStats, LanguageStatsProps } from "./types.ts"
 import { useCallback, useMemo } from "react"
 
 const hiraganaMatcher = /([ぁ-ん])/
@@ -13,6 +13,16 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
         }).length
     }, [])
 
+    const calculateRating = useCallback((percentage: number) => {
+        if (percentage >= 80) {
+            return DifficultyRating.EXPERT
+        } else if (percentage >= 40 && percentage < 80) {
+            return DifficultyRating.INTERMEDIATE
+        } else {
+            return DifficultyRating.BEGINNER
+        }
+    }, [])
+
     const hiragana = useMemo(() => {
         return count(input, hiraganaMatcher)
     }, [count, input])
@@ -22,8 +32,14 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
     }, [count, input])
 
     const kanji = useMemo(() => {
-        return count(input, kanjiMatcher)
-    }, [count, input])
+        const kanjiCount = count(input, kanjiMatcher)
+        const totalLength = input.length
+        const percentage = (kanjiCount / totalLength) * 100
+        return {
+            rating: calculateRating(percentage),
+            percentage: Number(percentage.toFixed(0))
+        }
+    }, [calculateRating, count, input])
 
     const roman = useMemo(() => {
         return count(input, romanMatcher)
