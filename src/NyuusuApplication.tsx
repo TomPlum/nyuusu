@@ -23,17 +23,13 @@ const NyuusuApplication = () => {
 
     return (
         <div className={styles.wrapper}>
+            <Header
+                loading={false}
+                articles={10} // TODO: Un-hardcode these
+            />
+
             <div className={styles.content}>
-                <Header
-                    loading={false}
-                    articles={10} // TODO: Un-hardcode these
-                />
-
-
-                <div className={styles.body}>
-                  <SelectedView />
-                </div>
-
+                <SelectedView />
                 <Footer />
             </div>
         </div>

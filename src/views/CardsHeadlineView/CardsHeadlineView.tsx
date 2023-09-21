@@ -16,7 +16,7 @@ const CardsHeadlineView = () => {
     }, [])
 
     return (
-        <div>
+        <div className={styles.cardsView}>
             <NewsGrid className={styles.grid}>
                 {data?.articles.map(article => (
                     <Article
