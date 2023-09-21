@@ -5,7 +5,7 @@ import classNames from "classnames"
 import { useTranslation } from "react-i18next"
 import { useCallback } from "react"
 import i18n from "i18next"
-import { Language as LanguageType } from 'components/LanguageControls/types.ts'
+import { Language as LanguageType } from 'modules/Header/components/LanguageControls/types.ts'
 
 const LanguageControls = () => {
   const { language, setLanguage } = useNewsContext()

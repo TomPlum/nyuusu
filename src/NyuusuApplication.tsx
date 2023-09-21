@@ -12,12 +12,12 @@ const NyuusuApplication = () => {
 
   const SelectedView = useCallback(() => {
     switch (view) {
-    case View.SINGLE: {
-      return <SingleHeadlineView />
-    }
-    case View.CARDS: {
-      return <CardsHeadlineView />
-    }
+      case View.SINGLE: {
+        return <SingleHeadlineView />
+      }
+      case View.CARDS: {
+        return <CardsHeadlineView />
+      }
     }
   }, [view])
 

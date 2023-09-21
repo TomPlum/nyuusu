@@ -7,24 +7,24 @@ import classNames from "classnames"
 const RatingBadge = ({ rating }: RatingBadgeProps) => {
   const { label, className } = useMemo(() => {
     switch (rating) {
-    case DifficultyRating.BEGINNER: {
-      return {
-        label: '1',
-        className: styles.beginner
+      case DifficultyRating.BEGINNER: {
+        return {
+          label: '1',
+          className: styles.beginner
+        }
       }
-    }
-    case DifficultyRating.INTERMEDIATE: {
-      return {
-        label: '2',
-        className: styles.intermediate
+      case DifficultyRating.INTERMEDIATE: {
+        return {
+          label: '2',
+          className: styles.intermediate
+        }
       }
-    }
-    case DifficultyRating.EXPERT: {
-      return {
-        label: '3',
-        className: styles.expert
+      case DifficultyRating.EXPERT: {
+        return {
+          label: '3',
+          className: styles.expert
+        }
       }
-    }
     }
   }, [rating])
 

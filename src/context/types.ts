@@ -1,5 +1,5 @@
-import { View } from "components/ViewControls/types.ts"
-import { Language } from "components/LanguageControls/types.ts"
+import { View } from "modules/Header/components/ViewControls/types.ts"
+import { Language } from "modules/Header/components/LanguageControls/types.ts"
 
 export interface NewsContextBag {
     view: View

@@ -1,7 +1,7 @@
 import styles from './CurrentDateTime.module.scss'
 import { useEffect, useState } from "react"
 import { format } from "date-fns"
-import { CurrentDateTimeProps } from "components/CurrentDateTime/types.ts"
+import { CurrentDateTimeProps } from "modules/Header/components/CurrentDateTime/types.ts"
 import classNames from "classnames"
 import useLocale from "hooks/useLocale"
 

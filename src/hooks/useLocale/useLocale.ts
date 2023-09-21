@@ -8,8 +8,8 @@ const useLocale = () => {
     
   return useMemo(() => {
     switch (language) {
-    case "en": return enLocale
-    case "jp": return jpLocale
+      case "en": return enLocale
+      case "jp": return jpLocale
     }
   }, [language])
 }
