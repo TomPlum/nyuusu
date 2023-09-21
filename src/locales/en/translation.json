@@ -2,6 +2,8 @@
   "title": "News",
   "article": {
     "headline": "Headline",
-    "source": "Source"
+    "source": {
+      "label": "Source"
+    }
   }
 }

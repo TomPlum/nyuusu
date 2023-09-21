@@ -18,7 +18,7 @@
 }
 
 .author {
-  margin: 0;
+  margin-left: -2px;
   font-size: 3rem;
 }
 
@@ -26,24 +26,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.source {
-  display: flex;
-  align-content: center;
-  border: 2px solid #1d8ce8;
-  border-radius: 25px;
-  padding: 5px 10px;
-  font-size: 0.9em;
-  text-transform: uppercase;
-
-  span {
-    margin-left: 5px;
-  }
-
-  svg {
-    font-size: 1.3rem;
-  }
 }
 
 .label {

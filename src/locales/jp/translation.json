@@ -2,6 +2,8 @@
   "title": "ニュース",
   "article": {
     "headline": "見出し",
-    "source": "ソース"
+    "source": {
+      "label": "ソース"
+    }
   }
 }
