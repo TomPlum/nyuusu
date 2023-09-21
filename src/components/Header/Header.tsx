@@ -12,6 +12,7 @@ const Header = ({ loading, articles }: HeaderProps) => {
         <div className={styles.header}>
             <div className={styles.left}>
                 <h2 className={styles.title}>
+                    <img src='/logo.png'  alt='news-logo' className={styles.logo}/>
                     {t('title')}
                 </h2>
 
