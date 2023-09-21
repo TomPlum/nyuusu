@@ -1,8 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .date {
-  /*  border: 2px solid #449ae6;
-    border-radius: 25px;*/
-  padding: 5px 10px;
+  margin: 0;
   font-size: 1em;
+  color: white;
+}
+
+.distance {
+  margin-top: -4px;
+  font-size: 0.9em;
   color: #cacaca;
 }
 
@@ -12,8 +22,8 @@
   color: white;
 }
 
-.header {
+.info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
 }

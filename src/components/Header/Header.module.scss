@@ -5,11 +5,26 @@
   width: 100%;
 }
 
+.logo {
+  margin-right: 4px;
+  width: 32px;
+}
+
 .title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .subtitle {
   margin-top: 0;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+
+  >* {
+    margin-left: 30px;
+  }
+}

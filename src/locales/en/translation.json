@@ -1,7 +1,15 @@
 {
   "header": {
     "title": "News",
-    "subtitle": "There are {{ articles }} breaking-news headlines today."
+    "subtitle": "There are {{ articles }} breaking-news headlines today.",
+    "view-controls": {
+      "single": "Single Article",
+      "cards": "Multiple Articles"
+    },
+    "language-controls": {
+      "en": "English",
+      "jp": "Japanese"
+    }
   },
   "footer": {
     "api-citation": {
@@ -13,7 +21,10 @@
     "headline": "Headline",
     "title": "Click to see more",
     "source": {
-      "label": "Source"
+      "label": {
+        "default": "Source",
+        "youtube": "YouTube"
+      }
     },
     "footer": {
       "translate": {

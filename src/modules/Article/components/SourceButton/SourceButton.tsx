@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 import { YouTube } from "@mui/icons-material"
 import classNames from "classnames"
 
-const Button = ({ url, source, icon, className }: InnerSourceButtonProps) => {
+const Button = ({ url, label, source, icon, className }: InnerSourceButtonProps) => {
     const { t } = useTranslation('translation', { keyPrefix: 'article.source' })
 
     const Icon = icon
@@ -19,7 +19,7 @@ const Button = ({ url, source, icon, className }: InnerSourceButtonProps) => {
             className={classNames(styles.source, className)}
         >
             <Icon/>
-            <span>{t('label')}</span>
+            <span>{t(`label.${label}`)}</span>
         </a>
     )
 }
@@ -29,6 +29,7 @@ const SourceButton = ({ source, url }: SourceButtonProps) => {
         return (
             <Button
                 url={url}
+                label='youtube'
                 icon={YouTube}
                 source={source}
                 className={styles.youtube}
@@ -39,6 +40,7 @@ const SourceButton = ({ source, url }: SourceButtonProps) => {
     return (
         <Button
             url={url}
+            label='default'
             source={source}
             icon={OpenInNewIcon}
             className={styles.default}

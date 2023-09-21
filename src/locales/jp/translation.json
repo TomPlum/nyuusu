@@ -1,7 +1,15 @@
 {
   "header": {
     "title": "ニュース",
-    "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。"
+    "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。",
+    "view-controls": {
+      "single": "単一の見出し",
+      "cards": "複数の見出し"
+    },
+    "language-controls": {
+      "en": "英語",
+      "jp": "日本語"
+    }
   },
   "footer": {
     "api-citation": {
@@ -13,7 +21,10 @@
     "headline": "見出し",
     "title": "もっと見る",
     "source": {
-      "label": "ソース"
+      "label": {
+        "default": "ソース",
+        "youtube": "動画"
+      }
     },
     "footer": {
       "translate": {

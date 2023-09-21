@@ -11,7 +11,9 @@ export default defineConfig({
       components: "/src/components",
       modules: "/src/modules",
       hooks: "/src/hooks",
-      locales: "/src/locales"
+      locales: "/src/locales",
+      context: "/src/context",
+      views: "/src/views"
     }
   },
   test: {

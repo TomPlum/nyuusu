@@ -12,9 +12,13 @@ i18n.use(initReactI18next).init({
             translation: japanese
         }
     },
-    lng: "en",
+    lng: "jp",
     fallbackLng: "en",
     interpolation: {
         escapeValue: false
     }
+}).then(() => {
+    console.debug('React i18n has been initialised.')
+}).catch(e => {
+    console.error('Failed to initialise React i18n.', e)
 })

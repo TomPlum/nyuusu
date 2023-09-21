@@ -1,0 +1,9 @@
+import { View } from "components/ViewControls/types.ts"
+import { Language } from "components/LanguageControls/types.ts"
+
+export interface NewsContextBag {
+    view: View
+    setView: (view: View) => void
+    language: Language
+    setLanguage: (language: Language) => void
+}
