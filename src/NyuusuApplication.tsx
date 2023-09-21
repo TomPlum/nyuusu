@@ -30,8 +30,9 @@ const NyuusuApplication = () => {
 
       <div className={styles.content}>
         <SelectedView />
-        <Footer />
       </div>
+
+      <Footer />
     </div>
   )
 }

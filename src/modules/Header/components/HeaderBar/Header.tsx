@@ -10,7 +10,7 @@ const Header = ({ loading, articles }: HeaderProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'header' })
 
   return (
-    <AppBar position='static' color='transparent' classes={{ root: styles.appBar }}>
+    <AppBar position='sticky' classes={{ root: styles.appBar }}>
       <div className={styles.header}>
         <div className={styles.left}>
           <h2 className={styles.title}>
