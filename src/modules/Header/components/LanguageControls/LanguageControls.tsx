@@ -21,13 +21,13 @@ const LanguageControls = () => {
 
   return (
     <div className={styles.controls}>
-      <div onClick={() => handleChange('jp')} title={t('single')}>
+      <div onClick={() => handleChange('jp')} title={t('jp')}>
         <Translate
           className={classNames(styles.icon, { [styles.active]: language === 'jp' })}
         />
       </div>
 
-      <div onClick={() => handleChange('en')} title={t('cards')}>
+      <div onClick={() => handleChange('en')} title={t('en')}>
         <Language
           className={classNames(styles.icon, { [styles.active]: language === 'en' })}
         />
