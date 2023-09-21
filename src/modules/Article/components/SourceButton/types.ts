@@ -8,5 +8,6 @@ export interface SourceButtonProps {
 
 export interface InnerSourceButtonProps extends SourceButtonProps{
     icon: SvgIconComponent
+    label: string
     className: string
 }

@@ -21,7 +21,10 @@
     "headline": "見出し",
     "title": "もっと見る",
     "source": {
-      "label": "ソース"
+      "label": {
+        "default": "ソース",
+        "youtube": "動画"
+      }
     },
     "footer": {
       "translate": {

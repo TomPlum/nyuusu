@@ -31,7 +31,7 @@ const CurrentDateTime = ({ className }: CurrentDateTimeProps) => {
     return (
         <div className={classNames(styles.clock, className)}>
             <div className={styles.time}>
-                {format(date, 'HH:MM:ss')}
+                {format(date, 'HH:mm:ss')}
             </div>
 
             <div className={styles.date}>
