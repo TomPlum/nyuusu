@@ -1,6 +1,6 @@
 import styles from './App.module.scss'
 import useGetHeadline from "api/hooks/useGetHeadline"
-import Article from "components/Article"
+import Article from "modules/Article/components/Article"
 import NewsGrid from "components/NewsGrid"
 import { useTranslation } from "react-i18next"
 

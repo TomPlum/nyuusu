@@ -13,5 +13,11 @@ export default defineConfig({
       hooks: "/src/hooks",
       locales: "/src/locales"
     }
+  },
+  test: {
+    environment: 'jsdom',
+    include: ['**/*.test.{ts,tsx}'],
+    globals: true,
+    setupFiles: './src/setupTests.ts'
   }
 })

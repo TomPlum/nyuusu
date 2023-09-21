@@ -1,4 +1,4 @@
-import { ArticleProps } from "components/Article/types.ts"
+import { ArticleProps } from "./types.ts"
 import { useTranslation } from "react-i18next"
 
 import styles from './Article.module.scss'

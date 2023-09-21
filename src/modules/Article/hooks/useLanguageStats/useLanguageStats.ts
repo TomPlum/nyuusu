@@ -1,4 +1,4 @@
-import { LanguageStats, LanguageStatsProps } from "hooks/useLanguageStats/types.ts"
+import { LanguageStats, LanguageStatsProps } from "./types.ts"
 import { useCallback, useMemo } from "react"
 
 const hiraganaMatcher = /([ぁ-ん])/
