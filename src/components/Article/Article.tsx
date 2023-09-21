@@ -1,20 +1,54 @@
 import { ArticleProps } from "components/Article/types.ts"
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import { useTranslation } from "react-i18next"
 
-const Article = ({ details }: ArticleProps) => {
-    const { t } = useTranslation()
+import styles from './Article.module.scss'
+import { Card, CardActions, CardContent, Skeleton } from "@mui/material"
+import useLanguageStats from "hooks/useLanguageStats"
+import { format, parseISO } from "date-fns"
+import { AccountCircle } from "@mui/icons-material"
+
+const Article = ({ details, loading }: ArticleProps) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'article' })
+    const { kanji, katakana, roman, hiragana } = useLanguageStats({ input: details.title })
 
     return (
-        <div>
-            <p>{t('headline')}</p>
-            <p>{details.title}</p>
+        <Card className={styles.article}>
+            <CardContent className={styles.content}>
+                {loading && (
+                    <Skeleton variant='rectangular' />
+                )}
 
-            <p>{details.author}</p>
+                {!loading && (
+                    <div>
+                        <div className={styles.header}>
+                            <div title={details.author ?? 'Unknown'}>
+                                <AccountCircle className={styles.author} />
+                            </div>
 
-            <p>{details.publishedAt}</p>
+                            <p className={styles.date} title='Published'>
+                                {format(parseISO(details.publishedAt), 'dd/MM/yy HH:mm')}
+                            </p>
+                        </div>
 
-            <a href={details.url} target="_blank" rel="noreferrer">Source</a>
-        </div>
+                        <p className={styles.label}>
+                            {t('headline')}
+                        </p>
+
+                        <p className={styles.headline}>
+                            {details.title}
+                        </p>
+                    </div>
+                )}
+            </CardContent>
+
+            <CardActions>
+                <a href={details.url} target="_blank" rel="noreferrer" className={styles.source}>
+                    <OpenInNewIcon />
+                    <span>{t('source')}</span>
+                </a>
+            </CardActions>
+        </Card>
     )
 }
 
