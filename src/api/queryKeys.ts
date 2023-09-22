@@ -1,3 +1,4 @@
 export const queryKeys = {
-  getHeadline: 'getHeadline'
+  getHeadline: 'getHeadline',
+  getMainichiFlash: 'getMainichiFlashRss'
 }

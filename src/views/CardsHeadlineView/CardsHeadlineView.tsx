@@ -4,15 +4,15 @@ import Article from "modules/Article/components/Article"
 import useGetHeadline from "api/hooks/useGetHeadline"
 import SelectedArticle from "modules/Article/components/SelectedArticle"
 import { useCallback, useState } from "react"
-import { NewsArticle } from "api/hooks/useGetHeadline/types.ts"
+import { NewsApiArticle } from "api/hooks/useGetHeadline/types.ts"
 import { Grow } from "@mui/material"
 
 const CardsHeadlineView = () => {
   const { data, isLoading } = useGetHeadline()
 
-  const [selectedArticle, setSelectedArticle] = useState<NewsArticle>()
+  const [selectedArticle, setSelectedArticle] = useState<NewsApiArticle>()
 
-  const handleSelectArticle = useCallback((article: NewsArticle) => {
+  const handleSelectArticle = useCallback((article: NewsApiArticle) => {
     setSelectedArticle(article)
   }, [])
 

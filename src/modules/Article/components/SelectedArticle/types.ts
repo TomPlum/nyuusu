@@ -1,6 +1,6 @@
-import { NewsArticle } from "api/hooks/useGetHeadline/types.ts"
+import { NewsApiArticle } from "api/hooks/useGetHeadline/types.ts"
 
 export interface SelectedArticleProps {
-    article: NewsArticle
+    article: NewsApiArticle
     onClose: () => void
 }

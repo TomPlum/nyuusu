@@ -49,8 +49,7 @@ const SingleHeadlineView = () => {
 
     return 0
   }, [current, data])
-  console.log(progress)
-    
+
   return (
     <div className={styles.singleView}>
       <Button onClick={moveLeft}>

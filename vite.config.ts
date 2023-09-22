@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  plugins: [react(), nodePolyfills()],
   base: './',
   resolve: {
     alias: {
@@ -13,7 +15,8 @@ export default defineConfig({
       hooks: "/src/hooks",
       locales: "/src/locales",
       context: "/src/context",
-      views: "/src/views"
+      views: "/src/views",
+      stream: 'stream-browserify'
     }
   },
   test: {

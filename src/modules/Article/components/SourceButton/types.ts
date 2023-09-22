@@ -1,9 +1,9 @@
-import { NewsArticleSource } from "api/hooks/useGetHeadline/types.ts"
+import { NewsApiArticleSource } from "api/hooks/useGetHeadline/types.ts"
 import { SvgIconComponent } from "@mui/icons-material"
 
 export interface SourceButtonProps {
     url: string
-    source: NewsArticleSource
+    source: NewsApiArticleSource
 }
 
 export interface InnerSourceButtonProps extends SourceButtonProps{

@@ -1,6 +1,6 @@
-import { NewsHeadlineResponse } from "./types.ts"
+import { NewsApiHeadlineResponse } from "./types.ts"
 
-export const useGetHeadlineResponses: NewsHeadlineResponse = {
+export const useGetHeadlineResponses: NewsApiHeadlineResponse = {
   status: "ok",
   totalResults: 30,
   articles: [

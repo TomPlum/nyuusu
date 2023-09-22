@@ -1,12 +1,15 @@
 export interface ApiHosts {
-    newsApi: string
+  newsApi: string
+  mainichiRss: string
 }
 
 export const hosts: Record<string, ApiHosts> = {
   development: {
-    newsApi: 'https://local-news-api'
+    newsApi: 'https://local-news-api',
+    mainichiRss: ''
   },
   production: {
-    newsApi: 'https://newsapi.org'
+    newsApi: 'https://newsapi.org',
+    mainichiRss: 'https://mainichi.jp/rss/etc'
   }
 }

@@ -1,6 +1,7 @@
 import styles from "./Footer.module.scss"
 import { useTranslation } from "react-i18next"
 import { Box, Container } from "@mui/material"
+import { GitHub } from "@mui/icons-material"
 
 const Footer = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'footer' })
@@ -20,6 +21,10 @@ const Footer = () => {
             </a>
             {'.'}
           </p>
+
+          <a href='https://github.com/TomPlum/nyuusu' target="_blank" rel="noreferrer">
+            <GitHub />
+          </a>
         </div>
       </Container>
     </Box>
