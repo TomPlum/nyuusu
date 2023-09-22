@@ -10,6 +10,7 @@ import classNames from "classnames"
 import React, { ForwardedRef, useCallback } from "react"
 import ArticleHeader from "modules/Article/components/ArticleHeader"
 import TranslateButton from "modules/Article/components/TranslateButton"
+import TagsButton from "modules/Article/components/TagsButton"
 
 const Article = React.forwardRef(({
   article,
@@ -53,6 +54,7 @@ const Article = React.forwardRef(({
             <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
 
             <div className={styles.right}>
+              <TagsButton tags={[feed.title]} />
               <TranslateButton text={article.title} />
               <RatingBadge rating={kanji.rating} />
             </div>
