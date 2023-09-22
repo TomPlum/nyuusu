@@ -6,11 +6,10 @@ import { useCallback, useState } from "react"
 import { Grow } from "@mui/material"
 import useArticles from "modules/Article/hooks/useArticles"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import Loading from "components/Loading"
 
 const CardsHeadlineView = () => {
   const { articles, details, loading } = useArticles()
-  console.log(articles)
-  console.log(details)
 
   const [selectedArticle, setSelectedArticle] = useState<NewsArticle>()
 
@@ -20,20 +19,26 @@ const CardsHeadlineView = () => {
 
   return (
     <div className={styles.cardsView}>
-      <NewsGrid className={styles.grid}>
-        {articles?.map((article, i) => (
-          <Grow in timeout={i * 200} key={i}>
-            <Article
-              feed={details}
-              article={article}
-              loading={loading}
-              key={article.title}
-              className={styles.article}
-              onClick={handleSelectArticle}
-            />
-          </Grow>
-        ))}
-      </NewsGrid>
+      {loading && (
+        <Loading />
+      )}
+
+      {!loading && (
+        <NewsGrid className={styles.grid}>
+          {articles?.map((article, i) => (
+            <Grow in timeout={i * 200} key={i}>
+              <Article
+                feed={details}
+                article={article}
+                loading={loading}
+                key={article.title}
+                className={styles.article}
+                onClick={handleSelectArticle}
+              />
+            </Grow>
+          ))}
+        </NewsGrid>
+      )}
 
       {selectedArticle && (
         <SelectedArticle

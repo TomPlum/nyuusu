@@ -4,6 +4,7 @@ import { Button, LinearProgress } from "@mui/material"
 import styles from './SingleHeadlineView.module.scss'
 import { ChevronLeft, ChevronRight } from "@mui/icons-material"
 import useArticles from "modules/Article/hooks/useArticles"
+import Loading from "components/Loading"
 
 const SingleHeadlineView = () => {
   const { articles, details, loading } = useArticles()
@@ -55,8 +56,12 @@ const SingleHeadlineView = () => {
       <Button onClick={moveLeft}>
         <ChevronLeft />
       </Button>
+
+      {loading && (
+        <Loading />
+      )}
       
-      {articles && (
+      {!loading && articles && (
         <div>
           <LinearProgress value={progress} variant='determinate' />
           <Article

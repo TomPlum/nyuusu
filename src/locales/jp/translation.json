@@ -1,4 +1,5 @@
 {
+  "loading": "ニュース記事をロード中...",
   "header": {
     "title": "ニュース",
     "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。",

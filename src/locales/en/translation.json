@@ -1,4 +1,5 @@
 {
+  "loading": "Loading news articles...",
   "header": {
     "title": "News",
     "subtitle": "There are {{ articles }} breaking-news headlines today.",
