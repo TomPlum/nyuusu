@@ -41,5 +41,12 @@
         "title": "Translate via DeepL"
       }
     }
+  },
+  "newspaper": {
+    "article": {
+      "rating": {
+        "description": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text."
+      }
+    }
   }
 }

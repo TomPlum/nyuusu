@@ -1,42 +1,12 @@
 import styles from "./ArticleHeader.module.scss"
-import { format, formatDistanceToNow, parse } from "date-fns"
 import { ArticleHeaderProps } from "modules/Article/components/ArticleHeader/types.ts"
-import { useCallback, useMemo, useState } from "react"
-import useLocale from "hooks/useLocale"
-import utcToZonedTime from "date-fns-tz/utcToZonedTime"
-import { zonedTimeToUtc } from "date-fns-tz"
-import { useTranslation } from "react-i18next"
+import { useState } from "react"
 import PublisherButton from "modules/Article/components/PublisherButton"
 import PublisherModal from "modules/Article/components/PublisherModal"
+import PublicationDate from "modules/Article/components/PublicationDate"
 
 const ArticleHeader = ({ publisher, publishDate, feed }: ArticleHeaderProps) => {
-  const locale = useLocale()
   const [showPublisherModal, setShowPublisherModal] = useState(false)
-  const { t } = useTranslation('translation', { keyPrefix: 'article.header' })
-
-  const parseDate = useCallback(() => {
-    const referenceDate = utcToZonedTime(new Date(), 'UTC')
-    const parsedDate = parse(publishDate, "yyyy-MM-dd'T'HH:mm:ssXXXXX", referenceDate)
-    return zonedTimeToUtc(parsedDate, 'UTC')
-  }, [publishDate])
-    
-  const distanceFromNow = useMemo(() => {
-    if (!publishDate) {
-      return 'unknown'
-    }
-
-    const date = parseDate()
-    return formatDistanceToNow(date, { locale })
-  }, [locale, parseDate, publishDate])
-
-  const date = useMemo(() => {
-    if (!publishDate) {
-      return 'unknown'
-    }
-
-    const date = parseDate()
-    return format(date, 'dd/MM/yy HH:mm', { locale })
-  }, [locale, parseDate, publishDate])
     
   return (
     <div className={styles.header}>
@@ -46,15 +16,7 @@ const ArticleHeader = ({ publisher, publishDate, feed }: ArticleHeaderProps) => 
         onClick={() => setShowPublisherModal(true)}
       />
 
-      <div className={styles.info}>
-        <p className={styles.date} title='Published'>
-          {date}
-        </p>
-
-        <p className={styles.distance}>
-          {distanceFromNow}{' '}{t('distance-suffix')}
-        </p>
-      </div>
+      <PublicationDate publishDate={publishDate} />
 
       {showPublisherModal && (
         <PublisherModal feed={feed} onClose={() => setShowPublisherModal(false)} />

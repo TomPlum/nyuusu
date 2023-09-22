@@ -16,6 +16,7 @@ export default defineConfig({
       locales: "/src/locales",
       context: "/src/context",
       views: "/src/views",
+      styles: "/src/styles",
       stream: 'stream-browserify'
     }
   },

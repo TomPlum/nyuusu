@@ -1,10 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react"
-import Article from "modules/Article/components/Article"
-import { Button, LinearProgress } from "@mui/material"
 import styles from './SingleHeadlineView.module.scss'
-import { ChevronLeft, ChevronRight } from "@mui/icons-material"
 import useArticles from "modules/Article/hooks/useArticles"
-import Loading from "components/Loading"
+import Newspaper from "modules/Newspaper/components/Newspaper"
 
 const SingleHeadlineView = () => {
   const { articles, details, loading } = useArticles()
@@ -53,29 +50,9 @@ const SingleHeadlineView = () => {
 
   return (
     <div className={styles.singleView}>
-      <Button onClick={moveLeft}>
-        <ChevronLeft />
-      </Button>
-
-      {loading && (
-        <Loading />
+      {articles && (
+        <Newspaper feed={details} article={articles[current]} />
       )}
-      
-      {!loading && articles && (
-        <div>
-          <LinearProgress value={progress} variant='determinate' />
-          <Article
-            feed={details}
-            loading={loading}
-            onClick={() => {}}
-            article={articles[current]}
-          />
-        </div>
-      )}
-
-      <Button onClick={moveRight}>
-        <ChevronRight />
-      </Button>
     </div>
   )
 }
