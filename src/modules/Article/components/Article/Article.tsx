@@ -24,7 +24,7 @@ const Article = React.forwardRef(({
   const { kanji } = useLanguageStats({ input: article.title })
 
   const handleClick = useCallback(() => {
-    onClick(article)
+    // onClick(article)
   }, [article, onClick])
 
   return (
@@ -36,6 +36,7 @@ const Article = React.forwardRef(({
       {!loading && (
         <div className={styles.content}>
           <ArticleHeader
+            feed={feed}
             publisher={feed.publisher}
             publishDate={article.publishDate}
           />

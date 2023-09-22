@@ -37,6 +37,7 @@ const CardsHeadlineView = () => {
 
       {selectedArticle && (
         <SelectedArticle
+          feed={details}
           article={selectedArticle}
           onClose={() => setSelectedArticle(undefined)}
         />

@@ -1,15 +1,17 @@
 import styles from "./ArticleHeader.module.scss"
 import { format, formatDistanceToNow, parse } from "date-fns"
 import { ArticleHeaderProps } from "modules/Article/components/ArticleHeader/types.ts"
-import { useCallback, useMemo } from "react"
+import { useCallback, useMemo, useState } from "react"
 import useLocale from "hooks/useLocale"
 import utcToZonedTime from "date-fns-tz/utcToZonedTime"
 import { zonedTimeToUtc } from "date-fns-tz"
 import { useTranslation } from "react-i18next"
 import PublisherButton from "modules/Article/components/PublisherButton"
+import PublisherModal from "modules/Article/components/PublisherModal"
 
-const ArticleHeader = ({ publisher, publishDate }: ArticleHeaderProps) => {
+const ArticleHeader = ({ publisher, publishDate, feed }: ArticleHeaderProps) => {
   const locale = useLocale()
+  const [showPublisherModal, setShowPublisherModal] = useState(false)
   const { t } = useTranslation('translation', { keyPrefix: 'article.header' })
 
   const parseDate = useCallback(() => {
@@ -38,7 +40,11 @@ const ArticleHeader = ({ publisher, publishDate }: ArticleHeaderProps) => {
     
   return (
     <div className={styles.header}>
-      <PublisherButton className={styles.author} name={publisher} onClick={() => {}}/>
+      <PublisherButton
+        name={publisher}
+        className={styles.author}
+        onClick={() => setShowPublisherModal(true)}
+      />
 
       <div className={styles.info}>
         <p className={styles.date} title='Published'>
@@ -49,6 +55,10 @@ const ArticleHeader = ({ publisher, publishDate }: ArticleHeaderProps) => {
           {distanceFromNow}{' '}{t('distance-suffix')}
         </p>
       </div>
+
+      {showPublisherModal && (
+        <PublisherModal feed={feed} onClose={() => setShowPublisherModal(false)} />
+      )}
     </div>
   )
 }

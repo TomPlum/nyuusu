@@ -23,6 +23,12 @@
     "header": {
       "distance-suffix": "ago"
     },
+    "publisher": {
+      "rss": {
+        "label": "RSS (Really Simple Syndication)",
+        "desc": "The data in the article was sourced from the following RSS feed"
+      }
+    },
     "source": {
       "label": {
         "default": "Source",

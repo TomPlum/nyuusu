@@ -1,7 +1,6 @@
 import { NewsFeedDetails } from "modules/Article/hooks/useArticles/types.ts"
 
-export interface ArticleHeaderProps {
-    publisher?: string
-    publishDate: string
+export interface PublisherModalProps {
     feed: NewsFeedDetails
+    onClose: () => void
 }

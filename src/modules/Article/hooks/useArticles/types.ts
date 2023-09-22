@@ -11,4 +11,5 @@ export interface NewsFeedDetails {
     description?: string
     rssFeedLink: string
     title: string
+    rights: string
 }

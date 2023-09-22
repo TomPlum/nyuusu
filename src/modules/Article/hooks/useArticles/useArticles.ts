@@ -40,6 +40,10 @@ const useArticles = (): NewsFeed => {
     return data?.link ?? ''
   }, [data])
 
+  const rights = useMemo(() => {
+    return data?.['dc:rights'] ?? ''
+  }, [data])
+
   return  {
     articles,
     details: {
@@ -47,6 +51,7 @@ const useArticles = (): NewsFeed => {
       description,
       publisher,
       rssFeedLink,
+      rights
     },
     loading: isLoading
   }
