@@ -6,5 +6,5 @@ export interface NewsFeed {
     description?: string
     rssFeedLink: string
     title: string
-    articles: NewsArticle[]
+    articles?: NewsArticle[]
 }

@@ -6,14 +6,14 @@ import { NewsArticle } from "modules/Article/components/Article/types.ts"
 const useArticles = (): NewsFeed => {
   const { data, isLoading } = useGetMainichiFlash()
 
-  const articles: NewsArticle[] = useMemo(() => {
+  const articles: NewsArticle[] | undefined = useMemo(() => {
     return data?.items.map(item => ({
       title: item.title,
       author: item.creator,
       subject: item['dc:subject'],
       publishDate: item['dc:date'],
       link: item.link
-    })) ?? []
+    }))
   }, [data?.items])
     
   const title = useMemo(() => {
