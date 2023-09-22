@@ -33,7 +33,7 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
 
   return (
     <ResponsiveContainer className={styles.container} height='100%' width='100%'>
-      <PieChart width={200} height={200} data-testid='language-chart'>
+      <PieChart width={160} height={100} data-testid='language-chart' className={styles.pieChart} margin={{ top: 75 }}>
         <Pie
           cx="50%"
           cy="50%"
@@ -45,6 +45,7 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
           outerRadius={80}
           labelLine={false}
           label={renderLabel}
+          className={styles.pie}
           isAnimationActive={false}
         >
           {data.map((datum, i) => {

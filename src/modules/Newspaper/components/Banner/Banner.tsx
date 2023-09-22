@@ -3,8 +3,11 @@ import styles from "./Banner.module.scss"
 import PublicationDate from "modules/Article/components/PublicationDate"
 import { IconButton } from "@mui/material"
 import { ChevronLeft, ChevronRight } from "@mui/icons-material"
+import useNewsContext from "context"
 
 const Banner = ({ publisher, publishDate }: BannerProps) => {
+  const { articles } = useNewsContext()
+
   return (
     <div className={styles.banner}>
       <div>
@@ -18,6 +21,10 @@ const Banner = ({ publisher, publishDate }: BannerProps) => {
           <IconButton>
             <ChevronLeft />
           </IconButton>
+
+          <span className={styles.pages}>
+            {articles}
+          </span>
 
           <IconButton>
             <ChevronRight />

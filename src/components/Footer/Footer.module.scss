@@ -1,8 +1,22 @@
+@import "styles/colours";
+
 .footer {
-  display: flex;
+  display: flex !important;
   justify-content: center;
+  background-color: $black-ink;
+  padding: 1em 2em;
+  width: 100%;
+  min-width: 100%;
 
   >*:not(:last-child) {
     margin-right: 15px;
+  }
+
+  .github {
+    color: $newspaper;
+  }
+
+  .rss {
+    color: $rss;
   }
 }

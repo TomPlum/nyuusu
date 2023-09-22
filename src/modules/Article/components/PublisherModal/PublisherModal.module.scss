@@ -1,3 +1,5 @@
+@import "styles/colours";
+
 .content {
   background-color: #1a1a1a;
   color: white
@@ -34,5 +36,5 @@
 }
 
 .rss {
-  color: #F99000
+  color: $rss;
 }

@@ -1,3 +1,5 @@
+@import "styles/colours";
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -7,7 +9,7 @@
 }
 
 .appBar {
-   background-color: #1d2531 !important;
+   background-color: $black-ink !important;
 }
 
 .logo {
