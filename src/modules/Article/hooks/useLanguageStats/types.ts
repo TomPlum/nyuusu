@@ -12,6 +12,7 @@ export interface LanguageStats {
     hiragana: number
     katakana: number
     roman: number
+    other: number
 }
 
 export enum DifficultyRating {

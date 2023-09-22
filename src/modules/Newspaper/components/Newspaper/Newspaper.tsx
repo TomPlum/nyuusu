@@ -9,7 +9,7 @@ import RatingArticle from "modules/Newspaper/components/RatingArticle"
 const Newspaper = ({ article, feed }: NewspaperProps) => {
   return (
     <div className={styles.newspaper} data-testid='newspaper'>
-      <Grid container className={styles.content}>
+      <Grid className={styles.content}>
         <Container maxWidth='xl'>
           <Banner
             publishDate={article.publishDate}
