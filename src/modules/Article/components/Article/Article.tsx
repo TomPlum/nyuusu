@@ -11,13 +11,13 @@ import React, { ForwardedRef, useCallback } from "react"
 import ArticleHeader from "modules/Article/components/ArticleHeader"
 import TranslateButton from "modules/Article/components/TranslateButton"
 
-const Article = React.forwardRef(({ details, loading, className, onClick, ...rest }: ArticleProps, ref: ForwardedRef<HTMLDivElement>) => {
+const Article = React.forwardRef(({ article, loading, className, onClick, ...rest }: ArticleProps, ref: ForwardedRef<HTMLDivElement>) => {
   const { t } = useTranslation('translation', { keyPrefix: 'article' })
-  const { kanji } = useLanguageStats({ input: details.title })
+  const { kanji } = useLanguageStats({ input: article.title })
 
   const handleClick = useCallback(() => {
-    onClick(details)
-  }, [details, onClick])
+    onClick(article)
+  }, [article, onClick])
 
   return (
     <Card className={classNames(styles.article, className)} onClick={handleClick} title={t('title')} ref={ref} {...rest}>
@@ -28,8 +28,8 @@ const Article = React.forwardRef(({ details, loading, className, onClick, ...res
       {!loading && (
         <div className={styles.content}>
           <ArticleHeader
-            author={details.author}
-            publishDate={details.publishedAt}
+            author={article.author}
+            publishDate={article.publishDate}
           />
 
           <div className={styles.body}>
@@ -38,14 +38,14 @@ const Article = React.forwardRef(({ details, loading, className, onClick, ...res
             </p>
 
             <p className={styles.headline}>
-              {details.title.trim()}
+              {article.title.trim()}
             </p>
           </div>
 
           <div className={styles.footer}>
-            <SourceButton url={details.url} source={details.source} />
+            <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
             <div className={styles.right}>
-              <TranslateButton text={details.title} />
+              <TranslateButton text={article.title} />
               <RatingBadge rating={kanji.rating} />
             </div>
           </div>

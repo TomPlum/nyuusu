@@ -3,7 +3,7 @@ import { SvgIconComponent } from "@mui/icons-material"
 
 export interface SourceButtonProps {
     url: string
-    source: NewsApiArticleSource
+    source: NewsApiArticleSource // TODO: Decouple from API types. Do we need this now for RSS?
 }
 
 export interface InnerSourceButtonProps extends SourceButtonProps{

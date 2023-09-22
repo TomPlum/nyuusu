@@ -1,10 +1,8 @@
-import { NewsApiArticle } from "api/hooks/useGetHeadline/types.ts"
-
 export interface ArticleProps {
     loading: boolean
     className?: string
-    details: NewsApiArticle
-    onClick: (article: NewsApiArticle) => void
+    article: NewsArticle
+    onClick: (article: NewsArticle) => void
 }
 
 export interface NewsArticle {

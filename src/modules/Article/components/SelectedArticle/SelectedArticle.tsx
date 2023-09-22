@@ -31,7 +31,7 @@ const SelectedArticle = ({ article, onClose }: SelectedArticleProps) => {
       <DialogContent className={styles.wrapper}>
         <ArticleHeader
           author={article.author}
-          publishDate={article.publishedAt}
+          publishDate={article.publishDate}
         />
 
         <p className={styles.headline}>
@@ -39,7 +39,7 @@ const SelectedArticle = ({ article, onClose }: SelectedArticleProps) => {
         </p>
 
         <div className={styles.footer}>
-          <SourceButton url={article.url} source={article.source} />
+          <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
           <RatingBadge rating={kanji.rating} />
         </div>
 

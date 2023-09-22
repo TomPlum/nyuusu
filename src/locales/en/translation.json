@@ -20,6 +20,9 @@
   "article": {
     "headline": "Headline",
     "title": "Click to see more",
+    "header": {
+      "distance-suffix": "ago"
+    },
     "source": {
       "label": {
         "default": "Source",

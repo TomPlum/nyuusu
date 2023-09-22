@@ -11,7 +11,7 @@ const useArticles = (): NewsFeed => {
       title: item.title,
       author: item.creator,
       subject: item['dc:subject'],
-      publishDate: item.isoDate,
+      publishDate: item['dc:date'],
       link: item.link
     })) ?? []
   }, [data?.items])

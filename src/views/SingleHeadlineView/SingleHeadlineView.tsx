@@ -1,54 +1,54 @@
-import useGetHeadline from "api/hooks/useGetHeadline"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import Article from "modules/Article/components/Article"
 import { Button, LinearProgress } from "@mui/material"
 import styles from './SingleHeadlineView.module.scss'
 import { ChevronLeft, ChevronRight } from "@mui/icons-material"
+import useArticles from "modules/Article/hooks/useArticles"
 
 const SingleHeadlineView = () => {
-  const { data, isLoading } = useGetHeadline()
+  const { articles, loading } = useArticles()
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    if (data) {
+    if (articles) {
       setCurrent(0)
     }
-  }, [data])
+  }, [articles])
 
   const moveLeft = useCallback(() => {
-    if (!data) {
+    if (!articles) {
       return
     }
 
     if (current === 0) {
-      setCurrent(data.articles.length - 1)
+      setCurrent(articles.length - 1)
       return
     }
 
     setCurrent(current - 1)
-  }, [current, data])
+  }, [current, articles])
 
   const moveRight = useCallback(() => {
-    if (!data) {
+    if (!articles) {
       return
     }
 
-    if (current === data.articles.length - 1) {
+    if (current === articles.length - 1) {
       setCurrent(0)
       return
     }
 
     setCurrent(current + 1)
-  }, [current, data])
+  }, [current, articles])
 
   const progress = useMemo(() => {
-    if (data) {
-      const percentage =  ((current + 1) / data.articles.length) * 100
+    if (articles) {
+      const percentage =  ((current + 1) / articles.length) * 100
       return Math.round(percentage)
     }
 
     return 0
-  }, [current, data])
+  }, [current, articles])
 
   return (
     <div className={styles.singleView}>
@@ -56,10 +56,10 @@ const SingleHeadlineView = () => {
         <ChevronLeft />
       </Button>
       
-      {data && (
+      {articles && (
         <div>
           <LinearProgress value={progress} variant='determinate' />
-          <Article loading={isLoading} details={data.articles[current]} onClick={() => {}} />
+          <Article loading={loading} article={articles[current]} onClick={() => {}} />
         </div>
       )}
 

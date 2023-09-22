@@ -20,6 +20,9 @@
   "article": {
     "headline": "見出し",
     "title": "もっと見る",
+    "header": {
+      "distance-suffix": "前"
+    },
     "source": {
       "label": {
         "default": "ソース",
