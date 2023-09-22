@@ -1,6 +1,13 @@
 .loading {
-  max-width: 650px;
   width: 100%;
+}
+
+.floating {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
 }
 
 .wrapper {
@@ -10,6 +17,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.grid {
+  filter: blur(3px);
 }
 
 .text {
