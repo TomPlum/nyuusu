@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material"
 import useArticles from "modules/Article/hooks/useArticles"
 
 const SingleHeadlineView = () => {
-  const { articles, loading } = useArticles()
+  const { articles, details, loading } = useArticles()
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -59,7 +59,12 @@ const SingleHeadlineView = () => {
       {articles && (
         <div>
           <LinearProgress value={progress} variant='determinate' />
-          <Article loading={loading} article={articles[current]} onClick={() => {}} />
+          <Article
+            feed={details}
+            loading={loading}
+            onClick={() => {}}
+            article={articles[current]}
+          />
         </div>
       )}
 

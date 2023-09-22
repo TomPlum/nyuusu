@@ -1,0 +1,30 @@
+.button {
+  color: #1a1a1a !important;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 5px 10px !important;
+  background-color: #eaeaea !important;
+  border-radius: 10px !important;
+  font-size: 1em !important;
+}
+
+.icon {
+  font-size: 2rem !important;
+  margin-right: 5px;
+}
+
+.name {
+  color: #1a1a1a;
+}
+
+/*
+.bg {
+  background-color: white;
+  padding: 2px 10px;
+  position: absolute;
+  left: 20px;
+  height: 25px;
+  width: 100%;
+  z-index: 1;
+}*/

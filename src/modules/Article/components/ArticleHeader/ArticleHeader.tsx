@@ -1,5 +1,4 @@
 import styles from "./ArticleHeader.module.scss"
-import { AccountCircle } from "@mui/icons-material"
 import { format, formatDistanceToNow, parse } from "date-fns"
 import { ArticleHeaderProps } from "modules/Article/components/ArticleHeader/types.ts"
 import { useCallback, useMemo } from "react"
@@ -7,8 +6,9 @@ import useLocale from "hooks/useLocale"
 import utcToZonedTime from "date-fns-tz/utcToZonedTime"
 import { zonedTimeToUtc } from "date-fns-tz"
 import { useTranslation } from "react-i18next"
+import PublisherButton from "modules/Article/components/PublisherButton"
 
-const ArticleHeader = ({ author, publishDate }: ArticleHeaderProps) => {
+const ArticleHeader = ({ publisher, publishDate }: ArticleHeaderProps) => {
   const locale = useLocale()
   const { t } = useTranslation('translation', { keyPrefix: 'article.header' })
 
@@ -38,9 +38,7 @@ const ArticleHeader = ({ author, publishDate }: ArticleHeaderProps) => {
     
   return (
     <div className={styles.header}>
-      <div title={author ?? 'Unknown'}>
-        <AccountCircle className={styles.author} />
-      </div>
+      <PublisherButton className={styles.author} name={publisher} onClick={() => {}}/>
 
       <div className={styles.info}>
         <p className={styles.date} title='Published'>

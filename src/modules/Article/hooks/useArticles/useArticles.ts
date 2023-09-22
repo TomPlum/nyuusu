@@ -34,10 +34,12 @@ const useArticles = (): NewsFeed => {
 
   return  {
     articles,
-    title,
-    description,
-    publisher,
-    rssFeedLink,
+    details: {
+      title,
+      description,
+      publisher,
+      rssFeedLink,
+    },
     loading: isLoading
   }
 }

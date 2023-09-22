@@ -11,7 +11,14 @@ import React, { ForwardedRef, useCallback } from "react"
 import ArticleHeader from "modules/Article/components/ArticleHeader"
 import TranslateButton from "modules/Article/components/TranslateButton"
 
-const Article = React.forwardRef(({ article, loading, className, onClick, ...rest }: ArticleProps, ref: ForwardedRef<HTMLDivElement>) => {
+const Article = React.forwardRef(({
+  article,
+  feed,
+  loading,
+  className,
+  onClick,
+  ...rest 
+}: ArticleProps, ref: ForwardedRef<HTMLDivElement>) => {
   const { t } = useTranslation('translation', { keyPrefix: 'article' })
   const { kanji } = useLanguageStats({ input: article.title })
 
@@ -28,7 +35,7 @@ const Article = React.forwardRef(({ article, loading, className, onClick, ...res
       {!loading && (
         <div className={styles.content}>
           <ArticleHeader
-            author={article.author}
+            publisher={feed.publisher}
             publishDate={article.publishDate}
           />
 
@@ -44,6 +51,7 @@ const Article = React.forwardRef(({ article, loading, className, onClick, ...res
 
           <div className={styles.footer}>
             <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
+
             <div className={styles.right}>
               <TranslateButton text={article.title} />
               <RatingBadge rating={kanji.rating} />

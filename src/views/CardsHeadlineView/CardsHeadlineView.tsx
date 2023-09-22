@@ -8,8 +8,9 @@ import useArticles from "modules/Article/hooks/useArticles"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 
 const CardsHeadlineView = () => {
-  const { articles, loading } = useArticles()
+  const { articles, details, loading } = useArticles()
   console.log(articles)
+  console.log(details)
 
   const [selectedArticle, setSelectedArticle] = useState<NewsArticle>()
 
@@ -20,9 +21,10 @@ const CardsHeadlineView = () => {
   return (
     <div className={styles.cardsView}>
       <NewsGrid className={styles.grid}>
-        {articles.map((article, i) => (
+        {articles?.map((article, i) => (
           <Grow in timeout={i * 200} key={i}>
             <Article
+              feed={details}
               article={article}
               loading={loading}
               key={article.title}

@@ -1,4 +1,4 @@
 export interface ArticleHeaderProps {
-    author?: string
+    publisher?: string
     publishDate: string
 }
