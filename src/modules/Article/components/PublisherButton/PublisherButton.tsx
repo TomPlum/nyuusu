@@ -8,7 +8,6 @@ const PublisherButton = ({ name, className, onClick }: PublisherButtonProps) => 
   return (
     <IconButton data-testid='article-publisher-button' classes={{ root: classNames(styles.button, className) }} onClick={onClick}>
       <AccountCircle className={styles.icon} />
-      <span className={styles.bg} />
       <span className={styles.name}>{name}</span>
     </IconButton>
   )

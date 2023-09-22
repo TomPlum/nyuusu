@@ -6,4 +6,6 @@ export interface NewsContextBag {
     setView: (view: View) => void
     language: Language
     setLanguage: (language: Language) => void
+    articles: number
+    setArticles: (quantity: number) => void
 }

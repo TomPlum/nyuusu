@@ -8,7 +8,7 @@ import { queryClient } from "api/queryClient.ts"
 import './i18n.ts'
 import NewsContextProvider from "context/NewsContextProvider.tsx"
 
-if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
     worker.printHandlers()
     console.debug('Mock service worked started...')

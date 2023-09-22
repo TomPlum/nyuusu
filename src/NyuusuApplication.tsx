@@ -25,7 +25,6 @@ const NyuusuApplication = () => {
     <div className={styles.wrapper}>
       <Header
         loading={false}
-        articles={10} // TODO: Un-hardcode these
       />
 
       <div className={styles.content}>

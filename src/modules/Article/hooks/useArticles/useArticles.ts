@@ -1,10 +1,18 @@
 import useGetMainichiFlash from "api/hooks/useGetMainichiFlash"
 import { NewsFeed } from "modules/Article/hooks/useArticles/types.ts"
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import useNewsContext from "context"
 
 const useArticles = (): NewsFeed => {
+  const { setArticles } = useNewsContext()
   const { data, isLoading } = useGetMainichiFlash()
+
+  useEffect(() => {
+    if (data) {
+      setArticles(data.items.length)
+    }
+  }, [data, setArticles])
 
   const articles: NewsArticle[] | undefined = useMemo(() => {
     return data?.items.map(item => ({

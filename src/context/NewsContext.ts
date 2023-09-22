@@ -10,5 +10,9 @@ export const NewsContext = createContext<NewsContextBag>({
   language: 'jp',
   setLanguage: () => {
     console.debug('NewsContext not initialized. Tried to invoke setLanguage().')
-  }
+  },
+  articles: 0,
+  setArticles: () => {
+    console.debug('NewsContext not initialized. Tried to invoke setArticles().')
+  },
 })

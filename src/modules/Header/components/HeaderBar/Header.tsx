@@ -5,9 +5,11 @@ import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import ViewControls from "modules/Header/components/ViewControls"
 import LanguageControls from "modules/Header/components/LanguageControls"
 import { AppBar } from "@mui/material"
+import useNewsContext from "context"
 
-const Header = ({ loading, articles }: HeaderProps) => {
+const Header = ({ loading }: HeaderProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'header' })
+  const { articles } = useNewsContext()
 
   return (
     <AppBar position='sticky' classes={{ root: styles.appBar }}>
