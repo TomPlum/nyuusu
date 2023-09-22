@@ -6,7 +6,7 @@ import useNewsContext from "context"
 
 const useArticles = (): NewsFeed => {
   const { setArticles } = useNewsContext()
-  const { data, isLoading } = useGetMainichiFlash()
+  const { data, isLoading, isError } = useGetMainichiFlash()
 
   useEffect(() => {
     if (data) {
@@ -53,6 +53,7 @@ const useArticles = (): NewsFeed => {
       rssFeedLink,
       rights
     },
+    failed: isError,
     loading: isLoading
   }
 }

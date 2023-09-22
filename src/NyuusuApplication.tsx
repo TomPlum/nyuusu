@@ -6,6 +6,7 @@ import useNewsContext from "context"
 import SingleHeadlineView from "views/SingleHeadlineView"
 import { View } from "modules/Header/components/ViewControls/types.ts"
 import CardsHeadlineView from "views/CardsHeadlineView"
+import SettingsDrawer from "modules/Settings/components/SettingsDrawer"
 
 const NyuusuApplication = () => {
   const { view } = useNewsContext()
@@ -30,6 +31,8 @@ const NyuusuApplication = () => {
       <div className={styles.content}>
         <SelectedView />
       </div>
+
+      <SettingsDrawer />
 
       <Footer />
     </div>

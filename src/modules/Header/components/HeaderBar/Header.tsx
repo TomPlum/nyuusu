@@ -6,10 +6,11 @@ import ViewControls from "modules/Header/components/ViewControls"
 import LanguageControls from "modules/Header/components/LanguageControls"
 import { AppBar } from "@mui/material"
 import useNewsContext from "context"
+import SettingsButton from "modules/Header/components/SettingsButton"
 
 const Header = ({ loading }: HeaderProps) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'header' })
   const { articles } = useNewsContext()
+  const { t } = useTranslation('translation', { keyPrefix: 'header' })
 
   return (
     <AppBar position='sticky' classes={{ root: styles.appBar }}>
@@ -30,6 +31,7 @@ const Header = ({ loading }: HeaderProps) => {
         <div className={styles.right}>
           <ViewControls />
           <LanguageControls />
+          <SettingsButton />
           <CurrentDateTime className={styles.clock} />
         </div>
       </div>

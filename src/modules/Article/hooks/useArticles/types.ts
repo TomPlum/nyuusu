@@ -2,6 +2,7 @@ import { NewsArticle } from "modules/Article/components/Article/types.ts"
 
 export interface NewsFeed {
     loading: boolean
+    failed: boolean
     articles?: NewsArticle[]
     details: NewsFeedDetails
 }

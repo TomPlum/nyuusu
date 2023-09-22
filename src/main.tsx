@@ -7,6 +7,7 @@ import { QueryClientProvider } from "@tanstack/react-query"
 import { queryClient } from "api/queryClient.ts"
 import './i18n.ts'
 import NewsContextProvider from "context/NewsContextProvider.tsx"
+import SettingsContextProvider from "modules/Settings/context"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
@@ -21,7 +22,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <NewsContextProvider>
-        <NyuusuApplication />
+        <SettingsContextProvider>
+          <NyuusuApplication />
+        </SettingsContextProvider>
       </NewsContextProvider>
     </QueryClientProvider>
   </React.StrictMode>,
