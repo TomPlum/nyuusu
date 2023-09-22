@@ -15,3 +15,23 @@
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
+
+.bordersV {
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, $black-ink, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.bordersW{
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to right, $black-ink, rgba(0, 0, 0, 0)) 1 100%;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.difficulty {
+  color: $black-ink;
+  text-transform: uppercase;
+}

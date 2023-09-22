@@ -38,22 +38,23 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
   }, [percentage])
 
   const kanji = useMemo(() => {
-    const percent = percentage(kanjiMatcher)
-    return {
-      rating: calculateRating(percent),
-      percentage: percent
-    }
-  }, [calculateRating, percentage])
+    return percentage(kanjiMatcher)
+  }, [percentage])
 
   const roman = useMemo(() => {
     return percentage(romanMatcher)
   }, [percentage])
 
   const other = useMemo(() => {
-    return 100 - kanji.percentage - katakana - hiragana - roman
+    return 100 - kanji - katakana - hiragana - roman
   }, [hiragana, kanji, katakana, roman])
 
+  const difficulty = useMemo(() => {
+    return calculateRating(kanji)
+  }, [calculateRating, kanji])
+
   return {
+    difficulty,
     hiragana,
     katakana,
     kanji,

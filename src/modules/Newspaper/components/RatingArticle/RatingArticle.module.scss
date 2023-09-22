@@ -1,7 +1,14 @@
 @import "styles/colours";
+@import "styles/mixins";
 
 .desc {
+  @include vertical-text;
   color: $black-ink;
+  max-height: 100px;
+}
+
+.top {
+  justify-content: space-between;
 }
 
 .chart {

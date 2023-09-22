@@ -5,8 +5,11 @@ import Headline from "modules/Newspaper/components/Headline"
 import { Container } from "@mui/material"
 import Banner from "modules/Newspaper/components/Banner"
 import RatingArticle from "modules/Newspaper/components/RatingArticle"
+import useLanguageStats from "modules/Article/hooks/useLanguageStats"
 
 const Newspaper = ({ article, feed }: NewspaperProps) => {
+  const { difficulty } = useLanguageStats({ input: article.title })
+
   return (
     <div className={styles.newspaper} data-testid='newspaper'>
       <Grid className={styles.content}>
@@ -22,9 +25,14 @@ const Newspaper = ({ article, feed }: NewspaperProps) => {
             <Headline headline={article.title} />
           </Container>
 
-          <Grid container>
+          <Grid>
             <Grid xs={12} lg={6}>
-              <RatingArticle text={article.title} />
+              <div className={styles.bordersV}>
+                <div className={styles.bordersW}>
+                  <RatingArticle text={article.title} />
+                  <p className={styles.difficulty}>{difficulty}</p>
+                </div>
+              </div>
             </Grid>
           </Grid>
         </Grid>

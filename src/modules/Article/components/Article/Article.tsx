@@ -21,10 +21,10 @@ const Article = React.forwardRef(({
   ...rest 
 }: ArticleProps, ref: ForwardedRef<HTMLDivElement>) => {
   const { t } = useTranslation('translation', { keyPrefix: 'article' })
-  const { kanji } = useLanguageStats({ input: article.title })
+  const { difficulty } = useLanguageStats({ input: article.title })
 
   const handleClick = useCallback(() => {
-    // onClick(article)
+    // onClick(article) // TODO ??
   }, [article, onClick])
 
   return (
@@ -57,7 +57,7 @@ const Article = React.forwardRef(({
             <div className={styles.right}>
               <TagsButton tags={[feed.title]} />
               <TranslateButton text={article.title} />
-              <RatingBadge rating={kanji.rating} />
+              <RatingBadge rating={difficulty} />
             </div>
           </div>
         </div>

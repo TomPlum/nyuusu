@@ -8,9 +8,15 @@ const RatingArticle = ({ text }: RatingArticleProps) => {
 
   return (
     <div className={styles.article}>
-      <p className={styles.desc}>{t('description')}</p>
-      <div className={styles.chart}>
-        <LanguageChart text={text} />
+      <div className={styles.top}>
+        <p className={styles.desc}>{t('description')}</p>
+        <div className={styles.chart}>
+          <LanguageChart text={text} />
+        </div>
+      </div>
+
+      <div className={styles.bottom}>
+
       </div>
     </div>
   )

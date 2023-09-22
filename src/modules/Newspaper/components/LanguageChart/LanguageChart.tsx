@@ -8,12 +8,12 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
   const { kanji, roman, katakana, hiragana, other } = useLanguageStats({ input: text })
 
   const data = useMemo(() => ([
-    { name: 'Kanji', value: kanji.percentage, fill: '#2e2e2e', label: '字' },
+    { name: 'Kanji', value: kanji, fill: '#2e2e2e', label: '字' },
     { name: 'Roman', value: roman, fill: '#2e2e2e', label: 'A' },
     { name: 'Katakana', value: katakana, fill: '#2e2e2e', label: 'カ' },
     { name: 'Hiragana', value: hiragana, fill: '#2e2e2e', label: 'ひ' },
     { name: 'Other', value: other, fill: '#2e2e2e', label: '~' },
-  ]), [hiragana, kanji.percentage, katakana, other, roman])
+  ]), [hiragana, kanji, katakana, other, roman])
 
   const renderLabel = useCallback(
     ({
@@ -32,8 +32,8 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
     }, [data])
 
   return (
-    <ResponsiveContainer className={styles.container} width='100%' height='100%'>
-      <PieChart width={400} height={400} data-testid='language-chart'>
+    <ResponsiveContainer className={styles.container} height='100%' width='100%'>
+      <PieChart width={200} height={200} data-testid='language-chart'>
         <Pie
           cx="50%"
           cy="50%"
@@ -45,6 +45,7 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
           outerRadius={80}
           labelLine={false}
           label={renderLabel}
+          isAnimationActive={false}
         >
           {data.map((datum, i) => {
             return (
