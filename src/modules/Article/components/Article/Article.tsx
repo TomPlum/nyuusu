@@ -52,7 +52,9 @@ const Article = React.forwardRef(({
           </div>
 
           <div className={styles.footer}>
-            <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
+            <div className={styles.left}>
+              <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
+            </div>
 
             <div className={styles.right}>
               <TagsButton tags={[feed.title]} />

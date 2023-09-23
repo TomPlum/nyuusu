@@ -1,10 +1,12 @@
+@import "styles/colours";
+
 .button {
-  color: #1a1a1a !important;
+  color: $black-ink !important;
   display: flex;
   align-items: center;
   position: relative;
   padding: 3px 8px !important;
-  background-color: #d1d1d1 !important;
+  background-color: $newspaper !important;
   border-radius: 10px !important;
   font-size: 1em !important;
 }
@@ -15,5 +17,5 @@
 }
 
 .name {
-  color: #1a1a1a;
+  color: $black-ink;
 }

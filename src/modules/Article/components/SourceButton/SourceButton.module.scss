@@ -1,9 +1,9 @@
 .source {
   display: flex;
   align-content: center;
+  justify-content: flex-start;
   border-radius: 25px;
-  padding: 5px 10px;
-  font-size: 0.9em;
+  font-size: 1.2em;
   text-transform: uppercase;
 
   span {
@@ -12,11 +12,8 @@
 
   svg {
     font-size: 1.3rem;
+    margin-top: 4px;
   }
-}
-
-.default {
-  border: 2px solid #646cff;
 }
 
 .youtube {

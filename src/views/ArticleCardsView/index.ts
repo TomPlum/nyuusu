@@ -1,1 +1,1 @@
-export { default } from './ArticlesCardsView.tsx'
+export { default } from './ArticleCardsView.tsx'

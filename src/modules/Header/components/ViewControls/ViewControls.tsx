@@ -1,4 +1,4 @@
-import { GridView, Newspaper } from "@mui/icons-material"
+import { Dashboard, Newspaper } from "@mui/icons-material"
 import styles from './ViewControls.module.scss'
 import { useTranslation } from "react-i18next"
 import classNames from "classnames"
@@ -18,7 +18,7 @@ const ViewControls = () => {
       </Link>
 
       <Link to='articles' title={t('cards')}>
-        <GridView
+        <Dashboard
           className={classNames(styles.icon, { [styles.active]: route.includes('articles') })}
         />
       </Link>

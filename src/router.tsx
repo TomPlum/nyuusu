@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
-import CardsHeadlineView from "views/ArticleCardsView"
+import ArticleCardsView from "views/ArticleCardsView"
 import NewspaperView from "views/NewspaperView"
 import NyuusuApplication from "./NyuusuApplication.tsx"
 import NotFoundView from "views/NotFoundView"
@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/articles',
-        element: <CardsHeadlineView />
+        element: <ArticleCardsView />
       },
       {
         path: '/newspaper',

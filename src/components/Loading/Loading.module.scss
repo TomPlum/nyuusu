@@ -1,5 +1,8 @@
+@import "styles/colours";
+
 .loading {
   width: 100%;
+  height: 8px !important;
 }
 
 .floating {
@@ -11,7 +14,6 @@
 }
 
 .wrapper {
-  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,9 +22,11 @@
 }
 
 .grid {
-  filter: blur(3px);
+  filter: blur(5px);
 }
 
 .text {
+  color: $black-ink;
+  font-weight: bold;
   font-size: 1.5em;
 }

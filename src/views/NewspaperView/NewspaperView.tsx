@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom"
 
 const NewspaperView = () => {
   const [params, setParams] = useSearchParams()
-  const { articles, details, loading } = useArticles()
+  const { articles, details } = useArticles()
 
   useEffect(() => {
     if (articles && !params.has('article')) {

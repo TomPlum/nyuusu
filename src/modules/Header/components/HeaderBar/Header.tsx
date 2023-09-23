@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <AppBar position='static' classes={{ root: styles.appBar }}>
-      <Container className={styles.header}>
+      <Container className={styles.header} maxWidth='xl'>
         <Toolbar disableGutters className={styles.toolbar}>
           <h2 className={styles.title}>
             <img src='/logo.png'  alt='news-logo' className={styles.logo}/>

@@ -9,7 +9,7 @@ import SlideTransition from "components/SlideTransition"
 
 
 const SelectedArticle = ({ article, feed, onClose }: SelectedArticleProps) => {
-  const { kanji } = useLanguageStats({ input: article.title })
+  const { difficulty } = useLanguageStats({ input: article.title })
     
   return (
     <Dialog
@@ -32,7 +32,7 @@ const SelectedArticle = ({ article, feed, onClose }: SelectedArticleProps) => {
 
         <div className={styles.footer}>
           <SourceButton url={article.link} source={{ id: null, name: 'link' }} />
-          <RatingBadge rating={kanji.rating} />
+          <RatingBadge rating={difficulty} />
         </div>
 
         {/*<ArticleSourcePage link={article.url} />*/}
