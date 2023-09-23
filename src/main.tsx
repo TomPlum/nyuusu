@@ -9,6 +9,7 @@ import NewsContextProvider from "context/NewsContextProvider.tsx"
 import SettingsContextProvider from "modules/Settings/context"
 import { RouterProvider } from "react-router-dom"
 import { router } from "./router.tsx"
+import ToastProvider from "modules/Toast/ToastProvider.tsx"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
@@ -24,7 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <NewsContextProvider>
         <SettingsContextProvider>
-          <RouterProvider router={router} />
+          <ToastProvider>
+            <RouterProvider router={router} />
+          </ToastProvider>
         </SettingsContextProvider>
       </NewsContextProvider>
     </QueryClientProvider>

@@ -38,7 +38,11 @@
   },
   "newspaper": {
     "headline": {
-      "copy": "コピーの見出し"
+      "copy": {
+        "label": "コピーの見出し",
+        "success": "見出しをコピーした",
+        "error": "見出しのコピーに失敗"
+      }
     },
     "article": {
       "rating": {

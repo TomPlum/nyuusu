@@ -44,7 +44,11 @@
   },
   "newspaper": {
     "headline": {
-      "copy": "Copy headline"
+      "copy": {
+        "label": "Copy headline",
+        "success": "Copied headline",
+        "error": "Failed to copy headline"
+      }
     },
     "article": {
       "rating": {
