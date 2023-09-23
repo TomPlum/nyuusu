@@ -1,27 +1,27 @@
-import { View } from "modules/Header/components/ViewControls/types.ts"
 import { GridView, Newspaper } from "@mui/icons-material"
-import useNewsContext from "context"
 import styles from './ViewControls.module.scss'
 import { useTranslation } from "react-i18next"
 import classNames from "classnames"
+import { Link } from "react-router-dom"
+import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 
 const ViewControls = () => {
-  const { view, setView } = useNewsContext()
+  const route = useCurrentRoute()
   const { t } = useTranslation('translation', { keyPrefix: 'header.view-controls' })
 
   return (
     <div className={styles.controls}>
-      <div onClick={() => setView(View.SINGLE)} title={t('single')}>
+      <Link to='newspaper' title={t('single')}>
         <Newspaper
-          className={classNames(styles.icon, { [styles.active]: view === View.SINGLE })}
+          className={classNames(styles.icon, { [styles.active]: route?.includes('newspaper') })}
         />
-      </div>
+      </Link>
 
-      <div onClick={() => setView(View.CARDS)} title={t('cards')}>
+      <Link to='articles' title={t('cards')}>
         <GridView
-          className={classNames(styles.icon, { [styles.active]: view === View.CARDS })}
+          className={classNames(styles.icon, { [styles.active]: route.includes('articles') })}
         />
-      </div>
+      </Link>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import NyuusuApplication from './NyuusuApplication.tsx'
 import './index.css'
 import { worker } from "./mocks/browser.ts"
 import { QueryClientProvider } from "@tanstack/react-query"
@@ -8,6 +7,8 @@ import { queryClient } from "api/queryClient.ts"
 import './i18n.ts'
 import NewsContextProvider from "context/NewsContextProvider.tsx"
 import SettingsContextProvider from "modules/Settings/context"
+import { RouterProvider } from "react-router-dom"
+import { router } from "./router.tsx"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
@@ -23,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <NewsContextProvider>
         <SettingsContextProvider>
-          <NyuusuApplication />
+          <RouterProvider router={router} />
         </SettingsContextProvider>
       </NewsContextProvider>
     </QueryClientProvider>
