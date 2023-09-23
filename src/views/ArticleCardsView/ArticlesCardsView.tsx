@@ -1,5 +1,5 @@
 import NewsGrid from "components/NewsGrid"
-import styles from "./CardsHeadlineView.module.scss"
+import styles from "./ArticleCardsView.module.scss"
 import Article from "modules/Article/components/Article"
 import SelectedArticle from "modules/Article/components/SelectedArticle"
 import { useCallback, useState } from "react"

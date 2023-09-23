@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo } from "react"
-import styles from './SingleHeadlineView.module.scss'
+import styles from './NewspaperView.module.scss'
 import useArticles from "modules/Article/hooks/useArticles"
 import Newspaper from "modules/Newspaper/components/Newspaper"
 import { useSearchParams } from "react-router-dom"
 
-const SingleHeadlineView = () => {
+const NewspaperView = () => {
   const [params, setParams] = useSearchParams()
   const { articles, details, loading } = useArticles()
 
@@ -73,4 +73,4 @@ const SingleHeadlineView = () => {
   )
 }
 
-export default SingleHeadlineView
+export default NewspaperView
