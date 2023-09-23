@@ -37,6 +37,9 @@
     }
   },
   "newspaper": {
+    "headline": {
+      "copy": "コピーの見出し"
+    },
     "article": {
       "rating": {
         "description": "記事の読解難易度は、文字の種類数、等級、文章の長さに基づいて計算される。"

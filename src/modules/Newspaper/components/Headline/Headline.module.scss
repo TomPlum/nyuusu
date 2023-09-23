@@ -7,4 +7,24 @@
   padding: 20px;
   font-size: 1.5vw;
   margin-bottom: 20px;
+  position: relative;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    >.copy {
+      visibility: visible;
+    }
+  }
+}
+
+.copy {
+  transition: all ease-in-out 0.2s;
+  visibility: hidden;
+  position: absolute;
+  right: 25px;
+  top: 23px;
+
+  &:hover {
+    cursor: pointer;
+    color: #dfdfdf;
+  }
 }
