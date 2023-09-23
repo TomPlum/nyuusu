@@ -4,6 +4,11 @@
   align-items: center;
   width: 70px;
 
+  >a {
+    display: flex;
+    align-items: center;
+  }
+
   >div {
     display: flex;
     align-items: center;
