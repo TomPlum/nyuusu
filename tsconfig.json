@@ -9,7 +9,7 @@
     "paths": {
       "*": ["./src/*"]
     },
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "vite/client"],
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
