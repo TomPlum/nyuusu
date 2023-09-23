@@ -12,6 +12,7 @@ const Newspaper = ({ article, feed }: NewspaperProps) => {
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
+            title={feed.title}
             publishDate={article.publishDate}
             publisher={feed.publisher ?? 'Unknown'}
           />

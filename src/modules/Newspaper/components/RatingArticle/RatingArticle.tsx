@@ -8,7 +8,6 @@ const RatingArticle = ({ text }: RatingArticleProps) => {
   const { difficulty } = useLanguageStats({ input: text })
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.rating' })
 
-
   return (
     <div className={styles.article}>
       <div className={styles.top}>

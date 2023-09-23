@@ -15,6 +15,11 @@
     width: 300px;
   }
 
+  .title {
+    color: $black-ink;
+    font-size: 1.1em;
+  }
+
   .publisher {
     margin: 0;
     padding: 5px 0;
@@ -30,9 +35,5 @@
       }
     }
     margin-left: auto;
-  }
-
-  .pages {
-    color: $black-ink;
   }
 }

@@ -13,7 +13,7 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
     { name: 'Katakana', value: katakana, fill: '#2e2e2e', label: 'カ' },
     { name: 'Hiragana', value: hiragana, fill: '#2e2e2e', label: 'ひ' },
     { name: 'Other', value: other, fill: '#2e2e2e', label: '~' },
-  ]), [hiragana, kanji, katakana, other, roman])
+  ]), [hiragana, kanji, katakana, other, roman]).sort((a, b) => b.value - a.value)
 
   const renderLabel = useCallback(
     ({
@@ -32,7 +32,7 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
     }, [data])
 
   return (
-    <ResponsiveContainer className={styles.container} height='100%' width='100%'>
+    <ResponsiveContainer className={styles.container} height={85} width='100%'>
       <PieChart width={160} height={100} data-testid='language-chart' className={styles.pieChart} margin={{ top: 75 }}>
         <Pie
           cx="50%"
