@@ -59,5 +59,10 @@
         "translate": "Translate"
       }
     }
+  },
+  "not-found": {
+    "title": "404 Not Found",
+    "description": "The page you were looking for could not be found.",
+    "help": "Return home"
   }
 }
