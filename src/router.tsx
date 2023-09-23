@@ -3,11 +3,12 @@ import CardsHeadlineView from "views/CardsHeadlineView"
 import SingleHeadlineView from "views/SingleHeadlineView"
 import NyuusuApplication from "./NyuusuApplication.tsx"
 import NotFoundView from "views/NotFoundView"
+import ErrorView from "views/ErrorView"
 
 export const router = createBrowserRouter([
   {
     element: <NyuusuApplication />,
-    errorElement: <NotFoundView />,
+    errorElement: <ErrorView />,
     children: [
       {
         path: '/articles',
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: '/newspaper',
         element: <SingleHeadlineView />
+      },
+      {
+        path: '*',
+        element: <NotFoundView />
       }
     ]
   }
