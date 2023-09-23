@@ -24,7 +24,7 @@ const Article = React.forwardRef(({
   const { difficulty } = useLanguageStats({ input: article.title })
 
   const handleClick = useCallback(() => {
-    // onClick(article) // TODO ??
+    onClick(article)
   }, [article, onClick])
 
   return (

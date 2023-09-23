@@ -7,15 +7,17 @@ import { Grow } from "@mui/material"
 import useArticles from "modules/Article/hooks/useArticles"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import Loading from "components/Loading"
+import { useNavigate } from "react-router-dom"
 
 const CardsHeadlineView = () => {
   const { articles, details, loading } = useArticles()
-
+  const navigate = useNavigate()
   const [selectedArticle, setSelectedArticle] = useState<NewsArticle>()
 
-  const handleSelectArticle = useCallback((article: NewsArticle) => {
+  const handleSelectArticle = useCallback((id: number, article: NewsArticle) => {
     setSelectedArticle(article)
-  }, [])
+    navigate(`/newspaper?article=${id}`)
+  }, [navigate])
 
   return (
     <div className={styles.cardsView}>
@@ -33,7 +35,7 @@ const CardsHeadlineView = () => {
                 loading={loading}
                 key={article.title}
                 className={styles.article}
-                onClick={handleSelectArticle}
+                onClick={article => handleSelectArticle(i, article)}
               />
             </Grow>
           ))}

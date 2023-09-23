@@ -1,57 +1,73 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo } from "react"
 import styles from './SingleHeadlineView.module.scss'
 import useArticles from "modules/Article/hooks/useArticles"
 import Newspaper from "modules/Newspaper/components/Newspaper"
+import { useSearchParams } from "react-router-dom"
 
 const SingleHeadlineView = () => {
+  const [params, setParams] = useSearchParams()
   const { articles, details, loading } = useArticles()
-  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    if (articles) {
-      setCurrent(0)
+    if (articles && !params.has('article')) {
+      setParams('article=0')
     }
-  }, [articles])
+  }, [articles, params, setParams])
+
+  const selectedArticledId = useMemo(() => {
+    const value = params.get('article')
+
+    if (value) {
+      return Number(value)
+    }
+
+    return 0
+  }, [params])
 
   const moveLeft = useCallback(() => {
     if (!articles) {
       return
     }
 
-    if (current === 0) {
-      setCurrent(articles.length - 1)
+    if (selectedArticledId === 0) {
+      setParams(`article=${articles.length - 1}`)
       return
     }
 
-    setCurrent(current - 1)
-  }, [current, articles])
+    setParams(`article=${selectedArticledId - 1}`)
+  }, [articles, selectedArticledId, setParams])
 
   const moveRight = useCallback(() => {
     if (!articles) {
       return
     }
 
-    if (current === articles.length - 1) {
-      setCurrent(0)
+    if (selectedArticledId === articles.length - 1) {
+      setParams(`article=0`)
       return
     }
 
-    setCurrent(current + 1)
-  }, [current, articles])
+    setParams(`article=${selectedArticledId + 1}`)
+  }, [articles, selectedArticledId, setParams])
 
   const progress = useMemo(() => {
     if (articles) {
-      const percentage =  ((current + 1) / articles.length) * 100
+      const percentage =  ((selectedArticledId + 1) / articles.length) * 100
       return Math.round(percentage)
     }
 
     return 0
-  }, [current, articles])
+  }, [selectedArticledId, articles])
 
   return (
     <div className={styles.singleView}>
       {articles && (
-        <Newspaper feed={details} article={articles[current]} />
+        <Newspaper
+          feed={details}
+          onNext={moveRight}
+          onPrevious={moveLeft}
+          article={articles[selectedArticledId]}
+        />
       )}
     </div>
   )
