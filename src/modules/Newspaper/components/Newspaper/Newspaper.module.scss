@@ -1,7 +1,9 @@
 @import "styles/colours";
+@import "styles/mixins";
 
 .newspaper {
   width: 100%;
+  height: 100%;
   background-color: $newspaper;
   display: flex;
   flex-direction: column;
@@ -14,8 +16,6 @@
   max-width: 1000px;
   align-items: flex-start;
   padding-top: 20px;
-  /*border-left: 1px solid $black-ink;
-  border-right: 1px solid $black-ink;*/
 }
 
 .article {

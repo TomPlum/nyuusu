@@ -13,14 +13,14 @@ const NavigationArticle = ({ article, articles, onNext, onPrevious }: Navigation
         {t('description')}
       </p>
 
-      <p className={styles.numbers}>
-        {article + 1} / {articles} rtest
-      </p>
-
       <div className={styles.buttons}>
         <IconButton onClick={onPrevious} className={styles.last}>
           <ChevronLeft />
         </IconButton>
+
+        <p className={styles.numbers}>
+          {article + 1} / {articles}
+        </p>
 
         <IconButton onClick={onNext} className={styles.next}>
           <ChevronRight />

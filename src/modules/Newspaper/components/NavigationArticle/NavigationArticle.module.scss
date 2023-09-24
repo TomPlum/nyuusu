@@ -1,5 +1,6 @@
 @import "styles/colours";
 @import "styles/mixins";
+@import "styles/fonts";
 
 .wrapper {
   @include corner-borders(50px, 30px, 1px, $black-ink);
@@ -13,14 +14,13 @@
 
 .numbers {
   font-family: 'Chomsky', sans-serif;
+  font-size: 1.4em;
 }
 
 .next, .last {
-  border: 1px solid $black-ink !important;
-  padding: 4px 5px !important;
 
   svg {
-    font-size: 1.3em;
+    font-size: 1.5em;
   }
 }
 
@@ -28,5 +28,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  max-width: 130px;
+}
+
+.description {
+  font-size: 1.2em;
 }

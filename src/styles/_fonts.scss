@@ -4,3 +4,17 @@
   font-weight: normal;
   src: local("Chomsky"), url("../fonts/Chomsky.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "Heathergreen";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Heathergreen"), url("/src/fonts/Heathergreen.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Steelfish";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Steelfish"), url("/src/fonts/Steelfish.otf") format("opentype");
+}

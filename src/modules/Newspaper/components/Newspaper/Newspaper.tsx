@@ -6,6 +6,7 @@ import Banner from "modules/Newspaper/components/Banner"
 import RatingArticle from "modules/Newspaper/components/RatingArticle"
 import TranslateArticle from "modules/Newspaper/components/TranslateArticle"
 import NavigationArticle from "modules/Newspaper/components/NavigationArticle"
+import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 
 const Newspaper = ({ article, articleCount, currentArticleId, feed, onNext, onPrevious }: NewspaperProps) => {
   return (
@@ -19,28 +20,30 @@ const Newspaper = ({ article, articleCount, currentArticleId, feed, onNext, onPr
           />
         </Grid>
 
+        <Grid xs={12}>
+          <Headline headline={article.title} />
+        </Grid>
+
+        <Grid xs={12} justifyContent='center' alignItems='center'>
+          <ArticleContents sourceUrl={article.link} /> {/* TODO: Pass contents in here once got from an API */}
+        </Grid>
+
         <Grid container spacing={2}>
-          <Grid xs={12}>
-            <Headline headline={article.title} />
+          <Grid xs={12} lg={4}>
+            <RatingArticle text={article.title} />
           </Grid>
 
-          <Grid container>
-            <Grid xs={12} lg={4}>
-              <RatingArticle text={article.title} />
-            </Grid>
+          <Grid xs={12} lg={4}>
+            <TranslateArticle text={article.title} />
+          </Grid>
 
-            <Grid xs={12} lg={4}>
-              <TranslateArticle text={article.title} />
-            </Grid>
-
-            <Grid xs={12} lg={4}>
-              <NavigationArticle
-                onNext={onNext}
-                articles={articleCount}
-                onPrevious={onPrevious}
-                article={currentArticleId}
-              />
-            </Grid>
+          <Grid xs={12} lg={4}>
+            <NavigationArticle
+              onNext={onNext}
+              articles={articleCount}
+              onPrevious={onPrevious}
+              article={currentArticleId}
+            />
           </Grid>
         </Grid>
       </Grid>
