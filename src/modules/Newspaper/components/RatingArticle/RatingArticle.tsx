@@ -10,21 +10,19 @@ const RatingArticle = ({ text }: RatingArticleProps) => {
 
   return (
     <div className={styles.article}>
-      <div className={styles.top}>
-        <p className={styles.desc}>{t('description')}</p>
-        <div className={styles.chart}>
-          <LanguageChart text={text} />
-          <div className={styles.difficulty}>
-            {[...difficulty].map((char, i) => (
-              <span key={i}>{char}</span>
-            ))}
-          </div>
+      <div className={styles.chart}>
+        <LanguageChart text={text} />
+        <div className={styles.difficulty}>
+          {[...difficulty].map((char, i) => (
+            <span key={i}>{char}</span>
+          ))}
         </div>
       </div>
+      <p className={styles.desc}>
+        {t('description')}
+      </p>
 
-      <div className={styles.bottom}>
 
-      </div>
     </div>
   )
 }

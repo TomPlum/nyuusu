@@ -25,15 +25,19 @@ const Newspaper = ({ article, articleCount, currentArticleId, feed, onNext, onPr
         </Grid>
 
         <Grid xs={12} justifyContent='center' alignItems='center'>
-          <ArticleContents sourceUrl={article.link} /> {/* TODO: Pass contents in here once got from an API */}
+          <ArticleContents
+            disclaimer={feed.rights}
+            sourceUrl={article.link}
+            publisher={feed.publisher}
+          /> {/* TODO: Pass contents in here once got from an API */}
         </Grid>
 
-        <Grid container spacing={2}>
-          <Grid xs={12} lg={4}>
+        <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
+          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
             <RatingArticle text={article.title} />
           </Grid>
 
-          <Grid xs={12} lg={4}>
+          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
             <TranslateArticle text={article.title} />
           </Grid>
 

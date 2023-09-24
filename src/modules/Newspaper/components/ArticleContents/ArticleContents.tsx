@@ -2,7 +2,7 @@ import { ArticleContentsProps } from "modules/Newspaper/components/ArticleConten
 import { useTranslation } from "react-i18next"
 import styles from './ArticleContents.module.scss'
 
-export const ArticleContents = ({ sourceUrl }: ArticleContentsProps) => {
+export const ArticleContents = ({ disclaimer, sourceUrl }: ArticleContentsProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.contents' })
 
   return (
@@ -20,6 +20,10 @@ export const ArticleContents = ({ sourceUrl }: ArticleContentsProps) => {
           {t('see-more')}
         </a>
       </p>
+
+      <i className={styles.disclaimer}>
+        {disclaimer}
+      </i>
     </div>
   )
 }
