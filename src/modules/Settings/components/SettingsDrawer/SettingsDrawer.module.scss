@@ -1,4 +1,23 @@
+@import "styles/colours";
+
 .drawer {
   width: 100%;
   max-width: 500px;
+}
+
+.content {
+  padding: 20px 50px;
+  background-color: $newspaper;
+  height: 100%;
+  color: $black-ink;
+}
+
+.section {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  border-bottom: 1px solid $black-ink;
 }
