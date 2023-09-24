@@ -84,5 +84,11 @@
     "title": "Error",
     "description": "An unknown error has occurred.",
     "help": "Return home"
+  },
+  "settings": {
+    "title": "設定",
+    "font": "フォント",
+    "language": "言語",
+    "sources": "情報源"
   }
 }

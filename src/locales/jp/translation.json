@@ -77,5 +77,11 @@
     "title": "エラー",
     "description": "不明なエラーが発生しました。",
     "help": "ホームへ戻る"
+  },
+  "settings": {
+    "title": "設定",
+    "font": "フォント",
+    "language": "言語",
+    "sources": "情報源"
   }
 }
