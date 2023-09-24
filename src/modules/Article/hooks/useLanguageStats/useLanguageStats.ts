@@ -14,7 +14,8 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
   }, [])
 
   const percentage = useCallback((matcher: RegExp) => {
-    const quantity = count(input, matcher)
+    const trimmed = input.trim().replace(' ', '')
+    const quantity = count(trimmed, matcher)
     const totalLength = input.length
     return Math.round((quantity / totalLength) * 100)
   }, [count, input])

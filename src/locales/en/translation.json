@@ -63,6 +63,9 @@
       "translate": {
         "description": "Translate the article contents to confirm your understanding.",
         "translate": "Translate"
+      },
+      "navigation": {
+        "description": "Article navigation"
       }
     }
   },

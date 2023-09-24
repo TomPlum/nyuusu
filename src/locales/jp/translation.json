@@ -56,6 +56,9 @@
       },
       "translate": {
         "description": "理解度を確認するために、記事の内容を翻訳する。"
+      },
+      "navigation": {
+        "description": "記事を変更する"
       }
     }
   },

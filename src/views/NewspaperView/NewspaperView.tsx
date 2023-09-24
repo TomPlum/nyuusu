@@ -66,6 +66,8 @@ const NewspaperView = () => {
           feed={details}
           onNext={moveRight}
           onPrevious={moveLeft}
+          articleCount={articles.length}
+          currentArticleId={selectedArticledId}
           article={articles[selectedArticledId]}
         />
       )}

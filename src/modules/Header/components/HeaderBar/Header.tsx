@@ -7,7 +7,7 @@ import { AppBar, Box, Container, IconButton, Menu, MenuItem, Toolbar, Typography
 import SettingsButton from "modules/Header/components/SettingsButton"
 import React, { useCallback, useState } from "react"
 import MenuIcon from '@mui/icons-material/Menu'
-import { Feed, Newspaper, Settings } from "@mui/icons-material"
+import { Dashboard, Newspaper, Settings } from "@mui/icons-material"
 
 const Header = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'header' })
@@ -60,7 +60,7 @@ const Header = () => {
               </MenuItem>
 
               <MenuItem key='articles' onClick={handleCloseNavMenu}>
-                <Feed />
+                <Dashboard />
                 <Typography textAlign="center">{t('menu.articles')}</Typography>
               </MenuItem>
 

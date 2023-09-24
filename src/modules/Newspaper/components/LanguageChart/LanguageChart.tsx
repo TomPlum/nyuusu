@@ -17,12 +17,16 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
 
   const renderLabel = useCallback(
     ({
-      cx, cy, midAngle, innerRadius, outerRadius, index
+      cx, cy, midAngle, innerRadius, outerRadius, index, value
     }: CustomLabelArgs) => {
       const radian = Math.PI / 180
       const radius = innerRadius + (outerRadius - innerRadius) * 0.7
       const x = cx + radius * Math.cos(-midAngle * radian)
       const y = cy + radius * Math.sin(-midAngle * radian)
+
+      if (value <= 0) {
+        return null
+      }
 
       return (
         <text x={x} y={y} fill="white" textAnchor="middle" dominantBaseline="central" className={styles.label}>
@@ -48,7 +52,7 @@ const LanguageChart = ({ text }: LanguageChartProps) => {
           className={styles.pie}
           isAnimationActive={false}
         >
-          {data.map((datum, i) => {
+          {data.filter(datum => datum.value > 0).map((datum, i) => {
             return (
               <Cell
                 key={`cell-${datum.name}`}
