@@ -42,7 +42,18 @@
       }
     }
   },
+  "views": {
+    "newspaper": {
+      "not-found": {
+        "title": "エラー",
+        "desc": "IDが{{ id }}の記事が見つかりません。"
+      }
+    }
+  },
   "newspaper": {
+    "banner": {
+      "anonymous": "匿名出版社"
+    },
     "headline": {
       "copy": {
         "label": "コピーの見出し",

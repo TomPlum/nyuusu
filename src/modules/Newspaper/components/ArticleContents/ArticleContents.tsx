@@ -9,20 +9,10 @@ export const ArticleContents = ({ contents, disclaimer, sourceUrl }: ArticleCont
     <div className={styles.body}>
       <p className={styles.label}>{t('label')}</p>
 
-      {contents ? (
-        <>
-          <p className={styles.text}>
-            {t('lorem')}
-          </p>
+      <p className={styles.text}>
+        {contents ?? t('default')}
+      </p>
 
-          <p>{t('lorem2')}</p>
-        </>
-      ) : (
-        <p className={styles.text}>
-          {contents ?? t('default')}
-        </p>
-      )}
-        
       <p>
         <a href={sourceUrl} target='_blank' rel='noreferrer' className={styles.link}>
           {t('see-more')}

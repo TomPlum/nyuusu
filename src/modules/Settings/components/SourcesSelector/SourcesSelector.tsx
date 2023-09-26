@@ -14,10 +14,7 @@ export const SourcesSelector = () => {
   const { sources, setSources } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'sources' })
 
-  const onSelect = useCallback((e: SyntheticEvent, source: NewsSource, checked: boolean) => {
-    e.stopPropagation()
-    e.preventDefault()
-    
+  const onSelect = useCallback((_e: SyntheticEvent, source: NewsSource, checked: boolean) => {
     const current = [...sources]
 
     if (checked) {
@@ -38,7 +35,7 @@ export const SourcesSelector = () => {
             value={source}
             label={t(source)}
             labelPlacement="end"
-            checked={source.includes(source)}
+            checked={sources.includes(source)}
             onChange={(e, checked) => onSelect(e, source, checked)}
             control={<Checkbox inputProps={{ 'aria-label': source }} color='default' />}
           />

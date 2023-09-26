@@ -3,10 +3,12 @@ import styles from './NewspaperView.module.scss'
 import Newspaper from "modules/Newspaper/components/Newspaper"
 import { useSearchParams } from "react-router-dom"
 import useNewsFeed from "modules/Article/hooks/useNewsFeed"
+import { useTranslation } from "react-i18next"
 
 const NewspaperView = () => {
-  const [params, setParams] = useSearchParams()
   const { articles, loading } = useNewsFeed()
+  const [params, setParams] = useSearchParams()
+  const { t } = useTranslation('translation', { keyPrefix: 'views.newspaper' })
 
   useEffect(() => {
     if (articles && !params.has('article')) {
@@ -23,6 +25,10 @@ const NewspaperView = () => {
 
     return 0
   }, [params])
+
+  const selectedArticlesExists = useMemo(() => {
+    return Boolean(articles[selectedArticledId])
+  }, [articles, selectedArticledId])
 
   const moveLeft = useCallback(() => {
     if (!articles) {
@@ -56,8 +62,20 @@ const NewspaperView = () => {
       {loading && (
         <div></div> // TODO: Create loading skeleton
       )}
+
+      {/* TODO: Shall we just remove this, parameterise the ErrorView and use that? */}
+      {!selectedArticlesExists && (
+        <div className={styles.noArticle}>
+          <p className={styles.title}>
+            {t('not-found.title')}
+          </p>
+          <p className={styles.desc}>
+            {t('not-found.desc', { id: selectedArticledId })}
+          </p>
+        </div>
+      )}
       
-      {!loading && articles && (
+      {!loading && articles && selectedArticlesExists && (
         <Newspaper
           onNext={moveRight}
           onPrevious={moveLeft}

@@ -5,7 +5,7 @@ import { useMemo } from "react"
 import { NewsSource } from "modules/Settings/context/types.ts"
 
 const useNewsCatcherArticles = (): NewsFeed => {
-  const { data, isLoading, fetchStatus } = useGetLatestHeadlines()
+  const { data, isInitialLoading } = useGetLatestHeadlines()
 
   const articles: NewsArticle[] | undefined = useMemo(() => {
     if (data) {
@@ -31,7 +31,7 @@ const useNewsCatcherArticles = (): NewsFeed => {
 
   return  {
     articles,
-    loading: isLoading && fetchStatus !== 'idle',
+    loading: isInitialLoading,
     source: NewsSource.NEWSCATCHER_API
   }
 }

@@ -48,7 +48,18 @@
       }
     }
   },
+  "views": {
+    "newspaper": {
+      "not-found": {
+        "title": "Error",
+        "desc": "An article with the ID {{ id }} could not be found."
+      }
+    }
+  },
   "newspaper": {
+    "banner": {
+      "anonymous": "Anonymous"
+    },
     "headline": {
       "copy": {
         "label": "Copy headline",
