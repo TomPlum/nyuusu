@@ -1,10 +1,10 @@
 import { useMemo } from "react"
 import enLocale from "date-fns/locale/en-GB"
 import jpLocale from "date-fns/locale/ja"
-import useNewsContext from "context"
+import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
 const useLocale = () => {
-  const { language } = useNewsContext()
+  const { language } = useSettingsContext()
     
   return useMemo(() => {
     switch (language) {
