@@ -13,5 +13,9 @@ export const SettingsContext = createContext<SettingsContextBag>({
   language: 'jp',
   setLanguage: () => {
     console.debug('NewsContext not initialized. Tried to invoke setLanguage().')
+  },
+  font: 'Inter',
+  setFont: () => {
+    console.debug('NewsContext not initialized. Tried to invoke setFont().')
   }
 })

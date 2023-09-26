@@ -89,7 +89,12 @@
   "settings": {
     "title": "Settings",
     "font": "Font",
+    "font-label": "Active",
     "language": "Language",
     "sources": "Sources"
+  },
+  "sources": {
+    "mainichi-rss-flash-news": "Mainichi RSS Flash News",
+    "newscatcher-api": "Newscatcher API"
   }
 }

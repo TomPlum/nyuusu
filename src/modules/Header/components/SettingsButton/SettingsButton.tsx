@@ -10,8 +10,8 @@ const SettingsButton = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'header' })
 
   const handleClick = useCallback(() => {
-    setOpen(true)
-  }, [setOpen])
+    setOpen(!open)
+  }, [open, setOpen])
 
   return (
     <div className={styles.button} title={t('settings')} onClick={handleClick}>

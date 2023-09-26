@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import { SourcesSelector } from "modules/Settings/components/SourcesSelector/SourcesSelector.tsx"
 import LanguageControls from "modules/Settings/components/LanguageControls"
+import FontSelector from "modules/Settings/components/FontSelector"
 
 const SettingsDrawer = () => {
   const { open, setOpen } = useSettingsContext()
@@ -14,9 +15,9 @@ const SettingsDrawer = () => {
       open={open}
       anchor='right'
       variant='temporary'
+      disableEnforceFocus
       onClose={() => setOpen(false)}
       classes={{ root: styles.drawer }}
-      SlideProps={{ onAnimationEnd: () => setOpen(false) }}
     >
       <div className={styles.content}>
         <h2 className={styles.title}>
@@ -27,6 +28,8 @@ const SettingsDrawer = () => {
           <p className={styles.heading}>
             {t('font')}
           </p>
+
+          <FontSelector />
         </div>
 
         <div className={styles.section}>

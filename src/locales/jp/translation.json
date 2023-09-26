@@ -82,7 +82,12 @@
   "settings": {
     "title": "設定",
     "font": "フォント",
+    "font-label": "アクティブ",
     "language": "言語",
     "sources": "情報源"
+  },
+  "sources": {
+    "mainichi-rss-flash-news": "毎日新聞社 (ニュース速報)",
+    "newscatcher-api": "ニュースキャッチャーAPI"
   }
 }

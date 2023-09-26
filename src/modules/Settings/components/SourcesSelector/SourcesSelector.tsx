@@ -3,6 +3,7 @@ import styles from './SourcesSelector.module.scss'
 import { NewsSource } from "modules/Settings/context/types.ts"
 import { SyntheticEvent, useCallback } from "react"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
+import { useTranslation } from "react-i18next"
 
 const useSources = () => {
   return Object.values(NewsSource)
@@ -11,6 +12,7 @@ const useSources = () => {
 export const SourcesSelector = () => {
   const availableSources = useSources()
   const { sources, setSources } = useSettingsContext()
+  const { t } = useTranslation('translation', { keyPrefix: 'sources' })
 
   const onSelect = useCallback((e: SyntheticEvent, source: NewsSource, checked: boolean) => {
     e.stopPropagation()
@@ -32,15 +34,13 @@ export const SourcesSelector = () => {
       {availableSources.map(source => {
         return (
           <FormControlLabel
-            value={source}
             key={source}
-            control={<Checkbox
-              inputProps={{ 'aria-label': source }}
-            />}
-            onChange={(e, checked) => onSelect(e, source, checked)}
-            checked={source.includes(source)}
-            label={source}
+            value={source}
+            label={t(source)}
             labelPlacement="end"
+            checked={source.includes(source)}
+            onChange={(e, checked) => onSelect(e, source, checked)}
+            control={<Checkbox inputProps={{ 'aria-label': source }} color='default' />}
           />
         )
       })}

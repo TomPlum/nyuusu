@@ -7,9 +7,11 @@ export interface SettingsContextBag {
     setSources: (sources: NewsSource[]) => void
     language: Language
     setLanguage: (language: Language) => void
+    font: string
+    setFont: (font: string) => void
 }
 
 export enum NewsSource {
-    MAINICHI_RSS_FLASH_NEWS = '毎日新聞社',
-    NEWSCATCHER_API = 'Newscatcher API'
+    MAINICHI_RSS_FLASH_NEWS = 'mainichi-rss-flash-news',
+    NEWSCATCHER_API = 'newscatcher-api'
 }

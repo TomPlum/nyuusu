@@ -6,6 +6,7 @@ import { Language } from "modules/Settings/components/LanguageControls/types.ts"
 const SettingsContextProvider = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(false)
   const [language, setLanguage] = useState<Language>('jp')
+  const [font, setFont] = useState('Inter')
   const [sources, setSources] = useState<NewsSource[]>([NewsSource.MAINICHI_RSS_FLASH_NEWS])
 
   const values: SettingsContextBag = useMemo(() => ({
@@ -14,8 +15,10 @@ const SettingsContextProvider = ({ children }: PropsWithChildren) => {
     sources,
     setSources,
     language,
-    setLanguage
-  }), [open, sources, language])
+    setLanguage,
+    font,
+    setFont
+  }), [open, sources, language, font])
 
   return (
     <SettingsContext.Provider value={values}>
