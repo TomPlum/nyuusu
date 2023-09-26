@@ -8,15 +8,15 @@ import TranslateArticle from "modules/Newspaper/components/TranslateArticle"
 import NavigationArticle from "modules/Newspaper/components/NavigationArticle"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 
-const Newspaper = ({ article, articleCount, currentArticleId, feed, onNext, onPrevious }: NewspaperProps) => {
+const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   return (
     <div className={styles.newspaper} data-testid='newspaper'>
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
-            title={feed.title}
+            title={article.feedTitle ?? ''} // TODO: Set default title?
             publishDate={article.publishDate}
-            publisher={feed.publisher ?? 'Unknown'}
+            publisher={article.publisher ?? 'Unknown'}
           />
         </Grid>
 
@@ -26,10 +26,11 @@ const Newspaper = ({ article, articleCount, currentArticleId, feed, onNext, onPr
 
         <Grid xs={12} justifyContent='center' alignItems='center'>
           <ArticleContents
-            disclaimer={feed.rights}
+            contents={article.body}
+            disclaimer={article.rights}
             sourceUrl={article.link}
-            publisher={feed.publisher}
-          /> {/* TODO: Pass contents in here once got from an API */}
+            publisher={article.publisher}
+          />
         </Grid>
 
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>

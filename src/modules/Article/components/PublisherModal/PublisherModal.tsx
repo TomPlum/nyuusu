@@ -6,7 +6,7 @@ import PublisherButton from "modules/Article/components/PublisherButton"
 import { RssFeed } from "@mui/icons-material"
 import { useTranslation } from "react-i18next"
 
-const PublisherModal = ({ feed, onClose }: PublisherModalProps) => {
+const PublisherModal = ({ article, onClose }: PublisherModalProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'article.publisher' })
 
   return (
@@ -20,26 +20,28 @@ const PublisherModal = ({ feed, onClose }: PublisherModalProps) => {
     >
       <DialogContent className={styles.content}>
         <div className={styles.header}>
-          <PublisherButton name={feed.publisher} />
-          <p>{feed.title}</p>
+          <PublisherButton name={article.publisher} />
+          <p>{article.title}</p>
         </div>
 
-        <div className={styles.section}>
-          <p className={styles.label}>
-            <RssFeed className={styles.rss} />
-            <span>{t('rss.label')}</span>
-          </p>
+        {article.rssFeedLink && (
+          <div className={styles.section}>
+            <p className={styles.label}>
+              <RssFeed className={styles.rss} />
+              <span>{t('rss.label')}</span>
+            </p>
 
-          <p className={styles.desc}>
-            <span>{t('rss.desc')}</span>
-            <span>{' '}</span>
-            <a href={feed.rssFeedLink} target='_blank' rel='noreferrer'>
-              {feed.rssFeedLink}
-            </a>
-          </p>
-        </div>
+            <p className={styles.desc}>
+              <span>{t('rss.desc')}</span>
+              <span>{' '}</span>
+              <a href={article.rssFeedLink} target='_blank' rel='noreferrer'>
+                {article.rssFeedLink}
+              </a>
+            </p>
+          </div>
+        )}
 
-        <p>{feed.rights}</p>
+        <p>{article.rights}</p>
       </DialogContent>
     </Dialog>
   )

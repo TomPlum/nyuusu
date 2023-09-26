@@ -14,8 +14,8 @@ const Loading = () => {
         <LinearProgress color='info' variant='indeterminate' className={styles.loading} />
       </div>
 
-      <div className={styles.grid}>
-        <NewsGrid>
+      <div className={styles.gridWrapper}>
+        <NewsGrid className={styles.grid}>
           {[...Array(9)].map((_num, i) => {
             return (
               <ArticleSkeleton key={i} />

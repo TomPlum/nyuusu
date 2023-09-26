@@ -1,7 +1,5 @@
-import { NewsFeedDetails } from "modules/Article/hooks/useArticles/types.ts"
+import { NewsArticle } from "modules/Article/components/Article/types.ts"
 
 export interface ArticleHeaderProps {
-    publisher?: string
-    publishDate: string
-    feed: NewsFeedDetails
+    article: NewsArticle
 }

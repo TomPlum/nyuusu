@@ -1,6 +1,6 @@
-import { NewsFeedDetails } from "modules/Article/hooks/useArticles/types.ts"
+import { NewsArticle } from "modules/Article/components/Article/types.ts"
 
 export interface PublisherModalProps {
-    feed: NewsFeedDetails
+    article: NewsArticle
     onClose: () => void
 }

@@ -1,10 +1,9 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
 import styles from './SourcesSelector.module.scss'
+import { NewsSource } from "modules/Settings/context/types.ts"
 
 const useSources = () => {
-  return [
-    '毎日新聞社'
-  ]
+  return Object.values(NewsSource)
 }
 
 export const SourcesSelector = () => {

@@ -1,9 +1,9 @@
-import { Skeleton, Stack } from "@mui/material"
+import { Skeleton } from "@mui/material"
 import styles from './ArticleSkeleton.module.scss'
 
 const ArticleSkeleton = () => {
   return (
-    <Stack spacing={1} className={styles.card}>
+    <div className={styles.card}>
       <div className={styles.header}>
         <div className={styles.left}>
           <Skeleton
@@ -50,7 +50,7 @@ const ArticleSkeleton = () => {
           <Skeleton width={30} height={30} animation='wave' variant='circular' />
         </div>
       </div>
-    </Stack>
+    </div>
   )
 }
 

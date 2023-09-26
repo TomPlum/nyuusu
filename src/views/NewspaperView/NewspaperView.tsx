@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo } from "react"
 import styles from './NewspaperView.module.scss'
-import useArticles from "modules/Article/hooks/useArticles"
+import useMainichiArticles from "modules/Article/hooks/useMainichiArticles"
 import Newspaper from "modules/Newspaper/components/Newspaper"
 import { useSearchParams } from "react-router-dom"
 
 const NewspaperView = () => {
   const [params, setParams] = useSearchParams()
-  const { articles, details } = useArticles()
+  const { articles } = useMainichiArticles()
 
   useEffect(() => {
     if (articles && !params.has('article')) {
@@ -50,20 +50,10 @@ const NewspaperView = () => {
     setParams(`article=${selectedArticledId + 1}`)
   }, [articles, selectedArticledId, setParams])
 
-  const progress = useMemo(() => {
-    if (articles) {
-      const percentage =  ((selectedArticledId + 1) / articles.length) * 100
-      return Math.round(percentage)
-    }
-
-    return 0
-  }, [selectedArticledId, articles])
-
   return (
     <div className={styles.singleView}>
       {articles && (
         <Newspaper
-          feed={details}
           onNext={moveRight}
           onPrevious={moveLeft}
           articleCount={articles.length}

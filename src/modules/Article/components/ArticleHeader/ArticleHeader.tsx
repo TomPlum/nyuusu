@@ -5,21 +5,21 @@ import PublisherButton from "modules/Article/components/PublisherButton"
 import PublisherModal from "modules/Article/components/PublisherModal"
 import PublicationDate from "modules/Article/components/PublicationDate"
 
-const ArticleHeader = ({ publisher, publishDate, feed }: ArticleHeaderProps) => {
+const ArticleHeader = ({ article }: ArticleHeaderProps) => {
   const [showPublisherModal, setShowPublisherModal] = useState(false)
     
   return (
     <div className={styles.header}>
       <PublisherButton
-        name={publisher}
+        name={article.publisher}
         className={styles.author}
         onClick={() => setShowPublisherModal(true)}
       />
 
-      <PublicationDate publishDate={publishDate} />
+      <PublicationDate publishDate={article.publishDate} />
 
       {showPublisherModal && (
-        <PublisherModal feed={feed} onClose={() => setShowPublisherModal(false)} />
+        <PublisherModal article={article} onClose={() => setShowPublisherModal(false)} />
       )}
     </div>
   )

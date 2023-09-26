@@ -14,7 +14,6 @@ import TagsButton from "modules/Article/components/TagsButton"
 
 const Article = React.forwardRef(({
   article,
-  feed,
   loading,
   className,
   onClick,
@@ -35,11 +34,7 @@ const Article = React.forwardRef(({
 
       {!loading && (
         <div className={styles.content}>
-          <ArticleHeader
-            feed={feed}
-            publisher={feed.publisher}
-            publishDate={article.publishDate}
-          />
+          <ArticleHeader article={article} />
 
           <div className={styles.body}>
             <p className={styles.label}>
@@ -57,7 +52,7 @@ const Article = React.forwardRef(({
             </div>
 
             <div className={styles.right}>
-              <TagsButton tags={[feed.title]} />
+              <TagsButton tags={[article.title]} />
               <TranslateButton text={article.title} />
               <RatingBadge rating={difficulty} />
             </div>

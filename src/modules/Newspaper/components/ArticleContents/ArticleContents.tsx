@@ -2,18 +2,26 @@ import { ArticleContentsProps } from "modules/Newspaper/components/ArticleConten
 import { useTranslation } from "react-i18next"
 import styles from './ArticleContents.module.scss'
 
-export const ArticleContents = ({ disclaimer, sourceUrl }: ArticleContentsProps) => {
+export const ArticleContents = ({ contents, disclaimer, sourceUrl }: ArticleContentsProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.contents' })
 
   return (
     <div className={styles.body}>
       <p className={styles.label}>{t('label')}</p>
 
-      <p className={styles.text}>
-        {t('lorem')}
-      </p>
+      {contents ? (
+        <>
+          <p className={styles.text}>
+            {t('lorem')}
+          </p>
 
-      <p>{t('lorem2')}</p>
+          <p>{t('lorem2')}</p>
+        </>
+      ) : (
+        <p className={styles.text}>
+          {contents ?? t('default')}
+        </p>
+      )}
         
       <p>
         <a href={sourceUrl} target='_blank' rel='noreferrer' className={styles.link}>
