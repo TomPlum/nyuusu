@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo } from "react"
 import styles from './NewspaperView.module.scss'
-import useMainichiArticles from "modules/Article/hooks/useMainichiArticles"
 import Newspaper from "modules/Newspaper/components/Newspaper"
 import { useSearchParams } from "react-router-dom"
+import useNewsFeed from "modules/Article/hooks/useNewsFeed"
 
 const NewspaperView = () => {
   const [params, setParams] = useSearchParams()
-  const { articles } = useMainichiArticles()
+  const { articles, loading } = useNewsFeed()
 
   useEffect(() => {
     if (articles && !params.has('article')) {
@@ -50,9 +50,14 @@ const NewspaperView = () => {
     setParams(`article=${selectedArticledId + 1}`)
   }, [articles, selectedArticledId, setParams])
 
+
   return (
     <div className={styles.singleView}>
-      {articles && (
+      {loading && (
+        <div></div> // TODO: Create loading skeleton
+      )}
+      
+      {!loading && articles && (
         <Newspaper
           onNext={moveRight}
           onPrevious={moveLeft}

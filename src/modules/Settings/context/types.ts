@@ -1,8 +1,12 @@
+import { Language } from "modules/Settings/components/LanguageControls/types.ts"
+
 export interface SettingsContextBag {
     open: boolean
     setOpen: (open: boolean) => void
     sources: NewsSource[]
     setSources: (sources: NewsSource[]) => void
+    language: Language
+    setLanguage: (language: Language) => void
 }
 
 export enum NewsSource {

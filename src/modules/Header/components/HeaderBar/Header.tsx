@@ -2,7 +2,6 @@ import styles from './Header.module.scss'
 import { useTranslation } from "react-i18next"
 import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import ViewControls from "modules/Header/components/ViewControls"
-import LanguageControls from "modules/Header/components/LanguageControls"
 import { AppBar, Box, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material"
 import SettingsButton from "modules/Header/components/SettingsButton"
 import React, { useCallback, useState } from "react"
@@ -73,7 +72,6 @@ const Header = () => {
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }} className={styles.right}>
             <ViewControls />
-            <LanguageControls />
             <SettingsButton />
             <CurrentDateTime className={styles.clock} />
           </Box>

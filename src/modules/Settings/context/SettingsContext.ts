@@ -10,4 +10,8 @@ export const SettingsContext = createContext<SettingsContextBag>({
   setSources: () => {
     console.debug('SettingsContext is not initialised. Tried to invoke setSources().')
   },
+  language: 'jp',
+  setLanguage: () => {
+    console.debug('NewsContext not initialized. Tried to invoke setLanguage().')
+  }
 })

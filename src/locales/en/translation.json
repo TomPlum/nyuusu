@@ -87,9 +87,9 @@
     "help": "Return home"
   },
   "settings": {
-    "title": "設定",
-    "font": "フォント",
-    "language": "言語",
-    "sources": "情報源"
+    "title": "Settings",
+    "font": "Font",
+    "language": "Language",
+    "sources": "Sources"
   }
 }

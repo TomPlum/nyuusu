@@ -2,4 +2,6 @@
 
 .wrapper {
   color: $black-ink;
+  display: flex;
+  flex-direction: column;
 }

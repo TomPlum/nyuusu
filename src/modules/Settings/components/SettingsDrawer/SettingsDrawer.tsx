@@ -3,6 +3,7 @@ import styles from './SettingsDrawer.module.scss'
 import { useTranslation } from "react-i18next"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import { SourcesSelector } from "modules/Settings/components/SourcesSelector/SourcesSelector.tsx"
+import LanguageControls from "modules/Settings/components/LanguageControls"
 
 const SettingsDrawer = () => {
   const { open, setOpen } = useSettingsContext()
@@ -32,6 +33,8 @@ const SettingsDrawer = () => {
           <p className={styles.heading}>
             {t('language')}
           </p>
+
+          <LanguageControls />
         </div>
 
         <div className={styles.section}>

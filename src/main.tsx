@@ -10,6 +10,7 @@ import SettingsContextProvider from "modules/Settings/context"
 import { RouterProvider } from "react-router-dom"
 import { router } from "./router.tsx"
 import ToastProvider from "modules/Toast/ToastProvider.tsx"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <NewsContextProvider>
         <SettingsContextProvider>
           <ToastProvider>
