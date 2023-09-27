@@ -26,7 +26,7 @@ const SettingsDrawer = () => {
 
         <div className={styles.section}>
           <p className={styles.heading}>
-            {t('font')}
+            {t('font.heading')}
           </p>
 
           <FontSelector />

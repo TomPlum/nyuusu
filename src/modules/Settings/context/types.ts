@@ -1,4 +1,5 @@
 import { Language } from "modules/Settings/components/LanguageControls/types.ts"
+import { Font } from "modules/Settings/components/FontSelector/types.ts"
 
 export interface SettingsContextBag {
     open: boolean
@@ -7,8 +8,8 @@ export interface SettingsContextBag {
     setSources: (sources: NewsSource[]) => void
     language: Language
     setLanguage: (language: Language) => void
-    font: string
-    setFont: (font: string) => void
+    font: Font
+    setFont: (font: Font) => void
 }
 
 export enum NewsSource {

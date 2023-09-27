@@ -99,8 +99,15 @@
   },
   "settings": {
     "title": "Settings",
-    "font": "Font",
-    "font-label": "Active",
+    "font": {
+      "heading": "Font",
+      "label" : "Kanji & Kana",
+      "names": {
+        "appli-mincho": "Appli Mincho",
+        "k-gothic": "KGothic",
+        "sanafon-mugi": "Sanafon Mugi"
+      }
+    },
     "language": "Language",
     "sources": "Sources"
   },

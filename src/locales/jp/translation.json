@@ -92,8 +92,15 @@
   },
   "settings": {
     "title": "設定",
-    "font": "フォント",
-    "font-label": "アクティブ",
+    "font": {
+      "heading": "フォント",
+      "label" : "漢字・かな",
+      "names": {
+        "appli-mincho": "アプリ明朝",
+        "k-gothic": "Kゴシック",
+        "sanafon-mugi": "さなフォン麦"
+      }
+    },
     "language": "言語",
     "sources": "情報源"
   },

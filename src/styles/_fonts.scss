@@ -18,3 +18,24 @@
   font-weight: normal;
   src: local("Steelfish"), url("/src/fonts/Steelfish.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "AppliMincho";
+  font-style: normal;
+  font-weight: normal;
+  src: local("AppliMincho"), url("/src/fonts/AppliMincho.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "KGothic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("KGothic"), url("/src/fonts/KGothic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SanafonMugi";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SanafonMugi"), url("/src/fonts/SanafonMugi.ttf") format("truetype");
+}

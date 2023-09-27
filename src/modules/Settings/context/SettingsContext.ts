@@ -1,5 +1,6 @@
 import { createContext } from "react"
 import { NewsSource, SettingsContextBag } from "modules/Settings/context/types.ts"
+import { FONTS } from "modules/Settings/components/FontSelector/types.ts"
 
 export const SettingsContext = createContext<SettingsContextBag>({
   open: false,
@@ -14,7 +15,7 @@ export const SettingsContext = createContext<SettingsContextBag>({
   setLanguage: () => {
     console.debug('NewsContext not initialized. Tried to invoke setLanguage().')
   },
-  font: 'Inter',
+  font: FONTS[0],
   setFont: () => {
     console.debug('NewsContext not initialized. Tried to invoke setFont().')
   }

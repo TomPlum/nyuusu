@@ -1,30 +1,27 @@
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import { Autocomplete, TextField } from "@mui/material"
-import { Font } from "./types.ts"
-import { SyntheticEvent, useCallback, useMemo } from "react"
+import { Font, FONTS } from "./types.ts"
+import { SyntheticEvent, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 
 const FontSelector = () => {
   const { font, setFont } = useSettingsContext()
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' })
+  const { t } = useTranslation('translation', { keyPrefix: 'settings.font' })
 
-  const handleChange = useCallback((_e: SyntheticEvent, value: string | null) => {
+  const handleChange = useCallback((_e: SyntheticEvent, value: Font | null) => {
     if (value) {
       setFont(value)
     }
   }, [setFont])
 
-  const options = useMemo(() => {
-    return Object.values(Font).map(name => name.valueOf())
-  }, [])
-
   return (
     <div>
       <Autocomplete
         value={font}
-        options={options}
-        id={t('font-label')}
+        options={FONTS}
+        id={t('label')}
         onChange={handleChange}
+        getOptionLabel={option => t(`names.${option.slug}`)}
         renderInput={(params => <TextField {...params} label={params.id} />)}
       />
     </div>
