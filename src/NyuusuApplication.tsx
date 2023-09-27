@@ -12,7 +12,6 @@ const NyuusuApplication = () => {
 
       <div className={styles.content}>
         <Outlet />
-
         <SettingsDrawer />
       </div>
 

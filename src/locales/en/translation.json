@@ -54,6 +54,16 @@
         "title": "Error",
         "desc": "An article with the ID {{ id }} could not be found."
       }
+    },
+    "home": {
+      "newspaper": {
+        "title": "Newspaper",
+        "desc": "A full-page newspaper article excerpt."
+      },
+      "articles": {
+        "title": "Articles",
+        "desc": "A library of short article headlines."
+      }
     }
   },
   "newspaper": {

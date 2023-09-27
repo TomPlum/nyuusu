@@ -48,6 +48,16 @@
         "title": "エラー",
         "desc": "IDが{{ id }}の記事が見つかりません。"
       }
+    },
+    "home": {
+      "newspaper": {
+        "title": "新聞",
+        "desc": "新聞記事の抜粋。"
+      },
+      "articles": {
+        "title": "記事",
+        "desc": "短い記事の見出しのライブラリ。"
+      }
     }
   },
   "newspaper": {
