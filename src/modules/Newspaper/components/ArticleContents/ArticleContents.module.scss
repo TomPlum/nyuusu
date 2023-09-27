@@ -1,8 +1,10 @@
 @import "styles/mixins";
 @import "styles/colours";
+@import "styles/viewports";
 
 .body {
   @include corner-borders(20%);
+
   padding: 20px 30px;
   color: $black-ink;
   margin-bottom: 80px;
@@ -21,5 +23,16 @@
     text-align: end;
     color: $muted;
     font-size: 0.8em;
+  }
+
+  @include phone {
+    margin: 0 5px;
+    padding: 20px;
+
+    .disclaimer {
+      font-size: 0.6em;
+      max-width: 50%;
+      margin-left: auto;
+    }
   }
 }
