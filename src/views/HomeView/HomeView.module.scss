@@ -1,5 +1,10 @@
 @import "styles/colours";
 
+.view {
+  height: 100%;
+  width: 100%;
+}
+
 .wrapper {
   color: $black-ink;
   display: flex;
