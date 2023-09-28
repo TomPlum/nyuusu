@@ -33,6 +33,7 @@
     "recharts": "^2.8.0",
     "rss-parser": "^3.13.0",
     "stream-browserify": "^3.0.0",
+    "typewriter-effect": "^2.21.0",
     "url": "^0.11.3"
   },
   "devDependencies": {

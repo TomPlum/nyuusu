@@ -3,12 +3,16 @@
 .view {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
   color: $black-ink;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -16,10 +20,21 @@
 
 .left {
   display: flex;
-  justify-content: flex-end;
 }
 
 .right {
   display: flex;
-  justify-content: flex-start;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.typewriter, .cursor {
+  font-size: 5em;
 }

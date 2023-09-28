@@ -1,14 +1,10 @@
+.scene {
+  pointer-events: none;
+}
+
 li {
   list-style-type: none;
 }
-
-.slider-box {
-  float: right;
-  margin: 10px 20px;
-  position: relative;
-  z-index: 1000;
-}
-
 
 .specks {
   position: absolute;
@@ -21,7 +17,7 @@ li {
   opacity: 0;
   height: 4px;
   width: 4px;
-  background: url('http://i1272.photobucket.com/albums/y391/matthew_williams10/speck_zpsu9xym9zl.png');
+  background: url('https://i1272.photobucket.com/albums/y391/matthew_williams10/speck_zpsu9xym9zl.png');
   background-size: cover;
   position: absolute;
   border-radius: 10px;
@@ -40,23 +36,22 @@ li {
 }
 
 .img-1 {
-  opacity: 0.25;
+  opacity: 0.15;
   background: url('https://image.ibb.co/jcTvpv/dust1.jpg') repeat;
-  animation-duration: 600s;
+  animation-duration: 720s;
 }
 
 .img-2 {
-  opacity: 0.2;
+  opacity: 0.1;
   background: url('https://image.ibb.co/goU1Uv/dust2.jpg') repeat;
   animation-duration: 450s;
 }
 
 .img-3 {
-  opacity: 0.15;
+  opacity: 0.075;
   background: url('https://image.ibb.co/cymRwa/dust3.jpg') repeat;
   animation-duration: 350s;
 }
-/*ANIMATIONS*/
 
 @keyframes twinkle {
   0% {

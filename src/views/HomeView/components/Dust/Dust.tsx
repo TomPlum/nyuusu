@@ -17,7 +17,6 @@ const Dust = () => {
         <div  className={classNames(styles.img, styles['img-3'])} />
       </li>
     </ul>
-
   )
 }
 

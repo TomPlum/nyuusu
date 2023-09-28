@@ -5,16 +5,30 @@ import { useNavigate } from "react-router-dom"
 import styles from './HomeView.module.scss'
 import Grid from "@mui/material/Unstable_Grid2"
 import Dust from "views/HomeView/components/Dust"
+import Typewriter from 'typewriter-effect'
 
 const HomeView = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const navigate = useNavigate()
+  const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
 
   return (
     <div className={styles.view}>
       <Dust />
 
-      <Grid container className={styles.wrapper} sx={{ justifyContent: 'center' }} spacing={5}>
+      <Grid container className={styles.wrapper} sx={{ flexDirection: 'column', flexGrow: 1 }} spacing={5}>
+        <Grid xs={12} className={styles.titleContainer}>
+          <Typewriter
+            options={{
+              loop: true,
+              autoStart: true,
+              delay: 'natural',
+              strings: t('title', { returnObjects: true }) ,
+              wrapperClassName: styles.typewriter,
+              cursorClassName: styles.cursor
+            }}
+          />
+        </Grid>
+          
         <Grid xs={12} sm={6} className={styles.left}>
           <ViewTile
             Icon={Newspaper}
