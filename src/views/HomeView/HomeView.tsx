@@ -15,7 +15,7 @@ const HomeView = () => {
     <div className={styles.view}>
       <Dust />
 
-      <Grid container className={styles.wrapper} sx={{ flexDirection: 'column', flexGrow: 1 }} spacing={5}>
+      <Grid container className={styles.wrapper} sx={{ flexGrow: 1 }} spacing={5}>
         <Grid xs={12} className={styles.titleContainer}>
           <Typewriter
             options={{
