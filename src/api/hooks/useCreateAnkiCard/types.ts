@@ -1,17 +1,11 @@
 export interface CreateAnkiCardParams {
     note: {
-        deckName: "Nyusu",
-        modelName: "Basic",
+        deckName: string,
+        modelName: string,
         fields: {
-            Front: string,
-            Back: string
+            Front: Record<string, string>,
+            Back: Record<string, string>
         },
         tags: string[],
     }
-}
-
-export interface CreateAnkiCardRequest {
-    action: 'addNote',
-    version: 6,
-    params: CreateAnkiCardParams
 }

@@ -7,6 +7,7 @@ import RatingArticle from "modules/Newspaper/components/RatingArticle"
 import TranslateArticle from "modules/Newspaper/components/TranslateArticle"
 import NavigationArticle from "modules/Newspaper/components/NavigationArticle"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
+import AnkiArticle from "modules/Newspaper/components/AnkiArticle"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   return (
@@ -49,6 +50,10 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
               onPrevious={onPrevious}
               article={currentArticleId}
             />
+          </Grid>
+
+          <Grid xs={12} lg={4}>
+            <AnkiArticle article={article} />
           </Grid>
         </Grid>
       </Grid>

@@ -1,17 +1,19 @@
 import { AnkiResponse } from "hooks/useAnki/types.ts"
 import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 import { useToastContext } from "modules/Toast/useToastContext.ts"
 import { useTranslation } from "react-i18next"
 import { CreateAnkiCardParams } from "api/hooks/useCreateAnkiCard/types.ts"
 
 const useAnki = (): AnkiResponse => {
   const { fireToast } = useToastContext()
+  const [loading, setLoading] = useState(false)
   const { mutateAsync: createCardApi } = useCreateAnkiCard()
   const { t } = useTranslation('translation', { keyPrefix: 'anki' })
 
   const createCard = useCallback(async (args: CreateAnkiCardParams) => {
     try {
+      setLoading(true)
       await createCardApi(args)
 
       fireToast({
@@ -21,12 +23,15 @@ const useAnki = (): AnkiResponse => {
     } catch (e) {
       fireToast({
         type: 'error',
-        message: t('create-card.toast.failure')
+        message: e ? String(e) : t('create-card.toast.failure')
       })
     }
+
+    setLoading(false)
   }, [fireToast, createCardApi, t])
 
   return {
+    loading,
     createCard
   }
 }

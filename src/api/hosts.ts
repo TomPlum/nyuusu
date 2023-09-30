@@ -14,13 +14,13 @@ export const hosts: Record<string, ApiHosts> = {
     newsCatcherApi: '',
     japanTimesRss: '',
     asahi: '',
-    anki: '127.0.0.1:8765'
+    anki: 'http://localhost:8765'
   },
   production: {
     newsApi: 'https://newsapi.org',
     mainichiRss: 'https://mainichi.jp/rss/etc',
     japanTimesRss: 'https://japantimes.co.jp/feed',
-    asahi: 'http://rss.asahi.com/rss/asahi',
+    asahi: 'https://rss.asahi.com/rss/asahi',
     newsCatcherApi: import.meta.env.NEWSCATCHER_API_HOST,
     anki: '127.0.0.1:8765'
   }

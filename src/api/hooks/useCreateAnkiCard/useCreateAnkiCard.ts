@@ -1,6 +1,6 @@
 import useAnkiConnect from "api/clients/useAnkiConnect"
 import { useCallback } from "react"
-import { CreateAnkiCardParams, CreateAnkiCardRequest } from "api/hooks/useCreateAnkiCard/types.ts"
+import { CreateAnkiCardParams } from "api/hooks/useCreateAnkiCard/types.ts"
 import { queryKeys } from "api/queryKeys.ts"
 import { useMutation } from "@tanstack/react-query"
 
@@ -9,14 +9,10 @@ export const useCreateAnkiCardMutationKey = () => {
 }
 
 const useCreateAnkiCard = () => {
-  const client = useAnkiConnect()
+  const client = useAnkiConnect<CreateAnkiCardParams>()
 
   const addCard = useCallback(async (params: CreateAnkiCardParams) => {
-    return await client.post<object, object, CreateAnkiCardRequest>('', {
-      action: 'addNote',
-      version: 6,
-      params
-    })
+    return await client.call('addNote', params)
   }, [client])
 
   const queryKey = useCreateAnkiCardMutationKey()
