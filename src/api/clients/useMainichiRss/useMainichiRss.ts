@@ -1,6 +1,6 @@
 import Parser from "rss-parser"
 import { hosts } from "api/hosts.ts"
-import { MainichiRssFeed, MainichiRssItem } from "api/hooks/useGetMainichiFlash/types.ts"
+import { MainichiRssFeed, MainichiRssItem } from "./types.ts"
 
 const useMainichiRss = () => {
   return new Parser<MainichiRssFeed, MainichiRssItem>({

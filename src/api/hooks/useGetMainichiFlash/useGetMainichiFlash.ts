@@ -11,7 +11,7 @@ const useGetMainichiFlash = () => {
   const client = useMainichiRss()
 
   const getFlashFeed = useCallback(async () => {
-    return await client.parseURL('https://cors-anywhere.herokuapp.com/https://mainichi.jp/rss/etc/mainichi-flash.rss')
+    return await client.parseURL('https://mainichi.jp/rss/etc/mainichi-flash.rss')
   }, [client])
 
   const queryKey = useGetMainichiFlashQueryKey()

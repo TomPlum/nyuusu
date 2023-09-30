@@ -4,29 +4,34 @@ import { Dashboard, Newspaper } from "@mui/icons-material"
 import { useNavigate } from "react-router-dom"
 import styles from './HomeView.module.scss'
 import Grid from "@mui/material/Unstable_Grid2"
-import Dust from "views/HomeView/components/Dust"
 import Typewriter from 'typewriter-effect'
+import CurrentDateTime from "modules/Header/components/CurrentDateTime"
+import { Box } from "@mui/material"
 
 const HomeView = () => {
   const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
 
   return (
-    <div className={styles.view}>
-      <Dust />
-
-      <Grid container className={styles.wrapper} sx={{ flexGrow: 1 }} spacing={5}>
+    <Box sx={{ flexGrow: 1 }} className={styles.view}>
+      <Grid container className={styles.wrapper}  columnSpacing={0} rowSpacing={0}>
         <Grid xs={12} className={styles.titleContainer}>
           <Typewriter
             options={{
               loop: true,
               autoStart: true,
               delay: 'natural',
-              strings: t('title', { returnObjects: true }) ,
+              cursorClassName: styles.cursor,
               wrapperClassName: styles.typewriter,
-              cursorClassName: styles.cursor
+              strings: t('title', { returnObjects: true })
             }}
           />
+        </Grid>
+          
+        <Grid xs={12}>
+          <div className={styles.dateContainer}>
+            <CurrentDateTime className={styles.date} />
+          </div>
         </Grid>
           
         <Grid xs={12} sm={6} className={styles.left}>
@@ -47,7 +52,7 @@ const HomeView = () => {
           />
         </Grid>
       </Grid>
-    </div>
+    </Box>
   )
 }
 

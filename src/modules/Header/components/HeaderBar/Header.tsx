@@ -7,8 +7,10 @@ import SettingsButton from "modules/Header/components/SettingsButton"
 import React, { useCallback, useState } from "react"
 import MenuIcon from '@mui/icons-material/Menu'
 import { Dashboard, Newspaper, Settings } from "@mui/icons-material"
+import { useNavigate } from "react-router-dom"
 
 const Header = () => {
+  const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'header' })
   const [anchorElNav, setAnchorElNav] = useState<HTMLElement>()
 
@@ -24,7 +26,7 @@ const Header = () => {
     <AppBar position='static' classes={{ root: styles.appBar }}>
       <Container className={styles.header} maxWidth='xl'>
         <Toolbar disableGutters className={styles.toolbar}>
-          <h2 className={styles.title}>
+          <h2 className={styles.title} onClick={() => navigate('/')}>
             <img src='/logo.png'  alt='news-logo' className={styles.logo}/>
             {t('title')}
           </h2>

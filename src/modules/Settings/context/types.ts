@@ -14,5 +14,6 @@ export interface SettingsContextBag {
 
 export enum NewsSource {
     MAINICHI_RSS_FLASH_NEWS = 'mainichi-rss-flash-news',
+    ASAHI_RSS_HEADLINES = 'asahi-rss-headlines',
     NEWSCATCHER_API = 'newscatcher-api'
 }

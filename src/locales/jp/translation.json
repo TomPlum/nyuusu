@@ -117,6 +117,7 @@
   },
   "sources": {
     "mainichi-rss-flash-news": "毎日新聞社 (ニュース速報)",
-    "newscatcher-api": "ニュースキャッチャーAPI"
+    "newscatcher-api": "ニュースキャッチャーAPI",
+    "asahi-rss-headlines": "朝日新聞社"
   }
 }

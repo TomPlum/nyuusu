@@ -124,6 +124,7 @@
   },
   "sources": {
     "mainichi-rss-flash-news": "Mainichi RSS Flash News",
-    "newscatcher-api": "Newscatcher API"
+    "newscatcher-api": "Newscatcher API",
+    "asahi-rss-headlines": "Asahi RSS Headlines"
   }
 }
