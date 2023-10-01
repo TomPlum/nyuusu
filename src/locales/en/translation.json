@@ -120,7 +120,13 @@
       }
     },
     "language": "Language",
-    "sources": "Sources"
+    "sources": "Sources",
+    "anki": {
+      "heading": "Anki",
+      "deck": {
+        "label": "Deck Name"
+      }
+    }
   },
   "sources": {
     "mainichi-rss-flash-news": "Mainichi RSS Flash News",

@@ -1,6 +1,16 @@
 import { Language } from "modules/Settings/components/LanguageControls/types.ts"
 import { Font } from "modules/Settings/components/FontSelector/types.ts"
 
+export interface AnkiSettings {
+    deckName: string
+    tags: string[]
+}
+
+export const defaultAnkiSettings: AnkiSettings = {
+  deckName: 'Japanese::Nyusu',
+  tags: ['nyusu']
+}
+
 export interface SettingsContextBag {
     open: boolean
     setOpen: (open: boolean) => void
@@ -10,6 +20,8 @@ export interface SettingsContextBag {
     setLanguage: (language: Language) => void
     font: Font
     setFont: (font: Font) => void
+    anki: AnkiSettings
+    setAnkiSettings: (settings: AnkiSettings) => void
 }
 
 export enum NewsSource {

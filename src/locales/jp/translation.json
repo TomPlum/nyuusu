@@ -113,7 +113,13 @@
       }
     },
     "language": "言語",
-    "sources": "情報源"
+    "sources": "情報源",
+    "anki": {
+      "heading": "アンキ",
+      "deck": {
+        "label": "デッキ名"
+      }
+    }
   },
   "sources": {
     "mainichi-rss-flash-news": "毎日新聞社 (ニュース速報)",

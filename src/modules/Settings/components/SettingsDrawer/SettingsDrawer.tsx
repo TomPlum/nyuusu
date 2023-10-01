@@ -5,6 +5,7 @@ import { useSettingsContext } from "modules/Settings/context/useSettingsContext.
 import { SourcesSelector } from "modules/Settings/components/SourcesSelector/SourcesSelector.tsx"
 import LanguageControls from "modules/Settings/components/LanguageControls"
 import FontSelector from "modules/Settings/components/FontSelector"
+import AnkiDeckSelector from "modules/Settings/components/AnkiDeckSelector"
 
 const SettingsDrawer = () => {
   const { open, setOpen } = useSettingsContext()
@@ -46,6 +47,14 @@ const SettingsDrawer = () => {
           </p>
 
           <SourcesSelector />
+        </div>
+
+        <div className={styles.section}>
+          <p className={styles.heading}>
+            {t('anki.heading')}
+          </p>
+
+          <AnkiDeckSelector />
         </div>
       </div>
     </Drawer>
