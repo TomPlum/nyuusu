@@ -17,6 +17,10 @@ const AnkiDeckSelector = () => {
   }, [value.length])
 
   useEffect(() => {
+    setValue(anki.deckName)
+  }, [anki.deckName])
+
+  useEffect(() => {
     if (!error) {
       setAnkiSettings({
         ...anki,

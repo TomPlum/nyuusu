@@ -50,8 +50,6 @@ const SettingsContextProvider = ({ children }: PropsWithChildren) => {
     })
   }, [setSettings])
 
-  console.log('settings read from local storage', settings)
-
   const values: SettingsContextBag = useMemo(() => ({
     ...settings,
     open,

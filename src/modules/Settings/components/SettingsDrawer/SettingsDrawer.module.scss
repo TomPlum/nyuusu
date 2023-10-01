@@ -12,17 +12,3 @@
   color: $black-ink;
 }
 
-.section {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-
-  >div {
-    margin-bottom: 20px;
-  }
-}
-
-.heading {
-  border-bottom: 1px solid $black-ink;
-  font-size: 1.2em;
-}
