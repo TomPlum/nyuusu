@@ -1,0 +1,23 @@
+@import "styles/colours";
+
+.section {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+
+  >div {
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    border-bottom: 1px solid $black-ink;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .reset {
+      margin-right: -10px;
+    }
+  }
+}

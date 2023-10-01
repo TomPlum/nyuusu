@@ -17,6 +17,10 @@ const AnkiTagsSelector = () => {
   }, [value])
 
   useEffect(() => {
+    setValue(anki.tags.join(','))
+  }, [anki.tags])
+
+  useEffect(() => {
     if (!error) {
       setAnkiSettings({
         ...anki,

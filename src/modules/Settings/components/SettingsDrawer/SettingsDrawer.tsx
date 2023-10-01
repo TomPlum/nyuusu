@@ -7,10 +7,17 @@ import LanguageSelector from "modules/Settings/components/LanguageSelector"
 import FontSelector from "modules/Settings/components/FontSelector"
 import AnkiDeckSelector from "modules/Settings/components/AnkiDeckSelector"
 import AnkiTagsSelector from "modules/Settings/components/AnkiTagsSelector"
+import { useCallback } from "react"
+import { defaultAnkiSettings } from "modules/Settings/context/types.ts"
+import SettingsSection from "modules/Settings/components/SettingsSection"
 
 const SettingsDrawer = () => {
-  const { open, setOpen } = useSettingsContext()
+  const { open, setOpen, setAnkiSettings } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'settings' })
+
+  const resetAnkiSettings = useCallback(() => {
+    setAnkiSettings(defaultAnkiSettings)
+  }, [setAnkiSettings])
 
   return (
     <Drawer
@@ -26,38 +33,22 @@ const SettingsDrawer = () => {
           {t('title')}
         </h2>
 
-        <div className={styles.section}>
-          <p className={styles.heading}>
-            {t('font.heading')}
-          </p>
-
+        <SettingsSection title={t('font.heading')}>
           <FontSelector />
-        </div>
+        </SettingsSection>
 
-        <div className={styles.section}>
-          <p className={styles.heading}>
-            {t('language')}
-          </p>
-
+        <SettingsSection title={t('language')}>
           <LanguageSelector />
-        </div>
+        </SettingsSection>
 
-        <div className={styles.section}>
-          <p className={styles.heading}>
-            {t('sources')}
-          </p>
-
+        <SettingsSection title={t('sources')}>
           <SourcesSelector />
-        </div>
+        </SettingsSection>
 
-        <div className={styles.section}>
-          <p className={styles.heading}>
-            {t('anki.heading')}
-          </p>
-
+        <SettingsSection title={t('anki.heading')} onReset={resetAnkiSettings}>
           <AnkiDeckSelector />
           <AnkiTagsSelector />
-        </div>
+        </SettingsSection>
       </div>
     </Drawer>
   )
