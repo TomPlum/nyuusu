@@ -3,5 +3,7 @@ export const queryKeys = {
   getNewsCatcherHeadlines: 'getNewsCatcherHeadlines',
   getMainichiFlash: 'getMainichiFlashRss',
   getAsahiHeadlines: 'getAsahiHeadlines',
-  createAnkiCard: 'createAnkiCard'
+  createAnkiCard: 'createAnkiCard',
+  getAnkiDecks: 'getAnkiDecks',
+  createAnkiDeck: 'createAnkiDeck'
 }

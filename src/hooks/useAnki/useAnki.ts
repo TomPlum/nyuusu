@@ -1,19 +1,41 @@
 import { AnkiResponse } from "hooks/useAnki/types.ts"
 import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { useToastContext } from "modules/Toast/useToastContext.ts"
 import { useTranslation } from "react-i18next"
 import { CreateAnkiCardParams } from "api/hooks/useCreateAnkiCard/types.ts"
+import useGetAnkiDecks from "api/hooks/useGetAnkiDecks"
+import useCreateAnkiDeck from "api/hooks/useCreateAnkiDeck"
 
 const useAnki = (): AnkiResponse => {
   const { fireToast } = useToastContext()
-  const [loading, setLoading] = useState(false)
+  const { data: decks } = useGetAnkiDecks()
+  const { mutateAsync: createDeck } = useCreateAnkiDeck()
   const { mutateAsync: createCardApi } = useCreateAnkiCard()
   const { t } = useTranslation('translation', { keyPrefix: 'anki' })
 
-  const createCard = useCallback(async (args: CreateAnkiCardParams) => {
+  const createAnkiDeck = useCallback(async () => {
     try {
-      setLoading(true)
+      await createDeck({ deck: 'Japanese::Nyusu' })
+
+      fireToast({
+        type: 'success',
+        message: t('create-deck.toast.success')
+      })
+    } catch (e) {
+      fireToast({
+        type: 'error',
+        message: t('create-deck.toast.error')
+      })
+    }
+  }, [createDeck, fireToast, t])
+
+  const createCard = useCallback(async (args: CreateAnkiCardParams) => {
+    if (decks && !decks.includes('Japanese::Nyusu')) {
+      await createAnkiDeck()
+    }
+
+    try {
       await createCardApi(args)
 
       fireToast({
@@ -27,11 +49,9 @@ const useAnki = (): AnkiResponse => {
       })
     }
 
-    setLoading(false)
-  }, [fireToast, createCardApi, t])
+  }, [decks, createAnkiDeck, createCardApi, fireToast, t])
 
   return {
-    loading,
     createCard
   }
 }

@@ -1,16 +1,16 @@
-export interface AnkiConnectResponse {
-    result: string
+export interface AnkiConnectResponse<Result> {
+    result: Result
     error: string | null
 }
 
 export interface AnkiConnectRequest<Params> {
     action: string
     version: number
-    params: Params
+    params?: Params
 }
 
-export type AnkiConnectAction = 'addNote'
+export type AnkiConnectAction = 'addNote' | 'deckNames' | 'createDeck'
 
-export interface AnkiConnectClient<Params> {
-    call: (action: AnkiConnectAction, params: Params) => Promise<AnkiConnectResponse>
+export interface AnkiConnectClient<Params, Result> {
+    call: (action: AnkiConnectAction, params?: Params) => Promise<AnkiConnectResponse<Result>>
 }

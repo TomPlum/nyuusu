@@ -2,15 +2,17 @@ import styles from './AnkiArticle.module.scss'
 import useAnki from "hooks/useAnki"
 import { Button, CircularProgress } from "@mui/material"
 import { AnkiArticleProps } from "modules/Newspaper/components/AnkiArticle/types.ts"
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 
 export const AnkiArticle = ({ article }: AnkiArticleProps) => {
-  const { loading, createCard } = useAnki()
+  const { createCard } = useAnki()
+  const [loading, setLoading] = useState(false)
 
-  const handleCreateCard = useCallback(async () => {
-    await createCard({
+  const handleCreateCard = useCallback(() => {
+    setLoading(true)
+    createCard({
       note: {
-        deckName: 'Nyusu',
+        deckName: 'Japanese::Nyusu',
         modelName: 'Basic',
         fields: {
           Back: {
@@ -24,13 +26,20 @@ export const AnkiArticle = ({ article }: AnkiArticleProps) => {
         },
         tags: ['nyusu']
       }
+    }).then(() => {
+      setLoading(false)
+    }).catch(e => {
+      console.debug(e)
     })
   }, [article.link, article.title, createCard])
 
   return (
     <div className={styles.article}>
       {loading && <CircularProgress />}
-      <Button onClick={handleCreateCard}>Add Card</Button>
+
+      <Button onClick={handleCreateCard}>
+        Add Card
+      </Button>
     </div>
   )
 }
