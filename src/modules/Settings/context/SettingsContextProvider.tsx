@@ -1,8 +1,15 @@
 import { PropsWithChildren, useMemo, useState } from "react"
-import { defaultAnkiSettings, NewsSource, SettingsContextBag } from "modules/Settings/context/types.ts"
+import {
+  defaultAnkiSettings,
+  defaultSettings,
+  NewsSource,
+  SettingsContextBag,
+  SettingsValues
+} from "modules/Settings/context/types.ts"
 import { SettingsContext } from "modules/Settings/context/SettingsContext.ts"
 import { Language } from "modules/Settings/components/LanguageControls/types.ts"
 import { Font, FONTS } from "modules/Settings/components/FontSelector/types.ts"
+import useLocalStorage from "hooks/useLocalStorage"
 
 const SettingsContextProvider = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(false)
@@ -11,18 +18,26 @@ const SettingsContextProvider = ({ children }: PropsWithChildren) => {
   const [language, setLanguage] = useState<Language>('jp')
   const [sources, setSources] = useState<NewsSource[]>([NewsSource.MAINICHI_RSS_FLASH_NEWS])
 
+  const { value: settings } = useLocalStorage<SettingsValues>({
+    key: 'settings',
+    defaultValue: defaultSettings,
+    value: {
+      anki,
+      font,
+      language,
+      sources
+    }
+  })
+
   const values: SettingsContextBag = useMemo(() => ({
+    ...settings,
     open,
     setOpen,
-    sources,
     setSources,
-    language,
     setLanguage,
-    font,
     setFont,
-    anki,
     setAnkiSettings: setAnki
-  }), [open, sources, language, font, anki])
+  }), [open, settings])
 
   return (
     <SettingsContext.Provider value={values}>

@@ -1,5 +1,5 @@
 import { Language } from "modules/Settings/components/LanguageControls/types.ts"
-import { Font } from "modules/Settings/components/FontSelector/types.ts"
+import { Font, FONTS } from "modules/Settings/components/FontSelector/types.ts"
 
 export interface AnkiSettings {
     deckName: string
@@ -11,21 +11,31 @@ export const defaultAnkiSettings: AnkiSettings = {
   tags: ['nyusu']
 }
 
-export interface SettingsContextBag {
+export interface SettingsContextBag extends SettingsValues {
     open: boolean
     setOpen: (open: boolean) => void
-    sources: NewsSource[]
     setSources: (sources: NewsSource[]) => void
-    language: Language
     setLanguage: (language: Language) => void
-    font: Font
     setFont: (font: Font) => void
-    anki: AnkiSettings
     setAnkiSettings: (settings: AnkiSettings) => void
+}
+
+export interface SettingsValues {
+    sources: NewsSource[]
+    language: Language
+    font: Font
+    anki: AnkiSettings
 }
 
 export enum NewsSource {
     MAINICHI_RSS_FLASH_NEWS = 'mainichi-rss-flash-news',
     ASAHI_RSS_HEADLINES = 'asahi-rss-headlines',
     NEWSCATCHER_API = 'newscatcher-api'
+}
+
+export const defaultSettings: SettingsValues = {
+  sources: [NewsSource.MAINICHI_RSS_FLASH_NEWS],
+  anki: defaultAnkiSettings,
+  font: FONTS[0],
+  language: 'jp'
 }
