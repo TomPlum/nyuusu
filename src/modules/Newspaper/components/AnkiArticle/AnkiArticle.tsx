@@ -3,16 +3,18 @@ import useAnki from "hooks/useAnki"
 import { Button, CircularProgress } from "@mui/material"
 import { AnkiArticleProps } from "modules/Newspaper/components/AnkiArticle/types.ts"
 import { useCallback, useState } from "react"
+import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
 export const AnkiArticle = ({ article }: AnkiArticleProps) => {
   const { createCard } = useAnki()
+  const { anki } = useSettingsContext()
   const [loading, setLoading] = useState(false)
 
   const handleCreateCard = useCallback(() => {
     setLoading(true)
     createCard({
       note: {
-        deckName: 'Japanese::Nyusu',
+        deckName: anki.deckName,
         modelName: 'Basic',
         fields: {
           Back: {
@@ -24,14 +26,14 @@ export const AnkiArticle = ({ article }: AnkiArticleProps) => {
             source: article.link
           }
         },
-        tags: ['nyusu']
+        tags: anki.tags
       }
     }).then(() => {
       setLoading(false)
     }).catch(e => {
       console.debug(e)
     })
-  }, [article.link, article.title, createCard])
+  }, [anki.deckName, anki.tags, article.link, article.title, createCard])
 
   return (
     <div className={styles.article}>

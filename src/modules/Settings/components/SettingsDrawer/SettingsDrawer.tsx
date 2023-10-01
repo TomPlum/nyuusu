@@ -2,10 +2,11 @@ import { Drawer } from "@mui/material"
 import styles from './SettingsDrawer.module.scss'
 import { useTranslation } from "react-i18next"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
-import { SourcesSelector } from "modules/Settings/components/SourcesSelector/SourcesSelector.tsx"
+import SourcesSelector from "modules/Settings/components/SourcesSelector"
 import LanguageControls from "modules/Settings/components/LanguageControls"
 import FontSelector from "modules/Settings/components/FontSelector"
 import AnkiDeckSelector from "modules/Settings/components/AnkiDeckSelector"
+import AnkiTagsSelector from "modules/Settings/components/AnkiTagsSelector"
 
 const SettingsDrawer = () => {
   const { open, setOpen } = useSettingsContext()
@@ -55,6 +56,7 @@ const SettingsDrawer = () => {
           </p>
 
           <AnkiDeckSelector />
+          <AnkiTagsSelector />
         </div>
       </div>
     </Drawer>

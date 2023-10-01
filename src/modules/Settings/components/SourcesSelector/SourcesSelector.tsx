@@ -44,3 +44,5 @@ export const SourcesSelector = () => {
     </div>
   )
 }
+
+export default SourcesSelector

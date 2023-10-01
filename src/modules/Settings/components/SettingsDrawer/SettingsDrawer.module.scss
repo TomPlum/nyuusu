@@ -16,6 +16,10 @@
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+
+  >div {
+    margin-bottom: 20px;
+  }
 }
 
 .heading {

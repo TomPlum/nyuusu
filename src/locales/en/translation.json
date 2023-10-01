@@ -124,7 +124,12 @@
     "anki": {
       "heading": "Anki",
       "deck": {
-        "label": "Deck Name"
+        "label": "Deck Name",
+        "help": "Cannot be empty."
+      },
+      "tags": {
+        "label": "Tags",
+        "help": "Must be comma separated"
       }
     }
   },
