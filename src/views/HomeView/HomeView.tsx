@@ -11,6 +11,7 @@ import { Box } from "@mui/material"
 const HomeView = () => {
   const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
+  const titles: string[] = t('title', { returnObjects: true })
 
   return (
     <Box sx={{ flexGrow: 1 }} className={styles.view}>
@@ -20,10 +21,10 @@ const HomeView = () => {
             options={{
               loop: true,
               autoStart: true,
+              strings: titles,
               delay: 'natural',
               cursorClassName: styles.cursor,
               wrapperClassName: styles.typewriter,
-              strings: t('title', { returnObjects: true })
             }}
           />
         </Grid>
