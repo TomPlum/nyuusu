@@ -1,0 +1,36 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+
+  >a {
+    display: flex;
+    align-items: center;
+  }
+
+  >div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.icon {
+  color: #6a6a6a;
+  height: 30px;
+  width: 30px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  opacity: 0.7;
+
+  &:hover {
+    filter: none;
+    cursor: pointer;
+    color: white;
+    transition: color ease-in-out 0.1s;
+  }
+}
+
+.active {
+  filter: none;
+}

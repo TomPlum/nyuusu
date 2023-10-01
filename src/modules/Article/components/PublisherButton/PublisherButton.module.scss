@@ -1,0 +1,21 @@
+@import "styles/colours";
+
+.button {
+  color: $black-ink !important;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 3px 8px !important;
+  background-color: $newspaper !important;
+  border-radius: 10px !important;
+  font-size: 1em !important;
+}
+
+.icon {
+  font-size: 2rem !important;
+  margin-right: 5px;
+}
+
+.name {
+  color: $black-ink;
+}

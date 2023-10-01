@@ -1,0 +1,78 @@
+.scene {
+  pointer-events: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.specks {
+  z-index: 999;
+}
+
+.speck {
+  opacity: 0;
+  height: 4px;
+  width: 4px;
+  background: url('https://i1272.photobucket.com/albums/y391/matthew_williams10/speck_zpsu9xym9zl.png');
+  background-size: cover;
+  position: absolute;
+  border-radius: 10px;
+  z-index: 99;
+}
+
+.img {
+  position: absolute;
+  height: 100000px;
+  width: 100000px;
+  top: -8500px;
+  left: -8000px;
+  animation-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  animation-name: float;
+  animation-iteration-count: infinite;
+}
+
+.img-1 {
+  opacity: 0.15;
+  background: url('https://image.ibb.co/jcTvpv/dust1.jpg') repeat;
+  animation-duration: 720s;
+}
+
+.img-2 {
+  opacity: 0.1;
+  background: url('https://image.ibb.co/goU1Uv/dust2.jpg') repeat;
+  animation-duration: 450s;
+}
+
+.img-3 {
+  opacity: 0.075;
+  background: url('https://image.ibb.co/cymRwa/dust3.jpg') repeat;
+  animation-duration: 350s;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(175px, 100px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform:translate(8000px, 4000px);
+  }
+}

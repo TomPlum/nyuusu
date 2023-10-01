@@ -1,29 +1,9 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.date {
-  margin: 0;
-  font-size: 1em;
-  color: white;
-}
-
-.distance {
-  margin-top: -4px;
-  font-size: 0.9em;
-  color: #cacaca;
+  align-items: flex-start;
 }
 
 .author {
   margin-left: -2px;
-  font-size: 2.3rem !important;
-  color: white;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }

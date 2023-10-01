@@ -1,32 +1,26 @@
 import styles from "./ArticleHeader.module.scss"
-import { AccountCircle } from "@mui/icons-material"
-import { format, formatDistanceToNow, parseISO } from "date-fns"
 import { ArticleHeaderProps } from "modules/Article/components/ArticleHeader/types.ts"
-import { useMemo } from "react"
-import useLocale from "hooks/useLocale"
+import { useState } from "react"
+import PublisherButton from "modules/Article/components/PublisherButton"
+import PublisherModal from "modules/Article/components/PublisherModal"
+import PublicationDate from "modules/Article/components/PublicationDate"
 
-const ArticleHeader = ({ author, publishDate }: ArticleHeaderProps) => {
-  const locale = useLocale()
-    
-  const distanceFromNow = useMemo(() => {
-    return formatDistanceToNow(parseISO(publishDate), { locale })
-  }, [locale, publishDate])
+const ArticleHeader = ({ article }: ArticleHeaderProps) => {
+  const [showPublisherModal, setShowPublisherModal] = useState(false)
     
   return (
     <div className={styles.header}>
-      <div title={author ?? 'Unknown'}>
-        <AccountCircle className={styles.author} />
-      </div>
+      <PublisherButton
+        name={article.publisher}
+        className={styles.author}
+        onClick={() => setShowPublisherModal(true)}
+      />
 
-      <div className={styles.info}>
-        <p className={styles.date} title='Published'>
-          {format(parseISO(publishDate), 'dd/MM/yy HH:mm')}
-        </p>
+      <PublicationDate publishDate={article.publishDate} />
 
-        <p className={styles.distance}>
-          {distanceFromNow}
-        </p>
-      </div>
+      {showPublisherModal && (
+        <PublisherModal article={article} onClose={() => setShowPublisherModal(false)} />
+      )}
     </div>
   )
 }

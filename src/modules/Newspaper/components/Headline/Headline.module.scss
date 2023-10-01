@@ -1,0 +1,41 @@
+@import "styles/colours";
+@import "styles/viewports";
+
+.headline {
+  color: white;
+  background-color: $black-ink;
+  text-align: center;
+  padding: 20px;
+  font-size: 2em;
+  margin-bottom: 30px;
+  position: relative;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    >.copy {
+      visibility: visible;
+    }
+  }
+
+  @include phone {
+    font-size: 1.5em;
+  }
+}
+
+.copy {
+  transition: all ease-in-out 0.2s;
+  visibility: hidden;
+  position: absolute;
+  right: 25px;
+  top: 23px;
+
+  &:hover {
+    cursor: pointer;
+    color: #dfdfdf;
+  }
+
+  @include phone {
+    bottom: 0;
+    right: 0;
+  }
+}

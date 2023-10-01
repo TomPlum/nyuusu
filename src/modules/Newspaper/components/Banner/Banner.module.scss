@@ -1,0 +1,73 @@
+@import "styles/colours";
+@import "styles/viewports";
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px !important;
+  margin-top: 20px !important;
+  text-align: center;
+  width: 100%;
+
+  .border {
+    border-top: 1px solid $black-ink;
+    border-bottom: 1px solid $black-ink;
+    padding: 0 30px;
+  }
+
+  .title {
+    color: $black-ink;
+    font-size: 1.1em;
+  }
+
+  .publisher {
+    margin: 0;
+    padding: 5px 0;
+    color: $black-ink;
+  }
+
+  .publisherContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .publisherWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .date {
+    * {
+      color: $black-ink;
+
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+    margin-left: auto;
+  }
+
+  @include phone {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    .publisherContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .date {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}

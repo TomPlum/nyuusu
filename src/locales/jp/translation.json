@@ -1,4 +1,5 @@
 {
+  "loading": "ニュース記事をロード中...",
   "header": {
     "title": "ニュース",
     "subtitle": "今日のニュース速報の見出しは {{ articles }} 件あります。",
@@ -9,6 +10,12 @@
     "language-controls": {
       "en": "英語",
       "jp": "日本語"
+    },
+    "settings": "設定",
+    "menu": {
+      "newspaper": "新聞",
+      "articles": "記事",
+      "settings": "設定"
     }
   },
   "footer": {
@@ -20,6 +27,9 @@
   "article": {
     "headline": "見出し",
     "title": "もっと見る",
+    "header": {
+      "distance-suffix": "前"
+    },
     "source": {
       "label": {
         "default": "ソース",
@@ -31,5 +41,94 @@
         "title": "DeepL経由で翻訳"
       }
     }
+  },
+  "views": {
+    "newspaper": {
+      "not-found": {
+        "title": "エラー",
+        "desc": "IDが{{ id }}の記事が見つかりません。"
+      }
+    },
+    "home": {
+      "title": ["ニュースの見出し。", "記事内容。", "読書の練習", "最新情報"],
+      "newspaper": {
+        "title": "新聞",
+        "desc": "新聞記事の抜粋。"
+      },
+      "articles": {
+        "title": "記事",
+        "desc": "短い記事の見出しのライブラリ。"
+      }
+    }
+  },
+  "newspaper": {
+    "banner": {
+      "anonymous": "匿名出版社"
+    },
+    "headline": {
+      "copy": {
+        "label": "コピーの見出し",
+        "success": "見出しをコピーした",
+        "error": "見出しのコピーに失敗"
+      }
+    },
+    "article": {
+      "rating": {
+        "description": "記事の読解難易度は、文字の種類数、等級、文章の長さに基づいて計算される。"
+      },
+      "translate": {
+        "description": "理解度を確認するために、記事の内容を翻訳する。"
+      },
+      "navigation": {
+        "description": "記事を変更する"
+      },
+      "contents": {
+        "label": "記事内容",
+        "default": "この記事は内容を提供していないが、以下のソースから直接読むことができる。",
+        "lorem": "支クき去客ッぐ谷初いざーは方込クヱ円画アテセメ映武ミキケハ者客カケ念海ク児南へ略学ヌタサ募述ソ郊求無6区悪港需充ドけ。顧えぎのふ政9検レけ表高ヒマ学元リケ海旬ホシチ治修選むれろ探家ク医村リトだ今約ルミヲ力記35期フドょし位実きど運長午トマオ臓低席のを。球おん盗写めさぐ読2況あこ博決ムイ本逮車ハ批陸そほ本遺らー監界鮮スムケコ旅頭持イヌニ始属ら中刃尿憎へんぶ。",
+        "lorem2": "社たざぴき果遅クぜて事例トソ修全フゃ員若ひう外奥変チヌ感瑞ヘヌキヱ小加だ近旋レモロ女58指い事周順ず。保ネツ載念じうトゅ毒健21免ワ強線の立転ホケ代信ルによべ読省ばリぜル住動むぱ求並ソ済平督積種でもぶき。長崎ミオ御哲徹ラ型一カヱスイ覧券けぴド営落だゃばご地枠づ待2変ふぐトを先住ネヒクニ生手ノヌ造読ウシセ回若監亜ずリ。",
+        "see-more": "もっと読む"
+      }
+    }
+  },
+  "not-found": {
+    "title": "404 Not Found",
+    "description": "ページが見つかりませんでした。 申し訳ございません。入力いただいたアドレスが間違っている可能性があります。",
+    "help": "ホームへ戻る"
+  },
+  "error-page": {
+    "title": "エラー",
+    "description": "不明なエラーが発生しました。",
+    "help": "ホームへ戻る"
+  },
+  "settings": {
+    "title": "設定",
+    "font": {
+      "heading": "フォント",
+      "label" : "漢字・かな",
+      "names": {
+        "appli-mincho": "アプリ明朝",
+        "k-gothic": "Kゴシック",
+        "sanafon-mugi": "さなフォン麦"
+      }
+    },
+    "language": "言語",
+    "sources": "情報源",
+    "anki": {
+      "heading": "アンキ",
+      "deck": {
+        "label": "デッキ名",
+        "help": "空は不可"
+      },
+      "tags": {
+        "label": "タグ",
+        "help": "カンマ区切り"
+      }
+    }
+  },
+  "sources": {
+    "mainichi-rss-flash-news": "毎日新聞社 (ニュース速報)",
+    "newscatcher-api": "ニュースキャッチャーAPI",
+    "asahi-rss-headlines": "朝日新聞社"
   }
 }

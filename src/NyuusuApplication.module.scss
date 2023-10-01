@@ -1,16 +1,19 @@
+@import "styles/colours";
+
 .wrapper {
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
-  overflow-x: hidden;
 }
 
 .content {
-  padding: 50px;
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $newspaper;
+  overflow-y: auto;
 }

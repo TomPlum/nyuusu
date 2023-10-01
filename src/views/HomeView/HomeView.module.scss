@@ -1,0 +1,56 @@
+@import "styles/colours";
+
+.view {
+  height: 100%;
+  width: 100%;
+  background-color: $newspaper;
+}
+
+.wrapper {
+  color: $black-ink;
+  height: 100%;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black-ink;
+  color: $white;
+  width: 100%;
+  padding: 25px;
+  margin-top: 50px;
+  max-height: 150px;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.typewriter {
+  font-size: 5em;
+}
+
+.cursor {
+  font-size: 5em;
+}
+
+.dateContainer {
+  width: 100%;
+  max-width: 1500px;
+}
+
+.date {
+  color: $black-ink;
+}

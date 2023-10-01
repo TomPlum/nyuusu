@@ -1,0 +1,23 @@
+@import "src/styles/animations";
+
+.button {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 2em !important;
+
+  &:hover {
+    cursor: pointer;
+    color: #cccccc;
+    transition: color ease-in-out 0.1s;
+  }
+}
+
+.spin {
+  animation-name: spin-clockwise;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

@@ -1,0 +1,35 @@
+@import "styles/colours";
+@import "styles/mixins";
+
+.article {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc {
+  @include vertical-text;
+  color: $black-ink;
+  max-height: 200px;
+}
+
+.top {
+  justify-content: space-between;
+}
+
+.chart {
+  height: 104px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.difficulty {
+  color: $black-ink;
+  margin: 0;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+}

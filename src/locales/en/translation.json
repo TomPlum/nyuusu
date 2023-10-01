@@ -1,4 +1,5 @@
 {
+  "loading": "Loading news articles...",
   "header": {
     "title": "News",
     "subtitle": "There are {{ articles }} breaking-news headlines today.",
@@ -9,6 +10,12 @@
     "language-controls": {
       "en": "English",
       "jp": "Japanese"
+    },
+    "settings": "Settings",
+    "menu": {
+      "newspaper": "Newspaper",
+      "articles": "Articles",
+      "settings": "Settings"
     }
   },
   "footer": {
@@ -20,6 +27,15 @@
   "article": {
     "headline": "Headline",
     "title": "Click to see more",
+    "header": {
+      "distance-suffix": "ago"
+    },
+    "publisher": {
+      "rss": {
+        "label": "RSS (Really Simple Syndication)",
+        "desc": "The data in the article was sourced from the following RSS feed"
+      }
+    },
     "source": {
       "label": {
         "default": "Source",
@@ -31,5 +47,95 @@
         "title": "Translate via DeepL"
       }
     }
+  },
+  "views": {
+    "newspaper": {
+      "not-found": {
+        "title": "Error",
+        "desc": "An article with the ID {{ id }} could not be found."
+      }
+    },
+    "home": {
+      "title": "ニュース。",
+      "newspaper": {
+        "title": "Newspaper",
+        "desc": "A full-page newspaper article excerpt."
+      },
+      "articles": {
+        "title": "Articles",
+        "desc": "A library of short article headlines."
+      }
+    }
+  },
+  "newspaper": {
+    "banner": {
+      "anonymous": "Anonymous"
+    },
+    "headline": {
+      "copy": {
+        "label": "Copy headline",
+        "success": "Copied headline",
+        "error": "Failed to copy headline"
+      }
+    },
+    "article": {
+      "rating": {
+        "description": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text."
+      },
+      "translate": {
+        "description": "Translate the article contents to confirm your understanding.",
+        "translate": "Translate"
+      },
+      "navigation": {
+        "description": "Article navigation"
+      },
+      "contents" : {
+        "label": "Article Contents",
+        "default": "This article didn't provide any contents, but you can read it directly from the source below.",
+        "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "lorem2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "see-more": "Read the full article"
+      }
+    }
+  },
+  "not-found": {
+    "title": "404 Not Found",
+    "description": "The page you were looking for could not be found.",
+    "help": "Return home"
+  },
+  "error-page": {
+    "title": "Error",
+    "description": "An unknown error has occurred.",
+    "help": "Return home"
+  },
+  "settings": {
+    "title": "Settings",
+    "font": {
+      "heading": "Font",
+      "label" : "Kanji & Kana",
+      "names": {
+        "appli-mincho": "Appli Mincho",
+        "k-gothic": "KGothic",
+        "sanafon-mugi": "Sanafon Mugi"
+      }
+    },
+    "language": "Language",
+    "sources": "Sources",
+    "anki": {
+      "heading": "Anki",
+      "deck": {
+        "label": "Deck Name",
+        "help": "Cannot be empty."
+      },
+      "tags": {
+        "label": "Tags",
+        "help": "Must be comma separated"
+      }
+    }
+  },
+  "sources": {
+    "mainichi-rss-flash-news": "Mainichi RSS Flash News",
+    "newscatcher-api": "Newscatcher API",
+    "asahi-rss-headlines": "Asahi RSS Headlines"
   }
 }

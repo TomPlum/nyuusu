@@ -1,18 +1,18 @@
-export interface NewsHeadlineResponse {
+export interface NewsApiHeadlineResponse {
     status: string
     totalResults: number
-    articles: NewsArticle[]
+    articles: NewsApiArticle[]
 }
 
-export interface NewsArticle {
+export interface NewsApiArticle {
     title: string
     author: string | null
-    source: NewsArticleSource
+    source: NewsApiArticleSource
     publishedAt: string
     url: string
 }
 
-export interface NewsArticleSource {
+export interface NewsApiArticleSource {
     id: string | null
     name: string
 }

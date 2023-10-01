@@ -1,0 +1,40 @@
+@import "styles/colours";
+
+.content {
+  background-color: #1a1a1a;
+  color: white
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 6px;
+
+  >svg {
+    margin-right: 5px;
+    margin-left: -3px;
+  }
+}
+
+.dialog {
+  border-radius: 10px;
+}
+
+.desc {
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 10px;
+}
+
+.rss {
+  color: $rss;
+}

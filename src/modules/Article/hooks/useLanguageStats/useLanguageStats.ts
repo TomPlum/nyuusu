@@ -13,6 +13,13 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
     }).length
   }, [])
 
+  const percentage = useCallback((matcher: RegExp) => {
+    const trimmed = input.trim().replace(' ', '')
+    const quantity = count(trimmed, matcher)
+    const totalLength = input.length
+    return Math.round((quantity / totalLength) * 100)
+  }, [count, input])
+
   const calculateRating = useCallback((percentage: number) => {
     if (percentage >= 80) {
       return DifficultyRating.EXPERT
@@ -24,32 +31,36 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
   }, [])
 
   const hiragana = useMemo(() => {
-    return count(input, hiraganaMatcher)
-  }, [count, input])
+    return percentage(hiraganaMatcher)
+  }, [percentage])
 
   const katakana = useMemo(() => {
-    return count(input, katakanaMatcher)
-  }, [count, input])
+    return percentage(katakanaMatcher)
+  }, [percentage])
 
   const kanji = useMemo(() => {
-    const kanjiCount = count(input, kanjiMatcher)
-    const totalLength = input.length
-    const percentage = (kanjiCount / totalLength) * 100
-    return {
-      rating: calculateRating(percentage),
-      percentage: Number(percentage.toFixed(0))
-    }
-  }, [calculateRating, count, input])
+    return percentage(kanjiMatcher)
+  }, [percentage])
 
   const roman = useMemo(() => {
-    return count(input, romanMatcher)
-  }, [count, input])
+    return percentage(romanMatcher)
+  }, [percentage])
+
+  const other = useMemo(() => {
+    return 100 - kanji - katakana - hiragana - roman
+  }, [hiragana, kanji, katakana, roman])
+
+  const difficulty = useMemo(() => {
+    return calculateRating(kanji)
+  }, [calculateRating, kanji])
 
   return {
+    difficulty,
     hiragana,
     katakana,
     kanji,
-    roman
+    roman,
+    other
   }
 }
 

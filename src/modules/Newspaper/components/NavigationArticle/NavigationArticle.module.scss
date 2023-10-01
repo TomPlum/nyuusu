@@ -1,0 +1,35 @@
+@import "styles/colours";
+@import "styles/mixins";
+@import "styles/fonts";
+
+.wrapper {
+  @include corner-borders(50px, 30px, 1px, $black-ink);
+  color: $black-ink;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.numbers {
+  font-family: 'Chomsky', sans-serif;
+  font-size: 1.4em;
+}
+
+.next, .last {
+
+  svg {
+    font-size: 1.5em;
+  }
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  font-size: 1.2em;
+}

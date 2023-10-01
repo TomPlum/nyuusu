@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import svgr from '@svgr/rollup'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  plugins: [react(), nodePolyfills(), svgr()],
   base: './',
   resolve: {
     alias: {
@@ -11,9 +14,13 @@ export default defineConfig({
       components: "/src/components",
       modules: "/src/modules",
       hooks: "/src/hooks",
+      assets: "/src/assets",
       locales: "/src/locales",
       context: "/src/context",
-      views: "/src/views"
+      views: "/src/views",
+      styles: "/src/styles",
+      fonts: "/src/fonts",
+      stream: 'stream-browserify'
     }
   },
   test: {

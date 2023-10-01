@@ -1,4 +1,5 @@
+import { NewsArticle } from "modules/Article/components/Article/types.ts"
+
 export interface ArticleHeaderProps {
-    author: string | null
-    publishDate: string
+    article: NewsArticle
 }

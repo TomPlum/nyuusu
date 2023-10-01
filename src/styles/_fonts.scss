@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Chomsky";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Chomsky"), url("../fonts/Chomsky.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Heathergreen";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Heathergreen"), url("/src/fonts/Heathergreen.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Steelfish";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Steelfish"), url("/src/fonts/Steelfish.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "AppliMincho";
+  font-style: normal;
+  font-weight: normal;
+  src: local("AppliMincho"), url("/src/fonts/AppliMincho.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "KGothic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("KGothic"), url("/src/fonts/KGothic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SanafonMugi";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SanafonMugi"), url("/src/fonts/SanafonMugi.ttf") format("truetype");
+}

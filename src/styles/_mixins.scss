@@ -1,0 +1,15 @@
+@mixin vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+@mixin corner-borders($h: 50px, $v: 50px, $thickness: 2px, $color: black) {
+  background:
+          linear-gradient(to right, $color $thickness, transparent $thickness) 0 0,
+          linear-gradient(to left, $color $thickness, transparent $thickness) 100% 100%,
+          linear-gradient(to bottom, $color $thickness, transparent $thickness) 0 0,
+          linear-gradient(to top, $color $thickness, transparent $thickness) 100% 100%;
+
+  background-repeat: no-repeat;
+  background-size: $h $v;
+}

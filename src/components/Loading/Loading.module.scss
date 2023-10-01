@@ -1,0 +1,34 @@
+@import "styles/colours";
+
+.loading {
+  width: 100%;
+  height: 8px !important;
+}
+
+.floating {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridWrapper {
+  filter: blur(5px);
+  height: 100%;
+  width: 100%;
+}
+
+.text {
+  color: $black-ink;
+  font-weight: bold;
+  font-size: 1.5em;
+}
