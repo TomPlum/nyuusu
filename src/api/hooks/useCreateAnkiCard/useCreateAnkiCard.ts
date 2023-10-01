@@ -9,7 +9,7 @@ export const useCreateAnkiCardMutationKey = () => {
 }
 
 const useCreateAnkiCard = () => {
-  const client = useAnkiConnect<CreateAnkiCardParams>()
+  const client = useAnkiConnect<CreateAnkiCardParams, string>()
 
   const addCard = useCallback(async (params: CreateAnkiCardParams) => {
     return await client.call('addNote', params)

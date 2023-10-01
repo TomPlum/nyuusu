@@ -1,10 +1,8 @@
 import styles from "./Footer.module.scss"
-import { useTranslation } from "react-i18next"
 import { Container } from "@mui/material"
 import { GitHub, RssFeedTwoTone } from "@mui/icons-material"
 
 const Footer = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'footer' })
   // TODO: Add copyright
   return (
     <Container maxWidth="sm" className={styles.footer}>
