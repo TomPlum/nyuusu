@@ -3,7 +3,7 @@ import styles from './SettingsDrawer.module.scss'
 import { useTranslation } from "react-i18next"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import SourcesSelector from "modules/Settings/components/SourcesSelector"
-import LanguageControls from "modules/Settings/components/LanguageControls"
+import LanguageSelector from "modules/Settings/components/LanguageSelector"
 import FontSelector from "modules/Settings/components/FontSelector"
 import AnkiDeckSelector from "modules/Settings/components/AnkiDeckSelector"
 import AnkiTagsSelector from "modules/Settings/components/AnkiTagsSelector"
@@ -39,7 +39,7 @@ const SettingsDrawer = () => {
             {t('language')}
           </p>
 
-          <LanguageControls />
+          <LanguageSelector />
         </div>
 
         <div className={styles.section}>

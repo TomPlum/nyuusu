@@ -1,4 +1,4 @@
-import styles from './LanguageControls.module.scss'
+import styles from './LanguageSelector.module.scss'
 import { useTranslation } from "react-i18next"
 import { useCallback, MouseEvent } from "react"
 import i18n from "i18next"
@@ -8,17 +8,20 @@ import { useSettingsContext } from "modules/Settings/context/useSettingsContext.
 import { CircleFlag } from 'react-circle-flags'
 import classNames from "classnames"
 
-const LanguageControls = () => {
+const LanguageSelector = () => {
   const { language, setLanguage } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'header.language-controls' })
 
   const handleChange = useCallback((_e: MouseEvent<HTMLElement>, language: Language) => {
+    console.log('on change', language)
     i18n.changeLanguage(language).then(() => {
       setLanguage(language)
     }).catch(error => {
       console.debug('Failed to set language to: ', language, error)
     })
   }, [setLanguage])
+
+  console.log('value from context in selector: ', language)
 
   return (
     <div className={styles.controls}>
@@ -35,4 +38,4 @@ const LanguageControls = () => {
   )
 }
 
-export default LanguageControls
+export default LanguageSelector

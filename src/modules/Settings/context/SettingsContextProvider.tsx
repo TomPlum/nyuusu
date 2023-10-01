@@ -1,43 +1,66 @@
-import { PropsWithChildren, useMemo, useState } from "react"
+import { PropsWithChildren, useCallback, useMemo, useState } from "react"
 import {
-  defaultAnkiSettings,
+  AnkiSettings,
   defaultSettings,
   NewsSource,
   SettingsContextBag,
-  SettingsValues
 } from "modules/Settings/context/types.ts"
 import { SettingsContext } from "modules/Settings/context/SettingsContext.ts"
-import { Language } from "modules/Settings/components/LanguageControls/types.ts"
-import { Font, FONTS } from "modules/Settings/components/FontSelector/types.ts"
-import useLocalStorage from "hooks/useLocalStorage"
+import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
+import { Font } from "modules/Settings/components/FontSelector/types.ts"
+import { useLocalStorage } from "@uidotdev/usehooks"
 
 const SettingsContextProvider = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(false)
-  const [font, setFont] = useState<Font>(FONTS[0])
-  const [anki, setAnki] = useState(defaultAnkiSettings)
-  const [language, setLanguage] = useState<Language>('jp')
-  const [sources, setSources] = useState<NewsSource[]>([NewsSource.MAINICHI_RSS_FLASH_NEWS])
+  const [settings, setSettings] = useLocalStorage('nyusu-settings', defaultSettings)
 
-  const { value: settings } = useLocalStorage<SettingsValues>({
-    key: 'settings',
-    defaultValue: defaultSettings,
-    value: {
-      anki,
-      font,
-      language,
-      sources
-    }
-  })
+  const setFont = useCallback((font: Font) => {
+    setSettings(previous => {
+      return {
+        ...previous,
+        font
+      }
+    })
+  }, [setSettings])
+
+  const setSources = useCallback((sources: NewsSource[]) => {
+    setSettings(previous => {
+      return {
+        ...previous,
+        sources
+      }
+    })
+  }, [setSettings])
+
+  const setLanguage = useCallback((language: Language) => {
+    setSettings(previous => {
+      return {
+        ...previous,
+        language
+      }
+    })
+  }, [setSettings])
+
+  const setAnkiSettings = useCallback((anki: AnkiSettings) => {
+    setSettings(previous => {
+      return {
+        ...previous,
+        anki
+      }
+    })
+  }, [setSettings])
+
+  console.log('settings read from local storage', settings)
 
   const values: SettingsContextBag = useMemo(() => ({
     ...settings,
     open,
     setOpen,
+    setFont,
     setSources,
     setLanguage,
-    setFont,
-    setAnkiSettings: setAnki
-  }), [open, settings])
+    setAnkiSettings
+  }), [open, setAnkiSettings, setFont, setLanguage, setSources, settings])
 
   return (
     <SettingsContext.Provider value={values}>

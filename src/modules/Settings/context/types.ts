@@ -1,4 +1,4 @@
-import { Language } from "modules/Settings/components/LanguageControls/types.ts"
+import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import { Font, FONTS } from "modules/Settings/components/FontSelector/types.ts"
 
 export interface AnkiSettings {

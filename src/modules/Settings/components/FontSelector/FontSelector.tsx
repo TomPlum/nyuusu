@@ -21,6 +21,7 @@ const FontSelector = () => {
         options={FONTS}
         id={t('label')}
         onChange={handleChange}
+        isOptionEqualToValue={(a, b) => a.slug === b.slug}
         getOptionLabel={option => t(`names.${option.slug}`)}
         renderInput={(params => <TextField {...params} label={params.id} />)}
       />
