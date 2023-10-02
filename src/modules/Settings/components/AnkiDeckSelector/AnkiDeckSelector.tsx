@@ -37,8 +37,8 @@ const AnkiDeckSelector = () => {
         label={t('label')}
         onChange={handleChange}
         id='anki-deck-name-selector'
-        helperText={error ? t('help') : ''}
         data-testid='anki-deck-name-selector'
+        helperText={error ? t('error') : t('help')}
       />
     </div>
   )

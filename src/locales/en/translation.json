@@ -125,7 +125,8 @@
       "heading": "Anki",
       "deck": {
         "label": "Deck Name",
-        "help": "Cannot be empty."
+        "help": "Folders are separated by ::",
+        "error": "Cannot be empty."
       },
       "tags": {
         "label": "Tags",
