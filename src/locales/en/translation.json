@@ -56,6 +56,12 @@
       }
     },
     "home": {
+      "article": {
+        "publisher": "NYUSU.COM",
+        "rights": "The copyright of the materials belongs to nyusu.com unless stated otherwise.",
+        "feed-title": "Latest Japanese headlines",
+        "body": "Nyusu.com is a small side-project of mine that aims to test your Japanese reading ability using headlines and excerpts from real Japanese news articles written by and for native Japanese people."
+      },
       "title": "ニュース。",
       "newspaper": {
         "title": "Newspaper",
