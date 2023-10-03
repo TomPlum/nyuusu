@@ -59,7 +59,7 @@ const HomeView = () => {
           <Headline headline={headline} />
         </Grid>
 
-        <Grid xs={12} justifyContent='center' alignItems='center'>
+        <Grid xs={12} justifyContent='center' alignItems='center' className={styles.body}>
           <ArticleContents
             contents={article.body}
             disclaimer={article.rights}
@@ -69,12 +69,12 @@ const HomeView = () => {
         </Grid>
 
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
-          <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }}>
-            <NewspaperArticle />
+          <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }} className={styles.typeArticle}>
+            <NewspaperArticle className={styles.article} />
           </Grid>
 
-          <Grid xs={12} lg={6}>
-            <CardsArticle />
+          <Grid xs={12} lg={6} className={styles.typeArticle}>
+            <CardsArticle className={styles.article} />
           </Grid>
         </Grid>
       </Grid>

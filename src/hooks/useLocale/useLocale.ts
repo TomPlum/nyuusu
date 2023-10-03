@@ -3,7 +3,7 @@ import enLocale from "date-fns/locale/en-GB"
 import jpLocale from "date-fns/locale/ja"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
-const useLocale = () => {
+const useLocale = (): Locale => {
   const { language } = useSettingsContext()
     
   return useMemo(() => {
