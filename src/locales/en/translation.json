@@ -56,14 +56,30 @@
       }
     },
     "home": {
-      "title": "ニュース。",
+      "article": {
+        "publisher": "NYUSU.COM",
+        "rights": "The copyright of the materials belongs to nyusu.com unless stated otherwise.",
+        "feed-title": "Latest Japanese headlines",
+        "body": "Nyusu.com is a small side-project of mine that aims to test your Japanese reading ability using headlines and excerpts from real Japanese news articles written by and for native Japanese people."
+      },
+      "title": [
+        "Most newspapers use only the 2136 characters in the jōyō kanji table.",
+        "The 5 major daily newspapers are the Yomiuri, Asahi, Mainichi, Sankei and Nihon Keizai Shimbun.",
+        "Today there are said to be 121 daily newspapers that are members of the NSK."
+      ],
       "newspaper": {
         "title": "Newspaper",
         "desc": "A full-page newspaper article excerpt."
       },
       "articles": {
         "title": "Articles",
-        "desc": "A library of short article headlines."
+        "desc": "A library of short article headlines.",
+        "cards": {
+          "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
+        },
+        "newspaper": {
+          "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
+        }
       }
     }
   },
@@ -125,7 +141,8 @@
       "heading": "Anki",
       "deck": {
         "label": "Deck Name",
-        "help": "Cannot be empty."
+        "help": "Folders are separated by ::",
+        "error": "Cannot be empty."
       },
       "tags": {
         "label": "Tags",

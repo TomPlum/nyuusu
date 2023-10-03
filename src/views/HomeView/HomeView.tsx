@@ -1,59 +1,90 @@
-import ViewTile from "views/HomeView/components/ViewTile"
 import { useTranslation } from "react-i18next"
-import { Dashboard, Newspaper } from "@mui/icons-material"
 import { useNavigate } from "react-router-dom"
 import styles from './HomeView.module.scss'
 import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
-import CurrentDateTime from "modules/Header/components/CurrentDateTime"
-import { Box } from "@mui/material"
+import Banner from "modules/Newspaper/components/Banner"
+import Headline from "modules/Newspaper/components/Headline"
+import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
+import { useMemo } from "react"
+import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import { format } from "date-fns"
+import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
+import CardsArticle from "views/HomeView/components/CardsArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
 
+  const todaysDate = useMemo(() => {
+    return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
+  }, [])
+
+  const article: NewsArticle = useMemo(() => ({
+    title: 'unused', // <-- we're using the typewriter instead of this
+    link: t('article.link'),
+    publisher: t('article.publisher'),
+    publishDate: todaysDate,
+    feedTitle: t('article.feed-title'),
+    rights: t('article.rights'),
+    body: t('article.body')
+  }), [t, todaysDate])
+
+  const headline = useMemo(() => {
+    return (
+      <Typewriter
+        options={{
+          loop: true,
+          autoStart: true,
+          strings: titles,
+          delay: 'natural'
+        }}
+      />
+    )
+  }, [titles])
+
   return (
-    <Box sx={{ flexGrow: 1 }} className={styles.view}>
-      <Grid container className={styles.wrapper}  columnSpacing={0} rowSpacing={0}>
-        <Grid xs={12} className={styles.titleContainer}>
-          <Typewriter
-            options={{
-              loop: true,
-              autoStart: true,
-              strings: titles,
-              delay: 'natural',
-              cursorClassName: styles.cursor,
-              wrapperClassName: styles.typewriter,
-            }}
-          />
-        </Grid>
-          
-        <Grid xs={12}>
-          <div className={styles.dateContainer}>
-            <CurrentDateTime className={styles.date} />
-          </div>
-        </Grid>
-          
-        <Grid xs={12} sm={6} className={styles.left}>
-          <ViewTile
-            Icon={Newspaper}
-            desc={t('newspaper.desc')}
-            title={t('newspaper.title')}
-            onClick={() => navigate('/newspaper')}
+    <div className={styles.view} data-testid='home-view'>
+      <Grid container className={styles.content}>
+        <Grid container xs={12}>
+          <Banner
+            title={article.feedTitle ?? ''}
+            publishDate={article.publishDate}
+            publisher={article.publisher ?? 'Unknown'}
           />
         </Grid>
 
-        <Grid xs={12} sm={6} className={styles.right}>
-          <ViewTile
-            Icon={Dashboard}
-            desc={t('articles.desc')}
-            title={t('articles.title')}
-            onClick={() => navigate('/articles')}
+        <Grid xs={12}>
+          <Headline headline={headline} />
+        </Grid>
+
+        <Grid xs={12} justifyContent='center' alignItems='center' className={styles.body}>
+          <ArticleContents
+            contents={article.body}
+            disclaimer={article.rights}
+            sourceUrl={article.link}
+            publisher={article.publisher}
           />
         </Grid>
+
+        <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
+          <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }} className={styles.typeArticle}>
+            <NewspaperArticle
+              className={styles.article}
+              onClick={() => navigate('/newspaper')}
+            />
+          </Grid>
+
+          <Grid xs={12} lg={6} className={styles.typeArticle}>
+            <CardsArticle
+              className={styles.article}
+              onClick={() => navigate('/articles')}
+            />
+          </Grid>
+        </Grid>
       </Grid>
-    </Box>
+    </div>
   )
 }
 
