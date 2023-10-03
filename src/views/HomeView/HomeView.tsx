@@ -9,6 +9,8 @@ import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import { useMemo } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
+import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
+import CardsArticle from "views/HomeView/components/CardsArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -67,12 +69,12 @@ const HomeView = () => {
         </Grid>
 
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
-          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
-
+          <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }}>
+            <NewspaperArticle />
           </Grid>
 
-          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
-
+          <Grid xs={12} lg={6}>
+            <CardsArticle />
           </Grid>
         </Grid>
       </Grid>
