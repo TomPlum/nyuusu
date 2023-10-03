@@ -70,11 +70,17 @@ const HomeView = () => {
 
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
           <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }} className={styles.typeArticle}>
-            <NewspaperArticle className={styles.article} />
+            <NewspaperArticle
+              className={styles.article}
+              onClick={() => navigate('/newspaper')}
+            />
           </Grid>
 
           <Grid xs={12} lg={6} className={styles.typeArticle}>
-            <CardsArticle className={styles.article} />
+            <CardsArticle
+              className={styles.article}
+              onClick={() => navigate('/articles')}
+            />
           </Grid>
         </Grid>
       </Grid>

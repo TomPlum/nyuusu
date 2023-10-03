@@ -5,11 +5,11 @@ import { CardsArticleProps } from "views/HomeView/components/CardsArticle/types.
 import classNames from "classnames"
 import styles from './CardsArticle.module.scss'
 
-const CardsArticle = ({ className }: CardsArticleProps) => {
+const CardsArticle = ({ className, onClick }: CardsArticleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.cards' })
 
   return (
-    <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)}>
+    <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={onClick}>
       <img src={cardsAnimation} alt='cards'/>
 
       <Typography>

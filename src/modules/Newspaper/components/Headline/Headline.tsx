@@ -10,18 +10,20 @@ const Headline = ({ headline }: HeadlineProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.headline' })
 
   const copy = useCallback(() => {
-    navigator.clipboard.writeText(headline).then(() => {
-      fireToast({
-        type: 'success',
-        timeout: 2000,
-        message: t('copy.success')
+    if (typeof headline === 'string') {
+      navigator.clipboard.writeText(headline).then(() => {
+        fireToast({
+          type: 'success',
+          timeout: 2000,
+          message: t('copy.success')
+        })
+      }).catch(() => {
+        fireToast({
+          type: 'error',
+          message: t('copy.error')
+        })
       })
-    }).catch(() => {
-      fireToast({
-        type: 'error',
-        message: t('copy.error')
-      })
-    })
+    }
   }, [fireToast, headline, t])
 
   return (

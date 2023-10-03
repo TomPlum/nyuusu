@@ -5,11 +5,11 @@ import { NewspaperArticleProps } from "views/HomeView/components/NewspaperArticl
 import classNames from "classnames"
 import Typography from "components/Typography"
 
-const NewspaperArticle = ({ className }: NewspaperArticleProps) => {
+const NewspaperArticle = ({ className, onClick }: NewspaperArticleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.newspaper' })
 
   return (
-    <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)}>
+    <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={onClick}>
       <img  src={newspaperAnimation} />
 
       <Typography>
