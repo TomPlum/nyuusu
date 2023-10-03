@@ -7,17 +7,23 @@ import LanguageSelector from "modules/Settings/components/LanguageSelector"
 import FontSelector from "modules/Settings/components/FontSelector"
 import AnkiDeckSelector from "modules/Settings/components/AnkiDeckSelector"
 import AnkiTagsSelector from "modules/Settings/components/AnkiTagsSelector"
-import { useCallback } from "react"
+import { useCallback, useMemo } from "react"
 import { defaultAnkiSettings } from "modules/Settings/context/types.ts"
 import SettingsSection from "modules/Settings/components/SettingsSection"
+import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 
 const SettingsDrawer = () => {
+  const route = useCurrentRoute()
   const { open, setOpen, setAnkiSettings } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'settings' })
 
   const resetAnkiSettings = useCallback(() => {
     setAnkiSettings(defaultAnkiSettings)
   }, [setAnkiSettings])
+
+  const isHomeRoute = useMemo(() => {
+    return route === '/'
+  }, [route])
 
   return (
     <Drawer
@@ -28,7 +34,7 @@ const SettingsDrawer = () => {
       onClose={() => setOpen(false)}
       classes={{ root: styles.drawer }}
     >
-      <div className={styles.content}>
+      <div className={isHomeRoute ? styles.contentHome : styles.content}>
         <h2 className={styles.title}>
           {t('title')}
         </h2>
