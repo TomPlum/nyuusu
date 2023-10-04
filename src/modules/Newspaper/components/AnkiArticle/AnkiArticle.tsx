@@ -1,9 +1,10 @@
 import styles from './AnkiArticle.module.scss'
 import useAnki from "hooks/useAnki"
-import { Button, CircularProgress } from "@mui/material"
+import { CircularProgress } from "@mui/material"
 import { AnkiArticleProps } from "modules/Newspaper/components/AnkiArticle/types.ts"
 import { useCallback, useState } from "react"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
+import AnkiTitle from "modules/Newspaper/components/AnkiTitle"
 
 export const AnkiArticle = ({ article }: AnkiArticleProps) => {
   const { createCard } = useAnki()
@@ -39,9 +40,7 @@ export const AnkiArticle = ({ article }: AnkiArticleProps) => {
     <div className={styles.article}>
       {loading && <CircularProgress />}
 
-      <Button onClick={handleCreateCard}>
-        Add Card
-      </Button>
+      <AnkiTitle onAddCard={handleCreateCard} />
     </div>
   )
 }
