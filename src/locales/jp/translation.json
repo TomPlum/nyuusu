@@ -76,6 +76,19 @@
           "button": "アンキ ヘルプ"
         }
       }
+    },
+    "anki-help": {
+      "title": "「ニュース・コム」と「アンキ」の統合",
+      "prerequisites": "前提条件",
+      "1": "アンキデスクトップ・アプリケーションをインストールする。",
+      "anki-website-link": "アンキサイト",
+      "2": "「AnkiConnect」アドオンをインストールします。",
+      "anki-connect-link": "AnkiConnect",
+      "3": "nyusu.orgをCORSホワイトリストに追加する。",
+      "whitelist-instructions": "アンキで、「ツール」 > 「アドオン」 > 「AnkiConnect」 > 「設定」 > 「webCorsOriginList」 > 「https://nyusu.org」を配列に追加します。",
+      "configuration": "アンキ設定",
+      "about-settings": "アンキとの統合は、サイトのヘッダーからアクセスできる設定ドロワーで設定できます。",
+      "settings-button": "設定を開く"
     }
   },
   "newspaper": {

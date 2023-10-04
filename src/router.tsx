@@ -5,6 +5,7 @@ import NyuusuApplication from "./NyuusuApplication.tsx"
 import NotFoundView from "views/NotFoundView"
 import ErrorView from "views/ErrorView"
 import HomeView from "views/HomeView"
+import AnkiHelpView from "views/AnkiHelpView"
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: '/newspaper',
         element: <NewspaperView />
+      },
+      {
+        path: '/anki',
+        element: <AnkiHelpView />
       },
       {
         path: '*',

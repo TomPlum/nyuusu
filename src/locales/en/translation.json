@@ -82,6 +82,19 @@
           "button": "Anki Help"
         }
       }
+    },
+    "anki-help": {
+      "title": "Integrating Nyusu with Anki",
+      "prerequisites": "Pre-requisites",
+      "1": "Install the Anki desktop application, if you haven't already.",
+      "anki-website-link": "Anki Website",
+      "2": "Install the AnkiConnect add-on.",
+      "anki-connect-link": "AnkiConnect",
+      "3": "Add nyusu.org to the CORS whitelist.",
+      "whitelist-instructions": "In Anki, go to Tools > Add-Ons > AnkiConnect > Config > webCorsOriginList > Add https://nyusu.org to the array",
+      "configuration": "Configuration",
+      "about-settings": "Anki integration can be configured in the settings drawer accessible in the websites header.",
+      "settings-button": "Open Settings"
     }
   },
   "newspaper": {

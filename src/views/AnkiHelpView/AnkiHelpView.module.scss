@@ -1,0 +1,51 @@
+@import "styles/colours";
+@import "styles/animations";
+
+.wrapper {
+  padding: 30px 0;
+  color: $black-ink;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  border-top: 1px solid $black-ink;
+  border-bottom: 1px solid $black-ink;
+  padding: 5px 25px;
+  max-width: 600px;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+
+  .ankiLogo {
+    width: 40px;
+  }
+}
+
+.instructions {
+  .list {
+    >li {
+      margin-bottom: 20px;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.settingsButton {
+  &:hover {
+    >svg {
+      animation-name: spin-clockwise;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
