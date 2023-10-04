@@ -72,13 +72,14 @@
         "desc": "A full-page newspaper article excerpt."
       },
       "articles": {
-        "title": "Articles",
-        "desc": "A library of short article headlines.",
         "cards": {
           "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
         },
         "newspaper": {
           "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
+        },
+        "anki": {
+          "button": "Anki Help"
         }
       }
     }

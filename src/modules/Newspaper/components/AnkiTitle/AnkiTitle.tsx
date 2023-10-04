@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { ReactComponent as AnkiStar } from 'assets/anki.svg'
 import { AnkiTitleProps } from "modules/Newspaper/components/AnkiTitle/types.ts"
 
-const AnkiTitle = ({ onAddCard }: AnkiTitleProps) => {
+const AnkiTitle = ({ button, onClick }: AnkiTitleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.anki.title' })
 
   return (
@@ -24,9 +24,9 @@ const AnkiTitle = ({ onAddCard }: AnkiTitleProps) => {
         </div>
       </div>
 
-      <div className={styles.button} title={t('button')} onClick={onAddCard}>
+      <div className={styles.button} title={t('button')} onClick={onClick}>
         <AnkiStar className={styles.ankiLogo} />
-        <p>{t('button')}</p>
+        <p>{button ?? t('button')}</p>
       </div>
     </div>
   )

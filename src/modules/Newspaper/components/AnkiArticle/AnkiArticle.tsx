@@ -40,7 +40,7 @@ export const AnkiArticle = ({ article }: AnkiArticleProps) => {
     <div className={styles.article}>
       {loading && <CircularProgress />}
 
-      <AnkiTitle onAddCard={handleCreateCard} />
+      <AnkiTitle onClick={handleCreateCard} />
     </div>
   )
 }

@@ -1,3 +1,4 @@
 export interface AnkiTitleProps {
-    onAddCard: () => void
+    button?: string;
+    onClick: () => void
 }

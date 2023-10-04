@@ -10,7 +10,7 @@ const NewspaperArticle = ({ className, onClick }: NewspaperArticleProps) => {
 
   return (
     <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={onClick}>
-      <img  src={newspaperAnimation} />
+      <img src={newspaperAnimation} alt='newspaper' />
 
       <Typography>
         {t('body')}
