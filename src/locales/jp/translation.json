@@ -88,7 +88,12 @@
       "whitelist-instructions": "アンキで、「ツール」 > 「アドオン」 > 「AnkiConnect」 > 「設定」 > 「webCorsOriginList」 > 「https://nyusu.org」を配列に追加します。",
       "configuration": "アンキ設定",
       "about-settings": "アンキとの統合は、サイトのヘッダーからアクセスできる設定ドロワーで設定できます。",
-      "settings-button": "設定を開く"
+      "settings-button": "設定を開く",
+      "test": "試してみる",
+      "test-info": "右の「{{ button }}」ボタンを使って、下の記事のカードを追加することができます。",
+      "anki-button": "追加してみる",
+      "add-card-succeeded": "新しいカードの追加に成功",
+      "add-card-failed": "カードの追加に失敗"
     }
   },
   "newspaper": {

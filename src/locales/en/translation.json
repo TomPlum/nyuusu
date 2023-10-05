@@ -94,7 +94,12 @@
       "whitelist-instructions": "In Anki, go to Tools > Add-Ons > AnkiConnect > Config > webCorsOriginList > Add https://nyusu.org to the array",
       "configuration": "Configuration",
       "about-settings": "Anki integration can be configured in the settings drawer accessible in the websites header.",
-      "settings-button": "Open Settings"
+      "settings-button": "Open Settings",
+      "test": "Try it out",
+      "test-info": "You can use the \"{{ button }}\" button on the right to add a card with for the article below.",
+      "anki-button": "Add Test Card",
+      "add-card-succeeded": "Successfully added test card. Check your Anki.",
+      "add-card-failed": "Failed to add card"
     }
   },
   "newspaper": {

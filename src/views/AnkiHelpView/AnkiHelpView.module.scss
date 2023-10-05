@@ -1,5 +1,6 @@
 @import "styles/colours";
 @import "styles/animations";
+@import "styles/mixins";
 
 .wrapper {
   padding: 30px 0;
@@ -46,6 +47,54 @@
     >svg {
       animation-name: spin-clockwise;
       animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  .testInfo {
+    margin: 0;
+  }
+
+  .testContents {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .left {
+    padding-right: 30px;
+
+    .articleHeadline {
+      background-color: $black-ink;
+      color: $white;
+      font-weight: bold;
+      padding: 5px;
+      text-align: center;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .article {
+    margin-top: 20px;
+    @include corner-borders();
+    padding: 15px 25px;
+
+    .alert {
+      display: flex;
+      justify-content: center;
     }
   }
 }
