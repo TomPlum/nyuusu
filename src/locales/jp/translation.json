@@ -93,7 +93,9 @@
       "test-info": "右の「{{ button }}」ボタンを使って、下の記事のカードを追加することができます。",
       "anki-button": "追加してみる",
       "add-card-succeeded": "新しいカードの追加に成功",
-      "add-card-failed": "カードの追加に失敗"
+      "add-card-failed": "カードの追加に失敗",
+      "deck-created": "「{{ deck }}」デッキがなかったので作成。",
+      "add-model-failed": "モデルの追加に失敗"
     }
   },
   "newspaper": {

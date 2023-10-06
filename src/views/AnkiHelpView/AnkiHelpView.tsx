@@ -5,22 +5,34 @@ import { ReactComponent as AnkiStarLogo } from "assets/anki.svg"
 import { Settings } from "@mui/icons-material"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import AnkiTitle from "modules/Newspaper/components/AnkiTitle"
-import { useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import useGetAnkiDecks from "api/hooks/useGetAnkiDecks"
 import useCreateAnkiDeck from "api/hooks/useCreateAnkiDeck"
 import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
+import useCreateAnkiModel from "api/hooks/useCreateAnkiModel"
+import { AnkiAlert } from "views/AnkiHelpView/types.ts"
 
 const AnkiHelpView = () => {
   const { setOpen, anki } = useSettingsContext()
-  const [createdDeck, setCreatedDeck] = useState(false)
+  const [alerts, setAlerts] = useState<AnkiAlert[]>([])
   const { mutateAsync: createDeck } = useCreateAnkiDeck()
-  const [addCardFailed, setAddCardFailed] = useState(false)
+  const { mutateAsync: createModel } = useCreateAnkiModel()
   const { mutateAsync: createCardApi } = useCreateAnkiCard()
-  const [addCardSucceeded, setAddCardSucceeded] = useState(false)
   const { data: decks, isError: getDecksError } = useGetAnkiDecks()
-  const [createDeckError, setCreateDeckError] = useState<string>()
   const { t } = useTranslation('translation', { keyPrefix: 'views.anki-help' })
+
+  const alert = useCallback((details: AnkiAlert) => {
+    setAlerts(existing => {
+      return existing.concat(details)
+    })
+  }, [])
+
+  useEffect(() => {
+    if (getDecksError) {
+      alert({ type: 'error', message: t('get-decks-failed') })
+    }
+  }, [alert, getDecksError, t])
 
   const testArticle: NewsArticle = useMemo(() => {
     return {
@@ -30,43 +42,55 @@ const AnkiHelpView = () => {
           "若葉竜也、戸田彬弘監督が参加した。第28回釜山国際のオープニングセレモニーには、" +
           "邦画では『月』の宮沢りえ、石井裕也監督、『キリエのうた』のアイナ・ジ・エンド、松村北斗、" +
           "岩井俊二監督などのキャストが華々しくレッドカーペットを飾った。",
-      link: "",
-      publishDate: "",
-      rights: ""
+      link: "https://www.cinemacafe.net/article/2023/10/05/87847.html",
+      publishDate: "2023-10-05 16:15:00",
+      rights: "cinemacafe.net"
     }
   }, [])
 
   const handleTestAddAnkiCard = () => {
-    setCreatedDeck(false)
+    setAlerts([])
 
     if (decks && !decks.includes(anki.deckName)) {
       createDeck({ deck: anki.deckName }).then(() => {
-        setCreatedDeck(true)
+        alert({ type: 'info',  message: t('deck-created', { deck: anki.deckName }) })
       }).catch(() => {
-        setCreateDeckError('Failed to create deck')
+        alert({ type: 'error',  message: t('deck-creation-error') })
       })
     }
+
+    createModel({
+      modelName: "Nyusu Article",
+      inOrderFields: ["Headline", "Excerpt", "SourceUrl"],
+      cardTemplates: [
+        {
+          Name: "Nyuusu Card Template",
+          Front: "Headline {{Headline}} Excerpt {{Excerpt}} SourceUrl {{SourceUrl}}",
+          Back: "Headline Translated {{Headline}}"
+        }
+      ]
+    }).then(() => {
+      alert({ type: 'info',  message: t('model-created') })
+    }).catch(() => {
+      alert({ type: 'error',  message: t('add-model-failed') })
+    })
 
     createCardApi({
       note: {
         deckName: anki.deckName,
-        modelName: "Basic",
+        modelName: "Nyusu Article",
         fields: {
-          Front: {
-
-          },
-          Back: {
-
-          }
+          Headline: testArticle.title,
+          Excerpt: testArticle.body ?? '',
+          SourceUrl: testArticle.link
         },
         tags: anki.tags
       }
     }).then(() => {
-      setAddCardSucceeded(true)
-    }).catch(e => {
+      alert({ type: 'info',  message: t('add-card-succeeded') })
+    }).catch((e) => {
       console.log(e)
-      setAddCardFailed(true)
-      // render error type and explain possible fixes
+      alert({ type: 'error',  message: t('add-card-failed') })
     })
   }
 
@@ -135,35 +159,11 @@ const AnkiHelpView = () => {
 
               <p>{testArticle.body}</p>
 
-              {addCardSucceeded && (
-                <Alert severity='success' className={styles.alert}>
-                  {t('add-card-succeeded')}
+              {alerts.map(({ type, message }, i) => (
+                <Alert key={i} severity={type}>
+                  {message}
                 </Alert>
-              )}
-
-              {createdDeck && (
-                <Alert severity='info' className={styles.alert}>
-                  {t('deck-created')}
-                </Alert>
-              )}
-
-              {createDeckError && (
-                <Alert severity='error' className={styles.alert}>
-                  {t('deck-creation-error')}
-                </Alert>
-              )}
-
-              {addCardFailed && (
-                <Alert severity='error' className={styles.alert}>
-                  {t('add-card-failed')}
-                </Alert>
-              )}
-
-              {getDecksError && (
-                <Alert severity='error' className={styles.alert}>
-                  {t('get-decks-failed')}
-                </Alert>
-              )}
+              ))}
             </div>
           </div>
 
