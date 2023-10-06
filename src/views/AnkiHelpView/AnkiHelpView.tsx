@@ -123,7 +123,13 @@ const AnkiHelpView = () => {
             
           <li>
             <p>{t('3')}</p>
-            <p>{t('whitelist-instructions')}</p>
+            <ol>
+              <li>{t('whitelist-1')}</li>
+              <li>{t('whitelist-2')}</li>
+              <li>{t('whitelist-3')}</li>
+              <li>{t('whitelist-4')}</li>
+              <li>{t('whitelist-5')}</li>
+            </ol>
           </li>
         </ol>
       </div>
