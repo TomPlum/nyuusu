@@ -40,6 +40,10 @@
       }
     }
   }
+
+  .whitelistInstructions {
+    padding-left: 20px;
+  }
 }
 
 .settingsButton {
@@ -51,14 +55,14 @@
   }
 }
 
+.heading {
+  margin-bottom: 0;
+}
+
 .test {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  .heading {
-    margin-bottom: 0;
-  }
 
   .testInfo {
     margin: 0;
@@ -93,8 +97,16 @@
     padding: 15px 25px;
 
     .alert {
+      margin-bottom: 5px;
+
       display: flex;
-      justify-content: center;
+      align-items: center;
+      justify-content: flex-start;
+
+      .retry {
+        padding: 0;
+        margin-left: auto;
+      }
     }
   }
 }

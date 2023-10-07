@@ -11,15 +11,17 @@ import useGetAnkiDecks from "api/hooks/useGetAnkiDecks"
 import useCreateAnkiDeck from "api/hooks/useCreateAnkiDeck"
 import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
 import useCreateAnkiModel from "api/hooks/useCreateAnkiModel"
-import { AnkiAlert } from "views/AnkiHelpView/types.ts"
+import { AnkiAlert, AnkiProblemReason } from "views/AnkiHelpView/types.ts"
+import { AxiosError } from "axios"
 
 const AnkiHelpView = () => {
+  const [loading, setLoading] = useState(false)
   const { setOpen, anki } = useSettingsContext()
   const [alerts, setAlerts] = useState<AnkiAlert[]>([])
   const { mutateAsync: createDeck } = useCreateAnkiDeck()
   const { mutateAsync: createModel } = useCreateAnkiModel()
   const { mutateAsync: createCardApi } = useCreateAnkiCard()
-  const { data: decks, isError: getDecksError } = useGetAnkiDecks()
+  const { data: decks, isError: isGetDecksError, error: decksError, refetch: refetchDecks } = useGetAnkiDecks()
   const { t } = useTranslation('translation', { keyPrefix: 'views.anki-help' })
 
   const alert = useCallback((details: AnkiAlert) => {
@@ -29,10 +31,34 @@ const AnkiHelpView = () => {
   }, [])
 
   useEffect(() => {
-    if (getDecksError) {
-      alert({ type: 'error', message: t('get-decks-failed') })
+    if (isGetDecksError) {
+      const reasons: AnkiProblemReason[] = []
+      if (decksError && (decksError as AxiosError).code === 'ERR_NETWORK') {
+        reasons.push(
+          AnkiProblemReason.ANKI_CONNECT_NOT_INSTALLED,
+          AnkiProblemReason.ANKI_NOT_RUNNING
+        )
+      }
+
+      alert({
+        reasons,
+        type: 'error',
+        canRetry: true,
+        message: t('get-decks-failed'),
+        shouldPreventManualTesting: true
+      })
     }
-  }, [alert, getDecksError, t])
+  }, [alert, decksError, isGetDecksError, t])
+
+  const retryGetDecks = useCallback(() => {
+    setAlerts([])
+    setLoading(true)
+    refetchDecks().then(() => {
+      setLoading(false)
+    }).catch(() => {
+
+    })
+  }, [refetchDecks])
 
   const testArticle: NewsArticle = useMemo(() => {
     return {
@@ -53,9 +79,19 @@ const AnkiHelpView = () => {
 
     if (decks && !decks.includes(anki.deckName)) {
       createDeck({ deck: anki.deckName }).then(() => {
-        alert({ type: 'info',  message: t('deck-created', { deck: anki.deckName }) })
+        alert({ 
+          type: 'info', 
+          message: t('deck-created', { deck: anki.deckName }),
+        })
       }).catch(() => {
-        alert({ type: 'error',  message: t('deck-creation-error') })
+        alert({
+          type: 'error',
+          message: t('deck-creation-error'),
+          reasons: [
+            AnkiProblemReason.ANKI_NOT_RUNNING,
+            AnkiProblemReason.ANKI_CONNECT_NOT_INSTALLED
+          ]
+        })
       })
     }
 
@@ -104,7 +140,9 @@ const AnkiHelpView = () => {
       </div>
 
       <div className={styles.instructions}>
-        <h4>{t('prerequisites')}</h4>
+        <h4 className={styles.heading}>
+          {t('prerequisites')}
+        </h4>
 
         <ol className={styles.list}>
           <li>
@@ -123,7 +161,7 @@ const AnkiHelpView = () => {
             
           <li>
             <p>{t('3')}</p>
-            <ol>
+            <ol className={styles.whitelistInstructions}>
               <li>{t('whitelist-1')}</li>
               <li>{t('whitelist-2')}</li>
               <li>{t('whitelist-3')}</li>
@@ -135,8 +173,12 @@ const AnkiHelpView = () => {
       </div>
 
       <div>
-        <h4>{t('configuration')}</h4>
+        <h4 className={styles.heading}>
+          {t('configuration')}
+        </h4>
+
         <p>{t('about-settings')}</p>
+        
         <Button
           variant='outlined'
           startIcon={<Settings />}
@@ -165,9 +207,17 @@ const AnkiHelpView = () => {
 
               <p>{testArticle.body}</p>
 
-              {alerts.map(({ type, message }, i) => (
-                <Alert key={i} severity={type}>
-                  {message}
+              {[...new Set(alerts)].map(({ type, message, canRetry }, i) => (
+                <Alert key={i} severity={type} className={styles.alert}>
+                  <span>
+                    {message}
+                  </span>
+
+                  {canRetry && (
+                    <Button variant='text' color={type} className={styles.retry} onClick={retryGetDecks}>
+                      {t('retry')}
+                    </Button>
+                  )}
                 </Alert>
               ))}
             </div>
@@ -177,9 +227,46 @@ const AnkiHelpView = () => {
             <AnkiTitle
               button={t('anki-button')}
               onClick={handleTestAddAnkiCard}
+              disabled={alerts.some(alert => alert.shouldPreventManualTesting)}
             />
           </div>
         </div>
+
+        {alerts.length > 0 && (
+          <div>
+            <h4 className={styles.heading}>
+              {t('possible-solutions')}
+            </h4>
+
+            <div>
+              {[...new Set(alerts)].flatMap(alert => alert.reasons).map(reason => {
+                switch (reason) {
+                  case AnkiProblemReason.ANKI_CONNECT_NOT_INSTALLED: {
+                    return (
+                      <div key={reason} className={styles.solution}>
+                        {t('solutions.anki-not-installed')}
+                      </div>
+                    )
+                  }
+                  case AnkiProblemReason.ANKI_NOT_RUNNING: {
+                    return (
+                      <div key={reason} className={styles.solution}>
+                        {t('solutions.anki-not-running')}
+                      </div>
+                    )
+                  }
+                  case AnkiProblemReason.ANKI_CONNECT_INCORRECT_WHITELIST: {
+                    return (
+                      <div key={reason} className={styles.solution}>
+                        {t('solutions.anki-incorrect-whitelist')}
+                      </div>
+                    )
+                  }
+                }
+              })}
+            </div>
+          </div>
+        )}
       </div>
 
       {/*TODO: Show error examples here and how to fix*/}

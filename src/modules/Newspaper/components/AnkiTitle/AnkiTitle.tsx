@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { ReactComponent as AnkiStar } from 'assets/anki.svg'
 import { AnkiTitleProps } from "modules/Newspaper/components/AnkiTitle/types.ts"
 
-const AnkiTitle = ({ button, onClick }: AnkiTitleProps) => {
+const AnkiTitle = ({ button, disabled, onClick }: AnkiTitleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.anki.title' })
 
   return (
