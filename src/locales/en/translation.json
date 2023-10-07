@@ -181,6 +181,7 @@
     "sources": "Sources",
     "anki": {
       "heading": "Anki",
+      "desc": "Click here for help",
       "deck": {
         "label": "Deck Name",
         "help": "Folders are separated by ::",

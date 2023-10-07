@@ -51,7 +51,7 @@ const SettingsDrawer = () => {
           <SourcesSelector />
         </SettingsSection>
 
-        <SettingsSection title={t('anki.heading')} onReset={resetAnkiSettings}>
+        <SettingsSection title={t('anki.heading')} onReset={resetAnkiSettings} description={<a href='/anki'>{t('anki.desc')}</a>}>
           <AnkiDeckSelector />
           <AnkiTagsSelector />
         </SettingsSection>
