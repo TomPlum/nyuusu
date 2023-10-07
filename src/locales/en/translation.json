@@ -102,10 +102,19 @@
       "test": "Try it out",
       "test-info": "You can use the \"{{ button }}\" button on the right to add a card with for the article below.",
       "anki-button": "Add Test Card",
+      "retry": "Retry",
       "add-card-succeeded": "Successfully added test card. Check your Anki.",
       "add-card-failed": "Failed to add card",
+      "add-card-duplicate": "The test card already exists in your deck.",
       "deck-created": "Created deck \"{{ deck }}\" since it didn't exist already.",
-      "add-model-failed": "Failed to create model"
+      "add-model-failed": "Failed to create model",
+      "possible-solutions": "Possible Solutions",
+      "get-decks-failed": "Your Anki decks could not be retrieved.",
+      "get-decks-succeeded": "Successfully connected to Anki desktop. Try adding a card.",
+      "solutions": {
+        "anki-not-installed": "Anki may not be installed on your system. Ensure you have followed the prerequisite steps above.",
+        "anki-not-running": "Anki may not be running. Check that Anki is open and AnkiConnect is serving on the default port."
+      }
     }
   },
   "newspaper": {

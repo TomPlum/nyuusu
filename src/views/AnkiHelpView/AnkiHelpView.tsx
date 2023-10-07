@@ -146,10 +146,13 @@ const AnkiHelpView = () => {
         tags: anki.tags
       }
     }).then(() => {
-      alert({ type: 'info',  message: t('add-card-succeeded') })
-    }).catch((e) => {
-      console.log(e)
-      alert({ type: 'error',  message: t('add-card-failed') })
+      alert({ type: 'success',  message: t('add-card-succeeded') })
+    }).catch((e: Error) => {
+      if (e.message.includes('cannot create note because it is a duplicate')) {
+        alert({ type: 'info',  message: t('add-card-duplicate') })
+      } else {
+        alert({ type: 'error',  message: t('add-card-failed') })
+      }
     }).finally(() => {
       setLoading(false)
     })
