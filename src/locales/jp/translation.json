@@ -103,6 +103,7 @@
       "add-model-failed": "モデルの追加に失敗",
       "possible-solutions": "考えられる問題の原因",
       "get-decks-failed": "あなたのアンキデッキにアクセスできませんでした。",
+      "get-decks-succeeded": "アンキへの接続に成功。カードを追加してください。",
       "solutions": {
         "anki-not-installed": "アンキがインストールされていない可能性があります",
         "anki-not-running": "アンキが起動していない可能性があります。"

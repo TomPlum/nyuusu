@@ -50,6 +50,15 @@ const AnkiHelpView = () => {
     }
   }, [alert, decksError, isGetDecksError, t])
 
+  useEffect(() => {
+    if (decks) {
+      alert({
+        type: 'success',
+        message: t('get-decks-succeeded')
+      })
+    }
+  }, [alert, decks, t])
+
   const retryGetDecks = useCallback(() => {
     setAlerts([])
     setLoading(true)
@@ -232,7 +241,7 @@ const AnkiHelpView = () => {
           </div>
         </div>
 
-        {alerts.length > 0 && (
+        {alerts.length > 0 && alerts.some(alert => alert.type === 'error') && (
           <div>
             <h4 className={styles.heading}>
               {t('possible-solutions')}
