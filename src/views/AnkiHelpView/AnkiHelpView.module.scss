@@ -71,6 +71,7 @@
   .testContents {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   }
 
   .left {
@@ -92,7 +93,6 @@
   }
 
   .article {
-    margin-top: 20px;
     @include corner-borders();
     padding: 15px 25px;
 

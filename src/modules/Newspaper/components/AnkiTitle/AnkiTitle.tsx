@@ -24,10 +24,10 @@ const AnkiTitle = ({ button, disabled, onClick }: AnkiTitleProps) => {
         </div>
       </div>
 
-      <div className={styles.button} title={t('button')} onClick={onClick}>
+      <button className={styles.button} title={t('button')} onClick={onClick} disabled={disabled}>
         <AnkiStar className={styles.ankiLogo} />
-        <p>{button ?? t('button')}</p>
-      </div>
+        <span>{button ?? t('button')}</span>
+      </button>
     </div>
   )
 }

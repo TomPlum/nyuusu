@@ -236,7 +236,7 @@ const AnkiHelpView = () => {
             <AnkiTitle
               button={t('anki-button')}
               onClick={handleTestAddAnkiCard}
-              disabled={alerts.some(alert => alert.shouldPreventManualTesting)}
+              disabled={loading || alerts.some(alert => alert.shouldPreventManualTesting)}
             />
           </div>
         </div>
