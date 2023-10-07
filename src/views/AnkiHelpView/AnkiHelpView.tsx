@@ -13,6 +13,7 @@ import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
 import useCreateAnkiModel from "api/hooks/useCreateAnkiModel"
 import { AnkiAlert, AnkiProblemReason } from "views/AnkiHelpView/types.ts"
 import { AxiosError } from "axios"
+import useGetAnkiModels from "api/hooks/useGetAnkiModels"
 
 const AnkiHelpView = () => {
   const [loading, setLoading] = useState(false)
@@ -22,6 +23,7 @@ const AnkiHelpView = () => {
   const { mutateAsync: createModel } = useCreateAnkiModel()
   const { mutateAsync: createCardApi } = useCreateAnkiCard()
   const { data: decks, isError: isGetDecksError, error: decksError, refetch: refetchDecks } = useGetAnkiDecks()
+  const { data: models } = useGetAnkiModels({ enabled: !!decks })
   const { t } = useTranslation('translation', { keyPrefix: 'views.anki-help' })
 
   const alert = useCallback((details: AnkiAlert) => {
@@ -62,10 +64,9 @@ const AnkiHelpView = () => {
   const retryGetDecks = useCallback(() => {
     setAlerts([])
     setLoading(true)
-    refetchDecks().then(() => {
-      setLoading(false)
-    }).catch(() => {
 
+    void refetchDecks().then(() => {
+      setLoading(false)
     })
   }, [refetchDecks])
 
@@ -87,6 +88,8 @@ const AnkiHelpView = () => {
     setAlerts([])
 
     if (decks && !decks.includes(anki.deckName)) {
+      setLoading(true)
+
       createDeck({ deck: anki.deckName }).then(() => {
         alert({ 
           type: 'info', 
@@ -101,29 +104,40 @@ const AnkiHelpView = () => {
             AnkiProblemReason.ANKI_CONNECT_NOT_INSTALLED
           ]
         })
+        return
+      }).finally(() => {
+        setLoading(false)
       })
     }
 
-    createModel({
-      modelName: "Nyusu Article",
-      inOrderFields: ["Headline", "Excerpt", "SourceUrl"],
-      cardTemplates: [
-        {
-          Name: "Nyuusu Card Template",
-          Front: "Headline {{Headline}} Excerpt {{Excerpt}} SourceUrl {{SourceUrl}}",
-          Back: "Headline Translated {{Headline}}"
-        }
-      ]
-    }).then(() => {
-      alert({ type: 'info',  message: t('model-created') })
-    }).catch(() => {
-      alert({ type: 'error',  message: t('add-model-failed') })
-    })
+    if (models && !models?.includes(anki.modelName)) {
+      setLoading(true)
 
+      createModel({
+        modelName: anki.modelName,
+        inOrderFields: ["Headline", "Excerpt", "SourceUrl"],
+        cardTemplates: [
+          {
+            Name: "Nyuusu Card Template",
+            Front: "Headline {{Headline}} Excerpt {{Excerpt}} SourceUrl {{SourceUrl}}",
+            Back: "Headline Translated {{Headline}}"
+          }
+        ]
+      }).then(() => {
+        alert({ type: 'info',  message: t('model-created') })
+      }).catch(() => {
+        alert({ type: 'error',  message: t('add-model-failed') })
+        return
+      }).finally(() => {
+        setLoading(false)
+      })
+    }
+
+    setLoading(true)
     createCardApi({
       note: {
         deckName: anki.deckName,
-        modelName: "Nyusu Article",
+        modelName: anki.modelName,
         fields: {
           Headline: testArticle.title,
           Excerpt: testArticle.body ?? '',
@@ -136,6 +150,8 @@ const AnkiHelpView = () => {
     }).catch((e) => {
       console.log(e)
       alert({ type: 'error',  message: t('add-card-failed') })
+    }).finally(() => {
+      setLoading(false)
     })
   }
 
