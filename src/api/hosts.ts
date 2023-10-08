@@ -1,6 +1,7 @@
 export interface ApiHosts {
   newsApi: string
-  mainichiRss: string
+  mainichiRss: string,
+  libreTranslateApi: string,
   japanTimesRss: string,
   asahi: string,
   newsCatcherApi: string
@@ -10,6 +11,7 @@ export interface ApiHosts {
 export const hosts: Record<string, ApiHosts> = {
   development: {
     newsApi: 'https://local-news-api',
+    libreTranslateApi: 'https://libretranslate.com',
     mainichiRss: '',
     newsCatcherApi: '',
     japanTimesRss: '',
@@ -18,6 +20,7 @@ export const hosts: Record<string, ApiHosts> = {
   },
   production: {
     newsApi: 'https://newsapi.org',
+    libreTranslateApi: 'https://libretranslate.com',
     mainichiRss: 'https://mainichi.jp/rss/etc',
     japanTimesRss: 'https://japantimes.co.jp/feed',
     asahi: 'https://rss.asahi.com/rss/asahi',
