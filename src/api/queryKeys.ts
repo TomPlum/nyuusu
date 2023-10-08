@@ -7,5 +7,6 @@ export const queryKeys = {
   createAnkiModel: 'createAnkiModel',
   getAnkiDecks: 'getAnkiDecks',
   getAnkiModels: 'getAnkiModels',
-  createAnkiDeck: 'createAnkiDeck'
+  createAnkiDeck: 'createAnkiDeck',
+  translate: 'translate'
 }

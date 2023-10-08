@@ -4,7 +4,7 @@ import { hosts } from "api/hosts.ts"
 const useLibreTranslate = () => {
   return useClient({
     host: hosts[import.meta.env.MODE].libreTranslateApi,
-    contextRoot: '/translate'
+    contextRoot: ''
   })
 }
 
