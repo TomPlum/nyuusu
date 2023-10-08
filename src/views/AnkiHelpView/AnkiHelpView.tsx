@@ -10,17 +10,17 @@ import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import useGetAnkiDecks from "api/hooks/useGetAnkiDecks"
 import useCreateAnkiDeck from "api/hooks/useCreateAnkiDeck"
 import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
-import useCreateAnkiModel from "api/hooks/useCreateAnkiModel"
 import { AnkiAlert, AnkiProblemReason } from "views/AnkiHelpView/types.ts"
 import { AxiosError } from "axios"
 import useGetAnkiModels from "api/hooks/useGetAnkiModels"
+import useAnki from "hooks/useAnki"
 
 const AnkiHelpView = () => {
+  const { createNyusuModel } = useAnki()
   const [loading, setLoading] = useState(false)
   const { setOpen, anki } = useSettingsContext()
   const [alerts, setAlerts] = useState<AnkiAlert[]>([])
   const { mutateAsync: createDeck } = useCreateAnkiDeck()
-  const { mutateAsync: createModel } = useCreateAnkiModel()
   const { mutateAsync: createCardApi } = useCreateAnkiCard()
   const { data: decks, isError: isGetDecksError, error: decksError, refetch: refetchDecks } = useGetAnkiDecks()
   const { data: models } = useGetAnkiModels({ enabled: !!decks })
@@ -113,17 +113,7 @@ const AnkiHelpView = () => {
     if (models && !models?.includes(anki.modelName)) {
       setLoading(true)
 
-      createModel({
-        modelName: anki.modelName,
-        inOrderFields: ["Headline", "Excerpt", "SourceUrl"],
-        cardTemplates: [
-          {
-            Name: "Nyuusu Card Template",
-            Front: "Headline {{Headline}} Excerpt {{Excerpt}} SourceUrl {{SourceUrl}}",
-            Back: "Headline Translated {{Headline}}"
-          }
-        ]
-      }).then(() => {
+      createNyusuModel().then(() => {
         alert({ type: 'info',  message: t('model-created') })
       }).catch(() => {
         alert({ type: 'error',  message: t('add-model-failed') })
@@ -146,12 +136,12 @@ const AnkiHelpView = () => {
         tags: anki.tags
       }
     }).then(() => {
-      alert({ type: 'success',  message: t('add-card-succeeded') })
+      alert({ type: 'success', message: t('add-card-succeeded') })
     }).catch((e: Error) => {
       if (e.message.includes('cannot create note because it is a duplicate')) {
-        alert({ type: 'info',  message: t('add-card-duplicate') })
+        alert({ type: 'info', message: t('add-card-duplicate') })
       } else {
-        alert({ type: 'error',  message: t('add-card-failed') })
+        alert({ type: 'error', message: t('add-card-failed') })
       }
     }).finally(() => {
       setLoading(false)
