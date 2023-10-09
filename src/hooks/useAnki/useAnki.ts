@@ -9,6 +9,9 @@ import useCreateAnkiDeck from "api/hooks/useCreateAnkiDeck"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import useCreateAnkiModel from "api/hooks/useCreateAnkiModel"
 import useGetAnkiModels from "api/hooks/useGetAnkiModels"
+import ankiTemplateFront from 'assets/anki-front.html?raw'
+import ankiTemplateBack from 'assets/anki-back.html?raw'
+import ankiCss from 'assets/anki.css?raw'
 
 const useAnki = (): AnkiResponse => {
   const { anki } = useSettingsContext()
@@ -39,12 +42,13 @@ const useAnki = (): AnkiResponse => {
   const createNyusuModel = useCallback(async () => {
     return createModel({
       modelName: anki.modelName,
+      css: ankiCss,
       inOrderFields: ["Headline", "Excerpt", "SourceUrl"],
       cardTemplates: [
         {
           Name: "Nyuusu Card Template",
-          Front: "Headline {{Headline}} Excerpt {{Excerpt}} SourceUrl {{SourceUrl}}",
-          Back: "Headline Translated {{Headline}}"
+          Front: ankiTemplateFront,
+          Back: ankiTemplateBack
         }
       ]
     })

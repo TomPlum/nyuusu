@@ -4,8 +4,8 @@ import { queryKeys } from "api/queryKeys.ts"
 import { useMutation } from "@tanstack/react-query"
 import { TranslateRequest } from "api/hooks/useTranslate/types.ts"
 
-export const useTranslateMutationKey = () => {
-  return [queryKeys.translate]
+export const useTranslateMutationKey = (text: string) => {
+  return [queryKeys.translate, text]
 }
 
 const useTranslate = ({ text }: TranslateRequest) => {
@@ -20,7 +20,7 @@ const useTranslate = ({ text }: TranslateRequest) => {
     return await client.postForm('/translate', request)
   }, [client, text])
 
-  const mutationKey = useTranslateMutationKey()
+  const mutationKey = useTranslateMutationKey(text)
 
   return useMutation(mutationKey, translate)
 }

@@ -107,6 +107,7 @@
       "add-card-failed": "Failed to add card",
       "add-card-duplicate": "The test card already exists in your deck.",
       "deck-created": "Created deck \"{{ deck }}\" since it didn't exist already.",
+      "model-created": "Added new model since it did not exist.",
       "add-model-failed": "Failed to create model",
       "possible-solutions": "Possible Solutions",
       "get-decks-failed": "Your Anki decks could not be retrieved.",

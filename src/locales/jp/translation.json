@@ -101,6 +101,7 @@
       "add-card-failed": "カードの追加に失敗。",
       "add-card-duplicate": "そのテストのカードは既にあなたのデッキに存在する。",
       "deck-created": "「{{ deck }}」デッキがなかったので作成。",
+      "model-created": "新しいモデルが存在しなかったので追加した。",
       "add-model-failed": "モデルの追加に失敗。",
       "possible-solutions": "考えられる問題の原因。",
       "get-decks-failed": "あなたのアンキデッキにアクセスできませんでした。",
