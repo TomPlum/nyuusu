@@ -1,4 +1,4 @@
-import { AnkiResponse, NyusuAnkiCardProps } from "hooks/useAnki/types.ts"
+import { AnkiResponse, NyusuAnkiCardProps, NyusuModelFields } from "hooks/useAnki/types.ts"
 import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
 import { useCallback } from "react"
 import { useToastContext } from "modules/Toast/useToastContext.ts"
@@ -43,7 +43,7 @@ const useAnki = (): AnkiResponse => {
     return createModel({
       modelName: anki.modelName,
       css: ankiCss,
-      inOrderFields: ["Headline", "Excerpt", "SourceUrl"],
+      inOrderFields: NyusuModelFields,
       cardTemplates: [
         {
           Name: "Nyuusu Card Template",
@@ -53,6 +53,23 @@ const useAnki = (): AnkiResponse => {
       ]
     })
   }, [anki.modelName, createModel])
+
+  const createNyusuCard = useCallback(async (args: NyusuAnkiCardProps) => {
+    return createCardApi({
+      note: {
+        deckName: anki.deckName,
+        modelName: anki.modelName,
+        tags: anki.tags,
+        fields: {
+          Headline: args.headline,
+          Excerpt: args.excerpt ?? 'This article had no excerpt available.',
+          SourceUrl: args.sourceUrl,
+          PublishDate: args.publishDate,
+          Author: args.author ?? 'Unknown'
+        }
+      }
+    })
+  }, [anki.deckName, anki.modelName, anki.tags, createCardApi])
 
   const createCard = useCallback(async (args: CreateAnkiCardParams) => {
     if (decks && !decks.includes(anki.deckName)) {
@@ -96,18 +113,7 @@ const useAnki = (): AnkiResponse => {
     }
 
     try {
-      await createCardApi({
-        note: {
-          deckName: anki.deckName,
-          modelName: anki.modelName,
-          tags: anki.tags,
-          fields: {
-            Headline: args.headline,
-            Excerpt: args.excerpt ?? '',
-            SourceUrl: args.sourceUrl
-          }
-        }
-      })
+      await createNyusuCard(args)
 
       fireToast({
         type: 'success',
@@ -120,10 +126,11 @@ const useAnki = (): AnkiResponse => {
       })
     }
 
-  }, [decks, anki.deckName, anki.modelName, anki.tags, models, createAnkiDeck, createNyusuModel, fireToast, t, createCardApi])
+  }, [decks, anki.deckName, anki.modelName, models, createAnkiDeck, createNyusuModel, fireToast, t, createNyusuCard])
 
   return {
     createCard,
+    createNyusuCard,
     createNyusuModel,
     createNyusuArticleCard
   }

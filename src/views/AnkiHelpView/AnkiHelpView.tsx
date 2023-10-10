@@ -9,19 +9,17 @@ import { useCallback, useEffect, useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import useGetAnkiDecks from "api/hooks/useGetAnkiDecks"
 import useCreateAnkiDeck from "api/hooks/useCreateAnkiDeck"
-import useCreateAnkiCard from "api/hooks/useCreateAnkiCard"
 import { AnkiAlert, AnkiProblemReason } from "views/AnkiHelpView/types.ts"
 import { AxiosError } from "axios"
 import useGetAnkiModels from "api/hooks/useGetAnkiModels"
 import useAnki from "hooks/useAnki"
 
 const AnkiHelpView = () => {
-  const { createNyusuModel } = useAnki()
+  const { createNyusuModel, createNyusuCard } = useAnki()
   const [loading, setLoading] = useState(false)
   const { setOpen, anki } = useSettingsContext()
   const [alerts, setAlerts] = useState<AnkiAlert[]>([])
   const { mutateAsync: createDeck } = useCreateAnkiDeck()
-  const { mutateAsync: createCardApi } = useCreateAnkiCard()
   const { data: decks, isError: isGetDecksError, error: decksError, refetch: refetchDecks } = useGetAnkiDecks()
   const { data: models } = useGetAnkiModels({ enabled: !!decks })
   const { t } = useTranslation('translation', { keyPrefix: 'views.anki-help' })
@@ -80,7 +78,8 @@ const AnkiHelpView = () => {
           "岩井俊二監督などのキャストが華々しくレッドカーペットを飾った。",
       link: "https://www.cinemacafe.net/article/2023/10/05/87847.html",
       publishDate: "2023-10-05 16:15:00",
-      rights: "cinemacafe.net"
+      rights: "cinemacafe.net",
+      author: 'シネマカフェ編集部'
     }
   }, [])
 
@@ -124,17 +123,13 @@ const AnkiHelpView = () => {
     }
 
     setLoading(true)
-    createCardApi({
-      note: {
-        deckName: anki.deckName,
-        modelName: anki.modelName,
-        fields: {
-          Headline: testArticle.title,
-          Excerpt: testArticle.body ?? '',
-          SourceUrl: testArticle.link
-        },
-        tags: anki.tags
-      }
+
+    createNyusuCard({
+      headline: testArticle.title,
+      excerpt: testArticle.body,
+      sourceUrl: testArticle.link,
+      publishDate: testArticle.publishDate,
+      author: testArticle.author
     }).then(() => {
       alert({ type: 'success', message: t('add-card-succeeded') })
     }).catch((e: Error) => {

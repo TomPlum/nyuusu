@@ -14,7 +14,9 @@ export const AnkiArticle = ({ article }: AnkiArticleProps) => {
     createNyusuArticleCard({
       headline: article.title,
       excerpt: article.body,
-      sourceUrl: article.link
+      sourceUrl: article.link,
+      publishDate: article.publishDate,
+      author: article.author
     }).then(() => {
       setLoading(false)
     }).catch(e => {

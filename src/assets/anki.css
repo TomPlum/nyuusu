@@ -3,7 +3,9 @@ html, .nightMode.card {
 }
 
 .card, .nightMode.card {
-    padding: 5px 20px;
+    padding: 5px 50px;
+    display: flex;
+    justify-content: center;
 }
 
 a {
@@ -21,6 +23,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    max-width: 800px;
 }
 
 .headline {
@@ -28,15 +31,15 @@ a:hover {
     background-color: #2e2e2e;
     text-align: center;
     padding: 20px;
-    font-size: 2em;
+    font-size: 1.8em;
     width: 100%;
 }
 
 .article {
     width: 100%;
-    padding: 20px;
+    padding: 10px 20px;
     color: #2e2e2e;
-    margin-bottom: 30px;
+    margin-bottom: 100px;
     background:
         linear-gradient(to right, #2e2e2e 2px, transparent 2px) 0 0,
         linear-gradient(to left, #2e2e2e 2px, transparent 2px) 100% 100%,
@@ -46,6 +49,34 @@ a:hover {
     background-size: 50px 50px;
 }
 
+.author {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.heading {
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-decoration-color: #2e2e2e;
+}
+
 .footer {
+    width: 100%;
+    color: #2e2e2e;
     margin-top: auto;
+}
+
+.text {
+    margin: 0;
+}
+
+#nyusu-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#github {
+    width: 30px;
 }
