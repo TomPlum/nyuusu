@@ -61,11 +61,13 @@ const useAnki = (): AnkiResponse => {
         modelName: anki.modelName,
         tags: anki.tags,
         fields: {
-          Headline: args.headline,
-          Excerpt: args.excerpt ?? 'This article had no excerpt available.',
+          Headline: args.headline.japanese,
+          Excerpt: args.excerpt.japanese ?? 'This article had no excerpt available.',
           SourceUrl: args.sourceUrl,
           PublishDate: args.publishDate,
-          Author: args.author ?? 'Unknown'
+          Author: args.author ?? 'Unknown',
+          HeadlineTranslated: args.headline.english,
+          ExcerptTranslated: args.excerpt.english ?? 'This article had no excerpt available.'
         }
       }
     })

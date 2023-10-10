@@ -83,6 +83,18 @@ const AnkiHelpView = () => {
     }
   }, [])
 
+  const testTranslations = useMemo(() => {
+    return {
+      title: "Hana Sugisaki \"I hope to reach many people\" to the red carpet in Pusan for the film \"Ichiko\" starring her.",
+      body: "In conjunction with the entry of the latest film starring Hana Sugisaki in the 28th Pusan " +
+          "International Jiseok Competition, Ms. Sugisaki, Tatsuya Wakaba, and director Akihiro Toda " +
+          "participated on the red carpet at the opening ceremony held on October 4. The opening ceremony " +
+          "of the 28th Pusan International featured a spectacular red carpet appearance by the cast of Japanese " +
+          "films, including Rie Miyazawa of \"Moon,\" director Yuya Ishii, Aina the End of \"Kirie's Song,\" " +
+          "Hokuto Matsumura, and director Shunji Iwai."
+    }
+  }, [])
+
   const handleTestAddAnkiCard = () => {
     setAlerts([])
 
@@ -125,8 +137,14 @@ const AnkiHelpView = () => {
     setLoading(true)
 
     createNyusuCard({
-      headline: testArticle.title,
-      excerpt: testArticle.body,
+      headline: {
+        japanese: testArticle.title,
+        english: testTranslations.title
+      },
+      excerpt: {
+        japanese: testArticle.body,
+        english: testTranslations.body
+      },
       sourceUrl: testArticle.link,
       publishDate: testArticle.publishDate,
       author: testArticle.author
