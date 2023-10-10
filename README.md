@@ -2,6 +2,10 @@
 
 Practice reading real Japanese from news articles published in Japan.
 
+## Anki Integration
+![example anki card](images/nyusu-anki.png)
+
+
 ## Local Development
 
 1. Clone the repository

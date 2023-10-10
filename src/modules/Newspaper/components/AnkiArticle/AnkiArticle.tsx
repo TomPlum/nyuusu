@@ -12,17 +12,23 @@ export const AnkiArticle = ({ article }: AnkiArticleProps) => {
   const handleCreateCard = useCallback(() => {
     setLoading(true)
     createNyusuArticleCard({
-      headline: article.title,
-      excerpt: article.body,
+      headline: {
+        japanese: article.title,
+        english: 'undefined' // TODO: Replace this once translation API available
+      },
+      excerpt: {
+        japanese: article.body,
+        english: 'undefined' // TODO: Replace this once translation API available
+      },
       sourceUrl: article.link,
       publishDate: article.publishDate,
-      author: article.author
+      author: article.author,
     }).then(() => {
       setLoading(false)
     }).catch(e => {
       console.debug(e)
     })
-  }, [article.body, article.link, article.title, createNyusuArticleCard])
+  }, [article.author, article.body, article.link, article.publishDate, article.title, createNyusuArticleCard])
 
   return (
     <div className={styles.article}>
