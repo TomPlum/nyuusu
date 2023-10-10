@@ -1,0 +1,112 @@
+@import "styles/colours";
+@import "styles/animations";
+@import "styles/mixins";
+
+.wrapper {
+  padding: 30px 0;
+  color: $black-ink;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  border-top: 1px solid $black-ink;
+  border-bottom: 1px solid $black-ink;
+  padding: 5px 25px;
+  max-width: 600px;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+
+  .ankiLogo {
+    width: 40px;
+  }
+}
+
+.instructions {
+  .list {
+    >li {
+      margin-bottom: 20px;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .whitelistInstructions {
+    padding-left: 20px;
+  }
+}
+
+.settingsButton {
+  &:hover {
+    >svg {
+      animation-name: spin-clockwise;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+.heading {
+  margin-bottom: 0;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .testInfo {
+    margin: 0;
+  }
+
+  .testContents {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .left {
+    padding-right: 30px;
+
+    .articleHeadline {
+      background-color: $black-ink;
+      color: $white;
+      font-weight: bold;
+      padding: 5px;
+      text-align: center;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .article {
+    @include corner-borders();
+    padding: 15px 25px;
+
+    .alert {
+      margin-bottom: 5px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .retry {
+        padding: 0;
+        margin-left: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "styles/colours";
+@import "styles/mixins";
+
+.wrapper {
+  width: 160px;
+  height: 264px;
+  display: flex;
+  flex-direction: column;
+}
+
+.outer {
+  height: 100%;
+  border: 1px solid $black-ink;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  @include vertical-text;
+  color: $black-ink;
+  border-left: 1px solid $black-ink;
+  border-right: 1px solid $black-ink;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.main {
+  font-size: 4em;
+  margin: 0;
+}
+
+.left, .right {
+  @include vertical-text;
+  color: $black-ink;
+  padding: 5px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  >p {
+    margin: 0;
+  }
+}
+
+.ankiLogo {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.button {
+  background-color: rgba($black-ink, 0.9);
+  border-radius: 0;
+  color: $newspaper;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+
+  >p {
+    margin: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $black-ink;
+    color: $white;
+    transition: all ease-in-out 0.2s;
+    border: none;
+  }
+}

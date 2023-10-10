@@ -72,14 +72,49 @@
         "desc": "A full-page newspaper article excerpt."
       },
       "articles": {
-        "title": "Articles",
-        "desc": "A library of short article headlines.",
         "cards": {
           "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
         },
         "newspaper": {
           "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
+        },
+        "anki": {
+          "button": "Anki Help"
         }
+      }
+    },
+    "anki-help": {
+      "title": "Integrating Nyusu with Anki",
+      "prerequisites": "Pre-requisites",
+      "1": "Install the Anki desktop application, if you haven't already.",
+      "anki-website-link": "Go to the Anki site to install",
+      "2": "Install the AnkiConnect add-on.",
+      "anki-connect-link": "Go to the AnkiConnect page to install",
+      "3": "Update the CORS origin whitelist.",
+      "whitelist-1": "Click \"Tools\"",
+      "whitelist-2": "Click \"Add-Ons\"",
+      "whitelist-3": "Select \"AnkiConnect\"",
+      "whitelist-4": "Click \"Settings\"",
+      "whitelist-5": "Add https://nyusu.org to the \"webCorsOriginList\" list",
+      "configuration": "Configuration",
+      "about-settings": "Anki integration can be configured in the settings drawer accessible in the websites header.",
+      "settings-button": "Open Settings",
+      "test": "Try it out",
+      "test-info": "You can use the \"{{ button }}\" button on the right to add a card with for the article below.",
+      "anki-button": "Add Test Card",
+      "retry": "Retry",
+      "add-card-succeeded": "Successfully added test card. Check your Anki.",
+      "add-card-failed": "Failed to add card",
+      "add-card-duplicate": "The test card already exists in your deck.",
+      "deck-created": "Created deck \"{{ deck }}\" since it didn't exist already.",
+      "model-created": "Added new model since it did not exist.",
+      "add-model-failed": "Failed to create model",
+      "possible-solutions": "Possible Solutions",
+      "get-decks-failed": "Your Anki decks could not be retrieved.",
+      "get-decks-succeeded": "Successfully connected to Anki desktop. Try adding a card.",
+      "solutions": {
+        "anki-not-installed": "Anki may not be installed on your system. Ensure you have followed the prerequisite steps above.",
+        "anki-not-running": "Anki may not be running. Check that Anki is open and AnkiConnect is serving on the default port."
       }
     }
   },
@@ -111,6 +146,14 @@
         "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "lorem2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
         "see-more": "Read the full article"
+      },
+      "anki": {
+        "title": {
+          "left": "Flash Cards",
+          "main": "ANKI",
+          "right": "Improve retention with SRS",
+          "button": "Add Card"
+        }
       }
     }
   },
@@ -139,6 +182,7 @@
     "sources": "Sources",
     "anki": {
       "heading": "Anki",
+      "desc": "Click here for help",
       "deck": {
         "label": "Deck Name",
         "help": "Folders are separated by ::",

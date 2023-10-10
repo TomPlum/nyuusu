@@ -11,6 +11,7 @@ import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
 import CardsArticle from "views/HomeView/components/CardsArticle"
+import AnkiArticle from "views/HomeView/components/AnkiArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -81,6 +82,10 @@ const HomeView = () => {
               className={styles.article}
               onClick={() => navigate('/articles')}
             />
+          </Grid>
+
+          <Grid xs={12} lg={6}>
+            <AnkiArticle />
           </Grid>
         </Grid>
       </Grid>

@@ -4,6 +4,9 @@ export const queryKeys = {
   getMainichiFlash: 'getMainichiFlashRss',
   getAsahiHeadlines: 'getAsahiHeadlines',
   createAnkiCard: 'createAnkiCard',
+  createAnkiModel: 'createAnkiModel',
   getAnkiDecks: 'getAnkiDecks',
-  createAnkiDeck: 'createAnkiDeck'
+  getAnkiModels: 'getAnkiModels',
+  createAnkiDeck: 'createAnkiDeck',
+  translate: 'translate'
 }

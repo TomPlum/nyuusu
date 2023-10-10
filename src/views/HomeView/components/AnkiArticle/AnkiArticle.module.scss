@@ -1,0 +1,13 @@
+@import "styles/colours";
+
+.wrapper {
+  display: flex;
+  color: $black-ink;
+}
+
+.body {
+  border-top: 1px solid $black-ink;
+  border-bottom: 1px solid $black-ink;
+  border-right: 1px solid $black-ink;
+  padding: 5px 20px;
+}

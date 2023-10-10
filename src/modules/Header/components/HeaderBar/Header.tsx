@@ -24,10 +24,10 @@ const Header = () => {
 
   return (
     <AppBar position='static' classes={{ root: styles.appBar }}>
-      <Container className={styles.header} maxWidth='xl'>
+      <Container className={styles.header} maxWidth='lg'>
         <Toolbar disableGutters className={styles.toolbar}>
           <h2 className={styles.title} onClick={() => navigate('/')}>
-            <img src='/logo.png'  alt='news-logo' className={styles.logo}/>
+            {/*<img src='/logo.png'  alt='news-logo' className={styles.logo}/>*/}
             {t('title')}
           </h2>
 

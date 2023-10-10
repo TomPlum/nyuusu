@@ -3,12 +3,14 @@ import { Font, FONTS } from "modules/Settings/components/FontSelector/types.ts"
 
 export interface AnkiSettings {
     deckName: string
+    modelName: string
     tags: string[]
 }
 
 export const defaultAnkiSettings: AnkiSettings = {
   deckName: 'Japanese::Nyusu',
-  tags: ['nyusu']
+  tags: ['nyusu'],
+  modelName: "Nyusu Article"
 }
 
 export interface SettingsContextBag extends SettingsValues {

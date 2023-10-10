@@ -2,24 +2,26 @@ import useAnkiConnect from "api/clients/useAnkiConnect"
 import { useCallback } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { queryKeys } from "api/queryKeys.ts"
+import { GetAnkiModelsProps } from "api/hooks/useGetAnkiModels/types.ts"
 
-export const useGetAnkiDecksQueryKey = () => {
-  return [queryKeys.getAnkiDecks]
+export const useGetAnkiModelsQueryKey = () => {
+  return [queryKeys.getAnkiModels]
 }
 
-const useGetAnkiDecks = () => {
+const useGetAnkiModels = ({ enabled }: GetAnkiModelsProps = {}) => {
   const client = useAnkiConnect<undefined, string[]>()
 
   const getDeckNames = useCallback(async () => {
-    const { result } = await client.call('deckNames')
+    const { result } = await client.call('modelNames')
     return result
   }, [client])
 
-  const queryKey = useGetAnkiDecksQueryKey()
+  const queryKey = useGetAnkiModelsQueryKey()
 
   return useQuery(queryKey, getDeckNames, {
+    enabled,
     retry: 0
   })
 }
 
-export default useGetAnkiDecks
+export default useGetAnkiModels

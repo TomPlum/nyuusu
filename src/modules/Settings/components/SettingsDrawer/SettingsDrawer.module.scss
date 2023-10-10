@@ -5,10 +5,22 @@
   max-width: 500px;
 }
 
-.content {
-  padding: 80px 50px 20px 50px;
+@mixin content {
   background-color: $newspaper;
   height: 100%;
   color: $black-ink;
 }
 
+.content {
+  @include content;
+  padding: 80px 50px 20px 50px;
+}
+
+.contentHome {
+  @include content;
+  padding: 20px 45px 80px 45px;
+}
+
+.help {
+  margin: 0;
+}
