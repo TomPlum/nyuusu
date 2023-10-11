@@ -24,6 +24,7 @@ const AnkiInterfaceToggle = () => {
             onChange={handleChange}
             checked={anki.useGraphicalInterface}
             inputProps={{ 'aria-label': 'controlled' }}
+            color={anki.useGraphicalInterface ? 'primary' : 'default'}
           />}
         />
       </FormGroup>
