@@ -184,6 +184,9 @@
       "tags": {
         "label": "タグ",
         "help": "カンマ区切り"
+      },
+      "interface": {
+        "label": "GUIを使う"
       }
     }
   },

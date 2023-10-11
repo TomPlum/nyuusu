@@ -11,6 +11,7 @@ import { useCallback, useMemo } from "react"
 import { defaultAnkiSettings } from "modules/Settings/context/types.ts"
 import SettingsSection from "modules/Settings/components/SettingsSection"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
+import AnkiInterfaceToggle from "modules/Settings/components/AnkiInterfaceToggle"
 
 const SettingsDrawer = () => {
   const route = useCurrentRoute()
@@ -54,6 +55,7 @@ const SettingsDrawer = () => {
         <SettingsSection title={t('anki.heading')} onReset={resetAnkiSettings} description={<a href='/anki'>{t('anki.desc')}</a>}>
           <AnkiDeckSelector />
           <AnkiTagsSelector />
+          <AnkiInterfaceToggle />
         </SettingsSection>
       </div>
     </Drawer>

@@ -191,6 +191,9 @@
       "tags": {
         "label": "Tags",
         "help": "Must be comma separated"
+      },
+      "interface": {
+        "label": "Use GUI"
       }
     }
   },
