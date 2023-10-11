@@ -7,10 +7,11 @@ import useLanguageStats from "modules/Article/hooks/useLanguageStats"
 import SourceButton from "modules/Article/components/SourceButton"
 import RatingBadge from "modules/Article/components/RatingBadge"
 import classNames from "classnames"
-import React, { ForwardedRef, useCallback } from "react"
+import React, { ForwardedRef, useCallback, useMemo } from "react"
 import ArticleHeader from "modules/Article/components/ArticleHeader"
 import TranslateButton from "modules/Article/components/TranslateButton"
 import TagsButton from "modules/Article/components/TagsButton"
+import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 
 const Article = React.forwardRef(({
   article,
@@ -26,11 +27,21 @@ const Article = React.forwardRef(({
     onClick(article)
   }, [article, onClick])
 
+  const difficultyClass = useMemo(() => {
+    switch (difficulty) {
+      case DifficultyRating.BEGINNER: return styles.beginner
+      case DifficultyRating.INTERMEDIATE: return styles.intermediate
+      case DifficultyRating.EXPERT: return styles.expert
+    }
+  }, [difficulty])
+
   return (
     <Card className={classNames(styles.article, className)} onClick={handleClick} title={t('title')} ref={ref} {...rest}>
       {loading && (
         <Skeleton variant='rectangular' />
       )}
+
+      <div className={classNames(styles.difficulty, difficultyClass)} />
 
       {!loading && (
         <div className={styles.content}>

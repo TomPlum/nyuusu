@@ -1,3 +1,5 @@
+@import "styles/colours";
+
 .badge {
   border: 2px solid;
   border-radius: 50%;
@@ -9,16 +11,16 @@
 }
 
 .beginner {
-  color: #1eb51e;
-  border-color: #2ce12c;
+  color: $beginner-primary;
+  border-color: $beginner-secondary;
 }
 
 .intermediate {
-  color: orange;
-  border-color: #ed6e1f;
+  color: $intermediate-primary;
+  border-color: $intermediate-secondary;
 }
 
 .expert {
-  color: red;
-  border-color: #e12020;
+  color: $expert-primary;
+  border-color: $expert-secondary;
 }
