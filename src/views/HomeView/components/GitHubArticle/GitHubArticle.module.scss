@@ -1,0 +1,12 @@
+@import "styles/colours";
+@import "styles/mixins";
+
+.article {
+  @include corner-borders();
+  padding: 20px;
+  color: $black-ink;
+}
+
+.github {
+  font-size: 1.5em;
+}

@@ -12,6 +12,7 @@ import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
 import CardsArticle from "views/HomeView/components/CardsArticle"
 import AnkiArticle from "views/HomeView/components/AnkiArticle"
+import GitHubArticle from "views/HomeView/components/GitHubArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -86,6 +87,10 @@ const HomeView = () => {
 
           <Grid xs={12} lg={6}>
             <AnkiArticle />
+          </Grid>
+
+          <Grid xs={6} lg={4}>
+            <GitHubArticle />
           </Grid>
         </Grid>
       </Grid>
