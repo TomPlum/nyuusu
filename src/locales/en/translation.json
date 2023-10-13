@@ -154,6 +154,9 @@
           "right": "Improve retention with SRS",
           "button": "Add Card"
         }
+      },
+      "headline": {
+        "text": "日本の見出しと記事"
       }
     }
   },

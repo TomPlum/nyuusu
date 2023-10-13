@@ -10,7 +10,11 @@ const CardsArticle = ({ className, onClick }: CardsArticleProps) => {
 
   return (
     <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={onClick}>
-      <img src={cardsAnimation} alt='cards'/>
+      <img
+        alt='cards'
+        src={cardsAnimation}
+        className={styles.img}
+      />
 
       <Typography>
         {t('body')}

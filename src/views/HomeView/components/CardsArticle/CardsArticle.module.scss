@@ -2,5 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-height: 250px;
+}
+
+.img {
+  object-fit: cover;
+  object-position: 100% 0;
 }

@@ -1,0 +1,13 @@
+@import "styles/colours";
+
+.wrapper {
+  border-right: 1px solid $black-ink;
+  padding: 10px 0;
+}
+
+.text {
+  color: $black-ink;
+  font-size: 5em;
+  margin: 0;
+  font-weight: bold;
+}

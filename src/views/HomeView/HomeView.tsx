@@ -13,6 +13,7 @@ import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
 import CardsArticle from "views/HomeView/components/CardsArticle"
 import AnkiArticle from "views/HomeView/components/AnkiArticle"
 import GitHubArticle from "views/HomeView/components/GitHubArticle"
+import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -48,6 +49,7 @@ const HomeView = () => {
 
   return (
     <div className={styles.view} data-testid='home-view'>
+      <div className={styles.grain} />
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
@@ -61,38 +63,48 @@ const HomeView = () => {
           <Headline headline={headline} />
         </Grid>
 
-        <Grid xs={12} justifyContent='center' alignItems='center' className={styles.body}>
-          <ArticleContents
-            contents={article.body}
-            disclaimer={article.rights}
-            sourceUrl={article.link}
-            publisher={article.publisher}
-          />
-        </Grid>
+        <div className={styles.grid}>
+          <div className={styles.left}>
+            <Grid xs={12} justifyContent='center' alignItems='center' className={styles.body}>
+              <ArticleContents
+                contents={article.body}
+                disclaimer={article.rights}
+                sourceUrl={article.link}
+                publisher={article.publisher}
+              />
+            </Grid>
 
-        <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
-          <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }} className={styles.typeArticle}>
-            <NewspaperArticle
-              className={styles.article}
-              onClick={() => navigate('/newspaper')}
-            />
-          </Grid>
+            <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
+              <Grid container className={styles.typeArticleWrapper}>
+                <Grid xs={12} lg={6} sx={{ borderRight: "1px solid black" }} className={styles.typeArticle}>
+                  <NewspaperArticle
+                    className={styles.article}
+                    onClick={() => navigate('/newspaper')}
+                  />
+                </Grid>
 
-          <Grid xs={12} lg={6} className={styles.typeArticle}>
-            <CardsArticle
-              className={styles.article}
-              onClick={() => navigate('/articles')}
-            />
-          </Grid>
+                <Grid xs={12} lg={6} className={styles.typeArticle}>
+                  <CardsArticle
+                    className={styles.article}
+                    onClick={() => navigate('/articles')}
+                  />
+                </Grid>
+              </Grid>
 
-          <Grid xs={12} lg={6}>
-            <AnkiArticle />
-          </Grid>
+              <Grid xs={12} lg={6}>
+                <AnkiArticle />
+              </Grid>
 
-          <Grid xs={6} lg={4}>
-            <GitHubArticle />
-          </Grid>
-        </Grid>
+              <Grid xs={6} lg={4}>
+                <GitHubArticle />
+              </Grid>
+            </Grid>
+          </div>
+
+          <div className={styles.right}>
+            <HeadlineArticle />
+          </div>
+        </div>
       </Grid>
     </div>
   )

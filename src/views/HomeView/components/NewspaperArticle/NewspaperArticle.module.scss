@@ -1,6 +1,27 @@
+@import "styles/colours";
+
 .wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  max-height: 250px;
+  align-items: center;
+
+  .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.img {
+  width: 150px;
+  border: 1px solid $black-ink;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 0;
 }
