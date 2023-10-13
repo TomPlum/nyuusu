@@ -6,11 +6,12 @@
   height: 264px;
   display: flex;
   flex-direction: column;
+  font-weight: bold;
 }
 
 .outer {
   height: 100%;
-  border: 1px solid $black-ink;
+  border: 3px solid $black-ink;
   display: flex;
   justify-content: center;
 }
@@ -18,8 +19,8 @@
 .inner {
   @include vertical-text;
   color: $black-ink;
-  border-left: 1px solid $black-ink;
-  border-right: 1px solid $black-ink;
+  border-left: 3px solid $black-ink;
+  border-right: 3px solid $black-ink;
   width: 80px;
   display: flex;
   justify-content: center;
@@ -35,7 +36,6 @@
 .left, .right {
   @include vertical-text;
   color: $black-ink;
-  padding: 5px 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,6 +43,7 @@
 
   >p {
     margin: 0;
+    width: 100%;
   }
 }
 
@@ -52,7 +53,7 @@
 }
 
 .button {
-  background-color: rgba($black-ink, 0.9);
+  background-color: $black-ink;
   border-radius: 0;
   color: $newspaper;
   height: 30px;
@@ -61,16 +62,25 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  padding: 0;
+  border-right: 3px solid $black-ink;
+  border-left: 3px solid $black-ink;
+  border-bottom: 3px solid $black-ink;
 
   >p {
     margin: 0;
+    width: 100%;
   }
 
   &:hover {
     cursor: pointer;
-    background-color: $black-ink;
-    color: $white;
+    background-color: $newspaper;
+    color: $black-ink;
     transition: all ease-in-out 0.2s;
-    border: none;
+    border-color: $black-ink;
+  }
+
+  &:focus {
+    outline: none;
   }
 }

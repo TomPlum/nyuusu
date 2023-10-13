@@ -1,13 +1,14 @@
 @import "styles/colours";
 
 .wrapper {
-  border-right: 1px solid $black-ink;
-  padding: 10px 0;
+  border-right: 3px solid $black-ink;
+  display: flex;
+  align-items: flex-start;
 }
 
 .text {
   color: $black-ink;
   font-size: 5em;
-  margin: 0;
+  margin: -30px 0 0 0;
   font-weight: bold;
 }

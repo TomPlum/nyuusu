@@ -67,6 +67,8 @@
       },
       "articles": {
         "cards": {
+          "title": "概要型",
+          "char": "速",
           "body": "たくさんの見出しを一目で閲覧できる。難易度でソートし、ソースでフィルタリングして、あなたに最適な記事を見つけよう。"
         },
         "newspaper": {
@@ -82,7 +84,7 @@
           "link": "https://github.com/TomPlum/nyuusu"
         },
         "headline": {
-          "text": "日本の見出しと記事"
+          "text": "【日本の見出しと記事】"
         }
       }
     },

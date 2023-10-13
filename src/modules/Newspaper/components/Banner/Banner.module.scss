@@ -11,8 +11,8 @@
   width: 100%;
 
   .border {
-    border-top: 1px solid $black-ink;
-    border-bottom: 1px solid $black-ink;
+    border-top: 2px solid $black-ink;
+    border-bottom: 2px solid $black-ink;
     padding: 8px 30px;
     margin-bottom: 5px;
   }
@@ -20,6 +20,7 @@
   .title {
     color: $black-ink;
     font-size: 1.1em;
+    font-weight: bold;
   }
 
   .publisher {

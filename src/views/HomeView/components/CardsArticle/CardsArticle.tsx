@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next"
-import cardsAnimation from "assets/cards.gif"
 import Typography from "components/Typography"
 import { CardsArticleProps } from "views/HomeView/components/CardsArticle/types.ts"
 import classNames from "classnames"
@@ -10,15 +9,24 @@ const CardsArticle = ({ className, onClick }: CardsArticleProps) => {
 
   return (
     <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={onClick}>
-      <img
-        alt='cards'
-        src={cardsAnimation}
-        className={styles.img}
-      />
+      <div className={styles.inner}>
+        <Typography className={styles.contents}>
+          {t('body')}
+        </Typography>
+          
+        <div className={styles.right}>
+          <div className={styles.charContainer}>
+            <div className={styles.circleBg} />
+            <p className={styles.char}>
+              {t('char')}
+            </p>
+          </div>
 
-      <Typography>
-        {t('body')}
-      </Typography>
+          <p className={styles.title}>
+            {t('title')}
+          </p>
+        </div>
+      </div>
     </div>
   )
 }

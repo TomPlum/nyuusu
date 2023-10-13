@@ -1,10 +1,99 @@
+@import "styles/colours";
+
 .wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  border: 5px solid $black-ink;
+  padding: 4px 5px;
+  border-radius: 5px;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid $black-ink;
+    border-radius: 3px;
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-grow: 1;
+    border-left: 5px solid $black-ink;
+    min-height: 100%;
+    height: 100%;
+  }
 }
 
 .img {
-  object-fit: cover;
-  object-position: 100% 0;
+  width: 150px;
+  border: 1px solid $black-ink;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 0;
+  background-color: $black-ink;
+  width: 100%;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.charContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black-ink;
+
+  .circleBg {
+    width: 95%;
+    height: 84%;
+    position: absolute;
+    background-color: $newspaper;
+    border-radius: 100px;
+    z-index: 1;
+  }
+}
+
+.char {
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0;
+  border: 4px solid $black-ink;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  color: $newspaper;
+  position: relative;
+  background-color: $black-ink;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    background-color: $newspaper;
+    color: $black-ink;
+    cursor: pointer;
+  }
+}
+
+.contents {
+  padding: 10px 5px 10px 0;
+  margin-right: 0;
+  font-weight: bold;
 }
