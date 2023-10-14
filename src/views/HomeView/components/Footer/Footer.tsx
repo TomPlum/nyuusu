@@ -11,8 +11,13 @@ const Footer = () => {
 
   return (
     <div className={styles.wrapper}>
-      <span>{t('edition', { number: 1 })}</span>
-      <span>{t('copyright', { year: currentYear })}</span>
+      <span className={styles.edition}>
+        {t('edition', { number: 1 })}
+      </span>
+        
+      <span className={styles.copyright}>
+        {t('copyright', { year: currentYear })}
+      </span>
     </div>
   )
 }

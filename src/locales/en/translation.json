@@ -93,7 +93,7 @@
       },
       "footer": {
         "edition": "第{{ number }}紙面",
-        "copyright": "著作権についてTom Plumpton ({{ year }})"
+        "copyright": "Copyright Tom Plumpton ({{ year }})"
       }
     },
     "anki-help": {

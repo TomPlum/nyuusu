@@ -90,8 +90,8 @@
         }
       },
       "footer": {
-        "edition": "第{{ number }}紙面",
-        "copyright": "著作権についてTom Plumpton ({{ year }})"
+        "edition": "【第{{ number }}紙面】",
+        "copyright": "著作権についてトム・プランプトン「{{ year }}」"
       }
     },
     "anki-help": {
