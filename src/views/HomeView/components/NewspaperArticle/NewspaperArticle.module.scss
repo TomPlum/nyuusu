@@ -21,7 +21,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    flex-grow: 1;
+    width: 40%;
+    min-width: 160px;
     border-right: 5px solid $black-ink;
     min-height: 100%;
     height: 100%;
@@ -59,11 +60,11 @@
   align-items: center;
 
   .circleBg {
-    width: 75%;
-    height: 85%;
+    width: 105px;
+    height: 105px;
     position: absolute;
     background-color: $newspaper;
-    border-radius: 50px;
+    border-radius: 50%;
     z-index: 1;
   }
 }

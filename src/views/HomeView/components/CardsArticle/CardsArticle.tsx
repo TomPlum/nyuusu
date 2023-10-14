@@ -16,7 +16,7 @@ const CardsArticle = ({ className, onClick }: CardsArticleProps) => {
           
         <div className={styles.right}>
           <div className={styles.charContainer}>
-            <div className={styles.circleBg} />
+            <div className={styles.circle} />
             <p className={styles.char}>
               {t('char')}
             </p>

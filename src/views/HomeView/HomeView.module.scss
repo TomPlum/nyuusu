@@ -61,16 +61,6 @@
   padding-top: 20px;
 }
 
-.left {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.right {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .titleContainer {
   display: flex;
   justify-content: center;
@@ -102,22 +92,54 @@
 
 .article {
   height: 170px;
-  font-size: 1.1em;
   color: $black-ink;
 }
 
 .grid {
-  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
 
   .left {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+
+    .leftMiddle {
+      padding-right: 40px;
+    }
   }
 
   .right {
     display: flex;
-    width: 200px;
     justify-content: flex-end;
     align-items: flex-start;
+  }
+}
+
+.cut {
+  border: 3px solid $black-ink;
+  padding: 2px;
+
+  .cutInner {
+    background-color: $black-ink;
+    padding: 10px;
+    color: $newspaper;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .cutText {
+    padding: 0 10px;
+    margin: 0 -5px;
+  }
+
+  .dotted {
+    border-top: 2px dashed $newspaper;
+    flex-grow: 1;
+
+    &:last-child {
+      flex-grow: 1.3;
+    }
   }
 }

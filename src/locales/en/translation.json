@@ -67,10 +67,7 @@
         "The Yomimuri Shimbun is the most popular newspaper in Japan.",
         "Today there are said to be 121 daily newspapers that are members of the NSK."
       ],
-      "newspaper": {
-        "title": "Newspaper",
-        "desc": "A full-page newspaper article excerpt."
-      },
+      "cut": "ページへのリンク",
       "articles": {
         "cards": {
           "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
