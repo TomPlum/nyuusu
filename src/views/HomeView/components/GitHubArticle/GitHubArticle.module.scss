@@ -2,11 +2,17 @@
 @import "styles/mixins";
 
 .article {
-  @include corner-borders();
-  padding: 20px;
+  @include corner-borders(30%, 50%, 3px);
+  padding: 25px;
   color: $black-ink;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .github {
-  font-size: 1.5em;
+  border: 8px solid $black-ink;
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 5em !important;
 }

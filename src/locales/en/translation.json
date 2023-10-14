@@ -81,7 +81,15 @@
         "anki": {
           "body": "Automatically generate Anki cards for headlines and article contents. Click the help button on the left to view instructions on how to configure your desktop client to work with nyusu.com.",
           "button": "Anki Help"
+        },
+        "github": {
+          "body": "GitHubのプロジェクトを見る",
+          "link": "https://github.com/TomPlum/nyuusu"
         }
+      },
+      "footer": {
+        "edition": "第{{ number }}紙面",
+        "copyright": "著作権についてTom Plumpton ({{ year }})"
       }
     },
     "anki-help": {

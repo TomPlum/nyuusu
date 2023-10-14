@@ -87,6 +87,10 @@
         "headline": {
           "text": "【日本の見出しと記事】"
         }
+      },
+      "footer": {
+        "edition": "第{{ number }}紙面",
+        "copyright": "著作権についてTom Plumpton ({{ year }})"
       }
     },
     "anki-help": {

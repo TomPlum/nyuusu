@@ -14,6 +14,7 @@ import CardsArticle from "views/HomeView/components/CardsArticle"
 import AnkiArticle from "views/HomeView/components/AnkiArticle"
 import GitHubArticle from "views/HomeView/components/GitHubArticle"
 import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
+import Footer from "./components/Footer"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -50,6 +51,7 @@ const HomeView = () => {
   return (
     <div className={styles.view} data-testid='home-view'>
       <div className={styles.grain} />
+
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
@@ -105,6 +107,10 @@ const HomeView = () => {
             <HeadlineArticle />
           </div>
         </div>
+
+        <Grid container xs={12}>
+          <Footer />
+        </Grid>
       </Grid>
     </div>
   )
