@@ -2,11 +2,12 @@
 @import "styles/mixins";
 
 .article {
-  @include corner-borders(30%, 50%, 3px);
-  padding: 25px;
+  padding: 10px 0;
   color: $black-ink;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 

@@ -72,9 +72,10 @@ const HomeView = () => {
             <Grid xs={12} justifyContent='center' alignItems='center' className={styles.body}>
               <ArticleContents
                 contents={article.body}
-                disclaimer={article.rights}
                 sourceUrl={article.link}
+                disclaimer={article.rights}
                 publisher={article.publisher}
+                className={styles.articleContents}
               />
             </Grid>
 
@@ -110,16 +111,16 @@ const HomeView = () => {
                   />
                 </Grid>
               </Grid>
-
-              <Grid xs={12} lg={6}>
-                <GitHubArticle />
-              </Grid>
             </Grid>
           </Grid>
 
           <Grid container className={styles.right}>
-            <Grid>
+            <Grid xs={12}>
               <HeadlineArticle />
+            </Grid>
+
+            <Grid xs={12}>
+              <GitHubArticle />
             </Grid>
           </Grid>
         </Grid>

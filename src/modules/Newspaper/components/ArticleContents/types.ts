@@ -3,4 +3,5 @@ export interface ArticleContentsProps {
     sourceUrl: string
     disclaimer?: string
     publisher?: string
+    className?: string
 }
