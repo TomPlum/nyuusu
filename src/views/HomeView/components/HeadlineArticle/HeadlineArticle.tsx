@@ -10,6 +10,15 @@ const HeadlineArticle = () => {
       <Typography className={styles.text}>
         {t('text')}
       </Typography>
+
+      <div className={styles.liveContainer}>
+        <div className={styles.circle} />
+
+        <Typography className={styles.live} useHorizontal>
+          {t('live')}
+        </Typography>
+      </div>
+
       <div className={styles.left} />
     </div>
   )

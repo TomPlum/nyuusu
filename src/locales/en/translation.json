@@ -85,6 +85,10 @@
         "github": {
           "body": "GitHubのプロジェクトを見る",
           "link": "https://github.com/TomPlum/nyuusu"
+        },
+        "headline": {
+          "live": "LIVE",
+          "text": "【日本の見出しと記事】"
         }
       },
       "footer": {

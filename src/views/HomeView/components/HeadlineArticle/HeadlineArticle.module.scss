@@ -5,13 +5,14 @@
   border-top: 3px solid $black-ink;
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
   position: relative;
 }
 
 .text {
   color: $black-ink;
   font-size: 5em;
-  margin: -30px 0 0 0;
+  margin: -30px 0 -30px 0;
   font-weight: bold;
 }
 
@@ -23,4 +24,52 @@
   left: 0;
   box-shadow: -3px 0 0 $black-ink;
   border-bottom: 3px solid $black-ink;
+}
+
+.liveContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 1.1em;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+$live-color: #f1527c;
+
+.live {
+  color: $live-color;
+  margin: 0;
+}
+
+@keyframes pulsate {
+  0% {transform: scale(0.6, 0.6); opacity: 0.0;}
+  50% {opacity: 0.8;}
+  100% {transform: scale(1, 1); opacity: 0.0;}
+}
+
+.circle {
+  $size: 20px;
+  position: relative;
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  background: $live-color;
+  margin-right: 10px;
+
+  &:before {
+    content: "";
+    border: 7px solid rgba(227, 98, 98, 0.68);
+    border-radius: 50%;
+    height: $size;
+    width: $size;
+    position: absolute;
+    left: -7px;
+    bottom: -7px;
+    animation: pulsate 2s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0;
+    z-index: 99;
+  }
 }
