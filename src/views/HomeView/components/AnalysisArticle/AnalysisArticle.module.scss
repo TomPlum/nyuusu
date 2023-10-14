@@ -1,0 +1,27 @@
+@import "styles/colours";
+
+.wrapper {
+  border: 2px solid $black-ink;
+  max-width: 100%;
+  height: 180px;
+  padding: 20px;
+}
+
+.pie {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 180px;
+}
+
+.inner {
+  border: 5px solid rgba($black-ink, 0.9);
+  border-radius: 50%;
+}
+
+.outer {
+  border: 3px dashed rgba($black-ink, 0.7);
+  border-radius: 50%;
+  padding: 2px;
+}

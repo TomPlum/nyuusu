@@ -17,6 +17,7 @@ import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
 import Footer from "./components/Footer"
 import { ContentCut } from "@mui/icons-material"
 import SettingsArticle from "views/HomeView/components/SettingsArticle"
+import AnalysisArticle from "./components/AnalysisArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -111,6 +112,10 @@ const HomeView = () => {
                   />
                 </Grid>
               </Grid>
+            </Grid>
+
+            <Grid xs={12}>
+              <AnalysisArticle className={styles.analysisArticle}/>
             </Grid>
           </Grid>
 
