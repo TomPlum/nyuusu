@@ -79,6 +79,7 @@
           "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
         },
         "anki": {
+          "body": "Automatically generate Anki cards for headlines and article contents. Click the help button on the left to view instructions on how to configure your desktop client to work with nyusu.com.",
           "button": "Anki Help"
         }
       }

@@ -74,7 +74,7 @@ const HomeView = () => {
               />
             </Grid>
 
-            <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
+            <Grid container spacing={{ xs: 4, md: 4 }} columns={12} sx={{ flexGrow: 1 }}>
               <Grid container className={styles.typeArticleWrapper}>
                 <Grid xs={12} lg={6}>
                   <NewspaperArticle

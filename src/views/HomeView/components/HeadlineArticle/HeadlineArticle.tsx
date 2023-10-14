@@ -10,6 +10,7 @@ const HeadlineArticle = () => {
       <Typography className={styles.text}>
         {t('text')}
       </Typography>
+      <div className={styles.left} />
     </div>
   )
 }
