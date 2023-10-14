@@ -86,6 +86,10 @@
         "headline": {
           "live": "LIVE",
           "text": "【日本の見出しと記事】"
+        },
+        "settings": {
+          "left": "CUSTOMISE",
+          "right": "SETTINGS"
         }
       },
       "footer": {

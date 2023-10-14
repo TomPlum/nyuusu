@@ -16,6 +16,7 @@ import GitHubArticle from "views/HomeView/components/GitHubArticle"
 import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
 import Footer from "./components/Footer"
 import { ContentCut } from "@mui/icons-material"
+import SettingsArticle from "views/HomeView/components/SettingsArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -80,6 +81,7 @@ const HomeView = () => {
             <Grid container className={styles.leftMiddle}>
               <Grid xs={12} lg={6}>
                 <AnkiArticle />
+                <SettingsArticle />
               </Grid>
 
               <Grid container xs={12} lg={6} rowSpacing={2}>
