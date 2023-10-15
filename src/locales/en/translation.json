@@ -100,7 +100,14 @@
           "right": "SETTINGS"
         },
         "analysis": {
-          "body": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text."
+          "body": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text.",
+          "text": {
+            "start": "【Stats】Sample headline is {{ length }} long.",
+            "kanji": "{{ kanji }}％ is kanji.",
+            "hiragana": "{{ hiragana }}％ is hiragana.",
+            "katakana": "{{ katakana }}％ is katakana.",
+            "roman": "{{ roman }}％ are roman characters."
+          }
         }
       },
       "footer": {

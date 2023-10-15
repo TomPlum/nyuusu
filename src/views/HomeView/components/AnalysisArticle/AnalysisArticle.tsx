@@ -9,14 +9,17 @@ import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
 import useLanguageStats from "modules/Article/hooks/useLanguageStats"
 import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
+import { Equalizer } from "@mui/icons-material"
 
 ChartJS.register(ArcElement, ChartDataLabels)
 
 const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [data, setData] = useState<ChartData<'pie'>>()
   const { difficulty } = useLanguageStats({ input: 'text' })
+  const [animationDuration, setAnimationDuration] = useState(0)
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const difficultyClass = useMemo(() => {
     switch (difficulty) {
       case DifficultyRating.BEGINNER: return styles.beginner
@@ -55,6 +58,9 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   useEffect(() => {
     generateData()
     const interval = setInterval(generateData, 3500)
+    setTimeout(() => {
+      setAnimationDuration(2000)
+    }, 3000)
     
     return () => {
       clearInterval(interval)
@@ -63,16 +69,54 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
 
   return (
     <div className={classNames(styles.wrapper, className)}>
+      <div className={styles.stats}>
+        <div className={styles.heading}>
+          <Equalizer className={styles.icon} />
+          <span>{t('text.start', { length: 120 })}</span>
+        </div>
+
+        <div className={styles.stat}>
+          <p className={styles.label}>字</p>
+          <p className={styles.text}>
+            <span>{t('text.kanji', { kanji: 30 })}</span>
+          </p>
+        </div>
+
+        <div className={styles.stat}>
+          <p className={styles.label}>ひ</p>
+          <p className={styles.text}>
+            <span>{t('text.hiragana', { hiragana: 25 })}</span>
+          </p>
+        </div>
+
+        <div className={styles.stat}>
+          <p className={styles.label}>カ</p>
+          <p className={styles.text}>
+            <span>{t('text.katakana', { katakana: 15 })}</span>
+          </p>
+        </div>
+
+        <div className={styles.stat}>
+          <p className={styles.label}>A</p>
+          <p className={styles.text}>
+            <span>{t('text.roman', { roman: 10 })}</span>
+          </p>
+        </div>
+
+        <div className={styles.mask} />
+      </div>
+
       <div className={styles.pieContainer}>
         <div className={styles.outer}>
           <div className={styles.inner}>
             {data && (
               <Pie
                 data={data}
+                // @ts-expect-error who knows?
                 plugins={[ChartDataLabels]}
                 className={styles.pie}
                 options={{
-                  animation: { duration: 2000 },
+                  animation: { duration: animationDuration },
                   maintainAspectRatio: true,
                   plugins: {
                     datalabels: {

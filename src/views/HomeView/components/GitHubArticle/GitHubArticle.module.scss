@@ -2,17 +2,12 @@
 @import "styles/mixins";
 
 .article {
-  padding: 10px 0;
-  color: $black-ink;
+  background-color: $black-ink;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 100%;
-  position: relative;
-  background-color: $black-ink;
-  border: 4px solid $black-ink;
-  height: 92px;
+  min-height: 145px;
+  width: 100%;
   box-shadow: -3px 0 0 $black-ink;
 
   &:hover {
@@ -27,14 +22,27 @@
       background-color: $black-ink;
     }
   }
+
+}
+
+.link {
+  padding: 10px 0;
+  color: $black-ink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  position: relative;
+  background-color: $black-ink;
+  border: 4px solid $black-ink;
+  height: 92px;
 }
 
 .circle {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  width: 110px;
+  height: 110px;
   background-color: $newspaper;
   border-radius: 50%;
   transition: all ease-in-out 0.2s;

@@ -6,10 +6,12 @@ const GitHubArticle = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.github' })
 
   return (
-    <a className={styles.article} title={t('title')} href={t('link')} target='_blank' rel='noreferrer'>
-      <div className={styles.circle} />
-      <GitHub className={styles.github} />
-    </a>
+    <div className={styles.article}>
+      <a className={styles.link} title={t('title')} href={t('link')} target='_blank' rel='noreferrer'>
+        <div className={styles.circle} />
+        <GitHub className={styles.github} />
+      </a>
+    </div>
   )
 }
 
