@@ -78,7 +78,7 @@
           "body": "見出しや記事内容のアンキカードを自動生成。左のヘルプボタンをクリックすると、ニュース・コムで動作するようにデスクトップクライアントを設定する方法が表示されます。"
         },
         "github": {
-          "body": "GitHubのプロジェクトを見る",
+          "title": "GitHubのプロジェクトを見る",
           "link": "https://github.com/TomPlum/nyuusu"
         },
         "headline": {

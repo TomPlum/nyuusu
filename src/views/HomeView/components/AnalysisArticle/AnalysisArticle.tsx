@@ -1,18 +1,29 @@
 import styles from './AnalysisArticle.module.scss'
 import { AnalysisArticleProps } from "views/HomeView/components/AnalysisArticle/types.ts"
 import classNames from "classnames"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { Chart as ChartJS, ArcElement, ChartData } from 'chart.js'
 import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels'
 import { Pie } from 'react-chartjs-2'
 import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
+import useLanguageStats from "modules/Article/hooks/useLanguageStats"
+import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 
 ChartJS.register(ArcElement, ChartDataLabels)
 
 const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [data, setData] = useState<ChartData<'pie'>>()
+  const { difficulty } = useLanguageStats({ input: 'text' })
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
+
+  const difficultyClass = useMemo(() => {
+    switch (difficulty) {
+      case DifficultyRating.BEGINNER: return styles.beginner
+      case DifficultyRating.INTERMEDIATE: return styles.intermediate
+      case DifficultyRating.EXPERT: return styles.expert
+    }
+  }, [difficulty])
 
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min

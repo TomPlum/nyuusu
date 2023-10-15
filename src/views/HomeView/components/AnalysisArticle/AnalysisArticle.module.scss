@@ -35,3 +35,15 @@
   color: $black-ink;
   font-weight: bold;
 }
+
+.beginner {
+  border-color: $beginner-primary;
+}
+
+.intermediate {
+  background-color: $intermediate-primary;
+}
+
+.expert {
+  background-color: $expert-primary;
+}

@@ -80,7 +80,7 @@
           "button": "Anki Help"
         },
         "github": {
-          "body": "GitHubのプロジェクトを見る",
+          "title": "GitHubのプロジェクトを見る",
           "link": "https://github.com/TomPlum/nyuusu"
         },
         "headline": {
