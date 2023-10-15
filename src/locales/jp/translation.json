@@ -99,12 +99,15 @@
             "hiragana": "{{ hiragana }}％がひらがなである。",
             "katakana": "文字の{{ katakana }}％はカタカナである。",
             "roman": "{{ roman }}％の文字がローマ字である。"
+          },
+          "bar": {
+            "label": "漢字等級分布"
           }
         }
       },
       "footer": {
         "edition": "【第{{ number }}紙面】",
-        "copyright": "著作権についてトム・プランプトン「{{ year }}」"
+        "copyright": "著作権について「トム・プランプトン」{{ year }}"
       }
     },
     "anki-help": {
