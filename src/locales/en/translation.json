@@ -90,6 +90,9 @@
         "settings": {
           "left": "CUSTOMISE",
           "right": "SETTINGS"
+        },
+        "analysis": {
+          "body": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text."
         }
       },
       "footer": {

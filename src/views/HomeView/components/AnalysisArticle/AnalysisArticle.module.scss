@@ -1,10 +1,11 @@
 @import "styles/colours";
+@import "styles/animations";
 
 .wrapper {
-  border: 2px solid $black-ink;
   max-width: 100%;
   height: 180px;
   padding: 20px;
+  display: flex;
 }
 
 .pie {
@@ -13,6 +14,8 @@
   justify-content: center;
   align-items: center;
   max-width: 180px;
+  width: 100%;
+  margin-right: 30px;
 }
 
 .inner {
@@ -24,4 +27,13 @@
   border: 3px dashed rgba($black-ink, 0.7);
   border-radius: 50%;
   padding: 2px;
+  //animation-name: spin-clockwise;
+  //animation-duration: 200s;
+  //animation-iteration-count: infinite;
+  //animation-timing-function: linear;
+}
+
+.body {
+  color: $black-ink;
+  font-weight: bold;
 }

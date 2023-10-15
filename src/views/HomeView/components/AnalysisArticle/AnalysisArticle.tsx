@@ -3,12 +3,16 @@ import { AnalysisArticleProps } from "views/HomeView/components/AnalysisArticle/
 import classNames from "classnames"
 import { useCallback, useEffect, useState } from "react"
 import { Chart as ChartJS, ArcElement, ChartData } from 'chart.js'
+import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels'
 import { Pie } from 'react-chartjs-2'
+import { useTranslation } from "react-i18next"
+import Typography from "components/Typography"
 
-ChartJS.register(ArcElement)
+ChartJS.register(ArcElement, ChartDataLabels)
 
 const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [data, setData] = useState<ChartData<'pie'>>()
+  const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
 
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -21,11 +25,11 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
     const roman = 100 - kanji - hiragana - katakana
 
     setData({
-      labels: ['Kanji'],
+      labels: ['字', 'ひ', 'カ', 'A'],
       datasets: [
         {
           label: 'Test',
-          data: [kanji, hiragana, kanji, roman].sort((a, b) => b - a),
+          data: [kanji, hiragana, kanji, roman],
           backgroundColor: [
             'rgb(46,46,46,1)',
             'rgb(46,46,46,0.9)',
@@ -39,7 +43,7 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
 
   useEffect(() => {
     generateData()
-    const interval = setInterval(generateData, 4000)
+    const interval = setInterval(generateData, 3500)
     
     return () => {
       clearInterval(interval)
@@ -52,10 +56,37 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
         <div className={styles.outer}>
           <div className={styles.inner}>
             {data && (
-              <Pie data={data} />
+              <Pie
+                data={data}
+                plugins={[ChartDataLabels]}
+                options={{
+                  animation: { duration: 2000 },
+                  plugins: {
+                    datalabels: {
+                      formatter: (_value: number, context: Context) => {
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                        return context?.chart?.data?.labels?.[context.dataIndex] as string
+                      },
+                      color: 'white',
+                      align: 'end',
+                      offset: -4,
+                      font: () => ({
+                        weight: 'bold',
+                        size: 15
+                      })
+                    }
+                  }
+                }}
+              />
             )}
           </div>
         </div>
+      </div>
+
+      <div>
+        <Typography className={styles.body}>
+          {t('body')}
+        </Typography>
       </div>
     </div>
   )
