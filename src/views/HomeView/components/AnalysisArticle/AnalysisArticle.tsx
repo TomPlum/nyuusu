@@ -52,15 +52,17 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
 
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <div className={styles.pie}>
+      <div className={styles.pieContainer}>
         <div className={styles.outer}>
           <div className={styles.inner}>
             {data && (
               <Pie
                 data={data}
                 plugins={[ChartDataLabels]}
+                className={styles.pie}
                 options={{
                   animation: { duration: 2000 },
+                  maintainAspectRatio: true,
                   plugins: {
                     datalabels: {
                       formatter: (_value: number, context: Context) => {

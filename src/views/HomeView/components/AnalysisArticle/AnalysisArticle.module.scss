@@ -4,18 +4,19 @@
 .wrapper {
   max-width: 100%;
   height: 180px;
-  padding: 20px;
+  padding: 10px 0;
   display: flex;
 }
 
-.pie {
-  height: 100%;
+.pieContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 180px;
-  width: 100%;
   margin-right: 30px;
+}
+
+.pie {
+  max-width: 180px;
 }
 
 .inner {
@@ -24,13 +25,10 @@
 }
 
 .outer {
+  display: flex;
   border: 3px dashed rgba($black-ink, 0.7);
   border-radius: 50%;
   padding: 2px;
-  //animation-name: spin-clockwise;
-  //animation-duration: 200s;
-  //animation-iteration-count: infinite;
-  //animation-timing-function: linear;
 }
 
 .body {
