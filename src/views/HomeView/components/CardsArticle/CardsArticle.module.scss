@@ -2,9 +2,26 @@
 
 .wrapper {
   display: flex;
-  border: 5px dashed $black-ink;
+  border: 5px dashed;
   padding: 4px 5px;
   border-radius: 5px;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    border-color: $link;
+
+    .char {
+      background-color: $newspaper;
+      color: $black-ink;
+      border: 6px solid $link;
+      cursor: pointer;
+    }
+
+    .linkText {
+      color: $link;
+    }
+  }
 
   .inner {
     display: flex;
@@ -85,16 +102,14 @@
   position: relative;
   background-color: $black-ink;
   transition: all ease-in-out 0.2s;
-
-  &:hover {
-    background-color: $newspaper;
-    color: $black-ink;
-    cursor: pointer;
-  }
 }
 
 .contents {
   padding: 10px 5px 10px 0;
   margin-right: 0;
   font-weight: bold;
+}
+
+.linkText {
+  transition: all ease-in-out 0.2s;
 }

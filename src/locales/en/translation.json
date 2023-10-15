@@ -70,9 +70,17 @@
       "cut": "ページへのリンク",
       "articles": {
         "cards": {
+          "title": "CARD VIEW",
+          "char": "速",
+          "hover-title": "Go to Cards",
+          "link-text": "Click to go there.",
           "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
         },
         "newspaper": {
+          "title": "NEWSPAPER",
+          "char": "速",
+          "hover-title": "Go to Newspaper",
+          "link-text": "Click to go there.",
           "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
         },
         "anki": {

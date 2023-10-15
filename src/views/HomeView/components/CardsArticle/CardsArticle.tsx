@@ -8,10 +8,21 @@ const CardsArticle = ({ className, onClick }: CardsArticleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.cards' })
 
   return (
-    <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={onClick}>
+    <div
+      onClick={onClick}
+      title={t('hover-title')}
+      data-testid='home-newspaper-article'
+      className={classNames(styles.wrapper, className)}
+    >
       <div className={styles.inner}>
         <Typography className={styles.contents}>
-          {t('body')}
+          <span>
+            {t('body')}
+          </span>
+
+          <span className={styles.linkText}>
+            {t('link-text')}
+          </span>
         </Typography>
           
         <div className={styles.right}>
