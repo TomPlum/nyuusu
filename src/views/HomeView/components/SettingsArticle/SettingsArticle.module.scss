@@ -1,0 +1,77 @@
+@import "styles/colours";
+@import "styles/animations";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  height: 100px;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.text {
+  flex-grow: 1;
+  color: $black-ink;
+  font-weight: bold;
+  text-align: center;
+  width: 33%;
+}
+
+.line-top-1 {
+  border-top: 4px solid $black-ink;
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+}
+
+.line-top-2 {
+  border-top: 4px solid $black-ink;
+  width: 100%;
+  position: absolute;
+  top: 28%;
+  left: 0;
+}
+
+.line-bottom-1 {
+  border-top: 4px solid $black-ink;
+  width: 100%;
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+}
+
+.line-bottom-2 {
+  border-top: 4px solid $black-ink;
+  width: 100%;
+  position: absolute;
+  bottom: 28%;
+  left: 0;
+}
+
+.icon {
+  color: $black-ink;
+  background-color: $newspaper;
+  font-size: 5em !important;
+  animation-name: spin-clockwise;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border: 4px solid $black-ink;
+  border-radius: 50%;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    color: $newspaper;
+    background-color: $black-ink;
+  }
+}

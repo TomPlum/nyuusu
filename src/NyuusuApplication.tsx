@@ -1,11 +1,9 @@
 import styles from './NyuusuApplication.module.scss'
-import Footer from "components/Footer"
 import Header from "modules/Header/components/HeaderBar"
 import SettingsDrawer from "modules/Settings/components/SettingsDrawer"
 import { Outlet } from "react-router-dom"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import { useMemo } from "react"
-import classNames from "classnames"
 
 
 const NyuusuApplication = () => {
@@ -25,12 +23,6 @@ const NyuusuApplication = () => {
         <Outlet />
         <SettingsDrawer />
       </div>
-
-      {isHome && (
-        <Footer
-          className={classNames({ [styles.homeFooter]: isHome })}
-        />
-      )}
     </div>
   )
 }

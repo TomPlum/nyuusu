@@ -6,3 +6,7 @@ export interface CreateAnkiCardParams {
         tags: string[],
     }
 }
+
+export interface CreateAnkiCardProps {
+    useGraphicalInterface?: boolean
+}

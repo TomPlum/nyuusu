@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next"
 import AnkiTitle from "modules/Newspaper/components/AnkiTitle"
 import { useNavigate } from "react-router-dom"
 import styles from './AnkiArticle.module.scss'
+import Typography from "components/Typography"
 
 const AnkiArticle = () => {
   const navigate = useNavigate()
@@ -15,7 +16,9 @@ const AnkiArticle = () => {
       />
 
       <div className={styles.body}>
-        <p>{t('body')}</p>
+        <Typography useHorizontal>
+          {t('body')}
+        </Typography>
       </div>
     </div>
   )

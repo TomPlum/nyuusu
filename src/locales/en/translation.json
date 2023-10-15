@@ -60,27 +60,59 @@
         "publisher": "NYUSU.COM",
         "rights": "The copyright of the materials belongs to nyusu.com unless stated otherwise.",
         "feed-title": "Latest Japanese headlines",
-        "body": "Nyusu.com is a small side-project of mine that aims to test your Japanese reading ability using headlines and excerpts from real Japanese news articles written by and for native Japanese people."
+        "body": "Nyusu.com is a small side-project of mine that aims to test your Japanese reading ability using headlines and excerpts from real Japanese news articles written by and for native Japanese people. A (some-what naive) algorithm produces a difficulty rating for each article based on the ratio of kanji, hiragana, katakana and roman characters, plus the kanji grades. News data is sourced from various RSS feeds and APIs."
       },
       "title": [
         "Most newspapers use only the 2136 characters in the jōyō kanji table.",
-        "The 5 major daily newspapers are the Yomiuri, Asahi, Mainichi, Sankei and Nihon Keizai Shimbun.",
+        "The Yomimuri Shimbun is the most popular newspaper in Japan.",
         "Today there are said to be 121 daily newspapers that are members of the NSK."
       ],
-      "newspaper": {
-        "title": "Newspaper",
-        "desc": "A full-page newspaper article excerpt."
-      },
+      "cut": "ページへのリンク",
       "articles": {
         "cards": {
+          "title": "CARD VIEW",
+          "char": "速",
+          "hover-title": "Go to Cards",
+          "link-text": "Click to go there.",
           "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
         },
         "newspaper": {
+          "title": "NEWSPAPER",
+          "char": "速",
+          "hover-title": "Go to Newspaper",
+          "link-text": "Click to go there.",
           "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
         },
         "anki": {
+          "body": "Automatically generate Anki cards for headlines and article contents. Click the help button on the left to view instructions on how to configure your desktop client to work with nyusu.com.",
           "button": "Anki Help"
+        },
+        "github": {
+          "title": "GitHubのプロジェクトを見る",
+          "link": "https://github.com/TomPlum/nyuusu"
+        },
+        "headline": {
+          "live": "LIVE",
+          "text": "【日本の見出しと記事】"
+        },
+        "settings": {
+          "left": "CUSTOMISE",
+          "right": "SETTINGS"
+        },
+        "analysis": {
+          "body": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text.",
+          "text": {
+            "start": "【Stats】Sample headline is {{ length }} long.",
+            "kanji": "{{ kanji }}％ is kanji.",
+            "hiragana": "{{ hiragana }}％ is hiragana.",
+            "katakana": "{{ katakana }}％ is katakana.",
+            "roman": "{{ roman }}％ are roman characters."
+          }
         }
+      },
+      "footer": {
+        "edition": "第{{ number }}紙面",
+        "copyright": "Copyright Tom Plumpton ({{ year }})"
       }
     },
     "anki-help": {
@@ -154,6 +186,9 @@
           "right": "Improve retention with SRS",
           "button": "Add Card"
         }
+      },
+      "headline": {
+        "text": "日本の見出しと記事"
       }
     }
   },
@@ -191,6 +226,9 @@
       "tags": {
         "label": "Tags",
         "help": "Must be comma separated"
+      },
+      "interface": {
+        "label": "Use GUI"
       }
     }
   },

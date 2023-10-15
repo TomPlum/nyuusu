@@ -10,8 +10,9 @@
   }
 
   .heading {
-    border-bottom: 1px solid $black-ink;
+    border-bottom: 2px solid $black-ink;
     font-size: 1.2em;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-between;

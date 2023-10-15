@@ -20,7 +20,9 @@ const useAnki = (): AnkiResponse => {
   const { data: models } = useGetAnkiModels()
   const { mutateAsync: createDeck } = useCreateAnkiDeck()
   const { mutateAsync: createModel } = useCreateAnkiModel()
-  const { mutateAsync: createCardApi } = useCreateAnkiCard()
+  const { mutateAsync: createCardApi } = useCreateAnkiCard({
+    useGraphicalInterface: anki.useGraphicalInterface
+  })
   const { t } = useTranslation('translation', { keyPrefix: 'anki' })
 
   const createAnkiDeck = useCallback(async () => {

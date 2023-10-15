@@ -9,7 +9,7 @@ export interface AnkiConnectRequest<Params> {
     params?: Params
 }
 
-export type AnkiConnectAction = 'addNote' | 'deckNames' | 'createDeck' | 'createModel' | 'modelNames'
+export type AnkiConnectAction = 'addNote' | 'deckNames' | 'createDeck' | 'createModel' | 'modelNames' | 'guiAddCards'
 
 export interface AnkiConnectClient<Params, Result> {
     call: (action: AnkiConnectAction, params?: Params) => Promise<AnkiConnectResponse<Result>>

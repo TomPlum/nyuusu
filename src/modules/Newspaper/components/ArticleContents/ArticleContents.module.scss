@@ -3,11 +3,12 @@
 @import "styles/viewports";
 
 .body {
-  @include corner-borders(20%);
+  @include corner-borders(20%, 50%, 3px);
 
   padding: 20px 30px;
   color: $black-ink;
-  margin-bottom: 80px;
+  font-weight: bold;
+  margin-bottom: 50px;
 
   .label {
     margin: 0;

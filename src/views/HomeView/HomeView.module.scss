@@ -10,6 +10,50 @@
   justify-content: flex-start;
 }
 
+.grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 300;
+  transform: translateZ(0);
+
+  &:before {
+    content: "";
+    top: -10rem;
+    left: -10rem;
+    width: calc(100% + 20rem);
+    height: calc(100% + 20rem);
+    z-index: 9999;
+    position: fixed;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+    opacity: 0.15;
+    pointer-events: none;
+    -webkit-animation: noise 1s steps(2) infinite;
+    animation: noise 1s steps(2) infinite;
+  }
+
+  @-webkit-keyframes noise {
+    to { transform: translate3d(-7rem,0,0) }
+  }
+
+  @keyframes noise {
+    0% { transform: translate3d(0,9rem,0) }
+    10% { transform: translate3d(-1rem,-4rem,0) }
+    20% { transform: translate3d(-8rem,2rem,0) }
+    30% { transform: translate3d(9rem,-9rem,0) }
+    40% { transform: translate3d(-2rem,7rem,0) }
+    50% { transform: translate3d(-9rem,-4rem,0) }
+    60% { transform: translate3d(2rem,6rem,0) }
+    70% { transform: translate3d(7rem,-8rem,0) }
+    80% { transform: translate3d(-9rem,1rem,0) }
+    90% { transform: translate3d(6rem,-5rem,0) }
+    to { transform: translate3d(-7rem,0,0) }
+  }
+}
+
 .content {
   width: 100%;
   max-width: 1000px;
@@ -17,14 +61,8 @@
   padding-top: 20px;
 }
 
-.left {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.right {
-  display: flex;
-  justify-content: flex-start;
+.articleContents {
+  margin-bottom: 20px;
 }
 
 .titleContainer {
@@ -52,16 +90,67 @@
   color: $black-ink;
 }
 
-.typeArticle {
-  &:hover {
-    border-radius: 5px;
-    cursor: pointer;
-    background-clip: content-box;
-    background-color: $newspaper-secondary;
-    transition: all ease-in-out 0.2s;
-  }
+.typeArticleWrapper {
+  width: 100%;
 }
 
 .article {
+  height: 170px;
   color: $black-ink;
+}
+
+.grid {
+  flex-grow: 1;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+
+  .left {
+    width: 100%;
+
+    .leftMiddle {
+      padding-right: 40px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .right {
+    max-width: 120px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+}
+
+.analysisArticle {
+  margin-right: 10px;
+}
+
+.cut {
+  border: 3px solid $black-ink;
+  padding: 2px;
+
+  .cutInner {
+    background-color: $black-ink;
+    padding: 10px;
+    color: $newspaper;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .cutText {
+    padding: 0 10px;
+    margin: 0 -5px;
+  }
+
+  .dotted {
+    border-top: 2px dashed $newspaper;
+    flex-grow: 1;
+
+    &:last-child {
+      flex-grow: 1.3;
+    }
+  }
 }

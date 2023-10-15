@@ -6,8 +6,9 @@
 }
 
 .body {
-  border-top: 1px solid $black-ink;
-  border-bottom: 1px solid $black-ink;
-  border-right: 1px solid $black-ink;
+  border-top: 3px solid $black-ink;
+  border-bottom: 3px solid $black-ink;
+  border-right: 3px solid $black-ink;
   padding: 5px 20px;
+  font-weight: bold;
 }

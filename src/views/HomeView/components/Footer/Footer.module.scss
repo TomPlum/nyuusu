@@ -1,0 +1,17 @@
+@import "styles/colours";
+
+.wrapper {
+  border-top: 2px solid $black-ink;
+  width: 100%;
+  margin-top: 40px;
+  color: $black-ink;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  margin-bottom: 50px;
+}
+
+.edition {
+  margin-left: -8px;
+}
