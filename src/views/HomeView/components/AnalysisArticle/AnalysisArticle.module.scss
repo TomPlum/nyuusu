@@ -119,13 +119,21 @@
 }
 
 .barWrapper {
-  border: 5px solid $black-ink;
   border-radius: 10px;
-  padding: 5px;
   margin-right: 15px;
-  max-width: 230px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  background-color: $black-ink;
+
+  .barContainer {
+    flex-grow: 1;
+    padding: 5px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 0;
+  }
 
   .bar {
     max-width: 230px;
@@ -135,9 +143,19 @@
     display: flex;
     justify-content: center;
     padding: 3px 0;
-    color: $newspaper;
-    background-color: $black-ink;
+    color: $black-ink;
+    background-color: $newspaper;
     max-width: 100%;
-    width: 100%;
+    font-weight: bold;
+    border-left: 5px solid $black-ink;
+    border-right: 5px solid $black-ink;
+    border-bottom: 5px solid $black-ink;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 0;
+
+    >svg {
+      margin-right: 10px;
+    }
   }
 }
