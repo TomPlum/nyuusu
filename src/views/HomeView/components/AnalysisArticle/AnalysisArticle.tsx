@@ -33,7 +33,7 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       datasets: [
         {
           data: Array(10).fill(0).map(() => getRandomInt(0, 8)),
-          backgroundColor: Array(10).fill('').map((_v, i) => `rgb(46,46,46,${1 - (i / 15)})`).reverse()
+          backgroundColor: Array(10).fill('').map((_v, i) => `rgb(249,247,241,${1 - (i / 20)})`)
         }
       ]
     })
@@ -69,26 +69,33 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
       <div className={styles.barWrapper}>
-        {barData && (
-          <Bar
-            id='grade-bar'
-            data={barData}
-            className={styles.bar}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              animation: { duration: animationDuration },
-              scales: {
-                y: {
-                  display: false,
-                  grid: {
-                    display: false
+        <div className={styles.barContainer}>
+          {barData && (
+            <Bar
+              id='grade-bar'
+              data={barData}
+              className={styles.bar}
+              options={{
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: { duration: animationDuration },
+                scales: {
+                  x: {
+                    ticks: {
+                      color: '#f9f7f1'
+                    }
+                  },
+                  y: {
+                    display: false,
+                    grid: {
+                      display: false
+                    }
                   }
                 }
-              }
-            }}
-          />
-        )}
+              }}
+            />
+          )}
+        </div>
 
         <div className={styles.barLabel}>
           <School />

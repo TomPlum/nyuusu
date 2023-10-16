@@ -24,7 +24,13 @@ const NewspaperArticle = ({ className, onClick }: NewspaperArticleProps) => {
         </div>
 
         <Typography className={styles.contents}>
-          {t('body')}
+          <span>
+            {t('body')}
+          </span>
+
+          <span className={styles.linkText}>
+            {t('link-text')}
+          </span>
         </Typography>
       </div>
     </div>

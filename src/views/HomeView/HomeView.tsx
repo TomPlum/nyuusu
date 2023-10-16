@@ -18,6 +18,7 @@ import Footer from "./components/Footer"
 import { ContentCut } from "@mui/icons-material"
 import SettingsArticle from "views/HomeView/components/SettingsArticle"
 import AnalysisArticle from "./components/AnalysisArticle"
+import TranslateArticle from "views/HomeView/components/TranslateArticle"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -84,6 +85,7 @@ const HomeView = () => {
               <Grid xs={12} lg={6}>
                 <AnkiArticle />
                 <SettingsArticle />
+                <TranslateArticle />
               </Grid>
 
               <Grid container xs={12} lg={6} rowSpacing={2}>

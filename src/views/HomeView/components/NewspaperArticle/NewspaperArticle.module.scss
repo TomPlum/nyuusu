@@ -6,6 +6,21 @@
   padding: 4px 5px;
   border-radius: 5px;
 
+  &:hover {
+    cursor: pointer;
+    border-color: $link;
+
+    .char {
+      background-color: $black-ink;
+      color: $link;
+      cursor: pointer;
+    }
+
+    .linkText {
+      color: $link;
+    }
+  }
+
   .inner {
     display: flex;
     justify-content: space-between;
