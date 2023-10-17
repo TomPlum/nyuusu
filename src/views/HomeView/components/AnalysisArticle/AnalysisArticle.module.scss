@@ -128,7 +128,7 @@
 
   .barContainer {
     flex-grow: 1;
-    padding: 5px;
+    padding: 12px 5px 3px 0;
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -136,7 +136,7 @@
   }
 
   .bar {
-    max-width: 230px;
+    max-width: 240px;
   }
 
   .barLabel {
