@@ -10,6 +10,28 @@
   height: 100px;
 }
 
+.lineOuter {
+  content: '';
+  border: 4px solid $black-ink;
+  border-radius: 10px;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  padding: 5px;
+  box-sizing: border-box
+}
+
+.lineInner {
+  border: 4px solid $black-ink;
+  border-radius: 6px;
+  height: 100%;
+  width: 100%;
+  top: 5px;
+  box-sizing: border-box
+}
+
 .inner {
   display: flex;
   justify-content: center;
@@ -25,41 +47,9 @@
   width: 33%;
 }
 
-.line-top-1 {
-  border-top: 4px solid $black-ink;
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-}
-
-.line-top-2 {
-  border-top: 4px solid $black-ink;
-  width: 100%;
-  position: absolute;
-  top: 28%;
-  left: 0;
-}
-
-.line-bottom-1 {
-  border-top: 4px solid $black-ink;
-  width: 100%;
-  position: absolute;
-  bottom: 20%;
-  left: 0;
-}
-
-.line-bottom-2 {
-  border-top: 4px solid $black-ink;
-  width: 100%;
-  position: absolute;
-  bottom: 28%;
-  left: 0;
-}
-
 .icon {
-  color: $black-ink;
-  background-color: $newspaper;
+  color: $newspaper;
+  background-color: $black-ink;
   font-size: 5em !important;
   animation-name: spin-clockwise;
   animation-duration: 20s;
@@ -67,11 +57,11 @@
   animation-timing-function: linear;
   border: 4px solid $black-ink;
   border-radius: 50%;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s !important;
 
   &:hover {
     cursor: pointer;
-    color: $newspaper;
-    background-color: $black-ink;
+    color: $link;
+    background-color: $newspaper;
   }
 }

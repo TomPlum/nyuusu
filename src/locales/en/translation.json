@@ -98,16 +98,30 @@
         },
         "settings": {
           "left": "CUSTOMISE",
-          "right": "SETTINGS"
+          "right": "SETTINGS",
+          "title": "Click to open settings"
         },
         "analysis": {
           "body": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text.",
           "text": {
-            "start": "【Stats】Sample headline is {{ length }} long.",
-            "kanji": "{{ kanji }}％ is kanji.",
-            "hiragana": "{{ hiragana }}％ is hiragana.",
-            "katakana": "{{ katakana }}％ is katakana.",
-            "roman": "{{ roman }}％ are roman characters."
+            "start": {
+              "prefix": "【Stats】Sample headline is ",
+              "suffix": " long."
+            },
+            "kanji": {
+              "prefix": "",
+              "suffix": "％ is kanji."
+            },
+            "hiragana": {
+              "suffix": "％ is hiragana."
+            },
+            "katakana": {
+              "prefix": "",
+              "suffix": "％ is katakana."
+            },
+            "roman": {
+              "suffix": "％ are roman characters."
+            }
           }
         },
         "translate": {

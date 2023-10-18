@@ -3,7 +3,7 @@
 @import "styles/viewports";
 
 .body {
-  @include corner-borders(20%, 50%, 3px);
+  @include corner-borders(20%, 50%, 4px);
 
   padding: 20px 30px;
   color: $black-ink;

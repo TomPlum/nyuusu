@@ -14,14 +14,14 @@ const SettingsArticle = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles['line-top-1']} />
+      <div className={styles.test} />
+      <div className={styles.lineOuter}>
+        <div className={styles.lineInner} />
+      </div>
+
       <span className={styles.text}>{t('left')}</span>
-      <div className={styles['line-top-2']} />
 
-      <div className={styles['line-bottom-1']} />
-      <div className={styles['line-bottom-2']} />
-
-      <div onClick={handleClick} className={styles.inner}>
+      <div onClick={handleClick} className={styles.inner} title={t('title')}>
         <Settings className={styles.icon} />
       </div>
 
