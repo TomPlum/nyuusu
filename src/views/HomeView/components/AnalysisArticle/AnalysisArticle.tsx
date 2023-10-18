@@ -1,5 +1,5 @@
 import styles from './AnalysisArticle.module.scss'
-import { AnalysisArticleProps } from "views/HomeView/components/AnalysisArticle/types.ts"
+import { AnalysisArticleProps, TableData } from "views/HomeView/components/AnalysisArticle/types.ts"
 import classNames from "classnames"
 import { useCallback, useEffect, useState } from "react"
 import { Chart as ChartJS, ArcElement, ChartData, BarElement, CategoryScale, LinearScale } from 'chart.js'
@@ -8,12 +8,14 @@ import { Bar, Pie } from 'react-chartjs-2'
 import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
 import { Equalizer, School } from "@mui/icons-material"
+import AnimatedNumber from "react-animated-numbers"
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels)
 
 const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [pieData, setPieData] = useState<ChartData<'pie'>>()
   const [barData, setBarData] = useState<ChartData<'bar'>>()
+  const [tableData, setTableData] = useState<TableData>()
   const [animationDuration, setAnimationDuration] = useState(0)
 
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
@@ -27,6 +29,14 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
     const hiragana = getRandomInt(10, 90 - kanji)
     const katakana = getRandomInt(5, 90 - kanji - hiragana)
     const roman = 100 - kanji - hiragana - katakana
+
+    setTableData({
+      length: getRandomInt(102, 267),
+      hiragana,
+      kanji,
+      katakana,
+      roman
+    })
 
     setBarData({
       labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
@@ -82,7 +92,10 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
                 scales: {
                   x: {
                     ticks: {
-                      color: '#f9f7f1'
+                      color: '#f9f7f1',
+                      font: {
+                        weight: 'bold'
+                      }
                     }
                   },
                   y: {
@@ -108,35 +121,58 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       <div className={styles.stats}>
         <div className={styles.heading}>
           <Equalizer className={styles.icon} />
-          <span>{t('text.start', { length: 120 })}</span>
+          <span>{t('text.start.prefix')}</span>
+          <AnimatedNumber
+            animateToNumber={tableData?.length ?? 0}
+            configs={[{ mass: 1, tension: 220, friction: 47 }]}
+          />
+          <span>{t('text.start.suffix')}</span>
         </div>
 
         <div className={styles.stat}>
           <p className={styles.label}>字</p>
-          <p className={styles.text}>
-            <span>{t('text.kanji', { kanji: 30 })}</span>
-          </p>
+          <div className={styles.text}>
+            <span>{t('text.kanji.prefix')}</span>
+            <AnimatedNumber
+              configs={[{}]}
+              animateToNumber={tableData?.kanji ?? 0}
+            />
+            <span>{t('text.kanji.suffix')}</span>
+          </div>
         </div>
 
         <div className={styles.stat}>
           <p className={styles.label}>ひ</p>
-          <p className={styles.text}>
-            <span>{t('text.hiragana', { hiragana: 25 })}</span>
-          </p>
+          <div className={styles.text}>
+            <AnimatedNumber
+              animateToNumber={tableData?.hiragana ?? 0}
+              configs={[{ mass: 1, tension: 220, friction: 35 }]}
+            />
+            <span>{t('text.hiragana.suffix')}</span>
+          </div>
         </div>
 
         <div className={styles.stat}>
           <p className={styles.label}>カ</p>
-          <p className={styles.text}>
-            <span>{t('text.katakana', { katakana: 15 })}</span>
-          </p>
+          <div className={styles.text}>
+            <span>{t('text.katakana.prefix')}</span>
+            <AnimatedNumber
+              animateToNumber={tableData?.katakana ?? 0}
+              configs={[{ mass: 1, tension: 220, friction: 25 }]}
+            />
+            <span>{t('text.katakana.suffix')}</span>
+          </div>
         </div>
 
         <div className={styles.stat}>
           <p className={styles.label}>A</p>
-          <p className={styles.text}>
-            <span>{t('text.roman', { roman: 10 })}</span>
-          </p>
+          <div className={styles.text}>
+            <AnimatedNumber
+              animateToNumber={tableData?.roman ?? 0}
+              configs={[{ mass: 1, tension: 220, friction: 45 }]}
+            />
+            <span>{t('text.roman.suffix')}</span>
+          </div>
         </div>
 
         <div className={styles.mask} />

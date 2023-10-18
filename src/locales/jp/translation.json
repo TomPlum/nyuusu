@@ -97,11 +97,24 @@
         "analysis": {
           "body": "記事の読解難易度は、文字の種類数、等級、文章の長さに基づいて計算される。",
           "text": {
-            "start": "【統計】 見出しの見本は{{ length }}文字",
-            "kanji": "漢字が{{ kanji }}％を占める。",
-            "hiragana": "{{ hiragana }}％がひらがなである。",
-            "katakana": "文字の{{ katakana }}％はカタカナである。",
-            "roman": "{{ roman }}％の文字がローマ字である。"
+            "start": {
+              "prefix": "【統計】 見出しの見本は",
+              "suffix": "文字"
+            },
+            "kanji": {
+              "prefix": "漢字が",
+              "suffix": "％を占める。"
+            },
+            "hiragana": {
+              "suffix": "％がひらがなである。"
+            },
+            "katakana": {
+              "prefix": "文字の",
+              "suffix": "％はカタカナである。"
+            },
+            "roman": {
+              "suffix": "％の文字がローマ字である。"
+            }
           },
           "bar": {
             "label": "漢字等級分布"

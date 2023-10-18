@@ -22,3 +22,11 @@ export interface KanjiExample {
     kana: string[]
     english: string[]
 }
+
+export interface TableData {
+    length: number;
+    kanji: number
+    hiragana: number
+    katakana: number
+    roman: number
+}
