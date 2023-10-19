@@ -43,7 +43,18 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       labels: barChartLabels,
       datasets: [
         {
-          data: Array(10).fill(0).map(() => getRandomInt(0, 8)),
+          data: [
+            getRandomInt(1, 7),
+            getRandomInt(1, 8),
+            getRandomInt(1, 10),
+            getRandomInt(0, 7),
+            getRandomInt(1, 3),
+            getRandomInt(0, 6),
+            getRandomInt(1, 5),
+            getRandomInt(1, 2),
+            getRandomInt(0, 4),
+            getRandomInt(0, 3)
+          ],
           backgroundColor: Array(10).fill('').map((_v, i) => `rgb(249,247,241,${1 - (i / 20)})`)
         }
       ]
