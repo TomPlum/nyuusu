@@ -19,6 +19,7 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [animationDuration, setAnimationDuration] = useState(0)
 
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
+  const barChartLabels: string[] = t('bar.labels', { returnObjects: true })
 
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -39,7 +40,7 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
     })
 
     setBarData({
-      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+      labels: barChartLabels,
       datasets: [
         {
           data: Array(10).fill(0).map(() => getRandomInt(0, 8)),
