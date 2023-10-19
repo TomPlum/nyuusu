@@ -1,0 +1,27 @@
+@import "styles/colours";
+
+.border {
+  border-top: 3px solid $black-ink;
+  border-bottom: 3px solid $black-ink;
+  padding: 8px 30px;
+  margin-bottom: 5px;
+}
+
+.title {
+  color: $black-ink;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.publisher {
+  margin: 0;
+  padding: 5px 0;
+  color: $black-ink;
+}
+
+.publisherWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

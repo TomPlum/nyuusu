@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 import styles from './HomeView.module.scss'
 import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
-import Banner from "modules/Newspaper/components/Banner"
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import { useMemo } from "react"
@@ -19,6 +18,8 @@ import { ContentCut } from "@mui/icons-material"
 import SettingsArticle from "views/HomeView/components/SettingsArticle"
 import AnalysisArticle from "./components/AnalysisArticle"
 import TranslateArticle from "views/HomeView/components/TranslateArticle"
+import PublisherHeading from "modules/Newspaper/components/PublisherHeading"
+import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 
 const HomeView = () => {
   const navigate = useNavigate()
@@ -58,11 +59,20 @@ const HomeView = () => {
 
       <Grid container className={styles.content}>
         <Grid container xs={12}>
-          <Banner
-            title={article.feedTitle ?? ''}
-            publishDate={article.publishDate}
-            publisher={article.publisher ?? 'Unknown'}
-          />
+          {article.publisher && article.feedTitle && (
+            <div className={styles.banner}>
+              <PublisherHeading
+                name={article.publisher}
+                title={article.feedTitle}
+              />
+
+              <CurrentDateTime
+                timeClass={styles.time}
+                dateClass={styles.date}
+                className={styles.currentDateTime}
+              />
+            </div>
+          )}
         </Grid>
 
         <Grid xs={12}>
