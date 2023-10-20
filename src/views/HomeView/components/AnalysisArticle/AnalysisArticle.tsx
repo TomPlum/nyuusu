@@ -65,12 +65,8 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       datasets: [
         {
           data: [kanji, hiragana, kanji, roman],
-          backgroundColor: [
-            'rgb(46,46,46,1)',
-            'rgb(46,46,46,0.9)',
-            'rgb(46,46,46,0.7)',
-            'rgb(46,46,46,0.6)',
-          ]
+          backgroundColor: Array(4).fill('').map((_v, i) => `rgb(46,46,46,${1 - (i * 0.2)})`),
+          hoverBackgroundColor: Array(4).fill('').map((_v, i) => `rgb(46,46,46,${0.9 - (i * 0.2)})`)
         }
       ]
     })
