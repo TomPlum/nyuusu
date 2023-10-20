@@ -19,7 +19,6 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [animationDuration, setAnimationDuration] = useState(0)
 
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
-  const barChartLabels: string[] = t('bar.labels', { returnObjects: true })
 
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -38,6 +37,8 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       katakana,
       roman
     })
+
+    const barChartLabels: string[] = t('bar.labels', { returnObjects: true })
 
     setBarData({
       labels: barChartLabels,
@@ -65,7 +66,7 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
         }
       ]
     })
-  }, [])
+  }, [t])
 
   useEffect(() => {
     generateData()
@@ -92,6 +93,16 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
                 responsive: true,
                 maintainAspectRatio: false,
                 animation: { duration: animationDuration },
+                plugins: {
+                  datalabels: {
+                    font: {
+                      weight: 'bold'
+                    },
+                    formatter: (value: number) => {
+                      return value > 0 ? value : ''
+                    }
+                  }
+                },
                 scales: {
                   x: {
                     ticks: {
@@ -114,10 +125,12 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
         </div>
 
         <div className={styles.barLabel}>
+          <span className={styles.miniCircle} />
           <School />
           <span>
             {t('bar.label')}
           </span>
+          <span className={styles.miniCircle} />
         </div>
       </div>
 

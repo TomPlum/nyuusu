@@ -143,6 +143,7 @@
   .barLabel {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 3px 0;
     color: $black-ink;
     background-color: $newspaper;
@@ -155,8 +156,17 @@
     border-bottom-right-radius: 10px;
     min-height: 0;
 
+    .miniCircle {
+      $size: 12px;
+      margin: 0 8px;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background-color: $black-ink;
+    }
+
     >svg {
-      margin-right: 10px;
+      margin-right: 6px;
     }
   }
 }
