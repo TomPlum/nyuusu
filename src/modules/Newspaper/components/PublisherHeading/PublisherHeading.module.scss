@@ -10,7 +10,6 @@
 
 .borderContainer {
   position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-self: center;
@@ -29,7 +28,7 @@ $effect: -1px -1px 0 $newspaper,
 
 @mixin border {
   position: absolute;
-  height: 3px;
+  height: 5px;
   width: 100%;
   background-color: $black-ink;
   box-shadow: -1px -1px 0 $newspaper,
@@ -62,7 +61,7 @@ $effect: -1px -1px 0 $newspaper,
 
 .publisher {
   margin: 0;
-  padding: 18px 0;
+  padding: 20px 0;
   color: $black-ink;
   font-size: 3.6em;
   font-weight: bold;
