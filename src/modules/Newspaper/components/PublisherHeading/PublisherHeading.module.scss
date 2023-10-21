@@ -55,7 +55,8 @@ $effect: -1px -1px 0 $newspaper,
   color: $black-ink;
   font-size: 1.2em;
   letter-spacing: 0.2rem;
-  font-weight: bold;
+  font-weight: 600;
+  font-family: 'Noto Sans Japanese', Inter, sans-serif;
   @include noSelect;
 }
 
