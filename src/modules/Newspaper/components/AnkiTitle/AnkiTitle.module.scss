@@ -19,9 +19,9 @@
 .inner {
   @include vertical-text;
   color: $black-ink;
-  border-left: 3px solid $black-ink;
-  border-right: 3px solid $black-ink;
-  width: 80px;
+  border-left: 4px solid $black-ink;
+  border-right: 4px solid $black-ink;
+  width: 70px;
   display: flex;
   justify-content: center;
   align-items: center;

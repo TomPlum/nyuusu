@@ -96,6 +96,11 @@
         },
         "analysis": {
           "body": "記事の読解難易度は、文字の種類数、等級、文章の長さに基づいて計算される。",
+          "difficulty": {
+            "beginner": "初心者",
+            "intermediate": "中級",
+            "expert": "上級"
+          },
           "text": {
             "start": {
               "prefix": "【統計】 見出しの見本は",
