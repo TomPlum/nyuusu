@@ -3,6 +3,7 @@ import AnkiTitle from "modules/Newspaper/components/AnkiTitle"
 import { useNavigate } from "react-router-dom"
 import styles from './AnkiArticle.module.scss'
 import Typography from "components/Typography"
+import { KeyboardDoubleArrowDown } from "@mui/icons-material"
 
 const AnkiArticle = () => {
   const navigate = useNavigate()
@@ -24,6 +25,15 @@ const AnkiArticle = () => {
         <Typography useHorizontal className={styles.text}>
           {t('body')}
         </Typography>
+
+        <div className={styles.bottomTextContainer}>
+          <KeyboardDoubleArrowDown className={styles.chevron} />
+          <Typography useHorizontal className={styles.text}>
+            {t('body-two')}
+          </Typography>
+        </div>
+
+
 
         <div className={styles.bottomRight}>
           <div className={styles.mask} />
