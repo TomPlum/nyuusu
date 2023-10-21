@@ -10,6 +10,29 @@
   justify-content: flex-start;
 }
 
+.banner {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .currentDateTime {
+    color: $black-ink;
+
+    .time {
+      font-size: 2.5em;
+      margin-bottom: -5px;
+    }
+
+    .date {
+      font-family: Inter, sans-serif;
+      font-size: 1.15em;
+    }
+  }
+}
+
 .grain {
   position: fixed;
   top: 0;

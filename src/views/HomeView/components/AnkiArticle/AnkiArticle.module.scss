@@ -6,9 +6,56 @@
 }
 
 .body {
-  border-top: 3px solid $black-ink;
-  border-bottom: 3px solid $black-ink;
-  border-right: 3px solid $black-ink;
+  border-top: 4px solid $black-ink;
+  border-bottom: 4px solid $black-ink;
+  border-right: 4px solid $black-ink;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding: 5px 20px;
   font-weight: bold;
+  position: relative;
+
+  .text {
+    position: relative;
+    z-index: 10;
+  }
+
+  $size: 70px;
+
+  @mixin cornerStyle {
+    position: absolute;
+    background-color: $black-ink;
+    width: $size;
+    height: $size;
+    z-index: 1;
+  }
+
+  @mixin mask {
+    width: $size;
+    height: $size;
+    z-index: 1;
+    background-color: $newspaper;
+  }
+
+  .topLeft {
+    @include cornerStyle;
+    left: 0;
+    top: 0;
+
+    .mask {
+      @include mask;
+      border-top-left-radius: 50%;
+    }
+  }
+
+  .bottomRight {
+    @include cornerStyle;
+    right: 0;
+    bottom: 0;
+
+    .mask {
+      @include mask;
+      border-bottom-right-radius: 50%;
+    }
+  }
 }

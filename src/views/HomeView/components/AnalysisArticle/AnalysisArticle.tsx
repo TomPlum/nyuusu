@@ -1,21 +1,23 @@
 import styles from './AnalysisArticle.module.scss'
 import { AnalysisArticleProps, TableData } from "views/HomeView/components/AnalysisArticle/types.ts"
 import classNames from "classnames"
-import { useCallback, useEffect, useState } from "react"
-import { Chart as ChartJS, ArcElement, ChartData, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { useCallback, useEffect, useMemo, useState } from "react"
+import { Chart as ChartJS, ArcElement, ChartData, BarElement, CategoryScale, LinearScale, Tooltip, TooltipItem } from 'chart.js'
 import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels'
 import { Bar, Pie } from 'react-chartjs-2'
 import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
 import { Equalizer, School } from "@mui/icons-material"
 import AnimatedNumber from "react-animated-numbers"
+import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 
-ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels)
+ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels, Tooltip)
 
 const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const [pieData, setPieData] = useState<ChartData<'pie'>>()
   const [barData, setBarData] = useState<ChartData<'bar'>>()
   const [tableData, setTableData] = useState<TableData>()
+  const [difficulty, setDifficulty] = useState<DifficultyRating>()
   const [animationDuration, setAnimationDuration] = useState(0)
 
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
@@ -23,6 +25,24 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
+
+  const generateDifficulty = useCallback((kanji: number) => {
+    if (kanji > 48) {
+      return DifficultyRating.EXPERT
+    } else if (kanji > 23) {
+      return DifficultyRating.INTERMEDIATE
+    }
+
+    return DifficultyRating.BEGINNER
+  }, [])
+
+  const difficultyClass = useMemo(() => {
+    switch (difficulty) {
+      case DifficultyRating.BEGINNER: return styles.beginner
+      case DifficultyRating.INTERMEDIATE: return styles.intermediate
+      case DifficultyRating.EXPERT: return styles.expert
+    }
+  }, [difficulty])
 
   const generateData = useCallback(() => {
     const kanji = getRandomInt(10, 60)
@@ -38,11 +58,21 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       roman
     })
 
+    const barChartLabels: string[] = t('bar.labels', { returnObjects: true })
+
+    setDifficulty(generateDifficulty(kanji))
+
     setBarData({
-      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+      labels: barChartLabels,
       datasets: [
         {
-          data: Array(10).fill(0).map(() => getRandomInt(0, 8)),
+          data: [
+            getRandomInt(1, 7), getRandomInt(1, 8),
+            getRandomInt(1, 10), getRandomInt(0, 7),
+            getRandomInt(1, 3), getRandomInt(0, 6),
+            getRandomInt(1, 5), getRandomInt(1, 2),
+            getRandomInt(0, 4), getRandomInt(0, 3)
+          ],
           backgroundColor: Array(10).fill('').map((_v, i) => `rgb(249,247,241,${1 - (i / 20)})`)
         }
       ]
@@ -53,16 +83,12 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
       datasets: [
         {
           data: [kanji, hiragana, kanji, roman],
-          backgroundColor: [
-            'rgb(46,46,46,1)',
-            'rgb(46,46,46,0.9)',
-            'rgb(46,46,46,0.7)',
-            'rgb(46,46,46,0.6)',
-          ]
+          backgroundColor: Array(4).fill('').map((_v, i) => `rgb(46,46,46,${1 - (i * 0.2)})`),
+          hoverBackgroundColor: Array(4).fill('').map((_v, i) => `rgb(46,46,46,${0.9 - (i * 0.2)})`)
         }
       ]
     })
-  }, [])
+  }, [generateDifficulty, t])
 
   useEffect(() => {
     generateData()
@@ -80,6 +106,9 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
     <div className={classNames(styles.wrapper, className)}>
       <div className={styles.barWrapper}>
         <div className={styles.barContainer}>
+          <span className={classNames(styles.difficulty, difficultyClass)}>
+            {t(`difficulty.${difficulty?.toLowerCase()}`)}
+          </span>
           {barData && (
             <Bar
               id='grade-bar'
@@ -89,6 +118,16 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
                 responsive: true,
                 maintainAspectRatio: false,
                 animation: { duration: animationDuration },
+                plugins: {
+                  datalabels: {
+                    font: {
+                      weight: 'bold'
+                    },
+                    formatter: (value: number) => {
+                      return value > 0 ? value : ''
+                    }
+                  }
+                },
                 scales: {
                   x: {
                     ticks: {
@@ -192,6 +231,31 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
                   animation: { duration: animationDuration },
                   maintainAspectRatio: true,
                   plugins: {
+                    tooltip: {
+                      enabled: true,
+                      yAlign: 'bottom',
+                      usePointStyle: true,
+                      bodyAlign: 'center',
+                      bodyFont: {
+                        weight: 'bold'
+                      },
+                      titleFont: {
+                        weight: 'bold'
+                      },
+                      callbacks: {
+                        title: (tooltipItems: TooltipItem<"pie">[]) => {
+                          switch (tooltipItems[0].label) {
+                            case 'A': return 'Roman'
+                            case '字': return 'Kanji'
+                            case 'ひ': return 'Hiragana'
+                            case 'カ': return 'Katakana'
+                          }
+                        },
+                        label: (tooltipItem: TooltipItem<"pie">) => {
+                          return ` ${tooltipItem.raw as string}%`
+                        }
+                      }
+                    },
                     datalabels: {
                       formatter: (_value: number, context: Context) => {
                         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
