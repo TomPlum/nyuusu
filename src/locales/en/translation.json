@@ -61,7 +61,8 @@
         "rights": "The copyright of the materials belongs to nyusu.com unless stated otherwise.",
         "feed-title": "Latest Japanese headlines",
         "link": "https://github.com/TomPlum/nyuusu#readme",
-        "body": "Nyusu.com is a small side-project of mine that aims to test your Japanese reading ability using headlines and excerpts from real Japanese news articles written by and for native Japanese people. A (some-what naive) algorithm produces a difficulty rating for each article based on the ratio of kanji, hiragana, katakana and roman characters, plus the kanji grades. News data is sourced from various RSS feeds and APIs."
+        "body": "Nyusu.com is a small side-project of mine that aims to test your Japanese reading ability using headlines and excerpts from real Japanese news articles written by and for native Japanese people. A (some-what naive) algorithm produces a difficulty rating for each article based on the ratio of kanji, hiragana, katakana and roman characters, plus the kanji grades. News data is sourced from various RSS feeds and APIs.",
+        "body-2": "Most newspapers use only the 2136 characters in the jōyō kanji table, making it a reasonable goal for beginner to intermediate learners who want to read native content."
       },
       "title": [
         "Most newspapers use only the 2136 characters in the jōyō kanji table.",

@@ -37,7 +37,7 @@ const HomeView = () => {
     publishDate: todaysDate,
     feedTitle: t('article.feed-title'),
     rights: t('article.rights'),
-    body: t('article.body')
+    body: t('article.body') + t('article.body-2')
   }), [t, todaysDate])
 
   const headline = useMemo(() => {

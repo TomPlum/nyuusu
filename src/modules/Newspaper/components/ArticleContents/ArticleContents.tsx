@@ -14,11 +14,9 @@ export const ArticleContents = ({ contents, disclaimer, sourceUrl, className }: 
         {contents ?? t('default')}
       </p>
 
-      <p>
-        <a href={sourceUrl} target='_blank' rel='noreferrer' className={styles.link}>
-          {t('see-more')}
-        </a>
-      </p>
+      <a href={sourceUrl} target='_blank' rel='noreferrer' className={styles.link}>
+        {t('see-more')}
+      </a>
 
       <i className={styles.disclaimer}>
         {disclaimer}
