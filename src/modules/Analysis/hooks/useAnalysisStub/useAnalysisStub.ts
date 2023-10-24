@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { ChartData } from "chart.js"
 import { TableData } from "views/HomeView/components/AnalysisArticle/types.ts"
 import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
-import { AnalysisStubResponse } from "views/HomeView/hooks/useAnalysisStub/types.ts"
+import { AnalysisStubResponse } from "modules/Analysis/hooks/useAnalysisStub/types.ts"
 import { useTranslation } from "react-i18next"
 
 const useAnalysisStub = (): AnalysisStubResponse => {

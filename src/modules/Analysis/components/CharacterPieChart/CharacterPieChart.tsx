@@ -1,8 +1,10 @@
 import styles from "./CharacterPieChart.module.scss"
 import { Pie } from "react-chartjs-2"
 import ChartDataLabels, { Context } from "chartjs-plugin-datalabels"
-import { TooltipItem } from "chart.js"
+import { ArcElement, Chart as ChartJS, Tooltip, TooltipItem } from "chart.js"
 import { CharacterPieChartProps } from "modules/Analysis/components/CharacterPieChart/types.ts"
+
+ChartJS.register(ArcElement, ChartDataLabels, Tooltip)
 
 const CharacterPieChart = ({ data, animationDuration }: CharacterPieChartProps) => {
   return (

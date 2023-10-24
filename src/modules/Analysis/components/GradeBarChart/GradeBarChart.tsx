@@ -6,6 +6,9 @@ import { useMemo } from "react"
 import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 import { useTranslation } from "react-i18next"
 import { School } from "@mui/icons-material"
+import { BarElement, CategoryScale, Chart as ChartJS, LinearScale } from "chart.js"
+
+ChartJS.register(BarElement, CategoryScale, LinearScale)
 
 const GradeBarChart = ({ data, animationDuration, difficulty }: GradeBarChartProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
@@ -34,6 +37,9 @@ const GradeBarChart = ({ data, animationDuration, difficulty }: GradeBarChartPro
               maintainAspectRatio: false,
               animation: { duration: animationDuration },
               plugins: {
+                tooltip: {
+                  enabled: false
+                },
                 datalabels: {
                   font: {
                     weight: 'bold'
