@@ -12,8 +12,8 @@
 
 .banner {
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 15px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +28,7 @@
 
     .date {
       font-family: Inter, sans-serif;
-      font-size: 1.15em;
+      font-size: 1.070em;
     }
   }
 }
@@ -51,7 +51,7 @@
     height: calc(100% + 20rem);
     z-index: 9999;
     position: fixed;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+    background-image: url(assets/gaussian_noise.png);
     opacity: 0.15;
     pointer-events: none;
     -webkit-animation: noise 1s steps(2) infinite;
@@ -133,7 +133,7 @@
 
     .leftMiddle {
       padding-right: 40px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
   }
 

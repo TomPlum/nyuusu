@@ -7,10 +7,12 @@ const PublisherHeading = ({ name, title }: PublisherHeadingProps) => {
 
   return (
     <div className={styles.publisherWrapper}>
-      <div className={styles.border}>
+      <div className={styles.borderContainer}>
+        <div className={styles.borderTop} />
         <h1 className={styles.publisher}>
           {name ?? t('anonymous')}
         </h1>
+        <div className={styles.borderBottom} />
       </div>
 
       <div className={styles.title}>

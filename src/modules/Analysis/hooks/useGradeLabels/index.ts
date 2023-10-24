@@ -1,0 +1,1 @@
+export { default } from './useGradeLabels.ts'

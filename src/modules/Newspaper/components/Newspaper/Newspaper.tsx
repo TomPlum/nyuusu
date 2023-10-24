@@ -35,7 +35,7 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
         </Grid>
 
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
-          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
+          <Grid xs={12}>
             <RatingArticle text={article.title} />
           </Grid>
 
