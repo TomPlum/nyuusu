@@ -20,11 +20,13 @@ import AnalysisArticle from "./components/AnalysisArticle"
 import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import PublisherHeading from "modules/Newspaper/components/PublisherHeading"
 import CurrentDateTime from "modules/Header/components/CurrentDateTime"
+import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
 const HomeView = () => {
   const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
+  const { language } = useSettingsContext()
 
   const todaysDate = useMemo(() => {
     return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
@@ -95,7 +97,7 @@ const HomeView = () => {
               <Grid xs={12} lg={6}>
                 <AnkiArticle />
                 <SettingsArticle />
-                <TranslateArticle />
+                <TranslateArticle currentLanguage={language} />
               </Grid>
 
               <Grid container xs={12} lg={6} rowSpacing={2}>

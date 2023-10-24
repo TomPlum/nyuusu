@@ -53,7 +53,7 @@
   }
 }
 
-.left, .right {
+.japanese, .english {
   color: $black-ink;
   font-weight: bold;
   width: 50px;
@@ -63,7 +63,7 @@
 
 $english: #4a90f3;
 
-.left {
+.japanese {
   border: 3px solid $live-color;
   border-radius: 5px;
   padding: 5px;
@@ -76,7 +76,7 @@ $english: #4a90f3;
   }
 }
 
-.right {
+.english {
   border: 3px solid $english;
   border-radius: 5px;
   padding: 5px;
@@ -90,16 +90,24 @@ $english: #4a90f3;
   }
 }
 
-.lineLeft, .lineRight {
+.lineJapaneseLeft, .lineJapaneseRight, .lineEnglishLeft, .lineEnglishRight{
   width: 35px;
   height: 4px;
   display: inline-block;
 }
 
-.lineLeft {
+.lineJapaneseLeft {
   background-image: linear-gradient(to right, $live-color, $black-ink)
 }
 
-.lineRight {
+.lineJapaneseRight {
+  background-image: linear-gradient(to left, $live-color, $black-ink)
+}
+
+.lineEnglishLeft {
   background-image: linear-gradient(to right, $black-ink, $english)
+}
+
+.lineEnglishRight {
+  background-image: linear-gradient(to left, $black-ink, $english)
 }
