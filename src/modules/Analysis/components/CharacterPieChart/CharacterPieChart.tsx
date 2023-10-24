@@ -20,6 +20,14 @@ const CharacterPieChart = ({ data, animationDuration }: CharacterPieChartProps) 
   const formatLabel = (tooltipItem: TooltipItem<"pie">) => {
     return ` ${tooltipItem.raw as string}%`
   }
+
+  const formatDataLabel = (value: number, context: Context) => {
+    if (value <= 0) {
+      return null
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return context?.chart?.data?.labels?.[context.dataIndex] as string
+  }
     
   return (
     <div className={styles.pieContainer}>
@@ -53,13 +61,7 @@ const CharacterPieChart = ({ data, animationDuration }: CharacterPieChartProps) 
                     }
                   },
                   datalabels: {
-                    formatter: (value: number, context: Context) => {
-                      if (value <= 0) {
-                        return null
-                      }
-                      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-                      return context?.chart?.data?.labels?.[context.dataIndex] as string
-                    },
+                    formatter: formatDataLabel,
                     color: 'white',
                     align: 'end',
                     offset: -4,
