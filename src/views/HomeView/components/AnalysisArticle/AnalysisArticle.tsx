@@ -6,10 +6,9 @@ import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels'
 import { Pie } from 'react-chartjs-2'
 import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
-import { Equalizer } from "@mui/icons-material"
-import AnimatedNumber from "react-animated-numbers"
 import useAnalysisStub from "views/HomeView/hooks/useAnalysisStub"
 import GradeBarChart from "modules/Analysis/components/GradeBarChart"
+import StatsTable from "modules/Analysis/components/StatsTable"
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels, Tooltip)
 
@@ -25,65 +24,9 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
         animationDuration={animationDuration}
       />
 
-      <div className={styles.stats}>
-        <div className={styles.heading}>
-          <Equalizer className={styles.icon} />
-          <span>{t('text.start.prefix')}</span>
-          <AnimatedNumber
-            animateToNumber={tableData?.length ?? 0}
-            configs={[{ mass: 1, tension: 220, friction: 47 }]}
-          />
-          <span>{t('text.start.suffix')}</span>
-        </div>
-
-        <div className={styles.stat}>
-          <p className={styles.label}>字</p>
-          <div className={styles.text}>
-            <span>{t('text.kanji.prefix')}</span>
-            <AnimatedNumber
-              configs={[{}]}
-              animateToNumber={tableData?.kanji ?? 0}
-            />
-            <span>{t('text.kanji.suffix')}</span>
-          </div>
-        </div>
-
-        <div className={styles.stat}>
-          <p className={styles.label}>ひ</p>
-          <div className={styles.text}>
-            <AnimatedNumber
-              animateToNumber={tableData?.hiragana ?? 0}
-              configs={[{ mass: 1, tension: 220, friction: 35 }]}
-            />
-            <span>{t('text.hiragana.suffix')}</span>
-          </div>
-        </div>
-
-        <div className={styles.stat}>
-          <p className={styles.label}>カ</p>
-          <div className={styles.text}>
-            <span>{t('text.katakana.prefix')}</span>
-            <AnimatedNumber
-              animateToNumber={tableData?.katakana ?? 0}
-              configs={[{ mass: 1, tension: 220, friction: 25 }]}
-            />
-            <span>{t('text.katakana.suffix')}</span>
-          </div>
-        </div>
-
-        <div className={styles.stat}>
-          <p className={styles.label}>A</p>
-          <div className={styles.text}>
-            <AnimatedNumber
-              animateToNumber={tableData?.roman ?? 0}
-              configs={[{ mass: 1, tension: 220, friction: 45 }]}
-            />
-            <span>{t('text.roman.suffix')}</span>
-          </div>
-        </div>
-
-        <div className={styles.mask} />
-      </div>
+      <StatsTable
+        data={tableData}
+      />
 
       <div className={styles.pieContainer}>
         <div className={styles.outer}>
