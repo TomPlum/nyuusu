@@ -27,6 +27,7 @@ const GradeBarChart = ({ data, animationDuration, difficulty }: GradeBarChartPro
         <span className={classNames(styles.difficulty, difficultyClass)}>
           {t(`difficulty.${difficulty?.toLowerCase()}`)}
         </span>
+
         {data && (
           <Bar
             id='grade-bar'

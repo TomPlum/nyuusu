@@ -1,5 +1,7 @@
-import { DifficultyRating, LanguageStats, LanguageStatsProps } from "./types.ts"
+import { DifficultyRating, KanjiGrades, LanguageStats, LanguageStatsProps } from "./types.ts"
 import { useCallback, useMemo } from "react"
+import kanjiJson from 'assets/kanji.json'
+import { KanjiData } from "views/HomeView/components/AnalysisArticle/types.ts"
 
 const hiraganaMatcher = /([ぁ-ん])/
 const katakanaMatcher = /([ァ-ン])/
@@ -29,6 +31,23 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
       return DifficultyRating.BEGINNER
     }
   }, [])
+
+  const grades: KanjiGrades = useMemo(() => {
+    const initialValue: KanjiGrades = {}
+    const kanji = kanjiJson as KanjiData
+    return [...input].reduce((acc, char) => {
+      if (kanjiMatcher.test(char)){
+        const grade = kanji.find(value => value.name === char)?.grade
+        
+        if (grade) {
+          const existingValue = acc[grade]
+          acc[grade] = (existingValue ?? 0) + 1
+        }
+      }
+
+      return acc
+    }, initialValue)
+  }, [input])
 
   const hiragana = useMemo(() => {
     return percentage(hiraganaMatcher)
@@ -60,6 +79,7 @@ const useLanguageStats = ({ input }: LanguageStatsProps): LanguageStats => {
     katakana,
     kanji,
     roman,
+    grades,
     other
   }
 }

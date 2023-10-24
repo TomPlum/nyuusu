@@ -14,4 +14,13 @@ describe('Language Stats Hook', () => {
     const { result } = renderHook(() => useLanguageStats({ input: '黒髪交じり痩せた姿' }))
     expect(result.current.difficulty).toBe(DifficultyRating.INTERMEDIATE)
   })
+
+  it('should calculate the grades of the kanji characters', () => {
+    const { result } = renderHook(() => useLanguageStats({ input: '黒髪交じり痩せた姿' }))
+    expect(result.current.grades).toStrictEqual({
+      2: 2,
+      6: 1,
+      8: 2
+    })
+  })
 })

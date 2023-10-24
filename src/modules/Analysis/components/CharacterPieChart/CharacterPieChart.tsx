@@ -7,6 +7,20 @@ import { CharacterPieChartProps } from "modules/Analysis/components/CharacterPie
 ChartJS.register(ArcElement, ChartDataLabels, Tooltip)
 
 const CharacterPieChart = ({ data, animationDuration }: CharacterPieChartProps) => {
+  const formatTitle = (tooltipItems: TooltipItem<"pie">[]) => {
+    switch (tooltipItems[0].label) {
+      case 'A': return 'Roman'
+      case '字': return 'Kanji'
+      case 'ひ': return 'Hiragana'
+      case 'カ': return 'Katakana'
+      case '-': return 'Other'
+    }
+  }
+
+  const formatLabel = (tooltipItem: TooltipItem<"pie">) => {
+    return ` ${tooltipItem.raw as string}%`
+  }
+    
   return (
     <div className={styles.pieContainer}>
       <div className={styles.outer}>
@@ -34,21 +48,15 @@ const CharacterPieChart = ({ data, animationDuration }: CharacterPieChartProps) 
                       weight: 'bold'
                     },
                     callbacks: {
-                      title: (tooltipItems: TooltipItem<"pie">[]) => {
-                        switch (tooltipItems[0].label) {
-                          case 'A': return 'Roman'
-                          case '字': return 'Kanji'
-                          case 'ひ': return 'Hiragana'
-                          case 'カ': return 'Katakana'
-                        }
-                      },
-                      label: (tooltipItem: TooltipItem<"pie">) => {
-                        return ` ${tooltipItem.raw as string}%`
-                      }
+                      title: formatTitle,
+                      label: formatLabel
                     }
                   },
                   datalabels: {
-                    formatter: (_value: number, context: Context) => {
+                    formatter: (value: number, context: Context) => {
+                      if (value <= 0) {
+                        return null
+                      }
                       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                       return context?.chart?.data?.labels?.[context.dataIndex] as string
                     },

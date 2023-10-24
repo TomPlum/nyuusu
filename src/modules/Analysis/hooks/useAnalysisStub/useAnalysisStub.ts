@@ -3,15 +3,15 @@ import { ChartData } from "chart.js"
 import { TableData } from "views/HomeView/components/AnalysisArticle/types.ts"
 import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 import { AnalysisStubResponse } from "modules/Analysis/hooks/useAnalysisStub/types.ts"
-import { useTranslation } from "react-i18next"
+import useGradeLabels from "modules/Analysis/hooks/useGradeLabels"
 
 const useAnalysisStub = (): AnalysisStubResponse => {
+  const { labels } = useGradeLabels()
   const [pieData, setPieData] = useState<ChartData<'pie'>>()
   const [barData, setBarData] = useState<ChartData<'bar'>>()
   const [tableData, setTableData] = useState<TableData>()
   const [difficulty, setDifficulty] = useState<DifficultyRating>()
   const [animationDuration, setAnimationDuration] = useState(0)
-  const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
 
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -41,12 +41,10 @@ const useAnalysisStub = (): AnalysisStubResponse => {
       roman
     })
 
-    const barChartLabels: string[] = t('bar.labels', { returnObjects: true })
-
     setDifficulty(generateDifficulty(kanji))
 
     setBarData({
-      labels: barChartLabels,
+      labels,
       datasets: [
         {
           data: [
@@ -65,13 +63,13 @@ const useAnalysisStub = (): AnalysisStubResponse => {
       labels: ['字', 'ひ', 'カ', 'A'],
       datasets: [
         {
-          data: [kanji, hiragana, kanji, roman],
+          data: [kanji, hiragana, katakana, roman],
           backgroundColor: Array(4).fill('').map((_v, i) => `rgb(46,46,46,${1 - (i * 0.2)})`),
           hoverBackgroundColor: Array(4).fill('').map((_v, i) => `rgb(46,46,46,${0.9 - (i * 0.2)})`)
         }
       ]
     })
-  }, [generateDifficulty, t])
+  }, [generateDifficulty, labels])
 
   useEffect(() => {
     generateData()
