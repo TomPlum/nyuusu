@@ -1,16 +1,15 @@
 import styles from './AnalysisArticle.module.scss'
 import { AnalysisArticleProps } from "views/HomeView/components/AnalysisArticle/types.ts"
 import classNames from "classnames"
-import { useMemo } from "react"
 import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, TooltipItem } from 'chart.js'
 import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels'
-import { Bar, Pie } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
 import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
-import { Equalizer, School } from "@mui/icons-material"
+import { Equalizer } from "@mui/icons-material"
 import AnimatedNumber from "react-animated-numbers"
-import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 import useAnalysisStub from "views/HomeView/hooks/useAnalysisStub"
+import GradeBarChart from "modules/Analysis/components/GradeBarChart"
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels, Tooltip)
 
@@ -18,68 +17,13 @@ const AnalysisArticle = ({ className }: AnalysisArticleProps) => {
   const { pieData, barData, tableData, difficulty, animationDuration } = useAnalysisStub()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis' })
 
-  const difficultyClass = useMemo(() => {
-    switch (difficulty) {
-      case DifficultyRating.BEGINNER: return styles.beginner
-      case DifficultyRating.INTERMEDIATE: return styles.intermediate
-      case DifficultyRating.EXPERT: return styles.expert
-    }
-  }, [difficulty])
-
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <div className={styles.barWrapper}>
-        <div className={styles.barContainer}>
-          <span className={classNames(styles.difficulty, difficultyClass)}>
-            {t(`difficulty.${difficulty?.toLowerCase()}`)}
-          </span>
-          {barData && (
-            <Bar
-              id='grade-bar'
-              data={barData}
-              className={styles.bar}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                animation: { duration: animationDuration },
-                plugins: {
-                  datalabels: {
-                    font: {
-                      weight: 'bold'
-                    },
-                    formatter: (value: number) => {
-                      return value > 0 ? value : ''
-                    }
-                  }
-                },
-                scales: {
-                  x: {
-                    ticks: {
-                      color: '#f9f7f1',
-                      font: {
-                        weight: 'bold'
-                      }
-                    }
-                  },
-                  y: {
-                    display: false,
-                    grid: {
-                      display: false
-                    }
-                  }
-                }
-              }}
-            />
-          )}
-        </div>
-
-        <div className={styles.barLabel}>
-          <School />
-          <span>
-            {t('bar.label')}
-          </span>
-        </div>
-      </div>
+      <GradeBarChart
+        data={barData}
+        difficulty={difficulty} 
+        animationDuration={animationDuration}
+      />
 
       <div className={styles.stats}>
         <div className={styles.heading}>

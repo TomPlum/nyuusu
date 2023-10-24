@@ -39,18 +39,6 @@
   font-weight: bold;
 }
 
-.beginner {
-  background-color: $beginner-primary;
-}
-
-.intermediate {
-  background-color: $intermediate-primary;
-}
-
-.expert {
-  background-color: $expert-primary;
-}
-
 .stats {
   color: $black-ink;
   border-top: 3px solid $black-ink;
@@ -117,78 +105,4 @@
     border-bottom-left-radius: 50%;
     background-color: $newspaper;
   }
-}
-
-.barWrapper {
-  border-radius: 10px;
-  margin-right: 15px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  background-color: $black-ink;
-
-  .barContainer {
-    position: relative;
-    flex-grow: 1;
-    padding: 12px 5px 3px 0;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    min-height: 0;
-
-    .difficulty {
-      transition: all ease-in-out 0.4s;
-      position: absolute;
-      top: 8px;
-      right: 0;
-      margin: 0 8px;
-      width: 50px;
-      height: 23px;
-      border-radius: 5px;
-      padding: 0 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      align-self: flex-end;
-      color: $black-ink;
-      font-weight: bold;
-    }
-  }
-
-  .bar {
-    max-width: 240px;
-  }
-
-  .barLabel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px 0;
-    color: $black-ink;
-    background-color: $newspaper;
-    max-width: 100%;
-    font-weight: bold;
-    border-left: 5px solid $black-ink;
-    border-right: 5px solid $black-ink;
-    border-bottom: 5px solid $black-ink;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    min-height: 0;
-
-    >svg {
-      margin-right: 6px;
-    }
-  }
-}
-
-.beginner {
-  background-color: $beginner-primary;
-}
-
-.intermediate {
-  background-color: $intermediate-primary;
-}
-
-.expert {
-  background-color: $live-color;
 }
