@@ -1,10 +1,11 @@
 export interface DeeplTranslateProps {
-    input: string
+    input: string[]
 }
 
 export interface DeeplTranslationRequest {
-    text: string
-    "target_lang": string
+    text: string[]
+    source_lang: string
+    target_lang: string
 }
 
 export interface DeeplTranslationResponse {
@@ -12,6 +13,6 @@ export interface DeeplTranslationResponse {
 }
 
 export interface DeeplTranslation {
-    "detected_source_language": string
+    detected_source_language: string
     text: string
 }

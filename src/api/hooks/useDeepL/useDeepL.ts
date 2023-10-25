@@ -4,16 +4,17 @@ import { DeeplTranslateProps, DeeplTranslationRequest, DeeplTranslationResponse 
 import { useMutation } from "@tanstack/react-query"
 import { queryKeys } from "api/queryKeys.ts"
 
-export const useDeeplMutationKey = (input: string) => {
-  return [queryKeys.deeplTranslate, input]
+export const useDeeplMutationKey = (input: string[]) => {
+  return [queryKeys.deeplTranslate, ...input]
 }
 
 const useDeepL = ({ input }: DeeplTranslateProps) => {
   const client = useDeeplApi()
 
   const translate = useCallback(() => {
-    return client.post<DeeplTranslationRequest, DeeplTranslationResponse, DeeplTranslationRequest>('/translate', {
+    return client.post<unknown, DeeplTranslationResponse, DeeplTranslationRequest>('/translate', {
       text: input,
+      source_lang: 'JA',
       target_lang: 'EN'
     })
   }, [client, input])
