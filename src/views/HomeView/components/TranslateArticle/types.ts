@@ -1,6 +1,7 @@
 import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 
 export interface TranslateArticleProps {
-    onTranslate?: () => void
-    currentLanguage: Language
+    currentLanguage?: Language
+    translationText: (string | undefined)[]
+    onTranslate?: (translated: string[]) => void
 }

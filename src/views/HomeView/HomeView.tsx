@@ -97,7 +97,11 @@ const HomeView = () => {
               <Grid xs={12} lg={6}>
                 <AnkiArticle />
                 <SettingsArticle />
-                <TranslateArticle currentLanguage={language} />
+                <TranslateArticle
+                  key={language}
+                  translationText={[]}
+                  currentLanguage={language}
+                />
               </Grid>
 
               <Grid container xs={12} lg={6} rowSpacing={2}>

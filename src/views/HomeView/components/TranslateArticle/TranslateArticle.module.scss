@@ -38,13 +38,23 @@
 }
 
 .deepl {
-  height: 35px;
+  >svg {
+    height: 35px;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
   border: 3px solid $black-ink;
   border-radius: 10px;
-  padding: 5px 8px;
   background-color: $black-ink;
   color: $newspaper;
   transition: all ease-in-out 0.2s;
+
+  .loading {
+    padding: 0 20px;
+  }
 
   &:hover {
     cursor: pointer;
