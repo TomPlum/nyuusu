@@ -8,10 +8,14 @@ import NavigationArticle from "modules/Newspaper/components/NavigationArticle"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import AnkiArticle from "modules/Newspaper/components/AnkiArticle"
 import TranslateArticle from "views/HomeView/components/TranslateArticle"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const Newspaper = ({ article: rawArticle, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   const [article, setArticle] = useState(rawArticle)
+
+  useEffect(() => {
+    setArticle(rawArticle)
+  }, [rawArticle])
 
   const handleTranslate = useCallback((translatedText: string[]) => {
     const title = translatedText[0]
@@ -24,7 +28,6 @@ const Newspaper = ({ article: rawArticle, articleCount, currentArticleId, onNext
       }
     })
   }, [])
-
 
   return (
     <div className={styles.newspaper} data-testid='newspaper'>
