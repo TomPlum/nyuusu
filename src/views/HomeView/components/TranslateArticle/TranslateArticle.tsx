@@ -25,10 +25,10 @@ const TranslateArticle = ({ translationText, onTranslate, currentLanguage }: Tra
       const { translations } = await mutateAsync()
       console.log(translations)
       setLanguage('en')
-      onTranslate?.(translations.map(translation => translation.text))
+      onTranslate?.('en', translations.map(translation => translation.text))
     } else {
       setLanguage('jp')
-      onTranslate?.(input)
+      onTranslate?.('jp', input)
     }
   }, [input, language, mutateAsync, onTranslate])
 

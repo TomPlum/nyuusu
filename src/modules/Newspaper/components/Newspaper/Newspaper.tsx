@@ -8,25 +8,21 @@ import NavigationArticle from "modules/Newspaper/components/NavigationArticle"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import AnkiArticle from "modules/Newspaper/components/AnkiArticle"
 import TranslateArticle from "views/HomeView/components/TranslateArticle"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
+import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 
-const Newspaper = ({ article: rawArticle, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
-  const [article, setArticle] = useState(rawArticle)
+const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
+  const [translatedHeadline, setTranslatedHeadline] = useState<string>()
+  const [translatedArticleBody, setTranslatedArticleBody] = useState<string>()
 
-  useEffect(() => {
-    setArticle(rawArticle)
-  }, [rawArticle])
-
-  const handleTranslate = useCallback((translatedText: string[]) => {
-    const title = translatedText[0]
-    const body = translatedText[1]
-    setArticle(current => {
-      return {
-        ...current,
-        title,
-        body
-      }
-    })
+  const handleTranslate = useCallback((language: Language, translatedText: string[]) => {
+    if (language === 'en') {
+      setTranslatedHeadline(translatedText[0])
+      setTranslatedArticleBody(translatedText[1])
+    } else {
+      setTranslatedHeadline(undefined)
+      setTranslatedArticleBody(undefined)
+    }
   }, [])
 
   return (
@@ -41,15 +37,15 @@ const Newspaper = ({ article: rawArticle, articleCount, currentArticleId, onNext
         </Grid>
 
         <Grid xs={12}>
-          <Headline headline={article.title} />
+          <Headline headline={translatedHeadline ?? article.title} />
         </Grid>
 
         <Grid xs={12} justifyContent='center' alignItems='center'>
           <ArticleContents
-            contents={article.body}
             disclaimer={article.rights}
             sourceUrl={article.link}
             publisher={article.publisher}
+            contents={translatedArticleBody ?? article.body}
           />
         </Grid>
 
