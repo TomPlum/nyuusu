@@ -23,9 +23,9 @@
   color: $black-ink;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   font-weight: bold;
-  padding: 1px 5px;
+  padding: 1px 4px;
   width: 20px;
   margin: 0;
   letter-spacing: 2px;
@@ -35,8 +35,10 @@
   font-family: 'Chomsky', sans-serif;
   font-size: 1.4em;
   width: 60px;
-  margin: 0;
+  margin: 8px 0;
   letter-spacing: -1px;
+  border-top: 1px dashed $newspaper;
+  border-bottom: 1px dashed $newspaper;
   @include evenNumericalSpacing;
 }
 
@@ -46,12 +48,12 @@
   color: $newspaper;
   font-size: 1.2em;
   border-radius: 2px;
+  transition: all ease-in-out 0.3s;
 
   &:hover {
     cursor: pointer;
     color: $link;
     background-color: $newspaper;
-    transition: all ease-in-out 0.5s;
   }
 
   svg {
@@ -65,7 +67,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   text-align: center;
 }
 

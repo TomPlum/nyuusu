@@ -20,6 +20,7 @@ import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import PublisherHeading from "modules/Newspaper/components/PublisherHeading"
 import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
+import GaussianNoise from "components/GaussianNoise"
 
 const HomeView = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
@@ -55,7 +56,7 @@ const HomeView = () => {
 
   return (
     <div className={styles.view} data-testid='home-view'>
-      <div className={styles.grain} />
+      <GaussianNoise />
 
       <Grid container className={styles.content}>
         <Grid container xs={12}>
