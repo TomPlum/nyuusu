@@ -3,15 +3,17 @@ import Typography from "components/Typography"
 import { CardsArticleProps } from "views/HomeView/components/CardsArticle/types.ts"
 import classNames from "classnames"
 import styles from './CardsArticle.module.scss'
+import { useNavigate } from "react-router-dom"
 
-const CardsArticle = ({ className, onClick }: CardsArticleProps) => {
+const CardsArticle = ({ className }: CardsArticleProps) => {
+  const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.cards' })
 
   return (
     <div
-      onClick={onClick}
       title={t('hover-title')}
       data-testid='home-newspaper-article'
+      onClick={() => navigate('/articles')}
       className={classNames(styles.wrapper, className)}
     >
       <div className={styles.inner}>

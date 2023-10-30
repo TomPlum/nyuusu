@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
 import styles from './HomeView.module.scss'
 import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
@@ -23,7 +22,6 @@ import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
 const HomeView = () => {
-  const navigate = useNavigate()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
   const { language } = useSettingsContext()
@@ -117,17 +115,11 @@ const HomeView = () => {
                 </Grid>
 
                 <Grid flexGrow={1} xs={12}>
-                  <NewspaperArticle
-                    className={styles.article}
-                    onClick={() => navigate('/newspaper')}
-                  />
+                  <NewspaperArticle className={styles.article} />
                 </Grid>
 
                 <Grid flexGrow={1} xs={12}>
-                  <CardsArticle
-                    className={styles.article}
-                    onClick={() => navigate('/articles')}
-                  />
+                  <CardsArticle className={styles.article} />
                 </Grid>
               </Grid>
             </Grid>

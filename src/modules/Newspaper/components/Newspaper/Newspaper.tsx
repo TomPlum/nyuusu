@@ -10,6 +10,7 @@ import AnkiArticle from "modules/Newspaper/components/AnkiArticle"
 import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import { useCallback, useState } from "react"
 import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
+import CardsArticle from "views/HomeView/components/CardsArticle"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   const [translatedHeadline, setTranslatedHeadline] = useState<string>()
@@ -62,6 +63,9 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
           <Grid xs={12}>
             <RatingArticle text={article.title} />
+          </Grid>
+          <Grid xs={12}>
+            <CardsArticle />
           </Grid>
 
           <Grid xs={12} lg={6}>
