@@ -41,12 +41,22 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
         </Grid>
 
         <Grid xs={12} justifyContent='center' alignItems='center'>
-          <ArticleContents
-            disclaimer={article.rights}
-            sourceUrl={article.link}
-            publisher={article.publisher}
-            contents={translatedArticleBody ?? article.body}
-          />
+          <div className={styles.articleContentsWrapper}>
+            <ArticleContents
+              disclaimer={article.rights}
+              sourceUrl={article.link}
+              publisher={article.publisher}
+              className={styles.articleContents}
+              contents={translatedArticleBody ?? article.body}
+            />
+
+            <NavigationArticle
+              onNext={onNext}
+              articles={articleCount}
+              onPrevious={onPrevious}
+              article={currentArticleId}
+            />
+          </div>
         </Grid>
 
         <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
@@ -54,19 +64,10 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
             <RatingArticle text={article.title} />
           </Grid>
 
-          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
+          <Grid xs={12} lg={6}>
             <TranslateArticle
               onTranslate={handleTranslate}
               translationText={[article.title, article.body]}
-            />
-          </Grid>
-
-          <Grid xs={12} lg={4}>
-            <NavigationArticle
-              onNext={onNext}
-              articles={articleCount}
-              onPrevious={onPrevious}
-              article={currentArticleId}
             />
           </Grid>
 

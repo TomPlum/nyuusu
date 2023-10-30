@@ -18,6 +18,17 @@
   padding-top: 20px;
 }
 
+.articleContentsWrapper {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 50px;
+
+  .articleContents {
+    flex-grow: 1;
+    margin-right: 15px;
+  }
+}
+
 .article {
   padding: 10px;
 }

@@ -206,6 +206,8 @@
         "description": "理解度を確認するために、記事の内容を翻訳する。"
       },
       "navigation": {
+        "forward": "前へ",
+        "backward": "後ろ",
         "description": "記事を変更する"
       },
       "contents": {
