@@ -4,10 +4,20 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material"
 import { useTranslation } from "react-i18next"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import Typography from "components/Typography"
+import { useMemo } from "react"
 
 const NavigationArticle = ({ article, articles, onNext, onPrevious }: NavigationArticleProps) => {
   const { language } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.navigation' })
+
+  const currentArticleNumber = useMemo(() => {
+    const number = article + 1
+    if (number < 10) {
+      return `0${number}`
+    }
+
+    return number
+  }, [article])
 
   return (
     <div className={styles.wrapper}>
@@ -21,7 +31,7 @@ const NavigationArticle = ({ article, articles, onNext, onPrevious }: Navigation
           </div>
 
           <p className={styles.numbers}>
-            {article + 1} / {articles}
+            {currentArticleNumber} / {articles}
           </p>
 
           <div onClick={onNext} className={styles.next}>

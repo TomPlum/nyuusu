@@ -34,8 +34,10 @@
 .numbers {
   font-family: 'Chomsky', sans-serif;
   font-size: 1.4em;
+  width: 60px;
   margin: 0;
   letter-spacing: -1px;
+  @include evenNumericalSpacing;
 }
 
 .next, .last {
@@ -43,11 +45,13 @@
   font-weight: bold;
   color: $newspaper;
   font-size: 1.2em;
+  border-radius: 2px;
 
   &:hover {
     cursor: pointer;
     color: $link;
-    transition: all ease-in-out 0.2s;
+    background-color: $newspaper;
+    transition: all ease-in-out 0.5s;
   }
 
   svg {
