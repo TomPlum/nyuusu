@@ -225,6 +225,10 @@
           "button": "カードを追加"
         }
       }
+    },
+    "footer": {
+      "edition": "【第{{ number }}紙面】",
+      "copyright": "著作権について「トム・プランプトン」{{ year }}"
     }
   },
   "not-found": {

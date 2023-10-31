@@ -13,6 +13,7 @@ import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import CardsArticle from "views/HomeView/components/CardsArticle"
 import GaussianNoise from "components/GaussianNoise"
 import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
+import Footer from "modules/Newspaper/components/Footer"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   const [translatedHeadline, setTranslatedHeadline] = useState<string>()
@@ -91,6 +92,10 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
               </Grid>
             </Grid>
           </Grid>
+        </Grid>
+
+        <Grid xs={12}>
+          <Footer edition={currentArticleId + 1} />
         </Grid>
       </Grid>
     </div>
