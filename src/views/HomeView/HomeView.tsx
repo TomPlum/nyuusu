@@ -25,7 +25,7 @@ import PageTransition from "modules/PageTransition"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
-  const [move, setMove] = useState(false)
+  const [hasNavigated, setHasNavigated] = useState(false)
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
 
@@ -58,17 +58,12 @@ const HomeView = () => {
 
   return (
     <PageTransition
-      hasNavigated={move}
+      direction='top-left'
       data-testid='home-view'
       className={styles.view}
-      defaultTranslation='0% 0%'
+      hasNavigated={hasNavigated}
       target={{
         component: ArticleCardsView,
-        props: {
-          animate: true,
-          xTranslate: 100,
-          yTranslate: 100
-        }
       }}
     >
       <Grid container className={styles.content}>
@@ -135,7 +130,7 @@ const HomeView = () => {
                 <Grid flexGrow={1} xs={12}>
                   <CardsArticle
                     className={styles.article}
-                    onNavigate={() => setMove(true)}
+                    onNavigate={() => setHasNavigated(true)}
                   />
                 </Grid>
               </Grid>

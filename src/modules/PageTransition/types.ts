@@ -1,4 +1,5 @@
 import { type ComponentType } from "react"
+import { Position } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
 
 export interface TransitionablePageProps {
     animate?: boolean
@@ -9,9 +10,8 @@ export interface TransitionablePageProps {
 export interface PageTransitionProps {
     hasNavigated: boolean
     className?: string
-    defaultTranslation: string
+    direction: Position
     target: {
         component: ComponentType<TransitionablePageProps>
-        props: Partial<TransitionablePageProps>
     }
 }
