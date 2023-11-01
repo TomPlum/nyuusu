@@ -3,13 +3,13 @@ import Typography from "components/Typography"
 import { CardsArticleProps } from "views/HomeView/components/CardsArticle/types.ts"
 import classNames from "classnames"
 import styles from './CardsArticle.module.scss'
-import useNewsContext from "context"
 import { useCallback } from "react"
-import useDelayedNavigation from "hooks/useDelayedNavigation"
+import useDelayedNavigation from "modules/PageTransition/hooks/useDelayedNavigation"
+import usePageTransitionContext from "modules/PageTransition/context/usePageTransitionContext.ts"
 
 const CardsArticle = ({ className, onNavigate }: CardsArticleProps) => {
   const { navigate } = useDelayedNavigation()
-  const { setShouldLoadPage, setBackgroundTranslation } = useNewsContext()
+  const { setShouldLoadPage, setBackgroundTranslation } = usePageTransitionContext()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.cards' })
 
   const handleNavigate = useCallback(() => {

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
@@ -20,20 +20,14 @@ import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import PublisherHeading from "modules/Newspaper/components/PublisherHeading"
 import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
-import useNewsContext from "context"
-import classNames from "classnames"
 import ArticleCardsView from "views/ArticleCardsView"
+import PageTransition from "modules/PageTransition"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
   const [move, setMove] = useState(false)
-  const { setBackgroundTranslation } = useNewsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
-
-  useEffect(() => {
-    setBackgroundTranslation('0% 0%')
-  }, [setBackgroundTranslation])
 
   const todaysDate = useMemo(() => {
     return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
@@ -63,12 +57,20 @@ const HomeView = () => {
   }, [titles])
 
   return (
-    <div data-testid='home-view' className={classNames(styles.view, { [styles['view--move']]: move })}>
-
-      {move && (
-        <ArticleCardsView transition animate xTranslate={100} yTranslate={100} />
-      )}
-
+    <PageTransition
+      hasNavigated={move}
+      data-testid='home-view'
+      className={styles.view}
+      defaultTranslation='0% 0%'
+      target={{
+        component: ArticleCardsView,
+        props: {
+          animate: true,
+          xTranslate: 100,
+          yTranslate: 100
+        }
+      }}
+    >
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           {article.publisher && article.feedTitle && (
@@ -159,7 +161,7 @@ const HomeView = () => {
           <Footer />
         </Grid>
       </Grid>
-    </div>
+    </PageTransition>
   )
 }
 

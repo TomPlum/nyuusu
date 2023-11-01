@@ -6,19 +6,13 @@ import { View } from "modules/Header/components/ViewControls/types.ts"
 const NewsContextProvider = ({ children }: PropsWithChildren) => {
   const [view, setView] = useState(View.CARDS)
   const [articles, setArticles] = useState(0)
-  const [shouldLoadPage, setShouldLoadPage] = useState(false)
-  const [backgroundTranslation, setBackgroundTranslation] = useState('0% 0%')
 
   const values: NewsContextBag = useMemo(() => ({
     view,
     setView,
     articles,
     setArticles,
-    shouldLoadPage,
-    setShouldLoadPage,
-    backgroundTranslation,
-    setBackgroundTranslation
-  }), [articles, backgroundTranslation, shouldLoadPage, view])
+  }), [articles, view])
 
   return (
     <NewsContext.Provider value={values}>

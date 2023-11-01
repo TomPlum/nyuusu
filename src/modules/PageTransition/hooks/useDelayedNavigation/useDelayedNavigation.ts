@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { DelayedNavigationResponse } from "hooks/useDelayedNavigation/types.ts"
+import { DelayedNavigationResponse } from "modules/PageTransition/hooks/useDelayedNavigation/types.ts"
 import { useCallback } from "react"
 
 const useDelayedNavigation = (): DelayedNavigationResponse => {

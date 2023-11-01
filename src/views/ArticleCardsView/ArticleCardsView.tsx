@@ -7,14 +7,14 @@ import Loading from "components/Loading"
 import { useNavigate } from "react-router-dom"
 import Grid from "@mui/material/Unstable_Grid2"
 import useNewsFeed from "modules/Article/hooks/useNewsFeed"
-import useNewsContext from "context"
 import classNames from "classnames"
 import { CardsHeadlineViewProps } from "views/ArticleCardsView/types.ts"
+import usePageTransitionContext from "modules/PageTransition/context/usePageTransitionContext.ts"
 
 const ArticleCardsView = ({ animate = false, xTranslate = 0, yTranslate = 0 }: CardsHeadlineViewProps) => {
   const navigate = useNavigate()
   const [grow, setGrow] = useState(false)
-  const { shouldLoadPage } = useNewsContext()
+  const { shouldLoadPage } = usePageTransitionContext()
   const { articles, loading } = useNewsFeed()
 
   useEffect(() => {

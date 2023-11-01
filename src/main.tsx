@@ -11,6 +11,7 @@ import { RouterProvider } from "react-router-dom"
 import { router } from "./router.tsx"
 import ToastProvider from "modules/Toast/ToastProvider.tsx"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import PageTransitionContextProvider from "modules/PageTransition/context"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
@@ -27,9 +28,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ReactQueryDevtools initialIsOpen={false} />
       <NewsContextProvider>
         <SettingsContextProvider>
-          <ToastProvider>
-            <RouterProvider router={router} />
-          </ToastProvider>
+          <PageTransitionContextProvider>
+            <ToastProvider>
+              <RouterProvider router={router} />
+            </ToastProvider>
+          </PageTransitionContextProvider>
         </SettingsContextProvider>
       </NewsContextProvider>
     </QueryClientProvider>
