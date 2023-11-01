@@ -1,5 +1,6 @@
-import { NewsApiArticle } from "api/hooks/useGetHeadline/types.ts"
-
 export interface CardsHeadlineViewProps {
-    articles: NewsApiArticle[]
+    animate?: boolean
+    transition?: boolean
+    xTranslate?: number
+    yTranslate?: number
 }

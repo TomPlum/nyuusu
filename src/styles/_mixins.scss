@@ -28,3 +28,50 @@
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
 }
+
+@mixin pageLoadAnimation($reverse: false) {
+  animation: pageLoad 1s forwards;
+
+  @if $reverse == true {
+    animation-direction: reverse;
+  }
+
+  @keyframes pageLoad {
+    0% {
+      opacity: 0;
+      @if $reverse == true {
+        z-index: -1;
+      }
+    }
+    1% {
+      @if $reverse == true {
+        z-index: 1;
+      }
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin transitionHandler($top: 50%, $left: 50%, $translate: -50% -50%) {
+  transition: translate 0.6s ease-in-out;
+
+  &--transition {
+    transition: translate 0.6s ease-in-out;
+  }
+
+  &--no-transition {
+    transition: none;
+  }
+
+  &--move {
+    top: $top;
+    left: $left;
+    translate: $translate;
+  }
+
+  &--load-page {
+    @include pageLoadAnimation;
+  }
+}

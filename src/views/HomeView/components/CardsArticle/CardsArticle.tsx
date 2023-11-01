@@ -3,17 +3,27 @@ import Typography from "components/Typography"
 import { CardsArticleProps } from "views/HomeView/components/CardsArticle/types.ts"
 import classNames from "classnames"
 import styles from './CardsArticle.module.scss'
-import { useNavigate } from "react-router-dom"
+import useNewsContext from "context"
+import { useCallback } from "react"
+import useDelayedNavigation from "hooks/useDelayedNavigation"
 
-const CardsArticle = ({ className }: CardsArticleProps) => {
-  const navigate = useNavigate()
+const CardsArticle = ({ className, onNavigate }: CardsArticleProps) => {
+  const { navigate } = useDelayedNavigation()
+  const { setShouldLoadPage, setBackgroundTranslation } = useNewsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.cards' })
+
+  const handleNavigate = useCallback(() => {
+    onNavigate()
+    setShouldLoadPage(false)
+    navigate('/articles')
+    setBackgroundTranslation('-70%, -70%')
+  }, [navigate, onNavigate, setBackgroundTranslation, setShouldLoadPage])
 
   return (
     <div
       title={t('hover-title')}
+      onClick={handleNavigate}
       data-testid='home-newspaper-article'
-      onClick={() => navigate('/articles')}
       className={classNames(styles.wrapper, className)}
     >
       <div className={styles.inner}>

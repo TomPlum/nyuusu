@@ -4,6 +4,7 @@ import SettingsDrawer from "modules/Settings/components/SettingsDrawer"
 import { Outlet } from "react-router-dom"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import { useMemo } from "react"
+import GaussianNoise from "components/GaussianNoise"
 
 
 const NyuusuApplication = () => {
@@ -19,7 +20,9 @@ const NyuusuApplication = () => {
         <Header />
       )}
 
+
       <div className={styles.content}>
+        <GaussianNoise />
         <Outlet />
         <SettingsDrawer />
       </div>

@@ -1,4 +1,5 @@
 @import "styles/colours";
+@import "styles/mixins";
 
 .view {
   width: 100%;
@@ -8,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  @include transitionHandler(0, 0, -100% -100%);
 }
 
 .banner {

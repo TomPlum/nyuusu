@@ -11,4 +11,12 @@ export const NewsContext = createContext<NewsContextBag>({
   setArticles: () => {
     console.debug('NewsContext not initialized. Tried to invoke setArticles().')
   },
+  shouldLoadPage: false,
+  setShouldLoadPage: (move: boolean) => {
+    console.debug(`NewsContext not initialized. Tried to invoke setShouldLoadPage(move: ${move}).`)
+  },
+  backgroundTranslation: '0% 0%',
+  setBackgroundTranslation: (translation: string) => {
+    console.debug(`NewsContext not initialized. Tried to invoke setBackgroundTranslation(translation: ${translation}).`)
+  }
 })

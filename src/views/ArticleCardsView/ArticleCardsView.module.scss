@@ -1,7 +1,12 @@
+@import "styles/mixins";
+
 .cardsView {
   height: 100%;
   width: 100%;
+  position: absolute;
+  translate: var(--translate);
   display: flex;
   justify-content: center;
   padding-top: 50px;
+  @include transitionHandler(0, 0, 0);
 }
