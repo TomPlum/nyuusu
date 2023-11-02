@@ -1,19 +1,12 @@
-import { PropsWithChildren, useEffect } from "react"
+import { PropsWithChildren } from "react"
 import { PageTransitionProps } from "modules/PageTransition/types.ts"
-import usePageTransitionContext from "modules/PageTransition/context/usePageTransitionContext.ts"
 import classNames from "classnames"
 import styles from "./PageTransition.module.scss"
 import usePageTranslation from "modules/PageTransition/hooks/usePageTranslation"
 
 const PageTransition = ({ children, hasNavigated, direction, className, targetPage, ...rest }: PropsWithChildren<PageTransitionProps>) => {
-  const { setBackgroundTranslation } = usePageTransitionContext()
-  const { sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction })
-
-  useEffect(() => {
-    setBackgroundTranslation('0% 0%')
-  }, [setBackgroundTranslation])
-
   const TargetPageComponent = targetPage
+  const { sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction })
 
   return (
     <div

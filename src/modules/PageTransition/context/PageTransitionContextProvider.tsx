@@ -4,14 +4,10 @@ import { PageTransitionContext } from "modules/PageTransition/context/PageTransi
 
 const PageTransitionContextProvider = ({ children }: PropsWithChildren) => {
   const [shouldLoadPage, setShouldLoadPage] = useState(false)
-  const [backgroundTranslation, setBackgroundTranslation] = useState('0% 0%')
-
   const values: PageTransitionBag = useMemo(() => ({
     shouldLoadPage,
     setShouldLoadPage,
-    backgroundTranslation,
-    setBackgroundTranslation
-  }), [backgroundTranslation, shouldLoadPage])
+  }), [shouldLoadPage])
 
   return (
     <PageTransitionContext.Provider value={values}>
