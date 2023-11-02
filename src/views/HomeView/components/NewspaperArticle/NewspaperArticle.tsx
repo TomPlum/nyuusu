@@ -19,6 +19,8 @@ const NewspaperArticle = ({ className, onNavigate }: NewspaperArticleProps) => {
     <div data-testid='home-newspaper-article' className={classNames(styles.wrapper, className)} onClick={handleNavigate}>
       <div className={styles.inner}>
         <div className={styles.left}>
+          <div className={styles.direction} />
+
           <p className={styles.title}>
             {t('title')}
           </p>

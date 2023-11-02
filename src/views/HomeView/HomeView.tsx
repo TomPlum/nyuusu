@@ -117,7 +117,7 @@ const HomeView = () => {
                 <Grid flexGrow={1} xs={12}>
                   <div className={styles.cut}>
                     <div className={styles.cutInner}>
-                      <ContentCut />
+                      <ContentCut className={styles.scissors} />
                       <span className={styles.dotted} />
                       <span className={styles.cutText}>{t('cut')}</span>
                       <span className={styles.dotted}/>

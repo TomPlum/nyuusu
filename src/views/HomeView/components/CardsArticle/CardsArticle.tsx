@@ -5,6 +5,7 @@ import classNames from "classnames"
 import styles from './CardsArticle.module.scss'
 import { useCallback } from "react"
 import useDelayedNavigation from "modules/PageTransition/hooks/useDelayedNavigation"
+import { KeyboardArrowUp } from "@mui/icons-material"
 
 const CardsArticle = ({ className, onNavigate }: CardsArticleProps) => {
   const { navigate } = useDelayedNavigation()
@@ -34,6 +35,10 @@ const CardsArticle = ({ className, onNavigate }: CardsArticleProps) => {
         </Typography>
           
         <div className={styles.right}>
+          <div className={styles.direction}>
+            <KeyboardArrowUp />
+          </div>
+
           <div className={styles.charContainer}>
             <div className={styles.circle} />
             <p className={styles.char}>

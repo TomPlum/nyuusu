@@ -106,8 +106,8 @@
 }
 
 .cut {
-  border: 3px solid $black-ink;
-  padding: 2px;
+  border: 4px solid $black-ink;
+  padding: 3px;
 
   .cutInner {
     background-color: $black-ink;
@@ -122,6 +122,10 @@
   .cutText {
     padding: 0 10px;
     margin: 0 -5px;
+  }
+
+  .scissors {
+    color: $link;
   }
 
   .dotted {
