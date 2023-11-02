@@ -4,7 +4,7 @@ import classNames from "classnames"
 import styles from "./PageTransition.module.scss"
 import usePageTranslation from "modules/PageTransition/hooks/usePageTranslation"
 
-const PageTransition = ({ children, hasNavigated, direction, className, targetPage, ...rest }: PropsWithChildren<PageTransitionProps>) => {
+const PageTransition = ({ children, hasNavigated, direction = 'left', className, targetPage, ...rest }: PropsWithChildren<PageTransitionProps>) => {
   const TargetPageComponent = targetPage
   const { sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction })
 
@@ -20,7 +20,9 @@ const PageTransition = ({ children, hasNavigated, direction, className, targetPa
     >
       {hasNavigated && (
         <div style={targetPageTranslation} className={styles.targetPage}>
-          <TargetPageComponent />
+          {TargetPageComponent && (
+            <TargetPageComponent />
+          )}
         </div>
       )}
 

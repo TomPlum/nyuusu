@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
-import { useMemo, useState } from "react"
+import { ComponentType, useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
@@ -22,12 +22,16 @@ import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import ArticleCardsView from "views/ArticleCardsView"
 import PageTransition from "modules/PageTransition"
+import { Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
+import NewspaperView from "views/NewspaperView"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
   const [hasNavigated, setHasNavigated] = useState(false)
+  const [targetPage, setTargetPage] = useState<ComponentType>()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
+  const [transitionDirection, setTransitionDirection] = useState<Direction>()
 
   const todaysDate = useMemo(() => {
     return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
@@ -58,11 +62,11 @@ const HomeView = () => {
 
   return (
     <PageTransition
-      direction='top-left'
       data-testid='home-view'
+      targetPage={targetPage}
       className={styles.view}
       hasNavigated={hasNavigated}
-      targetPage={ArticleCardsView}
+      direction={transitionDirection}
     >
       <Grid container className={styles.content}>
         <Grid container xs={12}>
@@ -122,13 +126,24 @@ const HomeView = () => {
                 </Grid>
 
                 <Grid flexGrow={1} xs={12}>
-                  <NewspaperArticle className={styles.article} />
+                  <NewspaperArticle
+                    className={styles.article}
+                    onNavigate={() => {
+                      setHasNavigated(true)
+                      setTargetPage(() => NewspaperView)
+                      setTransitionDirection('left')
+                    }}
+                  />
                 </Grid>
 
                 <Grid flexGrow={1} xs={12}>
                   <CardsArticle
                     className={styles.article}
-                    onNavigate={() => setHasNavigated(true)}
+                    onNavigate={() => {
+                      setHasNavigated(true)
+                      setTargetPage(() => ArticleCardsView)
+                      setTransitionDirection('top-left')
+                    }}
                   />
                 </Grid>
               </Grid>

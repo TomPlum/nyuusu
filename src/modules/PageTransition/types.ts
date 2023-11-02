@@ -10,6 +10,6 @@ export interface TransitionablePageProps {
 export interface PageTransitionProps {
     hasNavigated: boolean
     className?: string
-    direction: Direction
-    targetPage: ComponentType<TransitionablePageProps>
+    direction?: Direction
+    targetPage?: ComponentType<TransitionablePageProps>
 }
