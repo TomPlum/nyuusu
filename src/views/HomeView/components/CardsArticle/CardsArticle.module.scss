@@ -11,7 +11,7 @@
 
   &:hover {
     cursor: pointer;
-    border-color: $link;
+    border: 5px dashed $link;
 
     .char {
       background-color: $newspaper;
@@ -24,7 +24,7 @@
       color: $link;
     }
 
-    .inner {
+    .right {
       .direction {
         opacity: 1;
       }
@@ -59,10 +59,10 @@
       top: 0;
       left: 0;
       opacity: 0;
+      transition: all ease-in-out 0.2s;
 
       >svg {
         transform: rotateZ(-45deg);
-        transition: all ease-in-out 0.4s;
         color: $link;
         font-size: 3em;
         margin-left: -15px;

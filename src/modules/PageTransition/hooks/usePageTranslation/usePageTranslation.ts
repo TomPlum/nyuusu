@@ -21,7 +21,7 @@ const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslatio
 
   const calculateOppositeTranslation = useCallback((direction: Direction) => {
     switch (direction) {
-      case "top":return calculateTranslation('bottom')
+      case "top": return calculateTranslation('bottom')
       case "top-right": return calculateTranslation('bottom-left')
       case "right": return calculateTranslation('left')
       case "bottom-right": return calculateTranslation('top-left')
@@ -33,22 +33,29 @@ const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslatio
   }, [calculateTranslation])
 
   const sourcePageTranslation = useMemo(() => {
-    const coordinates = calculateTranslation(direction)
+    const [x, y] = calculateTranslation(direction)
+
     return {
-      "--translate": `${coordinates[0]}% ${coordinates[1]}%`
+      "--translate": `${x}% ${y}%`
     } as CSSProperties
   }, [calculateTranslation, direction])
 
   const targetPageTranslation = useMemo(() => {
-    const coordinates = calculateOppositeTranslation(direction)
+    const [x, y] = calculateOppositeTranslation(direction)
+    const yHeaderOffset = 64 // <-- Height of the header
+    const xOffset = 8 // <-- Why? Good question.
+
+    const xTranslation = `calc(${x}% + ${xOffset}px)`
+    const yTranslation = `calc(${y}% + ${yHeaderOffset}px)`
+
     return {
-      "--targetTranslate": `${coordinates[0]}% ${coordinates[1]}%`,
+      "--targetTranslate": `${xTranslation} ${yTranslation}`,
     } as CSSProperties
   }, [calculateOppositeTranslation, direction])
 
   return {
     sourcePageTranslation,
-    targetPageTranslation: targetPageTranslation
+    targetPageTranslation
   }
 }
 
