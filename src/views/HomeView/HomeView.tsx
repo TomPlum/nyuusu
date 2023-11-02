@@ -62,9 +62,7 @@ const HomeView = () => {
       data-testid='home-view'
       className={styles.view}
       hasNavigated={hasNavigated}
-      target={{
-        component: ArticleCardsView,
-      }}
+      targetPage={ArticleCardsView}
     >
       <Grid container className={styles.content}>
         <Grid container xs={12}>

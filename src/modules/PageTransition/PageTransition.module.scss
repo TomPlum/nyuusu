@@ -1,29 +1,4 @@
-@mixin pageLoadAnimation($reverse: false) {
-  animation: pageLoad 1s forwards;
-
-  @if $reverse == true {
-    animation-direction: reverse;
-  }
-
-  @keyframes pageLoad {
-    0% {
-      opacity: 0;
-      @if $reverse == true {
-        z-index: -1;
-      }
-    }
-    1% {
-      @if $reverse == true {
-        z-index: 1;
-      }
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-}
-
-@mixin transitionHandler($top: 50%, $left: 50%, $translate: -50% -50%) {
+.sourcePage {
   transition: translate 0.6s ease-in-out;
 
   &--transition {
@@ -31,16 +6,26 @@
   }
 
   &--move {
-    top: $top;
-    left: $left;
+    top: 50%;
+    left: 50%;
     translate: var(--translate);
-  }
-
-  &--load-page {
-    @include pageLoadAnimation;
   }
 }
 
-.page {
-  @include transitionHandler;
+.targetPage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  translate: var(--targetTranslate);
+  transition: translate 0.6s ease-in-out;
+
+  &--transition {
+    transition: translate 0.6s ease-in-out;
+  }
+
+  &--move {
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
 }

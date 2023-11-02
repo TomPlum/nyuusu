@@ -1,20 +1,17 @@
 import NewsGrid from "components/NewsGrid"
 import styles from "./ArticleCardsView.module.scss"
 import Article from "modules/Article/components/Article"
-import { CSSProperties, useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Grow } from "@mui/material"
 import Loading from "components/Loading"
 import { useNavigate } from "react-router-dom"
 import Grid from "@mui/material/Unstable_Grid2"
 import useNewsFeed from "modules/Article/hooks/useNewsFeed"
-import classNames from "classnames"
 import { CardsHeadlineViewProps } from "views/ArticleCardsView/types.ts"
-import usePageTransitionContext from "modules/PageTransition/context/usePageTransitionContext.ts"
 
-const ArticleCardsView = ({ animate = false, xTranslate = 0, yTranslate = 0 }: CardsHeadlineViewProps) => {
+const ArticleCardsView = ({ animate = false }: CardsHeadlineViewProps) => {
   const navigate = useNavigate()
   const [grow, setGrow] = useState(false)
-  const { shouldLoadPage } = usePageTransitionContext()
   const { articles, loading } = useNewsFeed()
 
   useEffect(() => {
@@ -27,18 +24,8 @@ const ArticleCardsView = ({ animate = false, xTranslate = 0, yTranslate = 0 }: C
     navigate(`/newspaper?article=${id}`)
   }, [navigate])
 
-  const style = {
-    "--translate": `${xTranslate}% ${yTranslate}%`,
-  } as CSSProperties
-
   return (
-    <div
-      style={style}
-      className={classNames(
-        styles.cardsView,
-        { [styles['cardsView--load-page']]: shouldLoadPage }
-      )}
-    >
+    <div className={styles.cardsView}>
       {loading && (
         <Loading />
       )}

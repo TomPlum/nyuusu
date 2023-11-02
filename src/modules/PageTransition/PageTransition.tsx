@@ -5,7 +5,7 @@ import classNames from "classnames"
 import styles from "./PageTransition.module.scss"
 import usePageTranslation from "modules/PageTransition/hooks/usePageTranslation"
 
-const PageTransition = ({ children, hasNavigated, direction, className, target, ...rest }: PropsWithChildren<PageTransitionProps>) => {
+const PageTransition = ({ children, hasNavigated, direction, className, targetPage, ...rest }: PropsWithChildren<PageTransitionProps>) => {
   const { setBackgroundTranslation } = usePageTransitionContext()
   const { sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction })
 
@@ -13,25 +13,30 @@ const PageTransition = ({ children, hasNavigated, direction, className, target, 
     setBackgroundTranslation('0% 0%')
   }, [setBackgroundTranslation])
 
-  const TargetPageComponent = target.component
+  const TargetPageComponent = targetPage
 
-  const style = { "--translate": `${sourcePageTranslation}` } as CSSProperties
+  const sourceTranslation = {
+    "--translate": `${sourcePageTranslation}`
+  } as CSSProperties
+
+  const targetTranslation = {
+    "--targetTranslate": `${targetPageTranslation.x}% ${targetPageTranslation.y}%`, // TODO encapsulate in hook?
+  } as CSSProperties
 
   return (
     <div
       {...rest}
-      style={style}
+      style={sourceTranslation}
       className={classNames(
         className,
-        styles.page,
-        { [styles['page--move']]: hasNavigated }
+        styles.sourcePage,
+        { [styles['sourcePage--move']]: hasNavigated }
       )}
     >
       {hasNavigated && (
-        <TargetPageComponent
-          xTranslate={targetPageTranslation.x}
-          yTranslate={targetPageTranslation.y}
-        />
+        <div style={targetTranslation} className={styles.targetPage}>
+          <TargetPageComponent />
+        </div>
       )}
 
       {children}
