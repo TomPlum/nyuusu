@@ -50,3 +50,14 @@
 .menuButton {
   margin-left: auto;
 }
+
+@keyframes slideDown {
+  100% {
+    top: 0;
+  }
+}
+
+.transition {
+  top: -64px;
+  animation: slideDown 0.2s forwards;
+}

@@ -12,4 +12,5 @@ export interface PageTransitionProps {
     className?: string
     direction?: Direction
     targetPage?: ComponentType<TransitionablePageProps>
+    targetHasHeader?: boolean
 }

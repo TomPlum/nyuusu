@@ -4,10 +4,14 @@ import { PageTransitionContext } from "modules/PageTransition/context/PageTransi
 
 const PageTransitionContextProvider = ({ children }: PropsWithChildren) => {
   const [shouldLoadPage, setShouldLoadPage] = useState(false)
+  const [targetHasHeader, setTargetHasHeader] = useState(false)
+
   const values: PageTransitionBag = useMemo(() => ({
     shouldLoadPage,
     setShouldLoadPage,
-  }), [shouldLoadPage])
+    animateHeader: targetHasHeader,
+    setTargetHasHeader
+  }), [shouldLoadPage, targetHasHeader])
 
   return (
     <PageTransitionContext.Provider value={values}>

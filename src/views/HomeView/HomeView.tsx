@@ -62,6 +62,7 @@ const HomeView = () => {
 
   return (
     <PageTransition
+      targetHasHeader
       data-testid='home-view'
       targetPage={targetPage}
       className={styles.view}

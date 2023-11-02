@@ -8,11 +8,14 @@ import React, { useCallback, useState } from "react"
 import MenuIcon from '@mui/icons-material/Menu'
 import { Dashboard, Newspaper, Settings } from "@mui/icons-material"
 import { useNavigate } from "react-router-dom"
+import usePageTransitionContext from "modules/PageTransition/context/usePageTransitionContext.ts"
+import classNames from "classnames"
 
 const Header = () => {
   const navigate = useNavigate()
-  const { t } = useTranslation('translation', { keyPrefix: 'header' })
+  const { animateHeader } = usePageTransitionContext()
   const [anchorElNav, setAnchorElNav] = useState<HTMLElement>()
+  const { t } = useTranslation('translation', { keyPrefix: 'header' })
 
   const handleOpenNavMenu = useCallback((event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
@@ -23,11 +26,10 @@ const Header = () => {
   }
 
   return (
-    <AppBar position='static' classes={{ root: styles.appBar }}>
+    <AppBar position='static' classes={{ root: classNames(styles.appBar, { [styles.transition]: animateHeader }) }}>
       <Container className={styles.header} maxWidth='lg'>
         <Toolbar disableGutters className={styles.toolbar}>
           <h2 className={styles.title} onClick={() => navigate('/')}>
-            {/*<img src='/logo.png'  alt='news-logo' className={styles.logo}/>*/}
             {t('title')}
           </h2>
 
