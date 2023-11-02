@@ -1,12 +1,12 @@
 import {
   PageTranslationProps,
   PageTranslationResponse,
-  Position
+  Direction
 } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
-import { useCallback, useMemo } from "react"
+import { CSSProperties, useCallback, useMemo } from "react"
 
 const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslationResponse => {
-  const calculateTranslation = useCallback((direction: Position) => {
+  const calculateTranslation = useCallback((direction: Direction) => {
     switch (direction) {
       case "top": return [0, -100]
       case "top-right": return [100, -100]
@@ -19,7 +19,7 @@ const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslatio
     }
   }, [])
 
-  const calculateOppositeTranslation = useCallback((direction: Position) => {
+  const calculateOppositeTranslation = useCallback((direction: Direction) => {
     switch (direction) {
       case "top":return calculateTranslation('bottom')
       case "top-right": return calculateTranslation('bottom-left')
@@ -34,15 +34,16 @@ const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslatio
 
   const sourcePageTranslation = useMemo(() => {
     const coordinates = calculateTranslation(direction)
-    return `${coordinates[0]}% ${coordinates[1]}%`
+    return {
+      "--translate": `${coordinates[0]}% ${coordinates[1]}%`
+    } as CSSProperties
   }, [calculateTranslation, direction])
 
   const targetPageTranslation = useMemo(() => {
     const coordinates = calculateOppositeTranslation(direction)
     return {
-      x: coordinates[0],
-      y: coordinates[1]
-    }
+      "--targetTranslate": `${coordinates[0]}% ${coordinates[1]}%`,
+    } as CSSProperties
   }, [calculateOppositeTranslation, direction])
 
   return {

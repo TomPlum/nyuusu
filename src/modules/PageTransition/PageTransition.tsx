@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren, useEffect } from "react"
+import { PropsWithChildren, useEffect } from "react"
 import { PageTransitionProps } from "modules/PageTransition/types.ts"
 import usePageTransitionContext from "modules/PageTransition/context/usePageTransitionContext.ts"
 import classNames from "classnames"
@@ -15,18 +15,10 @@ const PageTransition = ({ children, hasNavigated, direction, className, targetPa
 
   const TargetPageComponent = targetPage
 
-  const sourceTranslation = {
-    "--translate": `${sourcePageTranslation}`
-  } as CSSProperties
-
-  const targetTranslation = {
-    "--targetTranslate": `${targetPageTranslation.x}% ${targetPageTranslation.y}%`, // TODO encapsulate in hook?
-  } as CSSProperties
-
   return (
     <div
       {...rest}
-      style={sourceTranslation}
+      style={sourcePageTranslation}
       className={classNames(
         className,
         styles.sourcePage,
@@ -34,7 +26,7 @@ const PageTransition = ({ children, hasNavigated, direction, className, targetPa
       )}
     >
       {hasNavigated && (
-        <div style={targetTranslation} className={styles.targetPage}>
+        <div style={targetPageTranslation} className={styles.targetPage}>
           <TargetPageComponent />
         </div>
       )}

@@ -1,4 +1,6 @@
-export type Position =
+import { CSSProperties } from "react"
+
+export type Direction =
     'top-left' |
     'top' |
     'top-right' |
@@ -9,13 +11,10 @@ export type Position =
     'left'
 
 export interface PageTranslationProps {
-    direction: Position
+    direction: Direction
 }
 
 export interface PageTranslationResponse {
-    sourcePageTranslation: string
-    targetPageTranslation: {
-        x: number
-        y: number
-    }
+    sourcePageTranslation: CSSProperties
+    targetPageTranslation: CSSProperties
 }
