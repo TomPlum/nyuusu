@@ -1,3 +1,5 @@
+@import "styles/mixins";
+
 .clock {
   display: flex;
   align-items: flex-end;
@@ -10,7 +12,7 @@
   font-size: 1.3em;
   margin: 0;
   font-weight: bold;
-  font-variant-numeric: tabular-nums;
+  @include evenNumericalSpacing
 }
 
 .date {

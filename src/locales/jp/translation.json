@@ -130,6 +130,15 @@
           "bar": {
             "labels": ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"],
             "label": "漢字等級分布"
+          },
+          "pie": {
+            "tooltip": {
+              "roman": "ローマ字",
+              "hiragana": "平仮名",
+              "kanji": "漢字",
+              "katakana": "片仮名",
+              "other": "その他"
+            }
           }
         },
         "translate": {
@@ -197,6 +206,8 @@
         "description": "理解度を確認するために、記事の内容を翻訳する。"
       },
       "navigation": {
+        "forward": "前へ",
+        "backward": "後ろ",
         "description": "記事を変更する"
       },
       "contents": {
@@ -214,6 +225,10 @@
           "button": "カードを追加"
         }
       }
+    },
+    "footer": {
+      "edition": "【第{{ number }}紙面】",
+      "copyright": "著作権について「トム・プランプトン」{{ year }}"
     }
   },
   "not-found": {

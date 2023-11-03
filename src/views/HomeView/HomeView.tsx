@@ -1,11 +1,10 @@
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
 import styles from './HomeView.module.scss'
 import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
-import { useMemo } from "react"
+import { ComponentType, useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
@@ -20,11 +19,19 @@ import AnalysisArticle from "./components/AnalysisArticle"
 import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import PublisherHeading from "modules/Newspaper/components/PublisherHeading"
 import CurrentDateTime from "modules/Header/components/CurrentDateTime"
+import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
+import ArticleCardsView from "views/ArticleCardsView"
+import PageTransition from "modules/PageTransition"
+import { Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
+import NewspaperView from "views/NewspaperView"
 
 const HomeView = () => {
-  const navigate = useNavigate()
+  const { language } = useSettingsContext()
+  const [hasNavigated, setHasNavigated] = useState(false)
+  const [targetPage, setTargetPage] = useState<ComponentType>()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
+  const [transitionDirection, setTransitionDirection] = useState<Direction>()
 
   const todaysDate = useMemo(() => {
     return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
@@ -54,9 +61,14 @@ const HomeView = () => {
   }, [titles])
 
   return (
-    <div className={styles.view} data-testid='home-view'>
-      <div className={styles.grain} />
-
+    <PageTransition
+      targetHasHeader
+      data-testid='home-view'
+      targetPage={targetPage}
+      className={styles.view}
+      hasNavigated={hasNavigated}
+      direction={transitionDirection}
+    >
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           {article.publisher && article.feedTitle && (
@@ -95,14 +107,18 @@ const HomeView = () => {
               <Grid xs={12} lg={6}>
                 <AnkiArticle />
                 <SettingsArticle />
-                <TranslateArticle />
+                <TranslateArticle
+                  key={language}
+                  translationText={[]}
+                  currentLanguage={language}
+                />
               </Grid>
 
               <Grid container xs={12} lg={6} rowSpacing={2}>
                 <Grid flexGrow={1} xs={12}>
                   <div className={styles.cut}>
                     <div className={styles.cutInner}>
-                      <ContentCut />
+                      <ContentCut className={styles.scissors} />
                       <span className={styles.dotted} />
                       <span className={styles.cutText}>{t('cut')}</span>
                       <span className={styles.dotted}/>
@@ -113,14 +129,22 @@ const HomeView = () => {
                 <Grid flexGrow={1} xs={12}>
                   <NewspaperArticle
                     className={styles.article}
-                    onClick={() => navigate('/newspaper')}
+                    onNavigate={() => {
+                      setHasNavigated(true)
+                      setTargetPage(() => NewspaperView)
+                      setTransitionDirection('left')
+                    }}
                   />
                 </Grid>
 
                 <Grid flexGrow={1} xs={12}>
                   <CardsArticle
                     className={styles.article}
-                    onClick={() => navigate('/articles')}
+                    onNavigate={() => {
+                      setHasNavigated(true)
+                      setTargetPage(() => ArticleCardsView)
+                      setTransitionDirection('top-left')
+                    }}
                   />
                 </Grid>
               </Grid>
@@ -146,7 +170,7 @@ const HomeView = () => {
           <Footer />
         </Grid>
       </Grid>
-    </div>
+    </PageTransition>
   )
 }
 

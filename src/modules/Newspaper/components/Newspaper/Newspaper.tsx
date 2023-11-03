@@ -4,14 +4,35 @@ import Grid from "@mui/material/Unstable_Grid2"
 import Headline from "modules/Newspaper/components/Headline"
 import Banner from "modules/Newspaper/components/Banner"
 import RatingArticle from "modules/Newspaper/components/RatingArticle"
-import TranslateArticle from "modules/Newspaper/components/TranslateArticle"
 import NavigationArticle from "modules/Newspaper/components/NavigationArticle"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import AnkiArticle from "modules/Newspaper/components/AnkiArticle"
+import TranslateArticle from "views/HomeView/components/TranslateArticle"
+import { useCallback, useState } from "react"
+import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
+import CardsArticle from "views/HomeView/components/CardsArticle"
+import GaussianNoise from "components/GaussianNoise"
+import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
+import Footer from "modules/Newspaper/components/Footer"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
+  const [translatedHeadline, setTranslatedHeadline] = useState<string>()
+  const [translatedArticleBody, setTranslatedArticleBody] = useState<string>()
+
+  const handleTranslate = useCallback((language: Language, translatedText: string[]) => {
+    if (language === 'en') {
+      setTranslatedHeadline(translatedText[0])
+      setTranslatedArticleBody(translatedText[1])
+    } else {
+      setTranslatedHeadline(undefined)
+      setTranslatedArticleBody(undefined)
+    }
+  }, [])
+
   return (
     <div className={styles.newspaper} data-testid='newspaper'>
+      <GaussianNoise />
+      
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
@@ -22,39 +43,59 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
         </Grid>
 
         <Grid xs={12}>
-          <Headline headline={article.title} />
+          <Headline headline={translatedHeadline ?? article.title} />
         </Grid>
 
         <Grid xs={12} justifyContent='center' alignItems='center'>
-          <ArticleContents
-            contents={article.body}
-            disclaimer={article.rights}
-            sourceUrl={article.link}
-            publisher={article.publisher}
-          />
-        </Grid>
+          <div className={styles.articleContentsWrapper}>
+            <ArticleContents
+              disclaimer={article.rights}
+              sourceUrl={article.link}
+              publisher={article.publisher}
+              className={styles.articleContents}
+              contents={translatedArticleBody ?? article.body}
+            />
 
-        <Grid container spacing={{ xs: 4, md: 8 }} columns={12} sx={{ flexGrow: 1 }}>
-          <Grid xs={12}>
-            <RatingArticle text={article.title} />
-          </Grid>
-
-          <Grid xs={12} lg={4} sx={{ borderRight: "1px solid black" }}>
-            <TranslateArticle text={article.title} />
-          </Grid>
-
-          <Grid xs={12} lg={4}>
             <NavigationArticle
               onNext={onNext}
               articles={articleCount}
               onPrevious={onPrevious}
               article={currentArticleId}
             />
+          </div>
+        </Grid>
+
+        <Grid container className={styles.grid} columnSpacing={0}>
+          <Grid container className={styles.left}>
+            <HeadlineArticle />
           </Grid>
 
-          <Grid xs={12} lg={4}>
-            <AnkiArticle article={article} />
+          <Grid container className={styles.right} columnSpacing={3}>
+            <Grid container className={styles.rightMiddle}>
+              <Grid xs={12}>
+                <RatingArticle text={article.title} />
+              </Grid>
+
+              <Grid xs={12}>
+                <CardsArticle />
+              </Grid>
+
+              <Grid xs={12} lg={6}>
+                <TranslateArticle
+                  onTranslate={handleTranslate}
+                  translationText={[article.title, article.body]}
+                />
+              </Grid>
+
+              <Grid xs={12} lg={4}>
+                <AnkiArticle article={article} />
+              </Grid>
+            </Grid>
           </Grid>
+        </Grid>
+
+        <Grid xs={12}>
+          <Footer edition={currentArticleId + 1} />
         </Grid>
       </Grid>
     </div>

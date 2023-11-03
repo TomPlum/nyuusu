@@ -7,11 +7,11 @@ import useGradeLabels from "modules/Analysis/hooks/useGradeLabels"
 
 const useAnalysisStub = (): AnalysisStubResponse => {
   const { labels } = useGradeLabels()
+  const [tableData, setTableData] = useState<TableData>()
   const [pieData, setPieData] = useState<ChartData<'pie'>>()
   const [barData, setBarData] = useState<ChartData<'bar'>>()
-  const [tableData, setTableData] = useState<TableData>()
-  const [difficulty, setDifficulty] = useState<DifficultyRating>()
   const [animationDuration, setAnimationDuration] = useState(0)
+  const [difficulty, setDifficulty] = useState<DifficultyRating>()
 
   const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min

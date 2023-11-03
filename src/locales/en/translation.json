@@ -127,6 +127,15 @@
           "bar": {
             "labels": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
             "label": "Kanji Grade Distribution"
+          },
+          "pie": {
+            "tooltip": {
+              "roman": "Roman",
+              "hiragana": "Hiragana",
+              "kanji": "Kanji",
+              "katakana": "Katakana",
+              "other": "Other (Spaces, Commas, Numerals etc.)"
+            }
           }
         },
         "translate": {
@@ -215,6 +224,10 @@
       "headline": {
         "text": "日本の見出しと記事"
       }
+    },
+    "footer": {
+      "edition": "第{{ number }}紙面",
+      "copyright": "Copyright Tom Plumpton ({{ year }})"
     }
   },
   "not-found": {

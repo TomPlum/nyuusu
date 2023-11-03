@@ -25,6 +25,9 @@ module.exports = {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "indent": ['warn', 2, { "SwitchCase": 1 }],
+    "@typescript-eslint/no-misused-promises": ["error", {
+      "checksVoidReturn": false
+    }]
   },
   parserOptions: {
     ecmaVersion: 'latest',

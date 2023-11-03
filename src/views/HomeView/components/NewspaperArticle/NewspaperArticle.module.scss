@@ -19,6 +19,12 @@
     .linkText {
       color: $link;
     }
+
+    .left {
+      .direction {
+        opacity: 1;
+      }
+    }
   }
 
   .inner {
@@ -41,6 +47,20 @@
     border-right: 5px solid $black-ink;
     min-height: 100%;
     height: 100%;
+    position: relative;
+
+    .direction {
+      z-index: 10;
+      opacity: 0;
+      height: 50px;
+      width: 5px;
+      border-radius: 4px;
+      background-color: $link;
+      position: absolute;
+      left: 5px;
+      top: calc(50% - 25px);
+      transition: all ease-in-out 0.2s;
+    }
   }
 }
 

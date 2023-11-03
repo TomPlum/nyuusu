@@ -8,7 +8,7 @@
   padding: 20px 30px;
   color: $black-ink;
   font-weight: bold;
-  margin-bottom: 50px;
+  position: relative;
 
   .label {
     margin: 0;
@@ -28,6 +28,46 @@
     text-align: end;
     color: $muted;
     font-size: 0.8em;
+  }
+
+  .dottedBottomLeft {
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+    width: 75%;
+    height: 25%;
+    border-left: 2px dotted rgba($black-ink, 0.8);
+    border-bottom: 2px dotted rgba($black-ink, 0.8);
+
+    .dot {
+      background-color: $black-ink;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: absolute;
+      left: -5px;
+      top: -30px;
+    }
+  }
+
+  .dottedTopRight {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 75%;
+    height: 25%;
+    border-right: 2px dotted rgba($black-ink, 0.8);
+    border-top: 2px dotted rgba($black-ink, 0.8);
+
+    .dotRight {
+      background-color: $black-ink;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: absolute;
+      right: -5px;
+      bottom: -30px;
+    }
   }
 
   @include phone {

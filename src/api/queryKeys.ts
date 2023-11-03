@@ -8,5 +8,6 @@ export const queryKeys = {
   getAnkiDecks: 'getAnkiDecks',
   getAnkiModels: 'getAnkiModels',
   createAnkiDeck: 'createAnkiDeck',
-  translate: 'translate'
+  translate: 'translate',
+  deeplTranslate: 'deeplTranslate'
 }

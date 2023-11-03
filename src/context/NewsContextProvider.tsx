@@ -11,7 +11,7 @@ const NewsContextProvider = ({ children }: PropsWithChildren) => {
     view,
     setView,
     articles,
-    setArticles
+    setArticles,
   }), [articles, view])
 
   return (

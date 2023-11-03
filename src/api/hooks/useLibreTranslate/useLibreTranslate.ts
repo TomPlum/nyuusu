@@ -1,15 +1,15 @@
-import useLibreTranslate from "api/clients/useLibreTranslate"
+import useLibreTranslateApi from "api/clients/useLibreTranslateApi"
 import { useCallback } from "react"
 import { queryKeys } from "api/queryKeys.ts"
 import { useMutation } from "@tanstack/react-query"
-import { TranslateRequest } from "api/hooks/useTranslate/types.ts"
+import { TranslateRequest } from "api/hooks/useLibreTranslate/types.ts"
 
 export const useTranslateMutationKey = (text: string) => {
   return [queryKeys.translate, text]
 }
 
-const useTranslate = ({ text }: TranslateRequest) => {
-  const client = useLibreTranslate()
+const useLibreTranslate = ({ text }: TranslateRequest) => {
+  const client = useLibreTranslateApi()
 
   const translate = useCallback(async () => {
     const request = new FormData()
@@ -25,4 +25,4 @@ const useTranslate = ({ text }: TranslateRequest) => {
   return useMutation(mutationKey, translate)
 }
 
-export default useTranslate
+export default useLibreTranslate

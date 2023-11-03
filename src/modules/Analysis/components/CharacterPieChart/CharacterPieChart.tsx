@@ -3,17 +3,20 @@ import { Pie } from "react-chartjs-2"
 import ChartDataLabels, { Context } from "chartjs-plugin-datalabels"
 import { ArcElement, Chart as ChartJS, Tooltip, TooltipItem } from "chart.js"
 import { CharacterPieChartProps } from "modules/Analysis/components/CharacterPieChart/types.ts"
+import { useTranslation } from "react-i18next"
 
 ChartJS.register(ArcElement, ChartDataLabels, Tooltip)
 
 const CharacterPieChart = ({ data, animationDuration }: CharacterPieChartProps) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis.pie' })
+  
   const formatTitle = (tooltipItems: TooltipItem<"pie">[]) => {
     switch (tooltipItems[0].label) {
-      case 'A': return 'Roman'
-      case '字': return 'Kanji'
-      case 'ひ': return 'Hiragana'
-      case 'カ': return 'Katakana'
-      case '-': return 'Other'
+      case 'A': return t('tooltip.roman')
+      case '字': return t('tooltip.kanji')
+      case 'ひ': return t('tooltip.hiragana')
+      case 'カ': return t('tooltip.katakana')
+      case '-': return t('tooltip.other')
     }
   }
 

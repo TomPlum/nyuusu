@@ -2,7 +2,6 @@
 
 .wrapper {
   border-right: 5px solid $black-ink;
-  border-top: 5px solid $black-ink;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -24,6 +23,15 @@
   left: 0;
   box-shadow: -5px 0 0 $black-ink;
   border-bottom: 3px solid $black-ink;
+}
+
+.top {
+  width: 85%;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 5px solid $black-ink;
 }
 
 .liveContainer {

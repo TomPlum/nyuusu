@@ -1,3 +1,7 @@
+<div style="width: 100%;">
+    <img src="images/heading.svg" alt="Nyusu.com Heading" style="width: 100%" />
+</div>
+
 # :newspaper: ニュース
 
 Practice reading real Japanese from news articles published in Japan.

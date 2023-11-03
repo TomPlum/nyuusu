@@ -6,6 +6,7 @@ export interface ApiHosts {
   asahi: string,
   newsCatcherApi: string
   anki: string
+  deepl: string
 }
 
 export const hosts: Record<string, ApiHosts> = {
@@ -16,7 +17,8 @@ export const hosts: Record<string, ApiHosts> = {
     newsCatcherApi: '',
     japanTimesRss: '',
     asahi: '',
-    anki: 'http://localhost:8765'
+    anki: 'http://localhost:8765',
+    deepl: 'https://local-deepl-api'
   },
   production: {
     newsApi: 'https://newsapi.org',
@@ -25,6 +27,7 @@ export const hosts: Record<string, ApiHosts> = {
     japanTimesRss: 'https://japantimes.co.jp/feed',
     asahi: 'https://rss.asahi.com/rss/asahi',
     newsCatcherApi: import.meta.env.NEWSCATCHER_API_HOST,
-    anki: '127.0.0.1:8765'
+    anki: '127.0.0.1:8765',
+    deepl: 'https://api-free.deepl.com'
   }
 }

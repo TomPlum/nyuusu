@@ -13,15 +13,12 @@ const LanguageSelector = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'header.language-controls' })
 
   const handleChange = useCallback((_e: MouseEvent<HTMLElement>, language: Language) => {
-    console.log('on change', language)
     i18n.changeLanguage(language).then(() => {
       setLanguage(language)
     }).catch(error => {
-      console.debug('Failed to set language to: ', language, error)
+      console.error('Failed to set language to: ', language, error)
     })
   }, [setLanguage])
-
-  console.log('value from context in selector: ', language)
 
   return (
     <div className={styles.controls}>

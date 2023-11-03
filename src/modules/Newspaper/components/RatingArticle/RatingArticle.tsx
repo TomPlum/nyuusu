@@ -3,15 +3,20 @@ import styles from './RatingArticle.module.scss'
 import useLanguageStats from "modules/Article/hooks/useLanguageStats"
 import AnalysisShowcase from "modules/Analysis/components/AnalysisShowcase"
 import { ChartData } from "chart.js"
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { TableData } from "views/HomeView/components/AnalysisArticle/types.ts"
 import useGradeLabels from "modules/Analysis/hooks/useGradeLabels"
 import useChartColours from "modules/Analysis/hooks/useChartColours"
 
 const RatingArticle = ({ text }: RatingArticleProps) => {
   const { labels } = useGradeLabels()
+  const [animationDuration, setAnimationDuration] = useState(0)
   const { getDarkColours, getDarkHoverColours, getLightColours } = useChartColours()
   const { difficulty, hiragana, kanji, katakana, roman, other, grades } = useLanguageStats({ input: text })
+
+  useEffect(() => {
+    setAnimationDuration(2500)
+  }, [])
 
   const pieData: ChartData<'pie'> = useMemo(() => {
     const labels = ['字', 'ひ', 'カ', 'A', '-']
@@ -55,7 +60,7 @@ const RatingArticle = ({ text }: RatingArticleProps) => {
         barData={barData}
         tableData={tableData}
         difficulty={difficulty}
-        animationDuration={2500}
+        animationDuration={animationDuration}
       />
     </div>
   )

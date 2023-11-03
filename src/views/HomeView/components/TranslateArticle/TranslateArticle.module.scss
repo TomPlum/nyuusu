@@ -38,13 +38,23 @@
 }
 
 .deepl {
-  height: 35px;
+  >svg {
+    height: 35px;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
   border: 3px solid $black-ink;
   border-radius: 10px;
-  padding: 5px 8px;
   background-color: $black-ink;
   color: $newspaper;
   transition: all ease-in-out 0.2s;
+
+  .loading {
+    padding: 0 20px;
+  }
 
   &:hover {
     cursor: pointer;
@@ -53,7 +63,7 @@
   }
 }
 
-.left, .right {
+.japanese, .english {
   color: $black-ink;
   font-weight: bold;
   width: 50px;
@@ -63,8 +73,8 @@
 
 $english: #4a90f3;
 
-.left {
-  border: 3px solid $live-color;
+.japanese {
+  border: 4px solid $live-color;
   border-radius: 5px;
   padding: 5px;
   transition: all ease-in-out 0.2s;
@@ -76,8 +86,8 @@ $english: #4a90f3;
   }
 }
 
-.right {
-  border: 3px solid $english;
+.english {
+  border: 4px solid $english;
   border-radius: 5px;
   padding: 5px;
 
@@ -90,16 +100,24 @@ $english: #4a90f3;
   }
 }
 
-.lineLeft, .lineRight {
+.lineJapaneseLeft, .lineJapaneseRight, .lineEnglishLeft, .lineEnglishRight{
   width: 35px;
-  height: 4px;
+  height: 5px;
   display: inline-block;
 }
 
-.lineLeft {
+.lineJapaneseLeft {
   background-image: linear-gradient(to right, $live-color, $black-ink)
 }
 
-.lineRight {
+.lineJapaneseRight {
+  background-image: linear-gradient(to left, $live-color, $black-ink)
+}
+
+.lineEnglishLeft {
+  background-image: linear-gradient(to left, $black-ink, $english)
+}
+
+.lineEnglishRight {
   background-image: linear-gradient(to right, $black-ink, $english)
 }
