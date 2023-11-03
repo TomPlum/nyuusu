@@ -12,7 +12,7 @@ const CardsArticle = ({ className, onNavigate }: CardsArticleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.cards' })
 
   const handleNavigate = useCallback(() => {
-    onNavigate()
+    onNavigate?.()
     navigate('/articles')
   }, [navigate, onNavigate])
 

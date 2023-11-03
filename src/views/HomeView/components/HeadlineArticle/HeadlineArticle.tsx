@@ -19,6 +19,7 @@ const HeadlineArticle = () => {
         </Typography>
       </div>
 
+      <div className={styles.top} />
       <div className={styles.left} />
     </div>
   )

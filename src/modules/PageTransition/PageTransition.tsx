@@ -14,6 +14,7 @@ const PageTransition = ({
   children,
   ...rest
 }: PropsWithChildren<PageTransitionProps>) => {
+  // TODO: Account for page scroll when calculating the the translations
   const TargetPageComponent = targetPage
   const { setTargetHasHeader } = usePageTransitionContext()
   const { sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction })

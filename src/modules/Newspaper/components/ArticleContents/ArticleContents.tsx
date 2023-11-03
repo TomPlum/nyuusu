@@ -8,6 +8,15 @@ export const ArticleContents = ({ contents, disclaimer, sourceUrl, className }: 
 
   return (
     <div className={classNames(styles.body, className)}>
+      <div className={styles.dottedBottomLeft}>
+        <div className={styles.dot} />
+      </div>
+
+      <div className={styles.dottedTopRight}>
+        <div className={styles.dotTop} />
+        <div className={styles.dotRight} />
+      </div>
+
       <p className={styles.label}>{t('label')}</p>
 
       <p className={styles.text}>
