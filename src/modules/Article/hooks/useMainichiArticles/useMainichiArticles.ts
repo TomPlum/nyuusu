@@ -7,7 +7,7 @@ import { NewsSource } from "modules/Settings/context/types.ts"
 
 const useMainichiArticles = (): NewsFeed => {
   const { setArticles } = useNewsContext()
-  const { data, isLoading, fetchStatus } = useGetMainichiFlash()
+  const { data, isPending, fetchStatus } = useGetMainichiFlash()
 
   useEffect(() => {
     if (data) {
@@ -32,7 +32,7 @@ const useMainichiArticles = (): NewsFeed => {
 
   return  {
     articles,
-    loading: isLoading && fetchStatus !== 'idle',
+    loading: isPending && fetchStatus !== 'idle',
     source: NewsSource.MAINICHI_RSS_FLASH_NEWS
   }
 }
