@@ -17,7 +17,9 @@ const useGetAnkiDecks = () => {
 
   const queryKey = useGetAnkiDecksQueryKey()
 
-  return useQuery(queryKey, getDeckNames, {
+  return useQuery({
+    queryKey,
+    queryFn: getDeckNames,
     retry: 0
   })
 }

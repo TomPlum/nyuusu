@@ -24,7 +24,10 @@ const useDeepL = ({ input }: DeeplTranslateProps) => {
 
   const mutationKey = useDeeplMutationKey(input)
 
-  return useMutation(mutationKey, translate)
+  return useMutation({
+    mutationKey,
+    mutationFn: translate
+  })
 }
 
 export default useDeepL

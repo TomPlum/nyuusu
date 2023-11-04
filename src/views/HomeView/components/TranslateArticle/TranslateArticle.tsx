@@ -10,7 +10,7 @@ import { CircularProgress } from "@mui/material"
 
 const TranslateArticle = ({ translationText, onTranslate, currentLanguage }: TranslateArticleProps) => {
   const input = translationText.filter(value => value) as string[]
-  const { mutateAsync, isLoading } = useDeepL({ input })
+  const { mutateAsync, isPending } = useDeepL({ input })
   const [language, setLanguage] = useState<Language>(currentLanguage ?? 'jp')
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.translate' })
 
@@ -48,7 +48,7 @@ const TranslateArticle = ({ translationText, onTranslate, currentLanguage }: Tra
         <span className={leftLineClass} />
 
         <div className={styles.deepl} onClick={handleTranslate}>
-          {isLoading
+          {isPending
             ? <CircularProgress color='inherit' className={styles.loading}  />
             : <DeepL />
           }

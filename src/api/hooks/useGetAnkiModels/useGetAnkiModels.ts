@@ -18,7 +18,9 @@ const useGetAnkiModels = ({ enabled }: GetAnkiModelsProps = {}) => {
 
   const queryKey = useGetAnkiModelsQueryKey()
 
-  return useQuery(queryKey, getDeckNames, {
+  return useQuery({
+    queryKey,
+    queryFn: getDeckNames,
     enabled,
     retry: 0
   })

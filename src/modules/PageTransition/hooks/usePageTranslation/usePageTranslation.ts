@@ -4,8 +4,11 @@ import {
   Direction
 } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
 import { CSSProperties, useCallback, useMemo } from "react"
+import { useWindowScroll } from '@uidotdev/usehooks'
 
 const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslationResponse => {
+  const [{ x: xScroll, y: yScroll }] = useWindowScroll()
+
   const calculateTranslation = useCallback((direction: Direction) => {
     switch (direction) {
       case "top": return [0, -100]
@@ -42,16 +45,19 @@ const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslatio
 
   const targetPageTranslation = useMemo(() => {
     const [x, y] = calculateOppositeTranslation(direction)
+    console.log(xScroll, yScroll)
     const yHeaderOffset = 64 // <-- Height of the header
-    const xOffset = 8 // <-- Why? Good question.
+    const yOffset = yHeaderOffset + (yScroll ?? 0) // <-- Account for page scroll-y
+    const xOffsetMagicNumber = 8 // <-- Why? Good question.
+    const xOffset = xOffsetMagicNumber + (xScroll ?? 0) // <-- Account for page scroll-x
 
     const xTranslation = `calc(${x}% + ${xOffset}px)`
-    const yTranslation = `calc(${y}% + ${yHeaderOffset}px)`
+    const yTranslation = `calc(${y}% + ${yOffset}px)`
 
     return {
       "--targetTranslate": `${xTranslation} ${yTranslation}`,
     } as CSSProperties
-  }, [calculateOppositeTranslation, direction])
+  }, [calculateOppositeTranslation, direction, xScroll, yScroll])
 
   return {
     sourcePageTranslation,

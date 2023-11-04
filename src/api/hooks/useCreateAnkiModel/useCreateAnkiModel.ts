@@ -17,7 +17,10 @@ const useCreateAnkiModel = () => {
 
   const mutationKey = useCreateAnkiModelMutationKey()
 
-  return useMutation(mutationKey, addModel)
+  return useMutation({
+    mutationKey,
+    mutationFn: addModel
+  })
 }
 
 export default useCreateAnkiModel

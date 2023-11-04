@@ -17,9 +17,12 @@ const useCreateAnkiCard = ({ useGraphicalInterface }: CreateAnkiCardProps = {}) 
     return await client.call(action, params)
   }, [client, useGraphicalInterface])
 
-  const queryKey = useCreateAnkiCardMutationKey()
+  const mutationKey = useCreateAnkiCardMutationKey()
 
-  return useMutation(queryKey, addCard)
+  return useMutation({
+    mutationKey,
+    mutationFn: addCard
+  })
 }
 
 export default useCreateAnkiCard
