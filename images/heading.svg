@@ -5,13 +5,15 @@
                 .title {
                     --black-ink: #2e2e2e;
                     --newspaper: #f9f7f1;
+
+                    background-color: var(--newspaper);
                     margin: 0;
-                    padding: 20px 0;
+                    padding: 10px 0;
                     color: var(--black-ink);
                     font-size: 3.6em;
                     font-weight: bold;
                     text-align: center;
-                    font-family: 'Avenir';
+                    font-family: 'Inter';
                     text-shadow: -1px -1px 0 var(--newspaper),
                         1px -1px 0 var(--newspaper),
                         -1px 1px 0 var(--newspaper),
