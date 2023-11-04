@@ -2,16 +2,73 @@
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
+                .container {
+                    --newspaper: #f9f7f1;
+                    --black-ink: #2e2e2e;
+                    background-color: var(--newspaper);
+                    padding: 8px;
+                }
+
+                .inner {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid var(--black-ink);
+                    position: relative;
+                }
+
+                .topLeft {
+                    left: -3px;
+                    top: -3px;
+                }
+
+                .topRight {
+                    right: -3px;
+                    top: -3px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                }
+
+                .bottomLeft {
+                    left: -3px;
+                    bottom: -3px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                }
+
+                .bottomRight {
+                    right: -3px;
+                    bottom: -3px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                }
+
+                .square {
+                    --newspaper: #f9f7f1;
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    background-color: var(--newspaper);
+                }
+
+                .circle {
+                    --black-ink: #2e2e2e;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: var(--black-ink);
+                }
+
                 .title {
                     --black-ink: #2e2e2e;
                     --newspaper: #f9f7f1;
 
-                    background-color: var(--newspaper);
                     margin: 0;
                     padding: 10px 0;
                     color: var(--black-ink);
-                    font-size: 3.6em;
-                    font-weight: bold;
+                    font-size: 3.4em;
                     text-align: center;
                     font-family: 'Inter';
                     text-shadow: -1px -1px 0 var(--newspaper),
@@ -26,7 +83,25 @@
             </style>
 
             <div class="container">
-                <p class="title">ニュース・コム</p>
+                <div class="inner">
+                    <div class="topLeft square">
+                        <div class="circle" />
+                    </div>
+
+                    <div class="topRight square">
+                        <div class="circle" />
+                    </div>
+
+                    <div class="bottomLeft square">
+                        <div class="circle" />
+                    </div>
+
+                    <div class="bottomRight square">
+                        <div class="circle" />
+                    </div>
+
+                    <p class="title">ニュース・コム</p>
+                </div>
             </div>
         </div>
     </foreignObject>
