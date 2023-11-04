@@ -16,7 +16,10 @@ const useGetMainichiFlash = () => {
 
   const queryKey = useGetMainichiFlashQueryKey()
 
-  return useQuery(queryKey, getFlashFeed)
+  return useQuery({
+    queryKey,
+    queryFn: getFlashFeed
+  })
 }
 
 export default useGetMainichiFlash

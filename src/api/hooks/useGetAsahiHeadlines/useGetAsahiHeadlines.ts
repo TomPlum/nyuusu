@@ -16,7 +16,10 @@ export const useGetAsahiHeadlines = () => {
 
   const queryKey = useGetAsahiHeadlinesQueryKey()
 
-  return useQuery(queryKey, getHeadlines)
+  return useQuery({
+    queryKey,
+    queryFn: getHeadlines
+  })
 }
 
 export default useGetAsahiHeadlines

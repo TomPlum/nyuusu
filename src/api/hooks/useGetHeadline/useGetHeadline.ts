@@ -19,7 +19,10 @@ const useGetHeadline = () => {
     return data
   }, [client, newsApi])
 
-  return useQuery(useGetHeadlineQueryKey(), getHeadline)
+  return useQuery({
+    queryKey: useGetHeadlineQueryKey(),
+    queryFn: getHeadline
+  })
 }
 
 export default useGetHeadline

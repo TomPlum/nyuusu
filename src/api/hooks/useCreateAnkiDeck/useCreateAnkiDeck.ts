@@ -18,7 +18,10 @@ const useCreateAnkiDeck = () => {
 
   const mutationKey = useCreateAnkiDeckMutationKey()
 
-  return useMutation(mutationKey, createDeck)
+  return useMutation({
+    mutationKey,
+    mutationFn: createDeck
+  })
 }
 
 export default useCreateAnkiDeck

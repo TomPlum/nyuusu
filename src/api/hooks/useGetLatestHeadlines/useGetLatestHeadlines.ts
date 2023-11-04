@@ -21,7 +21,9 @@ const useGetLatestHeadlines = () => {
 
   const queryKey = useGetLatestHeadlinesQueryKey()
 
-  return useQuery(queryKey, getLatestHeadlines, {
+  return useQuery({
+    queryKey,
+    queryFn: getLatestHeadlines,
     enabled: sources.includes(NewsSource.NEWSCATCHER_API)
   })
 }

@@ -22,7 +22,10 @@ const useLibreTranslate = ({ text }: TranslateRequest) => {
 
   const mutationKey = useTranslateMutationKey(text)
 
-  return useMutation(mutationKey, translate)
+  return useMutation({
+    mutationKey,
+    mutationFn: translate
+  })
 }
 
 export default useLibreTranslate
