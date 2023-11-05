@@ -19,16 +19,23 @@
   align-items: center;
 
   .currentDateTime {
-    color: $black-ink;
+    background-color: $black-ink;
 
     .time {
       font-size: 2.5em;
       margin-bottom: -5px;
+      padding: 5px;
     }
 
     .date {
+      border-bottom: 4px solid $black-ink;
       font-family: Inter, sans-serif;
+      padding: 2px 0;
+      font-weight: bold;
+      background-color: $newspaper;
+      width: 100%;
       font-size: 1.070em;
+      text-align: center;
     }
   }
 }
