@@ -6,6 +6,7 @@ import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import { useMemo } from "react"
 import GaussianNoise from "components/GaussianNoise"
 import classNames from "classnames"
+import ResetScroll from "components/ResetScroll"
 
 
 const NyuusuApplication = () => {
@@ -23,6 +24,7 @@ const NyuusuApplication = () => {
 
 
       <div className={classNames(styles.content, { [styles.offset]: !isHome })}>
+        <ResetScroll />
         <GaussianNoise />
         <Outlet />
         <SettingsDrawer />
