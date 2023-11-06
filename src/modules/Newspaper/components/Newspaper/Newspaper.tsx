@@ -11,7 +11,6 @@ import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import { useCallback, useState } from "react"
 import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import CardsArticle from "views/HomeView/components/CardsArticle"
-import GaussianNoise from "components/GaussianNoise"
 import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
 import Footer from "modules/Newspaper/components/Footer"
 
@@ -31,8 +30,6 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
 
   return (
     <div className={styles.newspaper} data-testid='newspaper'>
-      <GaussianNoise />
-      
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
