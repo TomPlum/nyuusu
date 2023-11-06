@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import { useMemo } from "react"
 import GaussianNoise from "components/GaussianNoise"
+import classNames from "classnames"
 
 
 const NyuusuApplication = () => {
@@ -21,7 +22,7 @@ const NyuusuApplication = () => {
       )}
 
 
-      <div className={styles.content}>
+      <div className={classNames(styles.content, { [styles.offset]: !isHome })}>
         <GaussianNoise />
         <Outlet />
         <SettingsDrawer />

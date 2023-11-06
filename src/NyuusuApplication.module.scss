@@ -13,14 +13,17 @@
 .content {
   display: flex;
   width: 100%;
+  height: 100%;
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   background-color: $newspaper;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
+  padding-bottom: 30px;
 }
 
-.homeFooter {
+.offset {
+  margin-top: 64px;
 }

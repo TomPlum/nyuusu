@@ -45,7 +45,7 @@ const usePageTranslation = ({ direction }: PageTranslationProps): PageTranslatio
 
   const targetPageTranslation = useMemo(() => {
     const [x, y] = calculateOppositeTranslation(direction)
-    console.log(xScroll, yScroll)
+
     const yHeaderOffset = 64 // <-- Height of the header
     const yOffset = yHeaderOffset + (yScroll ?? 0) // <-- Account for page scroll-y
     const xOffsetMagicNumber = 8 // <-- Why? Good question.

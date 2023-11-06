@@ -26,7 +26,7 @@ const Header = () => {
   }
 
   return (
-    <AppBar position='static' classes={{ root: classNames(styles.appBar, { [styles.transition]: animateHeader }) }}>
+    <AppBar position='fixed' classes={{ root: classNames(styles.appBar, { [styles.transition]: animateHeader }) }}>
       <Container className={styles.header} maxWidth='lg'>
         <Toolbar disableGutters className={styles.toolbar}>
           <h2 className={styles.title} onClick={() => navigate('/')}>
