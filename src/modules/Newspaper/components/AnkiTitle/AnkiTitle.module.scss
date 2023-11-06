@@ -66,6 +66,7 @@
   border-right: 3px solid $black-ink;
   border-left: 3px solid $black-ink;
   border-bottom: 3px solid $black-ink;
+  border-top: none;
 
   >p {
     margin: 0;
@@ -74,10 +75,8 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $newspaper;
-    color: $black-ink;
+    color: $link;
     transition: all ease-in-out 0.2s;
-    border-color: $black-ink;
   }
 
   &:focus {
