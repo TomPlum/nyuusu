@@ -5,13 +5,13 @@ import { useTranslation } from "react-i18next"
 import { useCallback } from "react"
 import { useToastContext } from "modules/Toast/useToastContext.ts"
 
-const Headline = ({ headline }: HeadlineProps) => {
+const Headline = ({ headline, copyText }: HeadlineProps) => {
   const { fireToast } = useToastContext()
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.headline' })
 
   const copy = useCallback(() => {
-    if (typeof headline === 'string') {
-      navigator.clipboard.writeText(headline).then(() => {
+    if (copyText) {
+      navigator.clipboard.writeText(copyText).then(() => {
         fireToast({
           type: 'success',
           timeout: 2000,
@@ -24,7 +24,7 @@ const Headline = ({ headline }: HeadlineProps) => {
         })
       })
     }
-  }, [fireToast, headline, t])
+  }, [copyText, fireToast, t])
 
   return (
     <div className={styles.headline}>

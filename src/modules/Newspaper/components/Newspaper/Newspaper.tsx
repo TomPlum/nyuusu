@@ -40,7 +40,10 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
         </Grid>
 
         <Grid xs={12}>
-          <Headline headline={translatedHeadline ?? article.title} />
+          <Headline
+            headline={translatedHeadline ?? article.title}
+            copyText={translatedHeadline ?? article.title}
+          />
         </Grid>
 
         <Grid xs={12} justifyContent='center' alignItems='center'>

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
-import { ComponentType, useMemo, useState } from "react"
+import { ComponentType, useEffect, useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
@@ -27,11 +27,26 @@ import NewspaperView from "views/NewspaperView"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
+  const [currentTitle, setCurrentTitle] = useState(0)
   const [hasNavigated, setHasNavigated] = useState(false)
   const [targetPage, setTargetPage] = useState<ComponentType>()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
   const [transitionDirection, setTransitionDirection] = useState<Direction>()
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentTitle === titles.length - 1) {
+        setCurrentTitle(0)
+      } else {
+        setCurrentTitle(current => current + 1)
+      }
+    }, 8000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [currentTitle, titles.length])
 
   const todaysDate = useMemo(() => {
     return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
@@ -88,7 +103,10 @@ const HomeView = () => {
         </Grid>
 
         <Grid xs={12}>
-          <Headline headline={headline} />
+          <Headline
+            headline={headline}
+            copyText={titles[currentTitle]}
+          />
         </Grid>
 
         <Grid container className={styles.grid} columnSpacing={0}>
