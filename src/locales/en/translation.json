@@ -19,9 +19,12 @@
     }
   },
   "footer": {
-    "api-citation": {
-      "prefix": "Article data provided by",
-      "name": "News API"
+    "sections": {
+      "related-projects": "Related projects",
+      "help": "Help"
+    },
+    "help": {
+      "anki": "Anki Settings"
     }
   },
   "article": {

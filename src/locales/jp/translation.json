@@ -19,9 +19,12 @@
     }
   },
   "footer": {
-    "api-citation": {
-      "prefix": "記事データは「News API」で提供",
-      "name": "News API"
+    "sections": {
+      "related-projects": "関連プロジェクト",
+      "help": "ヘルプ"
+    },
+    "help": {
+      "anki": "アンキの設定"
     }
   },
   "article": {
