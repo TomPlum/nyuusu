@@ -13,7 +13,6 @@ import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import CardsArticle from "views/HomeView/components/CardsArticle"
 import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
 import Footer from "modules/Newspaper/components/Footer"
-import TornPaperFooter from "components/TornPaperFooter"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   const [translatedHeadline, setTranslatedHeadline] = useState<string>()
@@ -99,8 +98,6 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
           <Footer edition={currentArticleId + 1} />
         </Grid>
       </Grid>
-
-      <TornPaperFooter />
     </div>
   )
 }
