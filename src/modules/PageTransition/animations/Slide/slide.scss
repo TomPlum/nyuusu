@@ -1,0 +1,17 @@
+$duration: 0.6s;
+
+.slide-sourcePage {
+  transition: translate $duration ease-in-out;
+
+  &--move {
+    translate: var(--translate);
+  }
+}
+
+.slide-targetPage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  translate: var(--targetTranslate);
+  transition: translate $duration ease-in-out;
+}

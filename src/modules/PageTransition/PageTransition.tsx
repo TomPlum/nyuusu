@@ -8,6 +8,7 @@ import usePageTransitionContext from "modules/PageTransition/context/usePageTran
 const PageTransition = ({
   targetHasHeader = false,
   direction = 'left',
+  animation = 'slide',
   hasNavigated,
   targetPage,
   className,
@@ -16,7 +17,7 @@ const PageTransition = ({
 }: PropsWithChildren<PageTransitionProps>) => {
   const TargetPageComponent = targetPage
   const { setTargetHasHeader } = usePageTransitionContext()
-  const { sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction })
+  const { id, sourcePageTranslation, targetPageTranslation } = usePageTranslation({ direction, animation })
 
   useEffect(() => {
     setTargetHasHeader(targetHasHeader)
@@ -28,12 +29,12 @@ const PageTransition = ({
       style={sourcePageTranslation}
       className={classNames(
         className,
-        styles.sourcePage,
-        { [styles['sourcePage--move']]: hasNavigated }
+        styles[`${id}-sourcePage`],
+        { [styles[`${id}-sourcePage--move`]]: hasNavigated }
       )}
     >
       {hasNavigated && (
-        <div style={targetPageTranslation} className={styles.targetPage}>
+        <div style={targetPageTranslation} className={styles[`${id}-targetPage`]}>
           {TargetPageComponent && (
             <TargetPageComponent />
           )}

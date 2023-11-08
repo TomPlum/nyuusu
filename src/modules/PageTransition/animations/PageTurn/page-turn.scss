@@ -1,0 +1,51 @@
+.page-turn-sourcePage {
+  &--move {
+    transition-property: all;
+    transition-duration: 0.6s;
+    transform: rotateY(-90deg);
+    perspective: 500px;
+    transform-origin: left;
+
+    @keyframes turn {
+      from, to {
+        animation-timing-function: ease-in;
+        transform: translate3d(0, 0, 1px) rotateY(0.3deg);
+      }
+      5%, 10% {
+        animation-timing-function: ease-in-out;
+        transform: translate3d(0, 0, 1px) rotateY(0.3deg);
+      }
+      20%, 25% {
+        animation-timing-function: ease-out;
+        transform: translate3d(0, 0, 1px) rotateY(179.9deg);
+      }
+      30%, 70% {
+        animation-timing-function: ease-in;
+        transform: translate3d(0, 0, 1px) rotateY(179.9deg);
+      }
+      75%, 80% {
+        animation-timing-function: ease-in-out;
+        transform: translate3d(0, 0, 1px) rotateY(179.9deg);
+      }
+      90%, 95% {
+        animation-timing-function: ease-out;
+        transform: translate3d(0, 0, 1px) rotateY(0.3deg);
+      }
+    }
+  }
+}
+
+.page-turn-targetPage {
+  animation: fade 0.6s;
+  @keyframes fade {
+    0% {
+      visibility: hidden;
+    }
+    99% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+}

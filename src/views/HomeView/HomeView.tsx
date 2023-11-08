@@ -22,8 +22,9 @@ import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import ArticleCardsView from "views/ArticleCardsView"
 import PageTransition from "modules/PageTransition"
-import { Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
+import { Animation, Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
 import NewspaperView from "views/NewspaperView"
+import TornPaperFooter from "components/TornPaperFooter"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
@@ -33,6 +34,7 @@ const HomeView = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
   const [transitionDirection, setTransitionDirection] = useState<Direction>()
+  const [animation, setAnimation] = useState<Animation>()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -78,6 +80,7 @@ const HomeView = () => {
   return (
     <PageTransition
       targetHasHeader
+      animation={animation}
       data-testid='home-view'
       targetPage={targetPage}
       className={styles.view}
@@ -149,6 +152,7 @@ const HomeView = () => {
                     className={styles.article}
                     onNavigate={() => {
                       setHasNavigated(true)
+                      setAnimation('slide')
                       setTargetPage(() => NewspaperView)
                       setTransitionDirection('left')
                     }}
@@ -160,6 +164,7 @@ const HomeView = () => {
                     className={styles.article}
                     onNavigate={() => {
                       setHasNavigated(true)
+                      setAnimation('slide')
                       setTargetPage(() => ArticleCardsView)
                       setTransitionDirection('top-left')
                     }}
@@ -188,6 +193,8 @@ const HomeView = () => {
           <Footer />
         </Grid>
       </Grid>
+
+      <TornPaperFooter />
     </PageTransition>
   )
 }
