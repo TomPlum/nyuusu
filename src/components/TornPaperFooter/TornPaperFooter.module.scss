@@ -7,15 +7,9 @@
   height: 150px;
   width: 100%;
   background-color: $black-ink;
-  z-index: 5;
-}
-
-.inner {
-  width: 100%;
-  height: 20px;
-  margin-top: -1px;
-  background-color: $newspaper;
   clip-path: polygon(var(--path));
+  z-index: 5;
+  padding-top: 25px;
 }
 
 .github {

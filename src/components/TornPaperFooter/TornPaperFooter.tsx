@@ -24,7 +24,9 @@ const TornPaperFooter = () => {
     })
 
     values.unshift('0% 0%') // <-- Top left
+    values.unshift('0% 100%') // <-- Bottom left
     values.push('100% 0%') // <-- Top Right
+    values.push('100% 100%') // <-- Bottom Right
 
     return {
       "--path": values.join(',')
@@ -32,9 +34,7 @@ const TornPaperFooter = () => {
   }, [width]) as CSSProperties
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inner} style={path} />
-
+    <div style={path} className={styles.wrapper}>
       <div className={styles.content}>
         <div className={classNames(styles.projects, styles.section)}>
           <p className={styles.paragraph}>
