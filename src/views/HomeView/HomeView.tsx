@@ -90,7 +90,7 @@ const HomeView = () => {
     >
       <Grid container className={styles.content}>
         <CoffeeStain className={styles.coffeeStain} />
-        
+
         <Grid container xs={12}>
           {article.publisher && article.feedTitle && (
             <div className={styles.banner}>

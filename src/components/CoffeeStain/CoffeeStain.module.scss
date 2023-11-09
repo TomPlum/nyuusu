@@ -1,7 +1,7 @@
 .stain {
+  width: 35vmin;
+  aspect-ratio: 1;
   opacity: 0.35;
-  left: 40%;
-  top: -5%;
   filter: sepia(200%) brightness(360%) contrast(130%) hue-rotate(-15deg) grayscale(20%);
   background: #eee;
   mix-blend-mode: darken;
@@ -12,9 +12,17 @@
           radial-gradient(#000c, #0000),
           radial-gradient(farthest-side, #0000 80%, #000);
 
-  * &:after {
+  * {
     position: absolute;
     box-sizing: border-box;
+    &::before {
+      position: absolute;
+      box-sizing: border-box;
+    }
+    &::after {
+      position: absolute;
+      box-sizing: border-box;
+    }
   }
 }
 
@@ -29,8 +37,7 @@
           radial-gradient(circle at 70% 20%, #00f 10%, #0000 0),
           radial-gradient(circle at 81% 40%, #00f 6%, #0000 0),
           radial-gradient(circle at 20% 20%, #00f 6%, #0000 0),
-          #fff
-;
+          #fff;
   box-shadow:
           inset 5vmin -0.75vmin 0 -2.75vmin #006,
           inset -1vmin -1vmin blue,

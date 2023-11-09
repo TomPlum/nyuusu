@@ -178,4 +178,8 @@
 
 .coffeeStain {
   position: absolute;
+  left: -130px;
+  top: 170px;
+  transform: scaleX(-1) rotateZ(10deg);
+  z-index: 10;
 }
