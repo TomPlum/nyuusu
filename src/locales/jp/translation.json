@@ -25,10 +25,14 @@
       "acknowledgements": "謝辞"
     },
     "help": {
+      "readme": "README",
       "anki": "アンキの設定"
     },
     "acknowledgements": {
-      "newscatcher": "ニュースキャッチャーAPI"
+      "newscatcher": "ニュースキャッチャーAPI",
+      "deepl": "DeepL API (翻訳する)",
+      "coffee": "Alvaro Montoro (コーヒーCSS)",
+      "crease": "Lynn Fisher (折り目 CSS)"
     }
   },
   "article": {

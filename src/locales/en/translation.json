@@ -25,10 +25,14 @@
       "acknowledgements": "Acknowledgements"
     },
     "help": {
+      "readme": "README",
       "anki": "Anki Settings"
     },
     "acknowledgements": {
-      "newscatcher": "Newscatcher API"
+      "newscatcher": "Newscatcher API",
+      "deepl": "DeepL API (Translate)",
+      "coffee": "Alvaro Montoro (Coffee CSS)",
+      "crease": "Lynn Fisher (Crease CSS)"
     }
   },
   "article": {

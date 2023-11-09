@@ -56,6 +56,12 @@ const TornPaperFooter = () => {
 
           <ul className={styles.list}>
             <li>
+              <Link to='https://github.com/TomPlum/nyuusu/tree/main#readme'>
+                {t('help.readme')}
+              </Link>
+            </li>
+
+            <li>
               <Link to='https://github.com/TomPlum/learn-japanese'>
                 {t('help.anki')}
               </Link>
@@ -73,6 +79,24 @@ const TornPaperFooter = () => {
             <li>
               <Link to='https://www.newscatcherapi.com/'>
                 {t('acknowledgements.newscatcher')}
+              </Link>
+            </li>
+
+            <li>
+              <Link to='https://www.deepl.com/en/docs-api'>
+                {t('acknowledgements.deepl')}
+              </Link>
+            </li>
+
+            <li>
+              <Link to='https://alvaromontoro.com/blog/68035/css-art-drawing-a-coffee-stain'>
+                {t('acknowledgements.coffee')}
+              </Link>
+            </li>
+
+            <li>
+              <Link to='https://codepen.io/lynnandtonic/pen/PoZpjOr'>
+                {t('acknowledgements.crease')}
               </Link>
             </li>
           </ul>
