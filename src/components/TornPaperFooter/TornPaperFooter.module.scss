@@ -72,6 +72,14 @@
   margin: 0;
   list-style: none;
   padding: 0;
+
+  a {
+    color: #50a9f3;
+
+    &:hover {
+      color: #1c99fa;
+    }
+  }
 }
 
 .projects {
