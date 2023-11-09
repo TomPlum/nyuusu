@@ -6,24 +6,38 @@
   justify-content: space-between;
   height: 150px;
   width: 100%;
-  background-color: $black-ink;
-  clip-path: polygon(var(--path));
+  position: relative;
   z-index: 5;
   padding-top: 25px;
+  filter: drop-shadow(inset 0 7px 9px -7px rgba(0,0,0,0.4));
+
+  &:before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: $black-ink;
+    clip-path: polygon(var(--path));
+    content: ''
+  }
+}
+
+@mixin icon {
+  color: $newspaper;
+  font-size: 1.3em !important;
+  margin-right: 5px;
+  margin-left: -2px;
 }
 
 .github {
-  color: $newspaper;
-  font-size: 1.3em !important;
-  margin-right: 5px;
-  margin-left: -2px;
+  @include icon;
 }
 
 .helpIcon {
-  color: $newspaper;
-  font-size: 1.3em !important;
-  margin-right: 5px;
-  margin-left: -2px;
+  @include icon;
+}
+
+.acknowledgementsIcon {
+  @include icon;
 }
 
 .content {

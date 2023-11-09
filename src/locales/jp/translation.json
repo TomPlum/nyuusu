@@ -21,10 +21,14 @@
   "footer": {
     "sections": {
       "related-projects": "関連プロジェクト",
-      "help": "ヘルプ"
+      "help": "ヘルプ",
+      "acknowledgements": "謝辞"
     },
     "help": {
       "anki": "アンキの設定"
+    },
+    "acknowledgements": {
+      "newscatcher": "ニュースキャッチャーAPI"
     }
   },
   "article": {

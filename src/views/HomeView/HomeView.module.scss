@@ -74,6 +74,8 @@
   max-width: 1000px;
   align-items: flex-start;
   padding-top: 20px;
+  margin-bottom: 30px !important;
+  position: relative;
 }
 
 .articleContents {
@@ -172,4 +174,8 @@
       flex-grow: 1.3;
     }
   }
+}
+
+.coffeeStain {
+  position: absolute;
 }

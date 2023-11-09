@@ -21,10 +21,14 @@
   "footer": {
     "sections": {
       "related-projects": "Related projects",
-      "help": "Help"
+      "help": "Help",
+      "acknowledgements": "Acknowledgements"
     },
     "help": {
       "anki": "Anki Settings"
+    },
+    "acknowledgements": {
+      "newscatcher": "Newscatcher API"
     }
   },
   "article": {

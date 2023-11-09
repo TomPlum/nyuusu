@@ -1,7 +1,7 @@
 import styles from './TornPaperFooter.module.scss'
 import { CSSProperties, useMemo } from "react"
 import { useWindowSize } from '@uidotdev/usehooks'
-import { GitHub, Help } from "@mui/icons-material"
+import { GitHub, Help, Verified } from "@mui/icons-material"
 import classNames from "classnames"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
@@ -62,8 +62,23 @@ const TornPaperFooter = () => {
             </li>
           </ul>
         </div>
-      </div>
 
+        <div className={classNames(styles.acknowledgements, styles.section)}>
+          <p className={styles.paragraph}>
+            <Verified className={styles.acknowledgementsIcon} />
+            <span>{t('sections.acknowledgements')}</span>
+          </p>
+
+          <ul className={styles.list}>
+            <li>
+              <Link to='https://www.newscatcherapi.com/'>
+                {t('acknowledgements.newscatcher')}
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   )
 }
