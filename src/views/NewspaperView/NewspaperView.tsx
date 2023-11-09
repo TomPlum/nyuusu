@@ -4,6 +4,7 @@ import Newspaper from "modules/Newspaper/components/Newspaper"
 import { useSearchParams } from "react-router-dom"
 import useNewsFeed from "modules/Article/hooks/useNewsFeed"
 import { useTranslation } from "react-i18next"
+import TornPaperFooter from "components/TornPaperFooter"
 
 const NewspaperView = () => {
   const { articles, loading } = useNewsFeed()
@@ -59,10 +60,6 @@ const NewspaperView = () => {
 
   return (
     <div className={styles.singleView}>
-      {loading && (
-        <div></div> // TODO: Create loading skeleton
-      )}
-
       {/* TODO: Shall we just remove this, parameterise the ErrorView and use that? */}
       {!selectedArticlesExists && (
         <div className={styles.noArticle}>
@@ -84,6 +81,8 @@ const NewspaperView = () => {
           article={articles[selectedArticledId]}
         />
       )}
+
+      <TornPaperFooter />
     </div>
   )
 }

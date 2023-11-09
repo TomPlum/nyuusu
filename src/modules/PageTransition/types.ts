@@ -1,16 +1,14 @@
 import { type ComponentType } from "react"
-import { Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
+import { Animation, Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
 
-export interface TransitionablePageProps {
-    animate?: boolean
-    xTranslate?: number
-    yTranslate?: number
+export interface AnimationProps {
+    direction?: Direction
+    animation?: Animation
 }
 
-export interface PageTransitionProps {
+export interface PageTransitionProps extends AnimationProps {
     hasNavigated: boolean
     className?: string
-    direction?: Direction
-    targetPage?: ComponentType<TransitionablePageProps>
+    targetPage?: ComponentType
     targetHasHeader?: boolean
 }

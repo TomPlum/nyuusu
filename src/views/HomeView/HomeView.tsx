@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
-import { ComponentType, useMemo, useState } from "react"
+import { ComponentType, useEffect, useMemo, useState } from "react"
 import { NewsArticle } from "modules/Article/components/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
@@ -22,16 +22,34 @@ import CurrentDateTime from "modules/Header/components/CurrentDateTime"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import ArticleCardsView from "views/ArticleCardsView"
 import PageTransition from "modules/PageTransition"
-import { Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
+import { Animation, Direction } from "modules/PageTransition/hooks/usePageTranslation/types.ts"
 import NewspaperView from "views/NewspaperView"
+import TornPaperFooter from "components/TornPaperFooter"
+import CoffeeStain from "components/CoffeeStain"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
+  const [currentTitle, setCurrentTitle] = useState(0)
   const [hasNavigated, setHasNavigated] = useState(false)
   const [targetPage, setTargetPage] = useState<ComponentType>()
   const { t } = useTranslation('translation', { keyPrefix: 'views.home' })
   const titles: string[] = t('title', { returnObjects: true })
   const [transitionDirection, setTransitionDirection] = useState<Direction>()
+  const [animation, setAnimation] = useState<Animation>()
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentTitle === titles.length - 1) {
+        setCurrentTitle(0)
+      } else {
+        setCurrentTitle(current => current + 1)
+      }
+    }, 8000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [currentTitle, titles.length])
 
   const todaysDate = useMemo(() => {
     return format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ssXXXXX')
@@ -63,6 +81,7 @@ const HomeView = () => {
   return (
     <PageTransition
       targetHasHeader
+      animation={animation}
       data-testid='home-view'
       targetPage={targetPage}
       className={styles.view}
@@ -70,6 +89,8 @@ const HomeView = () => {
       direction={transitionDirection}
     >
       <Grid container className={styles.content}>
+        <CoffeeStain className={styles.coffeeStain} />
+
         <Grid container xs={12}>
           {article.publisher && article.feedTitle && (
             <div className={styles.banner}>
@@ -88,7 +109,10 @@ const HomeView = () => {
         </Grid>
 
         <Grid xs={12}>
-          <Headline headline={headline} />
+          <Headline
+            headline={headline}
+            copyText={titles[currentTitle]}
+          />
         </Grid>
 
         <Grid container className={styles.grid} columnSpacing={0}>
@@ -131,6 +155,7 @@ const HomeView = () => {
                     className={styles.article}
                     onNavigate={() => {
                       setHasNavigated(true)
+                      setAnimation('slide')
                       setTargetPage(() => NewspaperView)
                       setTransitionDirection('left')
                     }}
@@ -142,6 +167,7 @@ const HomeView = () => {
                     className={styles.article}
                     onNavigate={() => {
                       setHasNavigated(true)
+                      setAnimation('slide')
                       setTargetPage(() => ArticleCardsView)
                       setTransitionDirection('top-left')
                     }}
@@ -170,6 +196,8 @@ const HomeView = () => {
           <Footer />
         </Grid>
       </Grid>
+
+      <TornPaperFooter />
     </PageTransition>
   )
 }

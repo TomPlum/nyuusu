@@ -1,0 +1,87 @@
+@import "styles/colours";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 170px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  padding-top: 30px;
+  filter: drop-shadow(inset 0 7px 9px -7px rgba(0,0,0,0.4));
+
+  &:before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: $black-ink;
+    clip-path: polygon(var(--path));
+    content: ''
+  }
+}
+
+@mixin icon {
+  color: $newspaper;
+  font-size: 1.3em !important;
+  margin-right: 5px;
+  margin-left: -2px;
+}
+
+.github {
+  @include icon;
+}
+
+.helpIcon {
+  @include icon;
+}
+
+.acknowledgementsIcon {
+  @include icon;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.paragraph {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 50px;
+
+  >p {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+  }
+}
+
+.list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+
+  a {
+    color: #50a9f3;
+
+    &:hover {
+      color: #1c99fa;
+    }
+  }
+}
+
+.projects {
+  color: $newspaper;
+}
