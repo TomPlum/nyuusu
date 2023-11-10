@@ -26,6 +26,7 @@ import { Animation, Direction } from "modules/PageTransition/hooks/usePageTransl
 import NewspaperView from "views/NewspaperView"
 import TornPaperFooter from "components/TornPaperFooter"
 import CoffeeStain from "components/CoffeeStain"
+import CreasedPaper from "components/CreasedPaper"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
@@ -88,8 +89,9 @@ const HomeView = () => {
       hasNavigated={hasNavigated}
       direction={transitionDirection}
     >
+      <CreasedPaper />
       <Grid container className={styles.content}>
-        <CoffeeStain className={styles.coffeeStain} />
+        <CoffeeStain className={styles.coffeeStain} />4
 
         <Grid container xs={12}>
           {article.publisher && article.feedTitle && (
