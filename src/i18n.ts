@@ -2,6 +2,19 @@ import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
 import english from 'locales/en/translation.json'
 import japanese from 'locales/jp/translation.json'
+import { SettingsValues } from "modules/Settings/context/types.ts"
+import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
+
+const getLanguage = (): Language => {
+  const settings = localStorage.getItem('nyusu-settings')
+
+  if (settings) {
+    const parsed = JSON.parse(settings) as SettingsValues
+    return parsed.language
+  }
+
+  return 'en'
+}
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -12,7 +25,7 @@ i18n.use(initReactI18next).init({
       translation: japanese
     }
   },
-  lng: "jp",
+  lng: getLanguage(),
   fallbackLng: "en",
   interpolation: {
     escapeValue: false

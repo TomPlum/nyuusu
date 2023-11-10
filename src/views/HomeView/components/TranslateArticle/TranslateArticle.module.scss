@@ -121,3 +121,8 @@ $english: #4a90f3;
 .lineEnglishRight {
   background-image: linear-gradient(to right, $black-ink, $english)
 }
+
+.rotate {
+  transform: rotateZ(-90deg);
+  font-size: 0.55em;
+}

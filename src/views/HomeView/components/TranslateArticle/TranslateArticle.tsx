@@ -7,8 +7,11 @@ import { useCallback, useState } from "react"
 import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import useDeepL from "api/hooks/useDeepL"
 import { CircularProgress } from "@mui/material"
+import classNames from "classnames"
+import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
 const TranslateArticle = ({ translationText, onTranslate, currentLanguage }: TranslateArticleProps) => {
+  const { language: i18nLangauge } = useSettingsContext()
   const input = translationText.filter(value => value) as string[]
   const { mutateAsync, isPending } = useDeepL({ input })
   const [language, setLanguage] = useState<Language>(currentLanguage ?? 'jp')
@@ -35,7 +38,7 @@ const TranslateArticle = ({ translationText, onTranslate, currentLanguage }: Tra
   return (
     <div className={styles.container}>
       <div className={styles.label}>
-        <Typography>
+        <Typography className={classNames({ [styles.rotate]: i18nLangauge === 'en' })}>
           {t('label')}
         </Typography>
       </div>

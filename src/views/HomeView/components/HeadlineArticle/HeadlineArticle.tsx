@@ -7,7 +7,7 @@ const HeadlineArticle = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Typography className={styles.text}>
+      <Typography className={styles.text} forceVertical>
         {t('text')}
       </Typography>
 

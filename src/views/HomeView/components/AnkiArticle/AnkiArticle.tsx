@@ -33,8 +33,6 @@ const AnkiArticle = () => {
           </Typography>
         </div>
 
-
-
         <div className={styles.bottomRight}>
           <div className={styles.mask} />
         </div>

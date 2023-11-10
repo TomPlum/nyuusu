@@ -26,7 +26,7 @@ const AnalysisShowcase = ({ barData, pieData, tableData, difficulty, animationDu
         animationDuration={animationDuration}
       />
 
-      <Typography className={styles.body}>
+      <Typography className={styles.body} forceVertical>
         {t('body')}
       </Typography>
     </>
