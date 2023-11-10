@@ -12,12 +12,14 @@ const LanguageSelector = () => {
   const { language, setLanguage } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'header.language-controls' })
 
-  const handleChange = useCallback((_e: MouseEvent<HTMLElement>, language: Language) => {
-    i18n.changeLanguage(language).then(() => {
-      setLanguage(language)
-    }).catch(error => {
-      console.error('Failed to set language to: ', language, error)
-    })
+  const handleChange = useCallback((_e: MouseEvent<HTMLElement>, language?: Language) => {
+    if (language) {
+      i18n.changeLanguage(language).then(() => {
+        setLanguage(language)
+      }).catch(error => {
+        console.error('Failed to set language to: ', language, error)
+      })
+    }
   }, [setLanguage])
 
   return (
