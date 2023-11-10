@@ -1,12 +1,13 @@
 import styles from "./PublisherHeading.module.scss"
 import { useTranslation } from "react-i18next"
 import { PublisherHeadingProps } from "./types.ts"
+import classNames from "classnames"
 
-const PublisherHeading = ({ name, title }: PublisherHeadingProps) => {
+const PublisherHeading = ({ name, title, className }: PublisherHeadingProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.publisher' })
 
   return (
-    <div className={styles.publisherWrapper}>
+    <div className={classNames(styles.publisherWrapper, className)}>
       <div className={styles.borderContainer}>
         <div className={styles.borderTop} />
         <h1 className={styles.publisher}>
