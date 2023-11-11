@@ -258,6 +258,7 @@
       "heading": "フォント",
       "label" : "漢字・かな",
       "names": {
+        "default": "デフォルト",
         "appli-mincho": "アプリ明朝",
         "k-gothic": "Kゴシック",
         "sanafon-mugi": "さなフォン麦"

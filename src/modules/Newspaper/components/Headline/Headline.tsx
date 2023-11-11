@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import { useCallback } from "react"
 import { useToastContext } from "modules/Toast/useToastContext.ts"
 import classNames from "classnames"
+import Typography from "components/Typography"
 
 const Headline = ({ headline, copyText, className }: HeadlineProps) => {
   const { fireToast } = useToastContext()
@@ -29,7 +30,9 @@ const Headline = ({ headline, copyText, className }: HeadlineProps) => {
 
   return (
     <div className={classNames(styles.headline, className)}>
-      {headline}
+      <Typography useHorizontal>
+        {headline}
+      </Typography>
 
       <div className={styles.copy} title={t('copy.label')} onClick={copy}>
         <ContentCopy />

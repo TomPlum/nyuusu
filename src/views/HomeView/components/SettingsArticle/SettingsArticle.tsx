@@ -3,6 +3,7 @@ import styles from './SettingsArticle.module.scss'
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 import { useCallback } from "react"
 import { useTranslation } from "react-i18next"
+import Typography from "components/Typography"
 
 const SettingsArticle = () => {
   const { open, setOpen } = useSettingsContext()
@@ -19,13 +20,17 @@ const SettingsArticle = () => {
         <div className={styles.lineInner} />
       </div>
 
-      <span className={styles.text}>{t('left')}</span>
+      <Typography className={styles.text} useHorizontal>
+        {t('left')}
+      </Typography>
 
       <div onClick={handleClick} className={styles.inner} title={t('title')}>
         <Settings className={styles.icon} />
       </div>
 
-      <span className={styles.text}>{t('right')}</span>
+      <Typography className={styles.text} useHorizontal>
+        {t('right')}
+      </Typography>
     </div>
   )
 }

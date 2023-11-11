@@ -1,11 +1,17 @@
 import { TypographyProps } from "./types.ts"
-import { PropsWithChildren } from "react"
+import { CSSProperties, PropsWithChildren, useMemo } from "react"
 import styles from './Typography.module.scss'
 import classNames from "classnames"
 import { useSettingsContext } from "modules/Settings/context/useSettingsContext.ts"
 
 const Typography = ({ children, useHorizontal, forceVertical, className }: PropsWithChildren<TypographyProps>) => {
-  const { language } = useSettingsContext()
+  const { language, font } = useSettingsContext()
+
+  const style: CSSProperties = useMemo(() => {
+    return {
+      fontFamily: font.name
+    }
+  }, [font])
 
   const isVertical = forceVertical ?? (language === 'jp' && !useHorizontal)
 
@@ -13,8 +19,10 @@ const Typography = ({ children, useHorizontal, forceVertical, className }: Props
     <p
       className={classNames(
         className,
+        styles.typography,
         { [styles.vertical]: isVertical },
       )}
+      style={style}
     >
       {children}
     </p>

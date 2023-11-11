@@ -263,6 +263,7 @@
       "heading": "Font",
       "label" : "Kanji & Kana",
       "names": {
+        "default": "Default",
         "appli-mincho": "Appli Mincho",
         "k-gothic": "KGothic",
         "sanafon-mugi": "Sanafon Mugi"
