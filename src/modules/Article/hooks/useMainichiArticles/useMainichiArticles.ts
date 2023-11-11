@@ -1,7 +1,7 @@
 import useGetMainichiFlash from "api/hooks/useGetMainichiFlash"
 import { NewsFeed } from "modules/Article/hooks/useNewsFeed/types.ts"
 import { useEffect, useMemo } from "react"
-import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import { NewsArticle } from "modules/Article/types.ts"
 import useNewsContext from "context"
 import { NewsSource } from "modules/Settings/context/types.ts"
 

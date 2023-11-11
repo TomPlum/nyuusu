@@ -1,6 +1,6 @@
 import NewsGrid from "components/NewsGrid"
 import styles from "./ArticleCardsView.module.scss"
-import Article from "modules/Article/components/Article"
+import Article from "modules/Article"
 import { useCallback } from "react"
 import { Grow } from "@mui/material"
 import Loading from "components/Loading"

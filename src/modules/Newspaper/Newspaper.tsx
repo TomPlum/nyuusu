@@ -1,4 +1,4 @@
-import { NewspaperProps } from "modules/Newspaper/components/Newspaper/types.ts"
+import { NewspaperProps } from "modules/Newspaper/types.ts"
 import styles from "./Newspaper.module.scss"
 import Grid from "@mui/material/Unstable_Grid2"
 import Headline from "modules/Newspaper/components/Headline"

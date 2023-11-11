@@ -5,7 +5,7 @@ import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import { ComponentType, useEffect, useMemo, useState } from "react"
-import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import { NewsArticle } from "modules/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
 import CardsArticle from "views/HomeView/components/CardsArticle"

@@ -1,4 +1,4 @@
-import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import { NewsArticle } from "modules/Article/types.ts"
 
 export interface NewspaperProps {
     article: NewsArticle

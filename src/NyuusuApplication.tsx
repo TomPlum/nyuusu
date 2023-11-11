@@ -1,6 +1,6 @@
 import styles from './NyuusuApplication.module.scss'
-import Header from "modules/Header/components/HeaderBar"
-import SettingsDrawer from "modules/Settings/components/SettingsDrawer"
+import Header from "modules/Header"
+import SettingsDrawer from "modules/Settings"
 import { Outlet } from "react-router-dom"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import { useMemo } from "react"

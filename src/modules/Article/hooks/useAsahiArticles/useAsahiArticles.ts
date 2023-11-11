@@ -1,6 +1,6 @@
 import { NewsFeed } from "modules/Article/hooks/useNewsFeed/types.ts"
 import { useMemo } from "react"
-import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import { NewsArticle } from "modules/Article/types.ts"
 import { NewsSource } from "modules/Settings/context/types.ts"
 import useGetAsahiHeadlines from "api/hooks/useGetAsahiHeadlines"
 

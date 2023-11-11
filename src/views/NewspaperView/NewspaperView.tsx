@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo } from "react"
 import styles from './NewspaperView.module.scss'
-import Newspaper from "modules/Newspaper/components/Newspaper"
+import Newspaper from "modules/Newspaper"
 import { useSearchParams } from "react-router-dom"
 import useNewsFeed from "modules/Article/hooks/useNewsFeed"
 import { useTranslation } from "react-i18next"
