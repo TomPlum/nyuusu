@@ -51,6 +51,9 @@
 }
 
 @keyframes slideDown {
+  0% {
+    top: -64px;
+  }
   100% {
     top: 0;
   }
@@ -58,5 +61,5 @@
 
 .transition {
   top: -64px;
-  animation: slideDown 0.2s forwards;
+  animation: slideDown ease-in-out 0.2s forwards;
 }
