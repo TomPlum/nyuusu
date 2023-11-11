@@ -13,6 +13,7 @@ import SettingsSection from "modules/Settings/components/SettingsSection"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import AnkiInterfaceToggle from "modules/Settings/components/AnkiInterfaceToggle"
 import { useWindowSize } from "@uidotdev/usehooks"
+import GaussianNoise from "components/GaussianNoise"
 
 const SettingsDrawer = () => {
   const route = useCurrentRoute()
@@ -62,6 +63,8 @@ const SettingsDrawer = () => {
       classes={{ root: styles.drawer, paper: styles.paper  }}
     >
       <div className={isHomeRoute ? styles.contentHome : styles.content} style={path}>
+        <GaussianNoise />
+        
         <h2 className={styles.title}>
           {t('title')}
         </h2>
