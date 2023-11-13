@@ -37,7 +37,7 @@ const TornPaperFooter = () => {
 
   return (
     <div style={path} className={styles.wrapper}>
-      <Grid container className={styles.content} columnSpacing={1} rowSpacing={4}>
+      <Grid container className={styles.content} columnSpacing={0} rowSpacing={4}>
         <Grid xs={12} sm={3} className={classNames(styles.projects, styles.section)}>
           <p className={styles.paragraph}>
             <GitHub className={styles.github} />
