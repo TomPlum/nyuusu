@@ -5,6 +5,7 @@ import { GitHub, Help, Verified } from "@mui/icons-material"
 import classNames from "classnames"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import Grid from "@mui/material/Unstable_Grid2"
 
 const TornPaperFooter = () => {
   const { width } = useWindowSize()
@@ -36,8 +37,8 @@ const TornPaperFooter = () => {
 
   return (
     <div style={path} className={styles.wrapper}>
-      <div className={styles.content}>
-        <div className={classNames(styles.projects, styles.section)}>
+      <Grid container className={styles.content} columnSpacing={1} rowSpacing={4}>
+        <Grid xs={12} sm={3} className={classNames(styles.projects, styles.section)}>
           <p className={styles.paragraph}>
             <GitHub className={styles.github} />
             <span>{t('sections.related-projects')}</span>
@@ -47,9 +48,9 @@ const TornPaperFooter = () => {
             <li><a href='https://github.com/TomPlum/learn-japanese'>learn-japanese</a></li>
             <li><a href='https://github.com/TomPlum/japanese-keyboard'>japanese-keyboard</a></li>
           </ul>
-        </div>
+        </Grid>
 
-        <div className={classNames(styles.help, styles.section)}>
+        <Grid xs={12} sm={3} className={classNames(styles.help, styles.section)}>
           <p className={styles.paragraph}>
             <Help className={styles.helpIcon} />
             <span>{t('sections.help')}</span>
@@ -68,9 +69,9 @@ const TornPaperFooter = () => {
               </Link>
             </li>
           </ul>
-        </div>
+        </Grid>
 
-        <div className={classNames(styles.acknowledgements, styles.section)}>
+        <Grid xs={12} sm={3} className={classNames(styles.acknowledgements, styles.section)}>
           <p className={styles.paragraph}>
             <Verified className={styles.acknowledgementsIcon} />
             <span>{t('sections.acknowledgements')}</span>
@@ -101,9 +102,8 @@ const TornPaperFooter = () => {
               </Link>
             </li>
           </ul>
-        </div>
-
-      </div>
+        </Grid>
+      </Grid>
     </div>
   )
 }

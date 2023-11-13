@@ -2,9 +2,8 @@
 
 .wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 180px;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   position: relative;
   z-index: 5;
@@ -42,9 +41,10 @@
 
 .content {
   width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-grow: 1;
-  padding-top: 20px;
+  padding: 20px 0;
   justify-content: center;
   align-items: flex-start;
 }
@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0 50px;
+  max-width: 250px;
 
   >p {
     margin: 0 0 5px 0;
