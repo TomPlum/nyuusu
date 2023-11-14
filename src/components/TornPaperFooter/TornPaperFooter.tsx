@@ -38,7 +38,7 @@ const TornPaperFooter = () => {
   return (
     <div style={path} className={styles.wrapper}>
       <Grid container className={styles.content} columnSpacing={0} rowSpacing={4}>
-        <Grid xs={12} sm={3} className={classNames(styles.projects, styles.section)}>
+        <Grid xs={12} sm={4} className={classNames(styles.projects, styles.section)}>
           <p className={styles.paragraph}>
             <GitHub className={styles.github} />
             <span>{t('sections.related-projects')}</span>
@@ -50,7 +50,7 @@ const TornPaperFooter = () => {
           </ul>
         </Grid>
 
-        <Grid xs={12} sm={3} className={classNames(styles.help, styles.section)}>
+        <Grid xs={12} sm={4} className={classNames(styles.help, styles.section)}>
           <p className={styles.paragraph}>
             <Help className={styles.helpIcon} />
             <span>{t('sections.help')}</span>
@@ -71,7 +71,7 @@ const TornPaperFooter = () => {
           </ul>
         </Grid>
 
-        <Grid xs={12} sm={3} className={classNames(styles.acknowledgements, styles.section)}>
+        <Grid xs={12} sm={4} className={classNames(styles.acknowledgements, styles.section)}>
           <p className={styles.paragraph}>
             <Verified className={styles.acknowledgementsIcon} />
             <span>{t('sections.acknowledgements')}</span>
