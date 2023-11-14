@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
 
-Cypress.Commands.add('getByTestID', (id) => {
-    return cy.get(`[data-testid="${id}"]`)
+Cypress.Commands.add('getByTestID', (id: string) => {
+  return cy.get(`[data-testid="${id}"]`)
 })
