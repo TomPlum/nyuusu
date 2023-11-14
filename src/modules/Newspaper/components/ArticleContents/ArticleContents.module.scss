@@ -38,6 +38,7 @@
     height: 25%;
     border-left: 2px dotted rgba($black-ink, 0.8);
     border-bottom: 2px dotted rgba($black-ink, 0.8);
+    pointer-events: none;
 
     .dot {
       background-color: $black-ink;
@@ -58,6 +59,7 @@
     height: 25%;
     border-right: 2px dotted rgba($black-ink, 0.8);
     border-top: 2px dotted rgba($black-ink, 0.8);
+    pointer-events: none;
 
     .dotRight {
       background-color: $black-ink;
