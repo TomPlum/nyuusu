@@ -33,9 +33,9 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
       <Grid container className={styles.content}>
         <Grid container xs={12}>
           <Banner
-            title={article.feedTitle ?? ''} // TODO: Set default title?
+            title={article.feedTitle}
+            publisher={article.publisher}
             publishDate={article.publishDate}
-            publisher={article.publisher ?? 'Unknown'}
           />
         </Grid>
 

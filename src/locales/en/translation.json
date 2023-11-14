@@ -202,8 +202,11 @@
     }
   },
   "newspaper": {
-    "banner": {
-      "anonymous": "Anonymous"
+    "publisher": {
+      "defaults": {
+        "name": "Anonymous",
+        "title": "Unknown Headlines & Articles"
+      }
     },
     "headline": {
       "copy": {
