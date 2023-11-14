@@ -20,7 +20,8 @@ const CurrentDateTime = ({ className, timeClass, dateClass }: CurrentDateTimePro
   }, [])
 
   const formattedDate = useMemo(() => {
-    if (locale.code === 'ja') {
+    const language = locale?.code ?? 'ja'
+    if (language === 'ja') {
       return format(date, 'yoMMMdo (E)', { locale })
     }
 

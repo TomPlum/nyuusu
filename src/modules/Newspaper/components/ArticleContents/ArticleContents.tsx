@@ -2,6 +2,7 @@ import { ArticleContentsProps } from "modules/Newspaper/components/ArticleConten
 import { useTranslation } from "react-i18next"
 import styles from './ArticleContents.module.scss'
 import classNames from "classnames"
+import Typography from "components/Typography"
 
 export const ArticleContents = ({ contents, disclaimer, sourceUrl, className }: ArticleContentsProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.contents' })
@@ -19,17 +20,21 @@ export const ArticleContents = ({ contents, disclaimer, sourceUrl, className }: 
 
       <p className={styles.label}>{t('label')}</p>
 
-      <p className={styles.text}>
+      <Typography className={styles.text} useHorizontal>
         {contents ?? t('default')}
-      </p>
+      </Typography>
 
-      <a href={sourceUrl} target='_blank' rel='noreferrer' className={styles.link}>
-        {t('see-more')}
-      </a>
+      <Typography useHorizontal>
+        <a href={sourceUrl} target='_blank' rel='noreferrer' className={styles.link}>
+          {t('see-more')}
+        </a>
+      </Typography>
 
-      <i className={styles.disclaimer}>
-        {disclaimer}
-      </i>
+      <Typography useHorizontal>
+        <i className={styles.disclaimer}>
+          {disclaimer}
+        </i>
+      </Typography>
     </div>
   )
 }

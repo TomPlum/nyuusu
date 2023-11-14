@@ -2,6 +2,7 @@ import styles from './AnkiTitle.module.scss'
 import { useTranslation } from "react-i18next"
 import { ReactComponent as AnkiStar } from 'assets/anki.svg'
 import { AnkiTitleProps } from "modules/Newspaper/components/AnkiTitle/types.ts"
+import Typography from "components/Typography"
 
 const AnkiTitle = ({ button, disabled, onClick }: AnkiTitleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.article.anki.title' })
@@ -13,11 +14,9 @@ const AnkiTitle = ({ button, disabled, onClick }: AnkiTitleProps) => {
           <p>{t('left')}</p>
         </div>
 
-        <div className={styles.inner}>
-          <p className={styles.main}>
-            {t('main')}
-          </p>
-        </div>
+        <Typography className={styles.inner} forceVertical>
+          {t('main')}
+        </Typography>
 
         <div className={styles.right}>
           <p>{t('right')}</p>

@@ -4,8 +4,10 @@ import { ContentCopy } from "@mui/icons-material"
 import { useTranslation } from "react-i18next"
 import { useCallback } from "react"
 import { useToastContext } from "modules/Toast/useToastContext.ts"
+import classNames from "classnames"
+import Typography from "components/Typography"
 
-const Headline = ({ headline, copyText }: HeadlineProps) => {
+const Headline = ({ headline, copyText, className }: HeadlineProps) => {
   const { fireToast } = useToastContext()
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.headline' })
 
@@ -27,8 +29,10 @@ const Headline = ({ headline, copyText }: HeadlineProps) => {
   }, [copyText, fireToast, t])
 
   return (
-    <div className={styles.headline}>
-      {headline}
+    <div className={classNames(styles.headline, className)}>
+      <Typography useHorizontal>
+        {headline}
+      </Typography>
 
       <div className={styles.copy} title={t('copy.label')} onClick={copy}>
         <ContentCopy />

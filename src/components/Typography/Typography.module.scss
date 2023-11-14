@@ -1,5 +1,9 @@
 @import "styles/mixins";
 
+.typography {
+  margin: 0;
+}
+
 .vertical {
   @include vertical-text;
 }

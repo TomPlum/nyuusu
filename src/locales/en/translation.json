@@ -25,7 +25,7 @@
       "acknowledgements": "Acknowledgements"
     },
     "help": {
-      "readme": "README",
+      "readme": "GitHub README",
       "anki": "Anki Settings"
     },
     "acknowledgements": {
@@ -83,22 +83,23 @@
       "cut": "ページへのリンク",
       "articles": {
         "cards": {
-          "title": "CARD VIEW",
+          "title": "FLASH CARDS",
           "char": "速",
           "hover-title": "Go to Cards",
-          "link-text": "Click to go there.",
+          "link-text": " Click to go there.",
           "body": "Browse lots of headlines at a glance. Sort by difficulty and filter by source to find the best material for you."
         },
         "newspaper": {
           "title": "NEWSPAPER",
           "char": "速",
           "hover-title": "Go to Newspaper",
-          "link-text": "Click to go there.",
-          "body": "View a single headline in detail. Read related text from an excerpt from the article. See detailed information about the difficulty rating and export the contents into an Anki card."
+          "link-text": " Click to go there.",
+          "body": "View a headline in detail. Read related text from an article excerpt. View the difficulty rating and export the contents into an Anki card."
         },
         "anki": {
-          "body": "Automatically generate Anki cards for headlines and article contents. Click the help button on the left to view instructions on how to configure your desktop client to work with nyusu.com.",
-          "button": "Anki Help"
+          "body": "Automatically generate Anki cards. Click the help button on the left to view instructions on how to configure your desktop client.",
+          "button": "Anki Help",
+          "body-two": "Configure Anki using the settings below."
         },
         "github": {
           "title": "GitHubのプロジェクトを見る",
@@ -114,22 +115,27 @@
           "title": "Click to open settings"
         },
         "analysis": {
-          "body": "An articles reading difficulty rating is calculated based on the number of the types of characters, their grades and the length of the text.",
+          "body": "Difficulty analysis.",
+          "difficulty": {
+            "beginner": "EASY",
+            "intermediate": "MED",
+            "expert": "HARD"
+          },
           "text": {
             "start": {
-              "prefix": "【Stats】Sample headline is ",
+              "prefix": "【STATS】Sample is ",
               "suffix": " long."
             },
             "kanji": {
               "prefix": "",
-              "suffix": "％ is kanji."
+              "suffix": "％ are kanji."
             },
             "hiragana": {
-              "suffix": "％ is hiragana."
+              "suffix": "％ are hiragana."
             },
             "katakana": {
               "prefix": "",
-              "suffix": "％ is katakana."
+              "suffix": "％ are katakana."
             },
             "roman": {
               "suffix": "％ are roman characters."
@@ -156,7 +162,7 @@
         }
       },
       "footer": {
-        "edition": "第{{ number }}紙面",
+        "edition": "【EDITION #{{ number }}】",
         "copyright": "Copyright Tom Plumpton ({{ year }})"
       }
     },
@@ -196,8 +202,11 @@
     }
   },
   "newspaper": {
-    "banner": {
-      "anonymous": "Anonymous"
+    "publisher": {
+      "defaults": {
+        "name": "Anonymous",
+        "title": "Unknown Headlines & Articles"
+      }
     },
     "headline": {
       "copy": {
@@ -228,7 +237,7 @@
         "title": {
           "left": "Flash Cards",
           "main": "ANKI",
-          "right": "Improve retention with SRS",
+          "right": "SRS LEARNING",
           "button": "Add Card"
         }
       },
@@ -257,6 +266,7 @@
       "heading": "Font",
       "label" : "Kanji & Kana",
       "names": {
+        "default": "Default",
         "appli-mincho": "Appli Mincho",
         "k-gothic": "KGothic",
         "sanafon-mugi": "Sanafon Mugi"

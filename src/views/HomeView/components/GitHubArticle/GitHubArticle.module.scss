@@ -1,12 +1,69 @@
 @import "styles/colours";
 @import "styles/mixins";
+@import "styles/viewports";
+
+@include phone {
+  .github {
+    font-size: 3.5em !important;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .article {
+    min-height: 105px;
+  }
+
+  .link {
+    padding: 0;
+  }
+}
+
+@include tablet {
+  .github {
+    font-size: 4em !important;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .article {
+    min-height: 152px;
+  }
+
+  .link {
+    padding: 10px 0;
+  }
+}
+
+@include desktop {
+  .github {
+    font-size: 5em !important;
+  }
+
+  .circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .article {
+    min-height: 160px;
+  }
+
+  .link {
+    padding: 10px 0;
+  }
+}
 
 .article {
   background-color: $black-ink;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 152px;
   width: 100%;
   box-shadow: -5px 0 0 $black-ink;
 
@@ -22,11 +79,9 @@
       background-color: $black-ink;
     }
   }
-
 }
 
 .link {
-  padding: 10px 0;
   color: $black-ink;
   display: flex;
   flex-direction: column;
@@ -41,8 +96,6 @@
 
 .circle {
   position: absolute;
-  width: 110px;
-  height: 110px;
   background-color: $newspaper;
   border-radius: 50%;
   transition: all ease-in-out 0.2s;
@@ -52,7 +105,6 @@
   border: 8px dotted $black-ink;
   border-radius: 50%;
   padding: 2px;
-  font-size: 5em !important;
   z-index: 10;
   transition: all ease-in-out 0.2s;
 }

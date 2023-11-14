@@ -5,7 +5,7 @@ import Typewriter from 'typewriter-effect'
 import Headline from "modules/Newspaper/components/Headline"
 import { ArticleContents } from "modules/Newspaper/components/ArticleContents"
 import { ComponentType, useEffect, useMemo, useState } from "react"
-import { NewsArticle } from "modules/Article/components/Article/types.ts"
+import { NewsArticle } from "modules/Article/types.ts"
 import { format } from "date-fns"
 import NewspaperArticle from "views/HomeView/components/NewspaperArticle"
 import CardsArticle from "views/HomeView/components/CardsArticle"
@@ -26,6 +26,7 @@ import { Animation, Direction } from "modules/PageTransition/hooks/usePageTransl
 import NewspaperView from "views/NewspaperView"
 import TornPaperFooter from "components/TornPaperFooter"
 import CoffeeStain from "components/CoffeeStain"
+import CreasedPaper from "components/CreasedPaper"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
@@ -88,29 +89,37 @@ const HomeView = () => {
       hasNavigated={hasNavigated}
       direction={transitionDirection}
     >
+      <CreasedPaper />
+
       <Grid container className={styles.content}>
         <CoffeeStain className={styles.coffeeStain} />
 
         <Grid container xs={12}>
           {article.publisher && article.feedTitle && (
-            <div className={styles.banner}>
-              <PublisherHeading
-                name={article.publisher}
-                title={article.feedTitle}
-              />
+            <Grid container className={styles.banner}>
+              <Grid xs={12} md={6} className={styles.publisherWrapper}>
+                <PublisherHeading
+                  name={article.publisher}
+                  title={article.feedTitle}
+                  className={styles.publisherName}
+                />
+              </Grid>
 
-              <CurrentDateTime
-                timeClass={styles.time}
-                dateClass={styles.date}
-                className={styles.currentDateTime}
-              />
-            </div>
+              <Grid xs={12} md={6} className={styles.dateTimeWrapper}>
+                <CurrentDateTime
+                  timeClass={styles.time}
+                  dateClass={styles.date}
+                  className={styles.currentDateTime}
+                />
+              </Grid>
+            </Grid>
           )}
         </Grid>
 
         <Grid xs={12}>
           <Headline
             headline={headline}
+            className={styles.headline}
             copyText={titles[currentTitle]}
           />
         </Grid>
@@ -183,7 +192,9 @@ const HomeView = () => {
 
           <Grid container className={styles.right}>
             <Grid xs={12}>
-              <HeadlineArticle />
+              <HeadlineArticle
+                className={styles.headlineArticle}
+              />
             </Grid>
 
             <Grid xs={12}>

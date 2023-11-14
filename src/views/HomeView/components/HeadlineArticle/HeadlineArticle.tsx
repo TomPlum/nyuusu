@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next"
 import styles from './HeadlineArticle.module.scss'
 import Typography from "components/Typography"
+import { HeadlineArticleProps } from "views/HomeView/components/HeadlineArticle/types.ts"
+import classNames from "classnames"
 
-const HeadlineArticle = () => {
+const HeadlineArticle = ({ className }: HeadlineArticleProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.headline' })
 
   return (
-    <div className={styles.wrapper}>
-      <Typography className={styles.text}>
+    <div className={classNames(styles.wrapper, className)}>
+      <Typography className={styles.text} forceVertical>
         {t('text')}
       </Typography>
 

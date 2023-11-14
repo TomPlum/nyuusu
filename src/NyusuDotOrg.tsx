@@ -1,6 +1,6 @@
 import styles from './NyuusuApplication.module.scss'
-import Header from "modules/Header/components/HeaderBar"
-import SettingsDrawer from "modules/Settings/components/SettingsDrawer"
+import Header from "modules/Header"
+import SettingsDrawer from "modules/Settings"
 import { Outlet } from "react-router-dom"
 import useCurrentRoute from "hooks/useCurrentRoute/useCurrentRoute.ts"
 import { useMemo } from "react"
@@ -8,8 +8,7 @@ import GaussianNoise from "components/GaussianNoise"
 import classNames from "classnames"
 import ResetScroll from "components/ResetScroll"
 
-
-const NyuusuApplication = () => {
+const NyusuDotOrg = () => {
   const route = useCurrentRoute()
 
   const isHome = useMemo(() => {
@@ -22,7 +21,6 @@ const NyuusuApplication = () => {
         <Header />
       )}
 
-
       <div className={classNames(styles.content, { [styles.offset]: !isHome })}>
         <ResetScroll />
         <GaussianNoise />
@@ -33,4 +31,4 @@ const NyuusuApplication = () => {
   )
 }
 
-export default NyuusuApplication
+export default NyusuDotOrg

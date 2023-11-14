@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
 }
 
 .borderContainer {
@@ -16,6 +15,7 @@
   align-self: center;
   padding: 0 20px;
   margin-bottom: 10px;
+  min-width: 300px;
 }
 
 $effect: -1px -1px 0 $newspaper,

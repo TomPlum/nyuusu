@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import ArticleCardsView from "views/ArticleCardsView"
 import NewspaperView from "views/NewspaperView"
-import NyuusuApplication from "./NyuusuApplication.tsx"
+import NyusuDotOrg from "./NyusuDotOrg.tsx"
 import NotFoundView from "views/NotFoundView"
 import ErrorView from "views/ErrorView"
 import HomeView from "views/HomeView"
@@ -9,7 +9,7 @@ import AnkiHelpView from "views/AnkiHelpView"
 
 export const router = createBrowserRouter([
   {
-    element: <NyuusuApplication />,
+    element: <NyusuDotOrg />,
     errorElement: <ErrorView />,
     children: [
       {

@@ -1,7 +1,7 @@
 import { RatingArticleProps } from "modules/Newspaper/components/RatingArticle/types.ts"
 import styles from './RatingArticle.module.scss'
 import useLanguageStats from "modules/Article/hooks/useLanguageStats"
-import AnalysisShowcase from "modules/Analysis/components/AnalysisShowcase"
+import AnalysisShowcase from "modules/Analysis"
 import { ChartData } from "chart.js"
 import { useEffect, useMemo, useState } from "react"
 import { TableData } from "views/HomeView/components/AnalysisArticle/types.ts"

@@ -38,7 +38,7 @@ export enum NewsSource {
 }
 
 export const defaultSettings: SettingsValues = {
-  sources: [NewsSource.MAINICHI_RSS_FLASH_NEWS],
+  sources: [NewsSource.NEWSCATCHER_API],
   anki: defaultAnkiSettings,
   font: FONTS[0],
   language: 'jp'

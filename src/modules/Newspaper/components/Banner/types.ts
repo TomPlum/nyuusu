@@ -1,5 +1,5 @@
 export interface BannerProps {
-    publisher: string
+    publisher?: string
     publishDate: string
-    title: string
+    title?: string
 }

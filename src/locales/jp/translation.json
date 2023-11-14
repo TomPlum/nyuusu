@@ -25,7 +25,7 @@
       "acknowledgements": "謝辞"
     },
     "help": {
-      "readme": "README",
+      "readme": "GitHub README",
       "anki": "アンキの設定"
     },
     "acknowledgements": {
@@ -199,8 +199,11 @@
     }
   },
   "newspaper": {
-    "banner": {
-      "anonymous": "匿名出版社"
+    "publisher": {
+      "defaults": {
+        "name": "匿名出版社",
+        "title": "不明な見出しと記事"
+      }
     },
     "headline": {
       "copy": {
@@ -258,6 +261,7 @@
       "heading": "フォント",
       "label" : "漢字・かな",
       "names": {
+        "default": "デフォルト",
         "appli-mincho": "アプリ明朝",
         "k-gothic": "Kゴシック",
         "sanafon-mugi": "さなフォン麦"

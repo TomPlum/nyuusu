@@ -6,11 +6,13 @@ import { useSettingsContext } from "modules/Settings/context/useSettingsContext.
 import { useTranslation } from "react-i18next"
 
 const useSources = () => {
-  return Object.values(NewsSource)
+  return {
+    availableSources: Object.values(NewsSource)
+  }
 }
 
 export const SourcesSelector = () => {
-  const availableSources = useSources()
+  const { availableSources } = useSources()
   const { sources, setSources } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'sources' })
 
