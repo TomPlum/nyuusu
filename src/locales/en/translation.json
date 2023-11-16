@@ -159,6 +159,11 @@
           "label": "TRANSLATE",
           "left": "JP",
           "right": "EN"
+        },
+        "yomichan": {
+          "body": {
+            "one": "Yomichan is a browser plugin that allows you to translate Japanese instantly on any website."
+          }
         }
       },
       "footer": {

@@ -27,6 +27,7 @@ import NewspaperView from "views/NewspaperView"
 import TornPaperFooter from "components/TornPaperFooter"
 import CoffeeStain from "components/CoffeeStain"
 import CreasedPaper from "components/CreasedPaper"
+import YomichanArticle from "views/HomeView/components/YomichanArticle"
 
 const HomeView = () => {
   const { language } = useSettingsContext()
@@ -166,7 +167,7 @@ const HomeView = () => {
                       setHasNavigated(true)
                       setAnimation('slide')
                       setTargetPage(() => NewspaperView)
-                      setTransitionDirection('left')
+                      setTransitionDirection('top-right')
                     }}
                   />
                 </Grid>
@@ -200,6 +201,12 @@ const HomeView = () => {
             <Grid xs={12}>
               <GitHubArticle />
             </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid container>
+          <Grid>
+            <YomichanArticle />
           </Grid>
         </Grid>
 
