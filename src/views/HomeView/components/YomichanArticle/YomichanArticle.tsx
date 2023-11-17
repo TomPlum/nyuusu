@@ -7,7 +7,7 @@ const YomichanArticle = () => {
 
   return (
     <div className={styles.article}>
-      <Typography>
+      <Typography useHorizontal>
         {t('body.one')}
       </Typography>
     </div>
