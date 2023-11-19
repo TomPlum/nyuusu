@@ -1,8 +1,8 @@
-import { rest } from "msw"
 import { useGetMainichiFlashResponses } from "./useGetMainichiFlash.responses.ts"
+import { http, HttpResponse } from "msw"
 
 export const useGetMainichiFlashHandlers = [
-  rest.get('*/rss/etc/mainichi-flash.rss', (_req, res, ctx) => {
-    return res(ctx.xml(useGetMainichiFlashResponses))
+  http.get<never>('*/rss/etc/mainichi-flash.rss', () => {
+    return HttpResponse.json(useGetMainichiFlashResponses)
   })
 ]

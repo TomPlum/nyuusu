@@ -14,7 +14,7 @@ import PageTransitionContextProvider from "modules/PageTransition/context"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
-    worker.printHandlers()
+    worker.listHandlers()
     console.debug('Mock service worked started...')
   }).catch((e) => {
     console.error('Mock service worker failed to start.', e)

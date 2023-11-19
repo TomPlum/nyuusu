@@ -1,8 +1,8 @@
-import { RequestHandler, rest } from "msw"
+import { HttpHandler, http, HttpResponse } from "msw"
 import { useDeepLResponses } from "api/hooks/useDeepL/useDeepL.responses.ts"
 
-export const useDeepLHandlers: RequestHandler[] = [
-  rest.post('*/v2/translate', (_req, res, ctx) => {
-    return res(ctx.json(useDeepLResponses))
+export const useDeepLHandlers: HttpHandler[] = [
+  http.post('*/v2/translate', () => {
+    return HttpResponse.json(useDeepLResponses)
   })
 ]

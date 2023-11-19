@@ -62,7 +62,7 @@
     "jsdom": "^22.1.0",
     "msw": "^2.0.0",
     "sass": "^1.67.0",
-    "typescript": "^5.0.2",
+    "typescript": "^5.2.2",
     "vite": "^4.4.5",
     "vite-plugin-node-polyfills": "^0.16.0",
     "vitest": "^0.34.4"
