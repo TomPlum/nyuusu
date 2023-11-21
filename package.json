@@ -14,7 +14,7 @@
     "coverage": "vitest run --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "run:backend": "node --loader ts-node/esm backend/server.ts"
+    "start:backend": "node --loader ts-node/esm backend/server.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

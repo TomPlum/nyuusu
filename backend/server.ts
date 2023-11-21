@@ -4,11 +4,7 @@ import https from 'https'
 const app: Express = express()
 const PORT = 4000
 
-app.listen(PORT, () => {
-  console.log(`Nyusu API listening on PORT ${PORT}`)
-})
-
-const callNewscatcherAPI = () => {
+const callNewsCatcherAPI = () => {
   const options = {
     hostname: 'api.newscatcherapi.com',
     path: '/v2/latest_headlines?countries=JP&lang=ja',
@@ -40,19 +36,21 @@ const callNewscatcherAPI = () => {
   })
 }
 
-app.get('/news', async () => {
+app.get('/news', async (_req, res) => {
   try {
-    const result = await callNewscatcherAPI()
+    const result = await callNewsCatcherAPI()
 
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(result),
-    }
+    res.status(200)
+    res.set('Content-Type', 'application/json')
+    res.send(JSON.stringify(result))
   } catch (error) {
-    return {
-      statusCode: 400,
-      body: error,
-    }
+    res.status(400)
+    res.send(error)
   }
 })
+
+app.listen(PORT, () => {
+  console.log(`Nyusu API listening on PORT ${PORT}`)
+})
+
+export default app

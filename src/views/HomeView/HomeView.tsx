@@ -167,7 +167,7 @@ const HomeView = () => {
                       setHasNavigated(true)
                       setAnimation('slide')
                       setTargetPage(() => NewspaperView)
-                      setTransitionDirection('top-right')
+                      setTransitionDirection('left')
                     }}
                   />
                 </Grid>
