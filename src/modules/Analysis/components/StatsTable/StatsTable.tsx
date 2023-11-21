@@ -14,7 +14,9 @@ const StatsTable = ({ data }: StatsTableProps) => {
         <span>{t('text.start.prefix')}</span>
         <AnimatedNumber
           animateToNumber={data?.length ?? 0}
-          configs={[{ mass: 1, tension: 220, friction: 47 }]}
+          transitions={() => {
+            return { type: 'spring', mass: 1, stiffness: 220, damping: 47 }
+          }}
         />
         <span>{t('text.start.suffix')}</span>
       </div>
@@ -24,7 +26,6 @@ const StatsTable = ({ data }: StatsTableProps) => {
         <div className={styles.text}>
           <span>{t('text.kanji.prefix')}</span>
           <AnimatedNumber
-            configs={[{}]}
             animateToNumber={data?.kanji ?? 0}
           />
           <span>{t('text.kanji.suffix')}</span>
@@ -36,7 +37,9 @@ const StatsTable = ({ data }: StatsTableProps) => {
         <div className={styles.text}>
           <AnimatedNumber
             animateToNumber={data?.hiragana ?? 0}
-            configs={[{ mass: 1, tension: 220, friction: 35 }]}
+            transitions={() => {
+              return { type: 'spring', mass: 1, stiffness: 220, damping: 35 }
+            }}
           />
           <span>{t('text.hiragana.suffix')}</span>
         </div>
@@ -48,7 +51,9 @@ const StatsTable = ({ data }: StatsTableProps) => {
           <span>{t('text.katakana.prefix')}</span>
           <AnimatedNumber
             animateToNumber={data?.katakana ?? 0}
-            configs={[{ mass: 1, tension: 220, friction: 25 }]}
+            transitions={() => {
+              return { type: 'spring', mass: 1, stiffness: 220, damping: 25 }
+            }}
           />
           <span>{t('text.katakana.suffix')}</span>
         </div>
@@ -59,7 +64,9 @@ const StatsTable = ({ data }: StatsTableProps) => {
         <div className={styles.text}>
           <AnimatedNumber
             animateToNumber={data?.roman ?? 0}
-            configs={[{ mass: 1, tension: 220, friction: 45 }]}
+            transitions={() => {
+              return { type: 'spring', mass: 1, stiffness: 220, damping: 45 }}
+            }
           />
           <span>{t('text.roman.suffix')}</span>
         </div>
