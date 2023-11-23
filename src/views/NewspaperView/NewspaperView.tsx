@@ -4,7 +4,6 @@ import Newspaper from "modules/Newspaper"
 import { useSearchParams } from "react-router-dom"
 import useNewsFeed from "modules/Article/hooks/useNewsFeed"
 import { useTranslation } from "react-i18next"
-import TornPaperFooter from "components/TornPaperFooter"
 
 const NewspaperView = () => {
   const { articles, loading } = useNewsFeed()
@@ -81,8 +80,6 @@ const NewspaperView = () => {
           article={articles[selectedArticledId]}
         />
       )}
-
-      <TornPaperFooter />
     </div>
   )
 }

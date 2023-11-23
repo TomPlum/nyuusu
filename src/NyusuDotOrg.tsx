@@ -7,6 +7,7 @@ import { useMemo } from "react"
 import GaussianNoise from "components/GaussianNoise"
 import classNames from "classnames"
 import ResetScroll from "components/ResetScroll"
+import TornPaperFooter from "components/TornPaperFooter"
 
 const NyusuDotOrg = () => {
   const route = useCurrentRoute()
@@ -26,6 +27,7 @@ const NyusuDotOrg = () => {
         <GaussianNoise />
         <Outlet />
         <SettingsDrawer />
+        {!isHome && <TornPaperFooter />}
       </div>
     </div>
   )
