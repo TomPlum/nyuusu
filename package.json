@@ -13,8 +13,7 @@
     "cypress:open": "cypress open",
     "coverage": "vitest run --coverage",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start:backend": "node --loader ts-node/esm backend/server.ts"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
