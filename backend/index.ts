@@ -13,6 +13,7 @@ app.get('/news', async (_req, res) => {
 
     res.status(200)
     res.set('Content-Type', 'application/json')
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
     res.send(JSON.stringify(result))
   } catch (error) {
     res.status(400)

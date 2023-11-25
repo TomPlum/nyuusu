@@ -19,6 +19,7 @@ const callDeeplApi = (request: DeeplTranslationRequest): Promise<DeeplTranslatio
     body: JSON.stringify(request),
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 's-maxage=3600, stale-while-revalidate',
       Authorization: `DeepL-Auth-Key ${process.env.DEEPL_API_KEY}`
     }
   }).then((response) => {
