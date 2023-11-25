@@ -2,5 +2,17 @@
   "version": 2,
   "regions": ["lhr1"],
   "buildCommand": null,
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "backend/index.ts",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/backend/index.ts"
+    }
+  ]
 }
