@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "regions": ["lhr1"]
+  "regions": ["lhr1"],
+  "buildCommand": null,
+  "installCommand": "npm install"
 }
