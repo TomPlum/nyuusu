@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm backend/index.ts"
+    "start": "node --loader ts-node/esm ./index.ts"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
