@@ -7,6 +7,7 @@ export interface ApiHosts {
   newsCatcherApi: string
   anki: string
   deepl: string
+  vercel: string
 }
 
 export const hosts: Record<string, ApiHosts> = {
@@ -18,7 +19,8 @@ export const hosts: Record<string, ApiHosts> = {
     japanTimesRss: '',
     asahi: '',
     anki: 'http://localhost:8765',
-    deepl: 'https://local-deepl-api'
+    deepl: 'https://local-deepl-api',
+    vercel: 'https://nyuusu-git-dev-tomplums-projects.vercel.app'
   },
   production: {
     newsApi: 'https://newsapi.org',
@@ -28,6 +30,7 @@ export const hosts: Record<string, ApiHosts> = {
     asahi: 'https://rss.asahi.com/rss/asahi',
     newsCatcherApi: import.meta.env.NEWSCATCHER_API_HOST,
     anki: '127.0.0.1:8765',
-    deepl: 'https://api-free.deepl.com'
+    deepl: 'https://api-free.deepl.com',
+    vercel: 'https://nyuusu.vercel.app'
   }
 }
