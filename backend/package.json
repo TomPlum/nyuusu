@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node --loader ts-node/esm ./index.ts",
-    "serve": "node dist/index.js"
+    "serve": "tsc | node dist/index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
