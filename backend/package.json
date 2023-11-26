@@ -1,0 +1,25 @@
+{
+  "name": "nyuusu-backend",
+  "description": "A simple backend for the nyusu website. Proxies API requests to be able to hide secrets and avoid CORS issues.",
+  "main": "index.ts",
+  "type": "commonjs",
+  "engines": {
+    "node": "20.x"
+  },
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --loader ts-node/esm ./index.ts",
+    "serve": "node dist/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.0.2"
+  }
+}

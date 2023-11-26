@@ -1,4 +1,21 @@
 import https, { RequestOptions } from "https"
+import express from 'express'
+
+const router = express.Router()
+
+router.get('/', async (_req, res) => {
+  try {
+    const result = await callNewsCatcherAPI()
+
+    res.status(200)
+    res.set('Content-Type', 'application/json')
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
+    res.send(JSON.stringify(result))
+  } catch (error) {
+    res.status(400)
+    res.send(error)
+  }
+})
 
 const options: RequestOptions = {
   hostname: 'api.newscatcherapi.com',
@@ -27,11 +44,10 @@ const callNewsCatcherAPI = () => {
     })
 
     req.on('error', err => {
-      reject(new Error(String(err)))
+      console.error(err)
+      reject(new Error('Something went wrong'))
     })
   })
 }
 
-export {
-  callNewsCatcherAPI
-}
+export default router

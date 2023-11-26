@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "regions": ["lhr1"],
+  "buildCommand": null,
+  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "./index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
