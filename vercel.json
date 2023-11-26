@@ -5,14 +5,14 @@
   "installCommand": "npm install",
   "builds": [
     {
-      "src": "backend/index.ts",
-      "use": "@now/node"
+      "src": "./backend/index.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/backend/index.ts"
+      "dest": "/"
     }
   ]
 }
