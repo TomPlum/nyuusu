@@ -3,7 +3,7 @@
   "homepage": "https://nyusu.org",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node --loader ts-node/esm ./index.ts"
   },
