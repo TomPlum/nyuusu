@@ -7,10 +7,7 @@ interface GetRssFeedProps {
 
 const getRssFeed = async ({ url, res }: GetRssFeedProps) => {
   try {
-    const response = await fetch(url, {
-      method: 'GET'
-    })
-
+    const response = await fetch(url, { method: 'GET' })
     res.status(200)
     res.set('Content-Type', 'application/xml')
     res.send(JSON.stringify(await response.text()))

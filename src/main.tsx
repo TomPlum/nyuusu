@@ -34,5 +34,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </SettingsContextProvider>
       </NewsContextProvider>
     </QueryClientProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
