@@ -1,6 +1,7 @@
 {
   "name": "nyuusu",
   "homepage": "https://nyusu.org",
+  "description": "Practice reading Japanese with the latest news articles and headlines from Japan. ",
   "private": true,
   "version": "1.0.0",
   "type": "module",
