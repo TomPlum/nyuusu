@@ -44,7 +44,8 @@ const callNewsCatcherAPI = () => {
     })
 
     req.on('error', err => {
-      reject(new Error(String(err)))
+      console.error(err)
+      reject(new Error('Something went wrong'))
     })
   })
 }

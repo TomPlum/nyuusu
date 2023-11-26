@@ -45,7 +45,7 @@ const callDeeplApi = async (request: DeeplTranslationRequest): Promise<DeeplTran
     return await response.json() as Promise<DeeplTranslationResponse>
   } catch (e) {
     console.error(e)
-    throw Error(String(e))
+    throw Error(String('Something went wrong'))
   }
 }
 
