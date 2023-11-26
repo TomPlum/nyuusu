@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "cypress:open": "cypress open",
+    "cypress:open": "cypress open --e2e --browser chrome",
     "coverage": "vitest run --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

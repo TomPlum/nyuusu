@@ -1,4 +1,5 @@
 export interface ArticleProps {
+    id: string
     loading: boolean
     className?: string
     article: NewsArticle

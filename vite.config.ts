@@ -3,9 +3,8 @@ import react from '@vitejs/plugin-react'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import svgr from '@svgr/rollup'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  // @ts-expect-error unsure what it wants
   plugins: [react(), nodePolyfills(), svgr()],
   base: './',
   resolve: {
