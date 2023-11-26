@@ -1,7 +1,7 @@
 import express, { Express } from 'express'
 import bodyParser from "body-parser"
-import news from './api/news.ts'
-import translate from './api/translate.ts'
+import news from './api/news'
+import translate from './api/translate'
 
 const app: Express = express()
 app.use(bodyParser.json())
