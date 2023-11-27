@@ -1,17 +1,18 @@
 import styles from './AnalysisControls.module.scss'
 import { ToggleButton, ToggleButtonGroup } from "@mui/material"
 import { useState } from "react"
-import { AnalysisMode } from "modules/Analysis/components/AnalysisControls/types.ts"
+import { AnalysisControlsProps, AnalysisMode } from "modules/Analysis/components/AnalysisControls/types.ts"
 import { MouseEvent } from "react"
 import { useTranslation } from "react-i18next"
 import Typography from "components/Typography"
 
-const AnalysisControls = () => {
+const AnalysisControls = ({ onChangeMode }: AnalysisControlsProps) => {
   const [mode, setMode] = useState<AnalysisMode>('headline-and-article')
   const { t } = useTranslation('translation', { keyPrefix: 'views.home.articles.analysis.controls' })
 
   const handleChangeMode = (_e: MouseEvent<HTMLElement>, value: AnalysisMode) => {
     setMode(value)
+    onChangeMode(value)
   }
 
   return (

@@ -8,11 +8,31 @@ import { TableData } from "views/HomeView/components/AnalysisArticle/types.ts"
 import useGradeLabels from "modules/Analysis/hooks/useGradeLabels"
 import useChartColours from "modules/Analysis/hooks/useChartColours"
 
-const RatingArticle = ({ text }: RatingArticleProps) => {
+const RatingArticle = ({ headline, articleBody, analysisMode }: RatingArticleProps) => {
   const { labels } = useGradeLabels()
   const [animationDuration, setAnimationDuration] = useState(0)
   const { getDarkColours, getDarkHoverColours, getLightColours } = useChartColours()
-  const { difficulty, hiragana, kanji, katakana, roman, other, grades } = useLanguageStats({ input: text })
+
+  const textToAnalyse: string = useMemo(() => {
+    switch (analysisMode) {
+      case 'headline-and-article': {
+        return headline + (articleBody ?? '')
+      }
+      case 'article-only': {
+        return articleBody ?? ''
+      }
+      case 'headline-only': {
+        return headline
+      }
+      default: {
+        return headline
+      }
+    }
+  }, [analysisMode, articleBody, headline])
+
+  const { difficulty, hiragana, kanji, katakana, roman, other, grades } = useLanguageStats({
+    input: textToAnalyse
+  })
 
   useEffect(() => {
     setAnimationDuration(2500)
@@ -34,12 +54,12 @@ const RatingArticle = ({ text }: RatingArticleProps) => {
   }, [getDarkColours, getDarkHoverColours, hiragana, kanji, katakana, other, roman])
 
   const tableData: TableData = useMemo(() => ({
-    length: text.length,
+    length: textToAnalyse.length,
     katakana,
     roman,
     hiragana,
     kanji
-  }), [hiragana, kanji, katakana, roman, text.length])
+  }), [hiragana, kanji, katakana, roman, textToAnalyse.length])
 
   const barData: ChartData<'bar'> = useMemo(() => {
     return {

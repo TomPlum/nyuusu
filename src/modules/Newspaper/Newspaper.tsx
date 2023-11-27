@@ -13,10 +13,12 @@ import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import CardsArticle from "views/HomeView/components/CardsArticle"
 import Footer from "modules/Newspaper/components/Footer"
 import AnalysisControls from "modules/Analysis/components/AnalysisControls"
+import { AnalysisMode } from "modules/Analysis/components/AnalysisControls/types.ts"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   const [translatedHeadline, setTranslatedHeadline] = useState<string>()
   const [translatedArticleBody, setTranslatedArticleBody] = useState<string>()
+  const [analysisMode, setAnalysisMode] = useState<AnalysisMode>('headline-and-article')
 
   const handleTranslate = useCallback((language: Language, translatedText: string[]) => {
     if (language === 'en') {
@@ -68,8 +70,12 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
         <Grid container columnSpacing={2} rowSpacing={2}>
           <Grid xs={12}>
             <div className={styles.analysisWrapper}>
-              <AnalysisControls />
-              <RatingArticle text={article.title} />
+              <AnalysisControls onChangeMode={setAnalysisMode} />
+              <RatingArticle
+                headline={article.title} 
+                articleBody={article.body}
+                analysisMode={analysisMode}
+              />
             </div>
           </Grid>
 
