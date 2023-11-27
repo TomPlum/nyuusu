@@ -3,30 +3,30 @@ import styles from './Headline.module.scss'
 import { ContentCopy } from "@mui/icons-material"
 import { useTranslation } from "react-i18next"
 import { useCallback } from "react"
-import { useToastContext } from "modules/Toast/useToastContext.ts"
 import classNames from "classnames"
 import Typography from "components/Typography"
+import { useSnackbar } from "notistack"
 
 const Headline = ({ headline, copyText, className }: HeadlineProps) => {
-  const { fireToast } = useToastContext()
+  const { enqueueSnackbar } = useSnackbar()
   const { t } = useTranslation('translation', { keyPrefix: 'newspaper.headline' })
 
   const copy = useCallback(() => {
     if (copyText) {
       navigator.clipboard.writeText(copyText).then(() => {
-        fireToast({
-          type: 'success',
-          timeout: 2000,
-          message: t('copy.success')
+        enqueueSnackbar(t('copy.success'), {
+          key: 'headline.copy.success',
+          variant: 'success',
+          autoHideDuration: 3000
         })
       }).catch(() => {
-        fireToast({
-          type: 'error',
-          message: t('copy.error')
+        enqueueSnackbar(t('copy.error'), {
+          key: 'headline.copy.error',
+          variant: 'error'
         })
       })
     }
-  }, [copyText, fireToast, t])
+  }, [copyText, enqueueSnackbar, t])
 
   return (
     <div className={classNames(styles.headline, className)}>

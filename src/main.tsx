@@ -9,8 +9,8 @@ import NewsContextProvider from "context/NewsContextProvider.tsx"
 import SettingsContextProvider from "modules/Settings/context"
 import { RouterProvider } from "react-router-dom"
 import { router } from "./router.tsx"
-import ToastProvider from "modules/Toast/ToastProvider.tsx"
 import PageTransitionContextProvider from "modules/PageTransition/context"
+import { SnackbarProvider } from "notistack"
 
 if (process.env.NODE_ENV === 'development') {
   worker.start().then(() => {
@@ -27,9 +27,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <NewsContextProvider>
         <SettingsContextProvider>
           <PageTransitionContextProvider>
-            <ToastProvider>
+            <SnackbarProvider anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}>
               <RouterProvider router={router} />
-            </ToastProvider>
+            </SnackbarProvider>
           </PageTransitionContextProvider>
         </SettingsContextProvider>
       </NewsContextProvider>
