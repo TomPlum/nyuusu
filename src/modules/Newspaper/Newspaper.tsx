@@ -11,8 +11,8 @@ import TranslateArticle from "views/HomeView/components/TranslateArticle"
 import { useCallback, useState } from "react"
 import { Language } from "modules/Settings/components/LanguageSelector/types.ts"
 import CardsArticle from "views/HomeView/components/CardsArticle"
-import HeadlineArticle from "views/HomeView/components/HeadlineArticle"
 import Footer from "modules/Newspaper/components/Footer"
+import AnalysisControls from "modules/Analysis/components/AnalysisControls"
 
 const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious }: NewspaperProps) => {
   const [translatedHeadline, setTranslatedHeadline] = useState<string>()
@@ -65,32 +65,27 @@ const Newspaper = ({ article, articleCount, currentArticleId, onNext, onPrevious
           </div>
         </Grid>
 
-        <Grid container className={styles.grid} columnSpacing={0}>
-          <Grid container className={styles.left}>
-            <HeadlineArticle />
+        <Grid container columnSpacing={2} rowSpacing={2}>
+          <Grid xs={12}>
+            <div className={styles.analysisWrapper}>
+              <AnalysisControls />
+              <RatingArticle text={article.title} />
+            </div>
           </Grid>
 
-          <Grid container className={styles.right} columnSpacing={3}>
-            <Grid container className={styles.rightMiddle}>
-              <Grid xs={12}>
-                <RatingArticle text={article.title} />
-              </Grid>
+          <Grid xs={12}>
+            <CardsArticle />
+          </Grid>
 
-              <Grid xs={12}>
-                <CardsArticle />
-              </Grid>
+          <Grid xs={12} lg={6}>
+            <TranslateArticle
+              onTranslate={handleTranslate}
+              translationText={[article.title, article.body]}
+            />
+          </Grid>
 
-              <Grid xs={12} lg={6}>
-                <TranslateArticle
-                  onTranslate={handleTranslate}
-                  translationText={[article.title, article.body]}
-                />
-              </Grid>
-
-              <Grid xs={12} lg={4}>
-                <AnkiArticle article={article} />
-              </Grid>
-            </Grid>
+          <Grid xs={12} lg={4}>
+            <AnkiArticle article={article} />
           </Grid>
         </Grid>
 
