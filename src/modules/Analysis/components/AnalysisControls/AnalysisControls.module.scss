@@ -1,0 +1,21 @@
+@import "styles/colours";
+
+.wrapper {
+  max-width: 120px;
+  width: 100%;
+  border: 5px solid $black-ink;
+  display: flex;
+}
+
+.button {
+  padding: 0 !important;
+  border-radius: 0 !important;
+  width: 100%;
+  font-size: 1rem !important;
+}
+
+.group {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100%;
+}

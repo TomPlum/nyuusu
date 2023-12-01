@@ -1,3 +1,7 @@
+import { AnalysisMode } from "modules/Analysis/components/AnalysisControls/types.ts"
+
 export interface RatingArticleProps {
-    text: string
+    headline: string
+    articleBody?: string
+    analysisMode?: AnalysisMode
 }

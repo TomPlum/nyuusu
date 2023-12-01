@@ -12,7 +12,7 @@ import { router } from "./router.tsx"
 import PageTransitionContextProvider from "modules/PageTransition/context"
 import { SnackbarProvider } from "notistack"
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' && import.meta.env.VITE_MSW === 'true') {
   worker.start().then(() => {
     worker.printHandlers()
     console.debug('Mock service worked started...')
@@ -34,5 +34,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </SettingsContextProvider>
       </NewsContextProvider>
     </QueryClientProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

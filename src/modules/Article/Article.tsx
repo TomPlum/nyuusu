@@ -14,6 +14,7 @@ import TagsButton from "modules/Article/components/TagsButton"
 import { DifficultyRating } from "modules/Article/hooks/useLanguageStats/types.ts"
 
 const Article = React.forwardRef(({
+  id,
   article,
   loading,
   className,
@@ -36,7 +37,14 @@ const Article = React.forwardRef(({
   }, [difficulty])
 
   return (
-    <Card className={classNames(styles.article, className)} onClick={handleClick} title={t('title')} ref={ref} {...rest}>
+    <Card
+      ref={ref}
+      {...rest}
+      title={t('title')}
+      onClick={handleClick}
+      data-testid={`article-card-${id}`}
+      className={classNames(styles.article, className)}
+    >
       {loading && (
         <Skeleton variant='rectangular' />
       )}

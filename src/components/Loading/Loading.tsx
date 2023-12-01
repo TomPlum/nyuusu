@@ -8,7 +8,7 @@ const Loading = () => {
   const { t } = useTranslation()
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid='cards-loading'>
       <div className={styles.floating}>
         <p className={styles.text}>{t('loading')}</p>
         <LinearProgress color='info' variant='indeterminate' className={styles.loading} />

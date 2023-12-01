@@ -8,6 +8,8 @@ Practice reading real Japanese from news articles published in Japan.
 
 ## Local Development
 
+### Frontend
+
 1. Clone the repository
 ```sh
 git clone git@github.com:TomPlum/nyuusu.git
@@ -18,9 +20,26 @@ git clone git@github.com:TomPlum/nyuusu.git
 npm install
 ```
 
-3. Run the local development server
+3. Run the local front-end development server. This is configured to work with a mock service worker that returns stubbed responses from APIs. See the section below to run the backend.
 ```sh
 npm run dev
+```
+
+### Backend
+
+1. Install Dependencies
+```sh
+cd backend | npm install
+```
+
+2. Compile
+```sh
+npm run build
+```
+
+3. Serve
+```sh
+npm run serve
 ```
 
 ## Data Sources
