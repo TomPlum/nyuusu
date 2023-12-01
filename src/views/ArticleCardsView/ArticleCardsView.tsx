@@ -28,6 +28,7 @@ const ArticleCardsView = () => {
             <Grid key={i}>
               <Grow in timeout={i * 200} key={i}>
                 <Article
+                  id={String(i)}
                   article={article}
                   loading={loading}
                   key={article.title}

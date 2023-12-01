@@ -1,5 +1,5 @@
 name: Development
-run-name: test
+run-name: Compilation & Quality Checks
 on:
   push:
     branches:
@@ -10,13 +10,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build
+      - name: Install & Build
         run: |
           npm install
           npm run-script build
-        env:
-          VITE_NEWS_API_KEY: ${{ secrets.VITE_NEWS_API_KEY }}
-      - name: Test
+      - name: Unit Test
         run: |
           npm install
           npm run-script test
