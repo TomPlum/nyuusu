@@ -10,8 +10,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install & Build
+      - name: Install & Compile UI
         run: |
+          npm install
+          npm run-script build
+      - name: Install & Compile Backend
+        run: |
+          cd backend
           npm install
           npm run-script build
       - name: Unit Test
