@@ -31,3 +31,16 @@
     margin-bottom: 25px;
   }
 }
+
+.error {
+  .heading {
+    color: $error;
+    margin-bottom: 0;
+  }
+
+  .errorText {
+    color: $error;
+    font-size: 0.8em;
+    margin: 3px 0 5px 0;
+  }
+}

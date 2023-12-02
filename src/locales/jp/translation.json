@@ -278,7 +278,10 @@
       }
     },
     "language": "言語",
-    "sources": "情報源",
+    "sources": {
+      "heading": "情報源",
+      "error": "少なくとも1つのソースを選択する必要がある"
+    },
     "anki": {
       "heading": "アンキ",
       "desc": "ヘルプはこちら",

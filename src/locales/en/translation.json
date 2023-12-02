@@ -278,7 +278,10 @@
       }
     },
     "language": "Language",
-    "sources": "Sources",
+    "sources": {
+      "heading": "Sources",
+      "error": "You must select at least one source"
+    },
     "anki": {
       "heading": "Anki",
       "desc": "Click here for help",

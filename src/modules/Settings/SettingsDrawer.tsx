@@ -18,7 +18,7 @@ import GaussianNoise from "components/GaussianNoise"
 const SettingsDrawer = () => {
   const route = useCurrentRoute()
   const { height } = useWindowSize()
-  const { open, setOpen, setAnkiSettings } = useSettingsContext()
+  const { open, setOpen, setAnkiSettings, sources } = useSettingsContext()
   const { t } = useTranslation('translation', { keyPrefix: 'settings' })
 
   const getRandomInt = (min: number, max: number) => {
@@ -77,11 +77,18 @@ const SettingsDrawer = () => {
           <LanguageSelector />
         </SettingsSection>
 
-        <SettingsSection title={t('sources')}>
+        <SettingsSection
+          title={t('sources.heading')}
+          error={sources.length === 0 ? t('sources.error') : undefined}
+        >
           <SourcesSelector />
         </SettingsSection>
 
-        <SettingsSection title={t('anki.heading')} onReset={resetAnkiSettings} description={<a href='/anki'>{t('anki.desc')}</a>}>
+        <SettingsSection
+          title={t('anki.heading')}
+          onReset={resetAnkiSettings}
+          description={<a href='/anki'>{t('anki.desc')}</a>}
+        >
           <AnkiDeckSelector />
           <AnkiTagsSelector />
           <AnkiInterfaceToggle />
