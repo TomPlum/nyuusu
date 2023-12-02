@@ -3,6 +3,6 @@ import { http, HttpResponse } from "msw"
 
 export const useGetMainichiFlashHandlers = [
   http.get<never>('*/rss/etc/mainichi-flash.rss', () => {
-    return HttpResponse.json(useGetMainichiFlashResponses)
+    return HttpResponse.xml(useGetMainichiFlashResponses)
   })
 ]

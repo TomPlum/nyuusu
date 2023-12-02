@@ -3,6 +3,6 @@ import { useGetAsahiHeadlinesResponses } from "api/hooks/useGetAsahiHeadlines/us
 
 export const useGetAsahiHeadlinesHandlers = [
   http.get('*/rss/asahi/newsheadlines.rdf', () => {
-    return HttpResponse.json(useGetAsahiHeadlinesResponses)
+    return HttpResponse.xml(useGetAsahiHeadlinesResponses)
   })
 ]
