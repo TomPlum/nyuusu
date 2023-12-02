@@ -204,6 +204,12 @@
         "anki-not-installed": "Anki may not be installed on your system. Ensure you have followed the prerequisite steps above.",
         "anki-not-running": "Anki may not be running. Check that Anki is open and AnkiConnect is serving on the default port."
       }
+    },
+    "no-sources": {
+      "heading": "No data sources selected",
+      "help-text": "Still not working? Try clearing your browser cache and reloading the page.",
+      "body": "Open the settings menu below and choose a data source, or reset to default settings.",
+      "settings": "Settings"
     }
   },
   "newspaper": {
