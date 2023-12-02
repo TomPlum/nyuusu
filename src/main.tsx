@@ -14,7 +14,7 @@ import { SnackbarProvider } from "notistack"
 
 if (process.env.NODE_ENV === 'development' && import.meta.env.VITE_MSW === 'true') {
   worker.start().then(() => {
-    worker.printHandlers()
+    worker.listHandlers()
     console.debug('Mock service worked started...')
   }).catch((e) => {
     console.error('Mock service worker failed to start.', e)
