@@ -150,6 +150,11 @@
               "katakana": "片仮名",
               "other": "その他"
             }
+          },
+          "controls": {
+            "headline-and-article": "すべてを分析する",
+            "headline-only": "見出しのみ",
+            "article-only": "記事のみ"
           }
         },
         "translate": {

@@ -2,7 +2,7 @@ import { HttpHandler, http, HttpResponse } from "msw"
 import { useDeepLResponses } from "api/hooks/useDeepL/useDeepL.responses.ts"
 
 export const useDeepLHandlers: HttpHandler[] = [
-  http.post('*/v2/translate', () => {
+  http.post('*/translate', () => {
     return HttpResponse.json(useDeepLResponses)
   })
 ]
