@@ -24,6 +24,7 @@ jobs:
           npm install
           npm run-script build
   unit-test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
