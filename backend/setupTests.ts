@@ -1,13 +1,15 @@
-import { server } from './mocks/node'
+import { server as mockServer } from './mocks/node'
+import { server } from './index'
 
 beforeAll(() => {
-    server.listen()
+    mockServer.listen()
 })
 
 afterEach(() => {
-    server.resetHandlers()
+    mockServer.resetHandlers()
 })
 
 afterAll(() => {
+    mockServer.close()
     server.close()
 })

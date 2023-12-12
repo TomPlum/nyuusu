@@ -10,6 +10,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node --loader ts-node/esm ./index.ts",
+    "test": "PORT=8082 jest",
+    "test:ci": "PORT=8082 jest --ci",
     "serve": "tsc | node dist/index.js"
   },
   "dependencies": {

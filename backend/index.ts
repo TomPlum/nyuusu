@@ -12,7 +12,7 @@ app.use('/translate', translate)
 app.use('/rss', rss)
 
 const PORT = process.env.PORT ?? 8080
-app.listen(PORT, () => {
+export const server = app.listen(PORT, () => {
   console.log(`Nyusu API listening on PORT ${PORT}`)
 })
 

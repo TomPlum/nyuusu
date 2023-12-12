@@ -23,7 +23,7 @@ jobs:
           cd backend
           npm install
           npm run-script build
-  unit-test:
+  frontend-unit-test:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -33,3 +33,14 @@ jobs:
         run: |
           npm install
           npm run-script test
+  backend-unit-test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: ExpressJS Unit Tests
+        run: |
+          cd backend
+          npm install
+          npm run-script test:ci
