@@ -9,6 +9,6 @@
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./**/*.ts"],
+  "include": ["src/backend/**/*.ts"],
   "exclude": ["node_modules"]
 }
