@@ -36,7 +36,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-circle-flags": "^0.0.20",
     "react-dom": "^18.2.0",
-    "react-i18next": "^13.2.2",
+    "react-i18next": "^14.0.0",
     "react-router-dom": "^6.16.0",
     "recharts": "^2.8.0",
     "rss-parser": "^3.13.0",
@@ -65,8 +65,8 @@
     "sass": "^1.67.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vite-plugin-node-polyfills": "^0.17.0",
-    "vitest": "^0.34.4"
+    "vite-plugin-node-polyfills": "^0.18.0",
+    "vitest": "^1.0.0"
   },
   "msw": {
     "workerDirectory": "public"
