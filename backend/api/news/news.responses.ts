@@ -1,4 +1,4 @@
-import { NewsCatcherHeadlinesResponse } from "../../../src/api/hooks/useGetLatestHeadlines/types.ts"
+import { NewsCatcherHeadlinesResponse } from "../../../src/api/hooks/useGetLatestHeadlines/types"
 
 export const newsCatcherResponse: NewsCatcherHeadlinesResponse = {
   status: "ok",
