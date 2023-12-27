@@ -21,7 +21,7 @@ jobs:
       - name: Install & Compile Backend
         run: |
           cd backend
-          npm install
+          npm ci
           npm run-script build
   frontend-unit-test:
     needs: build
@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
       - name: UI ViTest
         run: |
-          npm install
+          npm ci
           npm run-script test
   backend-unit-test:
     needs: build
@@ -39,12 +39,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node
+      - name: ExpressJS Unit Tests
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: ExpressJS Unit Tests
         run: |
           cd backend
-          npm install
           npm run-script test:ci
