@@ -9,7 +9,7 @@ afterEach(() => {
     mockServer.resetHandlers()
 })
 
-afterAll(() => {
+afterAll((done) => {
     mockServer.close()
-    server.close()
+    server.close(done)
 })
