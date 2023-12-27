@@ -11,7 +11,7 @@
     "build": "tsc",
     "start": "node --loader ts-node/esm ./index.ts",
     "test": "PORT=0 jest --forceExit",
-    "test:ci": "PORT=0 jest --ci",
+    "test:ci": "PORT=0 jest --ci --forceExit",
     "serve": "tsc | node dist/index.js"
   },
   "dependencies": {
