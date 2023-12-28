@@ -39,6 +39,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Install Deps
+        run: npm ci
       - name: Cypress E2E
         uses: cypress-io/github-action@v6
         with:
