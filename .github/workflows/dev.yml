@@ -35,6 +35,16 @@ jobs:
         run: |
           npm ci
           npm run-script test
+  cypress-e2e:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cypress E2E
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+          browser: chrome
   backend-unit-test:
     needs: build
     runs-on: ubuntu-latest

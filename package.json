@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "cypress:open": "cypress open --e2e --browser chrome",
+    "cypress:ci": "cypress open --e2e --browser chrome",
     "coverage": "vitest run --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
