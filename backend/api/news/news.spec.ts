@@ -8,6 +8,7 @@ describe('News API', () => {
         const response = await request(api).get('/news')
 
         console.log('response', response)
+        console.log('test api key', process.env.NEWSCATCHER_API_KEY)
         server.listHandlers()
         expect(response.status).toBe(200)
 
