@@ -41,13 +41,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install Deps
-        run: npm install
       - name: Cypress E2E
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
-          start: npm dev
+          start: npm run dev
           browser: chrome
   backend-unit-test:
     needs: build
