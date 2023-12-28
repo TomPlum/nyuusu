@@ -38,6 +38,8 @@ jobs:
   backend-unit-test:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      NEWSCATCHER_API_KEY: ${{ vars.NEWSCATCHER_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
