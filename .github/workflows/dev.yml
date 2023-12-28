@@ -40,12 +40,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Deps
-        run: npm ci
+        run: npm install
       - name: Cypress E2E
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
-          start: npm start
+          start: npm dev
           browser: chrome
   backend-unit-test:
     needs: build
