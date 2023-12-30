@@ -12,6 +12,6 @@ describe('News API', () => {
 
         expect(response.headers['content-type']).toBe('application/json; charset=utf-8')
         expect(response.headers['cache-control']).toBe('s-maxage=3600, stale-while-revalidate')
-        expect(response.headers['access-control-allow-origin']).toBe('https://nyuusu.org')
+        expect(response.headers['access-control-allow-origin']).toBe('https://nyusu.org')
     })
 })
