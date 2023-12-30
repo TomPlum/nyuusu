@@ -10,7 +10,7 @@ module.exports = {
     /*"plugin:import/errors",
     "plugin:import/warnings"*/
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'backend/**'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {

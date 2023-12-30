@@ -5,9 +5,9 @@ import { IconButton } from "@mui/material"
 import { Restore } from "@mui/icons-material"
 import classNames from "classnames"
 
-const SettingSection = ({ children, title, description, onReset }: PropsWithChildren<SettingsSectionProps>) => {
+const SettingSection = ({ children, title, description, error, onReset }: PropsWithChildren<SettingsSectionProps>) => {
   return (
-    <div className={styles.section}>
+    <div className={classNames(styles.section, { [styles.error]: error })}>
       <p className={classNames(styles.heading, { [styles.noMargin]: description })}>
         <span>{title}</span>
 
@@ -17,6 +17,12 @@ const SettingSection = ({ children, title, description, onReset }: PropsWithChil
           </IconButton>
         )}
       </p>
+
+      {error && (
+        <p className={styles.errorText}>
+          {error}
+        </p>
+      )}
 
       {description && (
         <span className={styles.desc}>

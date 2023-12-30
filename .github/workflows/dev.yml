@@ -5,20 +5,62 @@ on:
     branches:
       - dev
   pull_request:
+    types:
+      - opened
     branches:
       - '*'
       - '!dev'
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install & Build
+      - name: Install & Compile UI
         run: |
           npm install
           npm run-script build
-      - name: Unit Test
+      - name: Install & Compile Backend
         run: |
-          npm install
+          cd backend
+          npm ci
+          npm run-script build
+  frontend-unit-test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: UI ViTest
+        run: |
+          npm ci
           npm run-script test
+#  cypress-e2e:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#      - name: Cypress E2E
+#        uses: cypress-io/github-action@v6
+#        with:
+#          build: npm run build
+#          start: npm run dev
+#          browser: chrome
+  backend-unit-test:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      NEWSCATCHER_API_KEY: ${{ vars.NEWSCATCHER_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: ExpressJS Unit Tests
+        run: |
+          cd backend
+          npm ci
+          npm run-script test:ci
