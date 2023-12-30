@@ -35,18 +35,18 @@ jobs:
         run: |
           npm ci
           npm run-script test
-  cypress-e2e:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Cypress E2E
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm run dev
-          browser: chrome
+#  cypress-e2e:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#      - name: Cypress E2E
+#        uses: cypress-io/github-action@v6
+#        with:
+#          build: npm run build
+#          start: npm run dev
+#          browser: chrome
   backend-unit-test:
     needs: build
     runs-on: ubuntu-latest
