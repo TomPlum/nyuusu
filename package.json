@@ -61,7 +61,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
-    "jsdom": "^23.0.0",
+    "jsdom": "^24.0.0",
     "msw": "^2.0.0",
     "sass": "^1.67.0",
     "typescript": "^5.2.2",
