@@ -19,6 +19,8 @@ if (process.env.NODE_ENV === 'development' && import.meta.env.VITE_MSW === 'true
   }).catch((e) => {
     console.error('Mock service worker failed to start.', e)
   })
+} else {
+  console.debug(`NOT using the mock service worker since NODE_ENV is [${process.env.NODE}] and VITE_MSW is [${import.meta.env.VITE_MSW}]`)
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

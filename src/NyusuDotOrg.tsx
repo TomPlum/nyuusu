@@ -1,4 +1,4 @@
-import styles from './NyuusuApplication.module.scss'
+import styles from './NyusuDotOrg.module.scss'
 import Header from "modules/Header"
 import SettingsDrawer from "modules/Settings"
 import { Outlet } from "react-router-dom"
